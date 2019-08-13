@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -26,6 +26,7 @@
     <None Remove="node_modules\**" />
     <None Remove="appsettings.json" />
     <None Remove="appsettings.local.json" />
+    <None Remove="tsconfig.json" />
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -33,6 +34,7 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <DependentUpon>appsettings.json</DependentUpon>
     </Content>
+    <Content Include="tsconfig.json" />
     <None Include="gulpfile.js" />
   </ItemGroup>
 
@@ -45,7 +47,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Omnia.Fx.NetCore.SharePoint" Version="2.0.0-preview6" />
     <PackageReference Include="Omnia.Fx.NetCore.Worker" Version="2.0.0-preview6" />
+    <PackageReference Include="Omnia.Fx.SharePoint" Version="2.0.0-preview6" />
   </ItemGroup>
 
   <!--***************************************************************************************-->

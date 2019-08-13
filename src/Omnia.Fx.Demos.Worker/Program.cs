@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,37 +16,41 @@ namespace Omnia.Fx.Demos.Worker
     {
         public static async Task Main(string[] args)
         {
-                await new WorkerHost()
-                    .ConfigureOmnia((omniaConfig, logging) =>
+            var host = new HostBuilder()
+                .UseOmniaHostConfiguration((omniaConfig) => {
+                    omniaConfig.AddAppSettingsJsonFile("appsettings.json", Directory.GetCurrentDirectory());
+                    omniaConfig.AddAppSettingsJsonFile("appsettings.local.json", Directory.GetCurrentDirectory());
+
+                    omniaConfig.AddOmniaFxNetCore((configBuilder) =>
                     {
-                        omniaConfig.AddAppSettingsJsonFile("appsettings.json", Directory.GetCurrentDirectory());
-                        omniaConfig.AddAppSettingsJsonFile("appsettings.local.json", Directory.GetCurrentDirectory());
 
-                        omniaConfig.AddOmniaFxNetCore();
-
-                        omniaConfig.Configuration((configBuilder) =>
+                        configBuilder.AddFeatureHandlers((featureProviderOptions) =>
                         {
-                            configBuilder.AddCommandLine(args);
-                            omniaConfig.ConfigureServices((serviceCollection) =>
-                            {
-                                var configuration = configBuilder.Build();
-
-                                serviceCollection.AddLogging();
-                                serviceCollection.AddAsOption<OmniaAppSettings>(configuration);
-                                serviceCollection.AddHostedService<ExampleWorker>();
-
-                            });
+                            featureProviderOptions.AddFeatureProvider<Features.ProvisionData.DataProvisioningProvider>();
                         });
                     })
-                    .ConfigureHost((host, logging) =>
-                    {
-                        host
-                            .ConfigureLogging((hostContext, cfgLogging) =>
-                            {
-                                cfgLogging.UseOmniaLogging();
-                            });
-                    })
-                    .RunAsync();
+                    .AddOmniaFxNetCoreSharePoint();
+
+                    omniaConfig.Configuration((configBuilder) => {
+                        configBuilder.AddCommandLine(args);
+
+                        omniaConfig.ConfigureServices((serviceCollection) => {
+                            var configuration = configBuilder.Build();
+                            serviceCollection.AddAsOption<OmniaAppSettings>(configuration);
+
+                            serviceCollection.AddLogging();
+                        });
+                    });
+                })
+               .ConfigureLogging((hostContext, configLogging) =>
+               {
+                   configLogging.AddConsole();
+                   configLogging.AddDebug();
+               })
+               .UseConsoleLifetime()
+               .Build();
+
+            await host.RunOmniaAsync();
         }
     }
 }

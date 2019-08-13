@@ -1,0 +1,107 @@
+{
+	"$schema": "schema.json",
+	"actions": [
+		{
+			"verb": "createSPList",
+			"listName": "Onboarding Tasks",
+			"templateType": 107,
+			"subactions": [
+				{
+					"verb": "SetDescription",
+					"description": "Some tasks to be done on 1st day of work"
+				},
+				{
+					"verb": "addSPField",
+					"fieldType": "User",
+					"displayName": "Contact",
+					"addToDefaultView": true,
+					"isRequired": true,
+					"id": "326F501A-890F-4D54-8DE8-AD50CD3379F5"
+				},
+				{
+					"verb": "addSPField",
+					"fieldType": "Note",
+					"displayName": "Instruction",
+					"isRequired": false,
+					"addToDefaultView": true,
+					"id": "20758F84-B9BB-4340-868D-880788716D34"
+				}
+			]
+		},
+		{
+			"verb": "createSPList",
+			"listName": "Contact List",
+			"templateType": 100,
+			"subactions": [
+				{
+					"verb": "SetDescription",
+					"description": "Your team's contacts"
+				},
+				{
+					"verb": "addSPField",
+					"fieldType": "Text",
+					"displayName": "First Name",
+					"isRequired": true,
+					"addToDefaultView": true,
+					"id": "DCED66AC-3282-45D5-A3E6-9EF1782A4149"
+				},
+				{
+					"verb": "addSPField",
+					"fieldType": "Text",
+					"displayName": "Last Name",
+					"addToDefaultView": true,
+					"isRequired": true,
+					"id": "C5B4F1DD-4651-4DCD-897B-B8DE8A173A15"
+				},
+				{
+					"verb": "addSPField",
+					"fieldType": "Text",
+					"displayName": "Email",
+					"addToDefaultView": true,
+					"isRequired": true,
+					"id": "7F0A410E-6D42-40F7-BA07-C8B4E507B686"
+				},
+				{
+					"verb": "addSPField",
+					"fieldType": "Text",
+					"displayName": "Phone number",
+					"isRequired": true,
+					"addToDefaultView": true,
+					"id": "8E1C06AC-7F06-4DA8-A8A4-8C482570FCCC"
+				},
+				{
+					"verb": "addSPField",
+					"fieldType": "Text",
+					"displayName": "Job Title",
+					"isRequired": false,
+					"addToDefaultView": true,
+					"id": "9AC033AE-E683-48ED-BC8A-06677627F1A7"
+				}
+			]
+		},
+		{
+			"verb": "removeNavLink",
+			"displayName": "Recycle bin",
+			"isWebRelative": true
+		},
+		{
+			"verb": "removeNavLink",
+			"displayName": "Pages",
+			"isWebRelative": true
+		},
+		{
+			"verb": "addNavLink",
+			"url": "/Lists/Contact List",
+			"displayName": "Contacts",
+			"isWebRelative": true
+		},
+		{
+			"verb": "addNavLink",
+			"url": "/Lists/Onboarding Tasks",
+			"displayName": "Onboarding Tasks",
+			"isWebRelative": true
+		}
+	],
+	"bindata": {},
+	"version": 1
+}
