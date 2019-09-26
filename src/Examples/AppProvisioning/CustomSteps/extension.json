@@ -1,0 +1,1 @@
+{"Id":"0612bfef-c3da-4587-8021-49e07de1815f","Type":"Extension","Projects":[{"Path":"Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web/Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web.csproj","BaseImage":"preciofishbone/omnia:2.1-webapp"}]}
