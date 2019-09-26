@@ -1,0 +1,14 @@
+{
+  "name": "Omnia.Fx.Examples.BasicSharePointFeature",
+  "version": "0.1.0",
+  "scripts": {
+    "omnia-before-build": "gulp omnia-before-build",
+    "omnia-after-build": "gulp omnia-after-build"
+  },
+  "dependencies": {
+    "@omnia/tooling-composers": "2.1.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}

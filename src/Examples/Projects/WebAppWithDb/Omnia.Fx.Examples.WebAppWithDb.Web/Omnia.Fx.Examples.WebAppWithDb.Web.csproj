@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <AssemblyName>Omnia.Fx.Examples.WebAppWithDb.Core</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.2\Omnia.Fx.Examples.WebAppWithDb.xml</DocumentationFile>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\omnia\**" />
+    <Content Remove="wwwroot\omnia\**" />
+    <EmbeddedResource Remove="wwwroot\omnia\**" />
+    <None Remove="**\*.d.ts" />
+    <None Remove="**\*.js" />
+    <None Remove="**\*.jsx" />
+    <None Remove="**\*.map" />
+    <None Remove="wwwroot\omnia\**" />
+    <TypeScriptCompile Remove="wwwroot\omnia\**" />
+    <TypeScriptCompile Remove="client\bike\BikeComponent.css.ts" />
+    <TypeScriptCompile Remove="client\bike\BikeComponent.manifest.ts" />
+    <TypeScriptCompile Remove="client\bike\BikeComponent.tsx" />
+    <TypeScriptCompile Remove="client\bike\BikeComponentWithStore.tsx" />
+    <TypeScriptCompile Remove="client\bike\IBikeComponent.ts" />
+    <TypeScriptCompile Remove="client\core\services\BikeService.ts" />
+    <TypeScriptCompile Remove="client\core\services\index.ts" />
+    <TypeScriptCompile Remove="client\core\stores\BikeStore.ts" />
+    <TypeScriptCompile Remove="client\core\stores\index.ts" />
+    <TypeScriptCompile Remove="client\models\BasicBike.ts" />
+    <TypeScriptCompile Remove="client\models\index.ts" />
+    <TypeScriptCompile Remove="client\models\ManifestIds.ts" />
+    <None Include="gulpfile.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TypeScript.Compiler" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.3.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Omnia.Fx.Examples.WebAppWithDb.Core\Omnia.Fx.Examples.WebAppWithDb.Core.csproj" />
+    <ProjectReference Include="..\Omnia.Fx.Examples.WebAppWithDb.Models\Omnia.Fx.Examples.WebAppWithDb.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="client\core\services\index.ts">
+      <SubType>Code</SubType>
+    </None>
+  </ItemGroup>
+
+  <!--***************************************************************************************-->
+  <!--**** Omnia Build Tasks ****************************************************************-->
+  <!--***************************************************************************************-->
+  <Target Name="OmniaRunAfterBuild" AfterTargets="Build">
+    <Exec Command="npm run omnia-after-build" ContinueOnError="false">
+    </Exec>
+  </Target>
+  <Target Name="IncludeOmniaOutput" AfterTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <DistFiles Include="wwwroot\omnia\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+  <!--***************************************************************************************-->
+</Project>
