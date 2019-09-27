@@ -12,9 +12,9 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
     internal class BikeRepository : IBikeRepository
     {
         private DbSet<OrderedBikeEntity> OrderedBikes { get; }
-        private WebAppWithDbDBContext DatabaseContext { get; }
+        private BikesDbContext DatabaseContext { get; }
 
-        public BikeRepository(WebAppWithDbDBContext dbContext)
+        public BikeRepository(BikesDbContext dbContext)
         {
             OrderedBikes = dbContext.OrderedBikes;
             DatabaseContext = dbContext;

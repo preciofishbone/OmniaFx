@@ -28,7 +28,6 @@
     <TypeScriptCompile Remove="client\bike\BikeComponent.css.ts" />
     <TypeScriptCompile Remove="client\bike\BikeComponent.manifest.ts" />
     <TypeScriptCompile Remove="client\bike\BikeComponent.tsx" />
-    <TypeScriptCompile Remove="client\bike\BikeComponentWithStore.tsx" />
     <TypeScriptCompile Remove="client\bike\IBikeComponent.ts" />
     <TypeScriptCompile Remove="client\core\services\BikeService.ts" />
     <TypeScriptCompile Remove="client\core\services\index.ts" />

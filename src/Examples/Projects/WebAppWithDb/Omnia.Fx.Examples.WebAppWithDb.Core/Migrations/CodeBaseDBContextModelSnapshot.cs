@@ -8,7 +8,7 @@ using Omnia.Fx.Examples.WebAppWithDb.Core.Repositories;
 
 namespace Omnia.Fx.Examples.WebAppWithDb.Core.Migrations
 {
-    [DbContext(typeof(WebAppWithDbDBContext))]
+    [DbContext(typeof(BikesDbContext))]
     partial class WebAppWithDbDBContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

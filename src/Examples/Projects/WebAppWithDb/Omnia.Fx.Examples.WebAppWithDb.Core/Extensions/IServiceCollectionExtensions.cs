@@ -31,7 +31,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Extensions
         /// <returns></returns>
         public static IServiceCollection AddWebAppWithDbDB(this IServiceCollection services)
         {
-            services.AddOmniaSqlDBContext<WebAppWithDbDBContext>(new Guid("f8debb44-be08-4ae2-9cf5-c1cebc839123"),
+            services.AddOmniaSqlDBContext<BikesDbContext>(new Guid("f8debb44-be08-4ae2-9cf5-c1cebc839123"),
                 (sqlInfo, serviceProvider, optionsBuilder) =>
                 {
                     //Read the connection string for the db with id "f8debb44-be08-4ae2-9cf5-c1cebc839123"
