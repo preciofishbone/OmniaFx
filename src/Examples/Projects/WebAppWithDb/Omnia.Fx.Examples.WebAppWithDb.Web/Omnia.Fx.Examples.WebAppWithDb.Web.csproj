@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
-    <AssemblyName>Omnia.Fx.Examples.WebAppWithDb.Core</AssemblyName>
+    <AssemblyName>Omnia.Fx.Examples.WebAppWithDb.Web</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

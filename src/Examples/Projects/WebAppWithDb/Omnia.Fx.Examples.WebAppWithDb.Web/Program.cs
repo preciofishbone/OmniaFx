@@ -9,7 +9,7 @@ using Omnia.Fx.HostConfiguration;
 using Microsoft.Extensions.DependencyInjection;
 using Omnia.Fx.Examples.WebAppWithDb.Core.Extensions;
 
-namespace Omnia.Fx.Examples.WebAppWithDb
+namespace Omnia.Fx.Examples.WebAppWithDb.Web
 {
     public class Program
     {

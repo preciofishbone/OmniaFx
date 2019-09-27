@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Omnia.Fx.Examples.WebAppWithDb.Models\Omnia.Fx.Examples.WebAppWithDb.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Microsoft.EntityFrameworkCore">
       <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
@@ -19,6 +15,10 @@
 
   <ItemGroup>
     <PackageReference Include="Omnia.Fx.NetCore" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Omnia.Fx.Examples.WebAppWithDb.Models\Omnia.Fx.Examples.WebAppWithDb.Models.csproj" />
   </ItemGroup>
 
 </Project>
