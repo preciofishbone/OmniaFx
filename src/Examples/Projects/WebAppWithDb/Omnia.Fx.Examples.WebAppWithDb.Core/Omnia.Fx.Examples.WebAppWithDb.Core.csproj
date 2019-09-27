@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Omnia.Fx.Examples.WebAppWithDb.Models\Omnia.Fx.Examples.WebAppWithDb.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

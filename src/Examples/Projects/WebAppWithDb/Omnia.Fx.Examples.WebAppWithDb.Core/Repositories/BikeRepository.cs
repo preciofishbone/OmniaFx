@@ -57,7 +57,16 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
 
             this.OrderedBikes.Add(newOrder);
 
-            await DatabaseContext.SaveChangesAsync();
+            try
+            {
+                await DatabaseContext.SaveChangesAsync();
+            }
+            catch (Exception ex) 
+            {
+
+                throw;
+            }
+            
 
             return newOrder.Bike;
         }

@@ -9,24 +9,24 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "OrderedBeers",
+                name: "OrderedBikes",
                 columns: table => new
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<Guid>(nullable: false),
-                    Beer = table.Column<string>(nullable: true)
+                    Bike = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderedBeers", x => x.OrderId);
+                    table.PrimaryKey("PK_OrderedBikes", x => x.OrderId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "OrderedBeers");
+                name: "OrderedBikes");
         }
     }
 }

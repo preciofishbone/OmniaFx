@@ -75,6 +75,9 @@ export class BikeStore extends Store {
                 let user = await this.omniaCtx.user;
 
                 this.bikesOrdersState.mutate((orders) => {
+                    if (!orders.state[user.id]) {
+                        orders.state[user.id] = [];
+                    }
                     orders.state[user.id].push(orderedBike);
                 })
 
