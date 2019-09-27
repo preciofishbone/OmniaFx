@@ -1,11 +1,11 @@
 ﻿import { Inject, HttpClientConstructor, HttpClient, Injectable } from '@omnia/fx';
 import { IHttpApiOperationResult, InstanceLifetimes, GuidValue, Guid, EnterprisePropertyDefinition, User } from '@omnia/fx-models';
-import { CodeBaseService, BasicBike } from '../../models';
+import { WebAppWithDbService, BasicBike } from '../../models';
 
 @Injectable({ lifetime: InstanceLifetimes.Transient })
 export class BikeService {
 
-    @Inject<HttpClientConstructor>(HttpClient, { configPromise: HttpClient.createOmniaServiceRequestConfig(CodeBaseService.Id) })
+    @Inject<HttpClientConstructor>(HttpClient, { configPromise: HttpClient.createOmniaServiceRequestConfig(WebAppWithDbService.Id) })
     private httpClient: HttpClient;
 
     private readonly baseUrl = "api";

@@ -1,9 +1,9 @@
 import { Composer, DevelopmentEnvironment } from "@omnia/tooling/composers";
 import { Guid } from '@omnia/fx/models';
-import { CodeBaseService } from './client/models/ManifestIds';
+import { WebAppWithDbService } from './client/models/ManifestIds';
 
 Composer
-    .registerManifest(CodeBaseService.Id, "Omnia.Fx.Examples.WebAppWithDb")
+    .registerManifest(WebAppWithDbService.Id, "Omnia.Fx.Examples.WebAppWithDb")
     .registerService({ description: "Description of Omnia.Fx.Examples.WebAppWithDb" })
     .AsWebApp()
     .withBuildOptions({

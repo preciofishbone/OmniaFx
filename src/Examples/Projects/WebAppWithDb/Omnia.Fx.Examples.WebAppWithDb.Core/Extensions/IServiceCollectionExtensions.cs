@@ -10,7 +10,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Extensions
 {
     public static class IServiceCollectionExtensions
     {
-        public static IServiceCollection AddCodeBaseServices(this IServiceCollection services)
+        public static IServiceCollection AddWebAppWithDbServices(this IServiceCollection services)
         {
             //Connect the interface to the repo implementation (Interface is internal as well as the implementation, i.e. repos are used from services to enable a good caching point)
             services.AddScoped<IBikeRepository, BikeRepository>();
@@ -29,9 +29,9 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Extensions
         /// </summary>
         /// <param name="services">The service collection to configure</param>
         /// <returns></returns>
-        public static IServiceCollection AddCodeBaseDB(this IServiceCollection services)
+        public static IServiceCollection AddWebAppWithDbDB(this IServiceCollection services)
         {
-            services.AddOmniaSqlDBContext<CodeBaseDBContext>(new Guid("f8debb44-be08-4ae2-9cf5-c1cebc839123"),
+            services.AddOmniaSqlDBContext<WebAppWithDbDBContext>(new Guid("f8debb44-be08-4ae2-9cf5-c1cebc839123"),
                 (sqlInfo, serviceProvider, optionsBuilder) =>
                 {
                     //Read the connection string for the db with id "f8debb44-be08-4ae2-9cf5-c1cebc839123"

@@ -31,10 +31,10 @@ namespace Omnia.Fx.Examples.WebAppWithDb
                         omniaConfig.ConfigureServices(serviceCollection => {
 
                             //Configure the DB to be used in the core project, i.e. the DB with reference id f8debb44-be08-4ae2-9cf5-c1cebc839123
-                            serviceCollection.AddCodeBaseDB();
+                            serviceCollection.AddWebAppWithDbDB();
 
                             //Configure the services in core project
-                            serviceCollection.AddCodeBaseServices();
+                            serviceCollection.AddWebAppWithDbServices();
                         });
                     })
                     .ConfigureHost((host, logging) =>

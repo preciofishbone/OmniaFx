@@ -14,18 +14,18 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
     /// <summary>
     /// We keep our DB context internal to core, and operate on it from services->repos
     /// </summary>
-    internal class CodeBaseDBContext : DbContextWithAuditing<CodeBaseDBContext>
+    internal class WebAppWithDbDBContext : DbContextWithAuditing<WebAppWithDbDBContext>
     {
-        private ILogger<CodeBaseDBContext> Logger { get; }
+        private ILogger<WebAppWithDbDBContext> Logger { get; }
 
         public DbSet<OrderedBikeEntity> OrderedBikes { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CodeBaseDBContext"/> class.
+        /// Initializes a new instance of the <see cref="WebAppWithDbDBContext"/> class.
         /// </summary>
-        public CodeBaseDBContext(DbContextOptions options,
+        public WebAppWithDbDBContext(DbContextOptions options,
             IOmniaContext omniaContext,
-            ILogger<CodeBaseDBContext> logger,
+            ILogger<WebAppWithDbDBContext> logger,
             IOmniaScopedContext omniaScopedContext)
             : base(options, omniaContext, omniaScopedContext)
         {

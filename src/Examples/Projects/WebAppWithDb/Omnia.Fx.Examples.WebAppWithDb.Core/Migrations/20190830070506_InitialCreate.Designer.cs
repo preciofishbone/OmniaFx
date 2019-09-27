@@ -9,7 +9,7 @@ using Omnia.Fx.Examples.WebAppWithDb.Core.Repositories;
 
 namespace Omnia.Fx.Examples.WebAppWithDb.Core.Migrations
 {
-    [DbContext(typeof(CodeBaseDBContext))]
+    [DbContext(typeof(WebAppWithDbDBContext))]
     [Migration("20190830070506_InitialCreate")]
     partial class InitialCreate
     {

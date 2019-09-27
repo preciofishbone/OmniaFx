@@ -4,7 +4,7 @@ export interface BikeComponentData {
     title: string;
 }
 
-/*@WebComponentInterface("codebase-bike")*/
+/*@WebComponentInterface("WebAppWithDb-bike")*/
 export interface IBikeComponent {
 
     required: boolean;
@@ -20,7 +20,7 @@ declare global {
         interface ElementAttributesProperty { }
         interface IntrinsicElements {
             /*@WebComponent*/
-            "codebase-bike": TsxAllowUnknowProperties<IBikeComponent>
+            "WebAppWithDb-bike": TsxAllowUnknowProperties<IBikeComponent>
         }
     }
 }
