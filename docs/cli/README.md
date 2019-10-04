@@ -38,9 +38,7 @@ omnia dev new --list
 
 ##### Optional Parameters
 
-| Name       | Description                                                                                        |
-| ---------- | -------------------------------------------------------------------------------------------------- |
-| -f --force | Forces a new download if the version is already installed (same version could be update on github) |
+No optional parameters
 
 ##### Example Create Using Template
 ```
