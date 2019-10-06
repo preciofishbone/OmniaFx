@@ -1,8 +1,8 @@
 # Omnia Cli
 
-### Omnia Dev Commands (omnia dev)
+## Omnia Dev Commands (omnia dev)
 
-### omnia dev new
+## omnia dev new
 
 ##### Example Install Templates
 ```
@@ -67,7 +67,7 @@ No required paramters
 
 ---
 
-### omnia dev publish
+## omnia dev publish
 
 ##### Example
 ```
@@ -93,9 +93,73 @@ omnia dev publish --path C:\Dev\MyExtension\src --version 1.0.0
 
 ---
 
-### Basic Commands
+## omnia dev restore
 
-### omnia login
+Restores npm and nuget dependencies in all a projects recursivly
+
+##### Example
+```
+Restore dependencies from current directory and down
+omnia dev restore
+
+Restore dependency on a specified path and down
+omnia dev restore --path C:\Dev\MyExtension\src
+
+```
+
+##### Required Parameters
+
+No required parameters
+    
+
+##### Optional Parameters
+
+| Name      | Description                                          |
+| --------- | ---------------------------------------------------- |
+| -p --path | The path to the folder where to start restoring from |
+
+---
+
+## omnia dev update
+
+Enables easy update of Omnia Fx and other Omnia Extensibility dependencies
+
+##### Example
+```
+Update Omnia Fx to latest available version
+omnia dev update omniafx
+
+Update Omnia Wcm Fx to latest available version
+omnia dev update wcmfx
+
+Update Omnia Tenant Admin Fx to latest available version
+omnia dev update adminfx
+
+Update Omnia Workplace Fx to latest available version
+omnia dev update workplacefx
+
+Update to specific version
+omnia dev update omniafx --version 2.0.0
+```
+
+##### Required Parameters
+
+No required parameters
+    
+
+##### Optional Parameters
+
+| Name         | Description                                  |
+| ------------ | -------------------------------------------- |
+| -v --version | The version to update to                     |
+| -t --tag     | Switch between prerelase tags (dev, preview) |
+| -r --restore | Restores the dependencies after updating     |
+
+---
+
+## Basic Commands
+
+## omnia login
 Logs you in to the Omnia Cloud using azure ad credentials
 
 ##### Example
@@ -114,7 +178,7 @@ No optional parameters
 
 ---
 
-### omnia logout
+## omnia logout
 Logs you out of the Omnia Cloud
 ##### Example
 
@@ -135,7 +199,9 @@ No optional parameters
 
 ## Extension Commands
 
-### omnia extensions new
+## omnia extensions new
+
+Registers a new extension in Omnia Cloud
 
 ##### Example
 ```
@@ -156,7 +222,9 @@ omnia extensions new --name "My Extension"
 
 
 
-### omnia extensions restart
+## omnia extensions restart
+
+Restart services in Omnia Cloud for a specific tenant
 
 ##### Example
 ```
@@ -180,7 +248,9 @@ omnia extensions restart extension --tenantid --extensionid
    
 
 
-### omnia extensions list
+## omnia extensions list
+
+List extensions where i am a owner or public extensions that i can install in Tenant
 
 ##### Example
 ```
@@ -197,7 +267,9 @@ No optional parameters
 
 ---
 
-### versions
+## omnia extensions versions
+
+Lists versions pushed for extension that can be installed in Tenants
 
 ##### Example
 ```
@@ -224,7 +296,9 @@ No required parameters
 
 ---
 
-### omnia extensions push
+## omnia extensions push
+
+Pushes a new version of an extension and makes it available to be installed. The intent controls on which tenants this version can be installed. For example if a tenant has been provisioned with intent dev, only versions with intent dev can be installed onto that tenant.
 
 ##### Example
 ```
@@ -244,7 +318,9 @@ No optional parameters
 
 ---
 
-### omnia extensions deploy
+## omnia extensions deploy
+
+Deploys extension versions to tenants. 
 
 ##### Example
 ```
