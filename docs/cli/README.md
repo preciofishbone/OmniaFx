@@ -348,6 +348,89 @@ No optional parameters
 
 ---
 
+## Extension Groups Commands
+
+## omnia extgroups new
+
+Registers a new extension group in Omnia Cloud
+
+##### Example
+```
+omnia extgroups new --name "MyExtensionGroup" --intent prod
+```
+
+##### Required Parameters
+
+| Name     | Description                       |
+| -------- | --------------------------------- |
+| --name   | A friendly name of the extension. |
+| --intent | The intent of the group.          |
+
+##### Optional Parameters
+
+No optional parameters
+
+
+## omnia extgroups addversion
+
+Adds a extension version to the extension group
+
+##### Example
+```
+omnia extgroups addversion --groupid {mygroupid} --version {extensionid:version}
+```
+
+##### Required Parameters
+
+| Name      | Description                                  |
+| --------- | -------------------------------------------- |
+| --groupid | The extension group id to add the version to |
+| --version | The version to add                           |
+
+##### Optional Parameters
+
+No optional paramters
+   
+## omnia extgroups deleteversion
+
+Deletes a extension version from the extension group
+
+##### Example
+```
+omnia extgroups deleteversion --groupid {mygroupid} --version {extensionid:version}
+```
+
+##### Required Parameters
+
+| Name      | Description                                       |
+| --------- | ------------------------------------------------- |
+| --groupid | The extension group id to delete the version from |
+| --version | The version to delete                             |
+
+##### Optional Parameters
+
+No optional paramters
+
+
+## omnia extgroups delete
+
+Deletes an extension group from Omnia Cloud
+
+##### Example
+```
+omnia extgroups delete {groupid}
+```
+
+##### Required Parameters
+
+No required parameters
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
 
 
 
