@@ -21,12 +21,11 @@
     <None Remove="**\*.jsx" />
     <None Remove="**\*.map" />
     <None Remove="wwwroot\omnia\**" />
+    <Content Remove="compilerconfig.json" />
+    <TypeScriptCompile Remove="client\styles\styleoverides.manifest.ts" />
+    <TypeScriptCompile Remove="client\styles\styleoverrides.ts" />
+    <None Include="compilerconfig.json" />
     <None Include="gulpfile.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="client\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
