@@ -460,7 +460,7 @@ Adds a target to the extension group
 
 ##### Example
 ```
-omnia extgroups addtarget --groupid {mygroupid} --target {tenantid}
+omnia extgroups addtarget --groupid {mygroupid} --targetid {tenantid}
 ```
 
 ##### Required Parameters
