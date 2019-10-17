@@ -361,10 +361,10 @@ omnia extgroups new --name "MyExtensionGroup" --intent prod
 
 ##### Required Parameters
 
-| Name     | Description                       |
-| -------- | --------------------------------- |
-| --name   | A friendly name of the extension. |
-| --intent | The intent of the group.          |
+| Name     | Description                   |
+| -------- | ----------------------------- |
+| --name   | A friendly name of the group. |
+| --intent | The intent of the group.      |
 
 ##### Optional Parameters
 
@@ -419,6 +419,89 @@ Deletes an extension group from Omnia Cloud
 ##### Example
 ```
 omnia extgroups delete {groupid}
+```
+
+##### Required Parameters
+
+No required parameters
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## Deployment Groups Commands
+
+## omnia depgroups new
+
+Registers a new deployment group in Omnia Cloud
+
+##### Example
+```
+omnia depgroups new --name "MyDeploymentGroup" --intent prod
+```
+
+##### Required Parameters
+
+| Name     | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------ |
+| --name   | A friendly name of the group.                                                  |
+| --intent | The intent of the group. Only targets of same intent can be added to the group |
+
+##### Optional Parameters
+
+No optional parameters
+
+
+## omnia extgroups addtarget
+
+Adds a target to the extension group
+
+##### Example
+```
+omnia extgroups addtarget --groupid {mygroupid} --target {tenantid}
+```
+
+##### Required Parameters
+
+| Name       | Description                                  |
+| ---------- | -------------------------------------------- |
+| --groupid  | The deployment group id to add the target to |
+| --targetid | The target to add, e.g. tenant id            |
+
+##### Optional Parameters
+
+No optional paramters
+   
+## omnia depgroups deletetarget
+
+Deletes a target from the deployment group
+
+##### Example
+```
+omnia depgroups deletetarget --groupid {mygroupid} --targetid {tenantid}
+```
+
+##### Required Parameters
+
+| Name       | Description                                       |
+| ---------- | ------------------------------------------------- |
+| --groupid  | The deployment group id to delete the target from |
+| --targetid | The target to delete, e.g. tenant id              |
+
+##### Optional Parameters
+
+No optional paramters
+
+
+## omnia depgroups delete
+
+Deletes a deployment group from Omnia Cloud
+
+##### Example
+```
+omnia depgroups delete {groupid}
 ```
 
 ##### Required Parameters
