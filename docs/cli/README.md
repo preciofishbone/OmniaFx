@@ -454,13 +454,13 @@ omnia depgroups new --name "MyDeploymentGroup" --intent prod
 No optional parameters
 
 
-## omnia extgroups addtarget
+## omnia depgroups addtarget
 
-Adds a target to the extension group
+Adds a target to the deployment group
 
 ##### Example
 ```
-omnia extgroups addtarget --groupid {mygroupid} --targetid {tenantid}
+omnia depgroups addtarget --groupid {mygroupid} --targetid {tenantid}
 ```
 
 ##### Required Parameters
