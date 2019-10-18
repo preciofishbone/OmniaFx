@@ -1,5 +1,41 @@
 # Omnia Cli
 
+Omnia Cli is a dotnet tool that manages everything from Development to Production in Omnia Cloud. It helps you build new extensions and has item templates that covers different aspects of the Omnia Platform. It also helps you deploy extensions to tenants and support different management operations on tenants in the Omnia Cloud. If you have any feature requests or you found a bug please submit an issue on the issues section on this Github repo.
+
+# Getting started
+After you have installed the .net core 2 or 3 sdk just open a cmd or powershell session and run the following cmd
+```
+dotnet tool install omnia -g
+```
+And then restart the cmd or powershell session. Thats it! So simple:) Now you should be able to run the omnia dev new cmd documented below to install a template package
+
+To update the Omnia Cli to latest version run the following cmd
+```
+dotnet tool update omnia -g
+```
+---
+
+# Versioning Reference
+Omnia Cloud is enforcing the Semantic Versioning pattern for Extension versions and
+when using the Omnia Cli to manage versions such as deployments, listing extension versions or managing extensions groups you can use the following pattern matching
+
+| Pattern        | Description                                          |
+| -------------- | ---------------------------------------------------- |
+| latest         | Gets the latest major version                        |
+| 2.0.*          | Gets the latest patch version of the 2.0 release     |
+| 2.*            | Gets the lates minor version of the 2 release        |
+| 2.0.0-preview* | Gets the latest 2.0.0 preview version                |
+| 2.*-preview*   | Gets the latest minor version of the latest preview  |
+| -preview       | Gets the latest previev version of any major version |
+
+Pattern matching is very powerful together with concepts such as Deployment or Extension Groups where you can deploy one or many extensions and ensure its using the current latest version
+
+You can play with the pattern matching using the omnia extensions versions cmd. Try the sample below to find all omnia 2.* versions
+```
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*
+```
+---
+
 ## Omnia Dev Commands (omnia dev)
 
 ## omnia dev new
