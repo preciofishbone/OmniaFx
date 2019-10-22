@@ -28,7 +28,7 @@ when using the Omnia Cli to manage versions such as deployments, listing extensi
 | 2.*-preview*   | Gets the latest minor version of the latest preview  |
 | -preview       | Gets the latest previev version of any major version |
 
-Pattern matching is very powerful together with concepts such as Deployment or Extension Groups where you can deploy one or many extensions and ensure its using the current latest version
+Pattern matching is very powerful together with concepts such as [Deployment](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-extensions-deploy) or [Extension Groups](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#extension-groups-commands) where you can deploy one or many extensions and ensure its using the current latest version
 
 You can play with the pattern matching using the omnia extensions versions cmd. Try the sample below to find all omnia 2.* versions
 ```
@@ -341,6 +341,9 @@ omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*
 
 Lists all preview versions for Omnia 2.0.0 
 omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.0.0-preview*
+
+Lists all preview versions for Omnia starting with 2.*
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*-preview*
 ```
 
 ##### Required Parameters
@@ -409,6 +412,8 @@ No optional parameters
 ---
 
 ## Extension Groups Commands
+
+With extension groups its possible to add several extensions to a group and then deploy all extensions in the group to a tenant or a tenant group. The real power of extension groups is when combining the versions to include using pattern matching. [Check the versioning reference](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#versioning-reference)
 
 ## omnia extgroups new
 
@@ -492,6 +497,8 @@ No optional parameters
 ---
 
 ## Deployment Groups Commands
+
+With deployment groups its possible to add several tenants to a group and then deploy an extension or extensions group to all tenants in the group
 
 ## omnia depgroups new
 
