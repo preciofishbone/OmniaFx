@@ -193,7 +193,31 @@ No required parameters
 
 ---
 
-## Basic Commands
+## omnia dev appsettings get
+
+Generates appsettings.local.json for a specific dev tenant
+
+##### Example
+```
+omnia dev appsettings get --path C:\myextension\extension.json --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+    
+
+##### Optional Parameters
+
+| Name      | Description                                               |
+| --------- | --------------------------------------------------------- |
+| -p --path | The path to extension.json (default is current directory) |
+
+---
+
+## Omnia Cloud Commands
 
 ## omnia login
 Logs you in to the Omnia Cloud using azure ad credentials
