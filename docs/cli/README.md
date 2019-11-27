@@ -1,5 +1,41 @@
 # Omnia Cli
 
+Omnia Cli is a dotnet tool that manages everything from Development to Production in Omnia Cloud. It helps you build new extensions and has item templates that covers different aspects of the Omnia Platform. It also helps you deploy extensions to tenants and support different management operations on tenants in the Omnia Cloud. If you have any feature requests or you found a bug please submit an issue on the issues section on this Github repo.
+
+# Getting started
+After you have installed the .net core 2 or 3 sdk just open a cmd or powershell session and run the following cmd
+```
+dotnet tool install omnia -g
+```
+And then restart the cmd or powershell session. Thats it! So simple:) Now you should be able to run the omnia dev new cmd documented below to install a template package
+
+To update the Omnia Cli to latest version run the following cmd
+```
+dotnet tool update omnia -g
+```
+---
+
+# Versioning Reference
+Omnia Cloud is enforcing the Semantic Versioning pattern for Extension versions and
+when using the Omnia Cli to manage versions such as deployments, listing extension versions or managing extensions groups you can use the following pattern matching
+
+| Pattern        | Description                                          |
+| -------------- | ---------------------------------------------------- |
+| latest         | Gets the latest major version                        |
+| 2.0.*          | Gets the latest patch version of the 2.0 release     |
+| 2.*            | Gets the lates minor version of the 2 release        |
+| 2.0.0-preview* | Gets the latest 2.0.0 preview version                |
+| 2.*-preview*   | Gets the latest minor version of the latest preview  |
+| -preview       | Gets the latest previev version of any major version |
+
+Pattern matching is very powerful together with concepts such as [Deployment](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-extensions-deploy) or [Extension Groups](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#extension-groups-commands) where you can deploy one or many extensions and ensure its using the current latest version
+
+You can play with the pattern matching using the omnia extensions versions cmd. Try the sample below to find all omnia 2.* versions
+```
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*
+```
+---
+
 ## Omnia Dev Commands (omnia dev)
 
 ## omnia dev new
@@ -157,7 +193,31 @@ No required parameters
 
 ---
 
-## Basic Commands
+## omnia dev appsettings get
+
+Generates appsettings.local.json for a specific dev tenant
+
+##### Example
+```
+omnia dev appsettings get --path C:\myextension\extension.json --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+    
+
+##### Optional Parameters
+
+| Name      | Description                                               |
+| --------- | --------------------------------------------------------- |
+| -p --path | The path to extension.json (default is current directory) |
+
+---
+
+## Omnia Cloud Commands
 
 ## omnia login
 Logs you in to the Omnia Cloud using azure ad credentials
@@ -281,6 +341,9 @@ omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*
 
 Lists all preview versions for Omnia 2.0.0 
 omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.0.0-preview*
+
+Lists all preview versions for Omnia starting with 2.*
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*-preview*
 ```
 
 ##### Required Parameters
@@ -341,6 +404,176 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:2.* --tenantid {ten
 | ---------- | ------------------------- |
 | --tenantid | The tenantid to deploy to |
     
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## Extension Groups Commands
+
+With extension groups its possible to add several extensions to a group and then deploy all extensions in the group to a tenant or a tenant group. The real power of extension groups is when combining the versions to include using pattern matching. [Check the versioning reference](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#versioning-reference)
+
+## omnia extgroups new
+
+Registers a new extension group in Omnia Cloud
+
+##### Example
+```
+omnia extgroups new --name "MyExtensionGroup" --intent prod
+```
+
+##### Required Parameters
+
+| Name     | Description                   |
+| -------- | ----------------------------- |
+| --name   | A friendly name of the group. |
+| --intent | The intent of the group.      |
+
+##### Optional Parameters
+
+No optional parameters
+
+
+## omnia extgroups addversion
+
+Adds a extension version to the extension group
+
+##### Example
+```
+omnia extgroups addversion --groupid {mygroupid} --version {extensionid:version}
+```
+
+##### Required Parameters
+
+| Name      | Description                                  |
+| --------- | -------------------------------------------- |
+| --groupid | The extension group id to add the version to |
+| --version | The version to add                           |
+
+##### Optional Parameters
+
+No optional paramters
+   
+## omnia extgroups deleteversion
+
+Deletes a extension version from the extension group
+
+##### Example
+```
+omnia extgroups deleteversion --groupid {mygroupid} --version {extensionid:version}
+```
+
+##### Required Parameters
+
+| Name      | Description                                       |
+| --------- | ------------------------------------------------- |
+| --groupid | The extension group id to delete the version from |
+| --version | The version to delete                             |
+
+##### Optional Parameters
+
+No optional paramters
+
+
+## omnia extgroups delete
+
+Deletes an extension group from Omnia Cloud
+
+##### Example
+```
+omnia extgroups delete {groupid}
+```
+
+##### Required Parameters
+
+No required parameters
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## Deployment Groups Commands
+
+With deployment groups its possible to add several tenants to a group and then deploy an extension or extensions group to all tenants in the group
+
+## omnia depgroups new
+
+Registers a new deployment group in Omnia Cloud
+
+##### Example
+```
+omnia depgroups new --name "MyDeploymentGroup" --intent prod
+```
+
+##### Required Parameters
+
+| Name     | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------ |
+| --name   | A friendly name of the group.                                                  |
+| --intent | The intent of the group. Only targets of same intent can be added to the group |
+
+##### Optional Parameters
+
+No optional parameters
+
+
+## omnia depgroups addtarget
+
+Adds a target to the deployment group
+
+##### Example
+```
+omnia depgroups addtarget --groupid {mygroupid} --targetid {tenantid}
+```
+
+##### Required Parameters
+
+| Name       | Description                                  |
+| ---------- | -------------------------------------------- |
+| --groupid  | The deployment group id to add the target to |
+| --targetid | The target to add, e.g. tenant id            |
+
+##### Optional Parameters
+
+No optional paramters
+   
+## omnia depgroups deletetarget
+
+Deletes a target from the deployment group
+
+##### Example
+```
+omnia depgroups deletetarget --groupid {mygroupid} --targetid {tenantid}
+```
+
+##### Required Parameters
+
+| Name       | Description                                       |
+| ---------- | ------------------------------------------------- |
+| --groupid  | The deployment group id to delete the target from |
+| --targetid | The target to delete, e.g. tenant id              |
+
+##### Optional Parameters
+
+No optional paramters
+
+
+## omnia depgroups delete
+
+Deletes a deployment group from Omnia Cloud
+
+##### Example
+```
+omnia depgroups delete {groupid}
+```
+
+##### Required Parameters
+
+No required parameters
 
 ##### Optional Parameters
 
