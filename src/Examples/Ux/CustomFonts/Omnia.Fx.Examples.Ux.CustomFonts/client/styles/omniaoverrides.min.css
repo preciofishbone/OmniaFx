@@ -1,1 +1,1 @@
-﻿@font-face{font-family:"BigShouldersText";src:url('../../wwwroot/fonts/bigshoulderstext.woff2') format("woff2");}h1{font-family:'BigShouldersText','Roboto','Arial','sans-serif' !important;}
+﻿@font-face{font-family:"BigShouldersText";src:url('../../wwwroot/fonts/bigshoulderstext.woff2') format("woff2"),url('../../wwwroot/fonts/bigshoulderstext-fallback.woff2') format("woff2");}h1{font-family:'BigShouldersText','Roboto','Arial','sans-serif' !important;}

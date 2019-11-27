@@ -1,6 +1,7 @@
-﻿@font-face {
+﻿/* The font file have two urls so that it works both in Omnia WCM and SharePoint. So custom fonts needs a copy of the file for it to work in both Omnia WCM and SharePoint. */
+@font-face {
   font-family: "BigShouldersText";
-  src: url('../../wwwroot/fonts/bigshoulderstext.woff2') format("woff2");
+  src: url('../../wwwroot/fonts/bigshoulderstext.woff2') format("woff2"), url('../../wwwroot/fonts/bigshoulderstext-fallback.woff2') format("woff2");
 }
 h1 {
   font-family: 'BigShouldersText', 'Roboto', 'Arial', 'sans-serif' !important;
