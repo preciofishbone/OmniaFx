@@ -1,6 +1,6 @@
 # Call Web API
 
-Time to **Hello from Omnia Fx API**.
+Time to **Hello from Omnia Fx Web API**.
 
 In this sample, a client-side component will call to a Web API and display the response message
 
