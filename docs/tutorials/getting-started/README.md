@@ -28,7 +28,7 @@ To install the Omnia Cli run the following cmd
 ```
 dotnet tool install --global Omnia --version 1.8.2
 ```
-And then restart the cmd or powershell session. Thats it! So simple:) Now you should be able to run the omnia dev new cmd documented below to install a template package
+And then restart the cmd or powershell session
 
 To update the Omnia Cli to latest version run the following cmd 
 ```
