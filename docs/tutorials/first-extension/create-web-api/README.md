@@ -4,7 +4,7 @@ Time to **Hello from Omnia Fx Web API**.
 
 In this sample, a client-side component will call to a Web API and display the response message
 
->Note: The sample will continue what we have don't in [Create Your First Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension) so make sure you've been through it.
+>Note: The sample will continue what we have done in [Create Your First Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension) so make sure you've been through it.
 
 # Step 1. Create a controller
 
@@ -53,9 +53,9 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
 }
 </pre>
 
->Tip: Use the built-in Potential Fixes in Visual Studio to automatically import required modules from omnia fx npm
+>Tip: Use the built-in [Potential Fixes](https://docs.microsoft.com/en-us/visualstudio/ide/quick-actions?view=vs-2019#to-see-a-light-bulb-or-screwdriver) in Visual Studio to automatically import required modules from omnia fx npm
 
->Note: Replace  `web service id` to the guid id defined in `omnia.service.ts`
+>Note: Replace  `web service id` to the guid id defined in `omnia.service.ts` in the project
 
 ## Add new properties and function
 
