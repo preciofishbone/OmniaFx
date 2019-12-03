@@ -1,8 +1,8 @@
 # Building Your First Extension
 
-Time to **Hello World**.
+Time to **Hello Omnia Fx**.
 
-This is a simple extension that includes a client-side component to display Hello World text
+This is a simple extension that includes a client-side component to display `Hello from Omnia Fx` text
 
 >Tip: Please make sure you've been through [Getting Started](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/getting-started)
 
@@ -13,22 +13,24 @@ This is a simple extension that includes a client-side component to display Hell
 ## Install latest templates
 
 ```
-omnia dev new --install 2.0.0
+omnia dev new --install 3.0.0
 ```
 
 >Tip: You only need to do this once until there is any newer version
 
+>Tip: For more information visit [Omnia Cli Templates](https://github.com/preciofishbone/omniaclitemplates)
+
 ## Create a new extension project using template
 
 ```
-omnia dev new extension --name web=HelloWorld.Web
+omnia dev new extension --name web=HelloOmniaFx.Web
 ```
 
 >Tip: The project will be created at the current path running the cmd. If there is no any reason, you should create a new folder and run the cmd inside
 
 # Step 2. Generate appsettings.local.json file
 
-This appsettings.local.json file contains all the information to run your extension locally with intergrating to your cloud tenant
+This appsettings.local.json file contains all the information to run your extension locally with integrating to your cloud tenant
 
 Find your tenant id
 
@@ -46,23 +48,23 @@ omnia dev appsettings get --path C:\your-hello-world\extension.json --tenantid {
 
 # Step 3. Create a new Vue based WebComponent
 
-Create a new folder `components` under `..\HelloWorld.Web\client`
+Create a new folder `components` under `..\HelloOmniaFx.Web\client`
 
 Inside the created folder, run the following cmd
 
 ```
-omnia dev new vuewebcomponent --name HelloWorldComponent --tokens element=hello-world-component
+omnia dev new vuewebcomponent --name HelloOmniaFxComponent --tokens element=hello-omnia-fx-component
 ```
 
 # Step 4. Open your project in visual studio 2019
 
-Open the `HelloWorldComponent.tsx` and modify the `render` function 
+Open the `HelloOmniaFxComponent.tsx` and modify the `render` function 
 
 ```
 render(h) {
     return (
-        <div class={this.HelloWorldComponentClasses.container}>
-            Hello World
+        <div class={this.HelloOmniaFxComponentClasses.container}>
+            Hello from Omnia Fx
         </div>
     )
 }
@@ -79,7 +81,7 @@ Open browser to your Omnia Developing site
 When the site is loaded, press `Shift + O` then `Shift + C` to open the `Omnia Developer Console`, then input the following cmd to serve your extension
 
 ```
-serve https://localhost:44351 -hmr disable
+serve https://localhost:44351
 ```
 
 >Tip: The default port for the project created by template is 44351. Feel free to change the port to a new unique value in your machine if needed.
@@ -92,42 +94,42 @@ You can verify the serve status by running the following cmd in the `Omnia Devel
 serve list
 ```
 
-
 # Step 6. Test the component
 
 ## For testing purpose only, we will make the component automatically render itself as full screen on the browser
 
 
-Open the `HelloWorldComponent.manifest.ts` and add the load rules
+Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules
 
 -   this will make the manifest automatically loaded
 
 ```
 .registerWebComponent({
-        elementName: "hello-world-component",
-        entryPoint: "./HelloWorldComponent.jsx",
-        typings: ["./IHelloWorldComponent.ts"]
-    })
-.withLoadRules().loadByUrlMatching({startsWith: '/'});
+    elementName: "hello-omnia-fx-component",
+    entryPoint: "./HelloOmniaFxComponent.jsx",
+    typings: ["./IHelloOmniaFxComponent.ts"]
+})
+.withLoadRules()
+.loadByUrlMatching({startsWith: '/'});
 ```
 
-Open the `HelloWorldComponent.tsx` and modify the `registerElement` logic at the end of the file 
+Open the `HelloOmniaFxComponent.tsx` and modify the `registerElement` logic at the end of the file 
 
 -   this will make the component automatically injects itself into the document body after the manifest is loaded
 
 ```
 WebComponentBootstrapper.registerElement((manifest) => {
-    vueCustomElement(manifest.elementName, HelloWorldComponent);
+    vueCustomElement(manifest.elementName, HelloOmniaFxComponent);
     document.body.appendChild(document.createElement(manifest.elementName));
 });
 ```
 
-Open the `HelloWorldComponent.css.ts` and modify the `container` styles
+Open the `HelloOmniaFxComponent.css.ts` and modify the `container` styles
 
 -   this will make the component has full screen style
 
 ```
-StyleFlow.define(HelloWorldComponentStyles, {
+StyleFlow.define(HelloOmniaFxComponentStyles, {
     container: {
         position: 'absolute',
         top: 0,

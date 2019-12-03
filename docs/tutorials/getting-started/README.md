@@ -39,4 +39,4 @@ For full commands documentation visit [Omnia Cli](https://github.com/preciofishb
 
 # Building Your First Extension
 
-Please visit the  tutorial [here](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension)
+Please visit the tutorial [here](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension)
