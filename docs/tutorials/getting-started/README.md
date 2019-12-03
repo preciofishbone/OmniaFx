@@ -12,7 +12,7 @@ Download and install Visual Studio 2019 from your MSDN subscriptions or company 
 
 ### .NET Core SDK 
 
-Download and install .NET Core SDK 3.0.100 from https://dotnet.microsoft.com/download/dotnet-core/2.2
+Download and install .NET Core SDK 3.0.100 from https://dotnet.microsoft.com/download/dotnet-core/3.0
 
 ---
 
