@@ -1,0 +1,98 @@
+# Call Web API
+
+Time to **Hello from Omnia Fx API**.
+
+In this sample, a client-side component will call to a Web API and display the response message
+
+>Note: The sample will continue what we have don't in [Create Your First Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension) so make sure you've been through it.
+
+# Step 1. Create a controller
+
+Create a new folder `Controllers` under `..\HelloOmniaFx.Web\`
+
+Inside the created folder, create a new `API Controller - Empty`  with the name `TestController`
+
+Add a GET method in the controller
+
+```
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace HelloOmniaFx.Web.Controllers
+{
+    [Route("api/test")]
+    [ApiController]
+    public class TestController : ControllerBase
+    {
+        [HttpGet]
+        [Authorize]
+        public string Hello(string name)
+        {
+            return $"Hello {name}, nice to meet you. I am Omnia Fx Web API";
+        }
+    }
+}
+```
+
+# Step 2. Call the Web API
+
+Open the `HelloOmniaFxComponent.tsx`  
+
+## Inject a HttpClient instance
+
+<pre>
+@Component
+export default class HelloOmniaFxComponent extends Vue implements IWebComponentInstance, IHelloOmniaFxComponent {
+
+    <b>@Inject<HttpClientConstructor>(HttpClient, {
+        configPromise: HttpClient.createOmniaServiceRequestConfig('web service id')
+    }) private httpClient: HttpClient;</b>
+
+
+    ...
+}
+</pre>
+
+>Tip: Use the built-in Potential Fixes in Visual Studio to automatically import required modules from omnia fx npm
+
+>Note: Replace  `web service id` to the guid id defined in `omnia.service.ts`
+
+## Add new properties and function
+
+```
+private name = '';
+private responseMsg = '';
+private waiting = false;
+
+callWebAPI() {
+    this.waiting = true;
+    this.httpClient.get<string>('/api/test?name=' + name).then((response) => {
+        this.waiting = false;
+        this.responseMsg = response.data
+    })
+}
+```
+
+## Update the render function
+
+```
+render(h) {
+    return (
+        <div class={this.HelloOmniaFxComponentClasses.container}>
+            <div class='text-xs-center'>
+                <div><v-text-field label="Name" v-model={this.name}></v-text-field></div>
+                <div><v-btn flat loading={this.waiting} onClick={this.callWebAPI}>Send</v-btn></div>
+                <div><p>{this.responseMsg}</p></div>
+            </div>
+        </div>
+    )
+}
+```
+
+# Step 3. Test the result
+
+Build and start the project.
+
+Enter your name in the text box, and click the `Send` button
+
+Enjoy!

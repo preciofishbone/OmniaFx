@@ -37,6 +37,6 @@ dotnet tool update -g omnia
 
 For full commands documentation visit [Omnia Cli](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli)
 
-# Building Your First Extension
+# Create Your First Extension
 
 Please visit the tutorial [here](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension)

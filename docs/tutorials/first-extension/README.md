@@ -1,6 +1,6 @@
-# Building Your First Extension
+# Create Your First Extension
 
-Time to **Hello Omnia Fx**.
+Time to **Hello from Omnia Fx**.
 
 This is a simple extension that includes a client-side component to display `Hello from Omnia Fx` text
 
@@ -48,7 +48,7 @@ omnia dev appsettings get --path C:\your-hello-world\extension.json --tenantid {
 
 # Step 3. Create a new Vue based WebComponent
 
-Create a new folder `components` under `..\HelloOmniaFx.Web\client`
+Create a new folder `components` under `..\HelloOmniaFx.Web\client\`
 
 Inside the created folder, run the following cmd
 
@@ -150,3 +150,7 @@ StyleFlow.define(HelloOmniaFxComponentStyles, {
 Rebuild and start the project, then refresh the browser
 
 Enjoy!
+
+
+# Next Part
+-   [Call Web Api](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/create-web-api)
