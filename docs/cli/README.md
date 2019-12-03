@@ -2,17 +2,9 @@
 
 Omnia Cli is a dotnet tool that manages everything from Development to Production in Omnia Cloud. It helps you build new extensions and has item templates that covers different aspects of the Omnia Platform. It also helps you deploy extensions to tenants and support different management operations on tenants in the Omnia Cloud. If you have any feature requests or you found a bug please submit an issue on the issues section on this Github repo.
 
-# Getting started
-After you have installed the .net core 2 or 3 sdk just open a cmd or powershell session and run the following cmd
-```
-dotnet tool install omnia -g
-```
-And then restart the cmd or powershell session. Thats it! So simple:) Now you should be able to run the omnia dev new cmd documented below to install a template package
+# Installation
+[How to install Omnia Cli](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/getting-started#omnia-cli)
 
-To update the Omnia Cli to latest version run the following cmd
-```
-dotnet tool update omnia -g
-```
 ---
 
 # Versioning Reference
