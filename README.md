@@ -1,6 +1,9 @@
 # Omnia Fx Docs, Examples and Best Practices
 
-## Omnia Cli
+## Getting Started
+[Let's install something!](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli)
+
+## Documentation
 [Cmds Documentation](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli)
 
 ## Examples
