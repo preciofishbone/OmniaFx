@@ -22,6 +22,12 @@ Download and install Node.js from  https://nodejs.org/en/ - Install the LTS vers
 
 ---
 
+### Docker
+
+Download and install Docker Desktop from https://www.docker.com/products/docker-desktop 
+
+---
+
 ### Omnia Cli
 
 To install the Omnia Cli run the following cmd

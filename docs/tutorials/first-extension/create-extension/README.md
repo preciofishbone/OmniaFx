@@ -8,7 +8,7 @@ In this sample, you will also learn how to run extension locally
 
 >Tip: Please make sure you've been through [Getting Started](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/getting-started)
 
->Tip: Please make sure no white space in relevant folder names 
+>Note: Please make sure no white space in relevant folder names 
 
 # Step 1. Create a extension
 
@@ -34,7 +34,9 @@ omnia dev new extension --name web=HelloOmniaFx.Web
 
 This appsettings.local.json file contains all the information to run your extension locally with integrating to your cloud tenant
 
-Find your tenant id
+>Note: You may be required to login to Omnia Cloud with a valid account
+
+Get your `tenant-id`
 
 ```
 omnia tenants list
@@ -43,10 +45,8 @@ omnia tenants list
 Generate appsettings.local.json
 
 ```
-omnia dev appsettings get --path C:\your-hello-world\extension.json --tenantid {tenantid}
+omnia dev appsettings get --path C:\your-hello-omnia-fx-path\extension.json --tenantid {tenant-id}
 ```
-
->Tip: You may be required to login to Omnia Cloud with a valid account
 
 # Step 3. Create a new Vue based WebComponent
 
@@ -80,7 +80,7 @@ Open browser to your Omnia Developing site
 
 >Tip: You could also find the site url by looking at the information in your appsettings.local.json file (e.g. `domain-something.omniacloud.net`)
 
-When the site is loaded, press `Shift + O` then `Shift + C` to open the `Omnia Developer Console`, then input the following cmd to serve your extension
+When the site is loaded, press `Shift + O` then `Shift + C` to open the `Omnia Developer Console`, then run the following cmd to serve your extension
 
 ```
 serve https://localhost:44351

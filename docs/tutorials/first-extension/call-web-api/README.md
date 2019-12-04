@@ -46,7 +46,7 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
 
     //Inject HttpClient
     @Inject<HttpClientConstructor>(HttpClient, {
-        configPromise: HttpClient.createOmniaServiceRequestConfig('web service id')
+        configPromise: HttpClient.createOmniaServiceRequestConfig('web-service-id')
     }) private httpClient: HttpClient;
 
 
@@ -54,9 +54,10 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
 }
 ```
 
+>Note: Replace  `web-service-id` to the guid id defined in `omnia.service.ts` file in the project
+
 >Tip: Use the built-in [Potential Fixes](https://docs.microsoft.com/en-us/visualstudio/ide/quick-actions?view=vs-2019#to-see-a-light-bulb-or-screwdriver) in Visual Studio to automatically import required modules from omnia fx npm
 
->Note: Replace  `web service id` to the guid id defined in `omnia.service.ts` in the project
 
 ## Add new properties and function
 
@@ -99,4 +100,4 @@ Enter your name in the text box, and click the `Send` button
 Enjoy!
 
 # Next Part
--   [Deploy a extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/call-web-api)
+-   [Deploy a extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/deploy-extension)
