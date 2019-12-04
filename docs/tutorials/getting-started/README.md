@@ -1,6 +1,6 @@
 # Getting Started
 
-Begin the journey to become a Omnia G2 Developer in 2019.
+Begin the journey to become a Omnia Developer in 2019.
 
 # Installation
 
@@ -30,9 +30,9 @@ Download and install Docker Desktop from https://www.docker.com/products/docker-
 
 ### Omnia Cli
 
-To install the Omnia Cli run the following cmd
+To install the latest version of the Omnia Cli run the following cmd
 ```
-dotnet tool install --global Omnia --version 1.8.2
+dotnet tool install --global Omnia
 ```
 And then restart the cmd or powershell session
 
