@@ -183,8 +183,9 @@ omnia dev pack -p C:\Projects\OmniaFork\Omnia\src\Omnia.Fx.Models -v 1.0.11-mylo
 ## omnia dev update
 
 Enables easy update of Omnia Fx and other Omnia Extensibility dependencies
+Also supports updating project(s) to use locally created nuget packages
 
-##### Example
+##### Example Updating to new official version
 ```
 Update Omnia Fx to latest available version
 omnia dev update omniafx
@@ -201,13 +202,28 @@ omnia dev update workplacefx
 Update to specific version
 omnia dev update omniafx --version 2.0.0
 
+```
+
+##### Required Parameters
+
+No required parameters
+
+##### Optional Parameters
+
+| Name         | Description                                  |
+| ------------ | -------------------------------------------- |
+| -v --version | The version to update to                     |
+| -t --tag     | Switch between prerelase tags (dev, preview) |
+| -r --restore | Restores the dependencies after updating     |
+
+##### Example Updating to locally created nuget package version
+
+```
 Update all project below the specified path (-p) to use the specifiec version (-v) of all packages matching that version in the package location specified (-l) and restore the projects after update (-r)
 omnia dev update -p C:\Projects\OmniaFork\OmniaWebContentManagement\src -l C:\MySelected\TestoutputNugetDir -v 1.0.11-mylocal -r
 ```
 
 ##### Required Parameters
-
-Scenario: Updating to locally generated nuget packages
 
 | Name                  | Description                                                                  |
 | --------------------- | ---------------------------------------------------------------------------- |
@@ -218,11 +234,7 @@ Scenario: Updating to locally generated nuget packages
 
 ##### Optional Parameters
 
-| Name         | Description                                  |
-| ------------ | -------------------------------------------- |
-| -v --version | The version to update to                     |
-| -t --tag     | Switch between prerelase tags (dev, preview) |
-| -r --restore | Restores the dependencies after updating     |
+No optional parameters
 
 ---
 
