@@ -150,7 +150,7 @@ No required parameters
 
 ## omnia dev pack
 
-Enables an easy way of creating your onw local nuget packages (and symbols for debug)
+Enables an easy way of creating your own local nuget packages (and symbols for debug)
 
 ##### Example
 ```
@@ -200,12 +200,20 @@ omnia dev update workplacefx
 
 Update to specific version
 omnia dev update omniafx --version 2.0.0
+
+Update all project below the specified path (-p) to use the specifiec version (-v) of all packages matching that version in the package location specified (-l) and restore the projects after update (-r)
+omnia dev update -p C:\Projects\OmniaFork\OmniaWebContentManagement\src -l C:\MySelected\TestoutputNugetDir -v 1.0.11-mylocal -r
 ```
 
 ##### Required Parameters
 
-No required parameters
-    
+Scenario: Updating to locally generated nuget packages
+| Name                  | Description                                                                  |
+| --------------------- | ---------------------------------------------------------------------------- |
+| -p --path             | Update all projects from this point down, i.e. recursive                     |
+| -v --version          | The version to update to, i.e. the versions to use from (-l)                 |
+| -l --localPackage     | Path to the locally generated packages                                       |
+| -r --restore          | Restores the dependencies after updating                                     |
 
 ##### Optional Parameters
 
