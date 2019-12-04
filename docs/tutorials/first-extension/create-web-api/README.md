@@ -14,7 +14,7 @@ Inside the created folder, create a new `API Controller - Empty`  with the name 
 
 Add a GET method in the controller
 
-```
+```cs
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,18 +40,19 @@ Open the `HelloOmniaFxComponent.tsx`
 
 ## Inject a HttpClient instance
 
-<pre>
+```tsx
 @Component
 export default class HelloOmniaFxComponent extends Vue implements IWebComponentInstance, IHelloOmniaFxComponent {
 
-    <b>@Inject<HttpClientConstructor>(HttpClient, {
+    //Inject HttpClient
+    @Inject<HttpClientConstructor>(HttpClient, {
         configPromise: HttpClient.createOmniaServiceRequestConfig('web service id')
-    }) private httpClient: HttpClient;</b>
+    }) private httpClient: HttpClient;
 
 
     ...
 }
-</pre>
+```
 
 >Tip: Use the built-in [Potential Fixes](https://docs.microsoft.com/en-us/visualstudio/ide/quick-actions?view=vs-2019#to-see-a-light-bulb-or-screwdriver) in Visual Studio to automatically import required modules from omnia fx npm
 
@@ -59,7 +60,7 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
 
 ## Add new properties and function
 
-```
+```tsx
 private name = '';
 private responseMsg = '';
 private waiting = false;
@@ -75,7 +76,7 @@ callWebAPI() {
 
 ## Update the render function
 
-```
+```tsx
 render(h) {
     return (
         <div class={this.HelloOmniaFxComponentClasses.container}>

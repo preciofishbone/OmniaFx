@@ -103,35 +103,37 @@ Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules
 
 -   this will make the manifest automatically loaded
 
-<pre>
+```tsx
 .registerWebComponent({
     elementName: "hello-omnia-fx-component",
     entryPoint: "./HelloOmniaFxComponent.jsx",
     typings: ["./IHelloOmniaFxComponent.ts"]
-})<b>
+})
+//add load rules
 .withLoadRules()
 .loadByUrlMatching({startsWith: '/'});
-</b>
-</pre>
+```
 
 Open the `HelloOmniaFxComponent.tsx` and modify the `registerElement` logic at the end of the file 
 
 -   this will make the component automatically injects itself into the document body after the manifest is loaded
 
-<pre>
+```tsx
 WebComponentBootstrapper.registerElement((manifest) => {
     vueCustomElement(manifest.elementName, HelloOmniaFxComponent);
-<b>    document.body.appendChild(document.createElement(manifest.elementName));</b>
+    //component injects itself into document body
+    document.body.appendChild(document.createElement(manifest.elementName));
 });
-</pre>
+```
 
 Open the `HelloOmniaFxComponent.css.ts` and modify the `container` styles
 
--   this will make the component has full screen style
+-   this make the component has full screen style
 
-<pre>
+```ts
 StyleFlow.define(HelloOmniaFxComponentStyles, {
-    <b>container: {
+    container: {
+        //Full screen styles
         position: 'absolute',
         top: 0,
         bottom: 0,
@@ -143,9 +145,9 @@ StyleFlow.define(HelloOmniaFxComponentStyles, {
         justifyContent: 'center',
         alignItems: 'center',
         display: 'flex'
-    }</b>
+    }
 })
-</pre>
+```
 
 Rebuild and start the project, then refresh the browser
 
