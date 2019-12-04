@@ -155,6 +155,5 @@ Rebuild and start the project, then refresh the browser
 
 Enjoy!
 
-
 # Next Part
--   [Call Web Api](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/call-web-api)
+-   [Call a Web API](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/call-web-api)

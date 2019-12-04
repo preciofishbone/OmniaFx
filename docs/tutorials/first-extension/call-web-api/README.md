@@ -97,3 +97,6 @@ Build and start the project.
 Enter your name in the text box, and click the `Send` button
 
 Enjoy!
+
+# Next Part
+-   [Deploy a extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/call-web-api)
