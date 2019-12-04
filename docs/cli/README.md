@@ -148,6 +148,38 @@ No required parameters
 
 ---
 
+## omnia dev pack
+
+Enables an easy way of creating your onw local nuget packages (and symbols for debug)
+
+##### Example
+```
+pack all your sln projects which have a nuspec and output nuget packages in the specified path
+omnia dev pack -p C:\Projects\OmniaFork\Omnia\src\Omnia.sln -v 1.0.11-mylocal -o ../../TestoutputNugetDir
+
+pack one project which have a nuspec and output nuget packages in the specified path (assuming the -p path only has one project in the sub path)
+omnia dev pack -p C:\Projects\OmniaFork\Omnia\src\Omnia.Fx.Models -v 1.0.11-mylocal -o ../../TestoutputNugetDir
+
+```
+
+##### Required Parameters
+
+| Name      | Description                                                    |
+| --------- | -------------------------------------------------------------- |
+| -p --path    | The start path to start scaning for nuspec/csproj           |
+| -v --version | The package version to generate                             |
+| -o --output  | The path in which the resulting packages are created        |
+    
+
+##### Optional Parameters
+
+| Name         | Description                                                                   |
+| ------------ | ----------------------------------------------------------------------------- |
+| -c --configuration | Release or Debug (debug is default, and also generates symbol packages) |
+
+---
+
+
 ## omnia dev update
 
 Enables easy update of Omnia Fx and other Omnia Extensibility dependencies
