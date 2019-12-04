@@ -208,6 +208,7 @@ omnia dev update -p C:\Projects\OmniaFork\OmniaWebContentManagement\src -l C:\My
 ##### Required Parameters
 
 Scenario: Updating to locally generated nuget packages
+
 | Name                  | Description                                                                  |
 | --------------------- | ---------------------------------------------------------------------------- |
 | -p --path             | Update all projects from this point down, i.e. recursive                     |
