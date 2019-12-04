@@ -68,7 +68,7 @@ private waiting = false;
 
 callWebAPI() {
     this.waiting = true;
-    this.httpClient.get<string>('/api/test?name=' + name).then((response) => {
+    this.httpClient.get<string>('/api/test?name=' + this.name).then((response) => {
         this.waiting = false;
         this.responseMsg = response.data
     })
