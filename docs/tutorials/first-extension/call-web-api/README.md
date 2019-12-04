@@ -1,10 +1,10 @@
-# Call Web API
+# Call a Web API
 
 Time to **Hello from Omnia Fx Web API**.
 
 In this sample, a client-side component will call to a Web API and display the response message
 
->Note: The sample will continue what we have done in [Create Your First Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension) so make sure you've been through it.
+>Note: The sample will continue what we have done in [Create Your First Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/create-extension) so make sure you've been through it.
 
 # Step 1. Create a controller
 
