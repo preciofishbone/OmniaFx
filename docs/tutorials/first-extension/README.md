@@ -60,7 +60,7 @@ omnia dev new vuewebcomponent --name HelloOmniaFxComponent --tokens element=hell
 
 Open the `HelloOmniaFxComponent.tsx` and modify the `render` function 
 
-```
+```tsx
 render(h) {
     return (
         <div class={this.HelloOmniaFxComponentClasses.container}>
