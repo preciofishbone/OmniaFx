@@ -1,16 +1,16 @@
 # Build Your First Extension Like a Boss
 
-In this guide, we will take you through the steps of building a Omnia G2 extension from scratch
+In this tutorial, we will take you through the steps of building a Omnia G2 extension from scratch
 
 >Tip: You can reference to the sample source code linked to each part
 
 ## Basic
 
-### [Part 1. Create a extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/create-extension)
+### [Part 1. Create a extension](./first-extension/create-extension)
 
-### [Part 2. Call a Web API](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/call-web-api)
+### [Part 2. Call a Web API](./first-extension/call-web-api)
 
-### [Part 3. Deploy a extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/call-web-api)
+### [Part 3. Deploy a extension](./first-extension/deploy-extension)
 
 ## Advanced
 
@@ -22,4 +22,4 @@ In this guide, we will take you through the steps of building a Omnia G2 extensi
 
 ### [Part 7. Using Omnia Fx Services (server-side)]()
 
-### [Part 9. Create Tenant Feature]()
+### [Part 8.  Create Tenant Feature]()

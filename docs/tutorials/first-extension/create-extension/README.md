@@ -2,11 +2,9 @@
 
 Time to **Hello from Omnia Fx**.
 
-This is a simple extension that includes a client-side component to display `Hello from Omnia Fx` text
+In this part of tutorial, you will create a simple extension that includes a client-side component to display `Hello from Omnia Fx` text then run it locally
 
-In this sample, you will also learn how to run extension locally
-
->Tip: Please make sure you've been through [Getting Started](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/getting-started)
+>Tip: Please make sure you've been through [Getting Started](../getting-started)
 
 >Note: Please make sure no white space in relevant folder names 
 
@@ -20,7 +18,7 @@ omnia dev new --install 3.0.0
 
 >Tip: You only need to do this once until there is any newer version
 
->Tip: For more information visit [Omnia Cli Templates](https://github.com/preciofishbone/omniaclitemplates)
+>Tip: For more information visit [Omnia Cli Templates](/preciofishbone/omniaclitemplates)
 
 ## Create a new extension project using template
 
@@ -156,4 +154,4 @@ Rebuild and start the project, then refresh the browser
 Enjoy!
 
 # Next Part
--   [Call a Web API](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/call-web-api)
+-   [Call a Web API](./call-web-api)
