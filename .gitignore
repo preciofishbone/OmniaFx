@@ -41,6 +41,7 @@ We use typescript all in except for taskrunner
 
 /src/**/*.local.json
 !/src/tutorials/first-extension/call-web-api/HelloOmniaFx.Web/appsettings.local.json
+!/src/tutorials/first-extension/create-extension/HelloOmniaFx.Web/appsettings.local.json
 
 *.dev.manifest.ts
 /src/Omnia.WebContentManagement.Web/wwwroot/Images/*
