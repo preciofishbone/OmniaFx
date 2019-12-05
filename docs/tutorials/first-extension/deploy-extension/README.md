@@ -29,7 +29,7 @@ In a basic deployment scenario, you should prepare a [version](../../../cli#vers
 omnia dev publish --path C:\your-hello-omnia-fx-path\extension.json --version 1.0.0
 ```
 
->Tip: For more publishing options visit [omnia-dev-publish](../../../cli#omnia-dev-publish)
+>Tip: For more publishing options visit [omnia dev publish](../../../cli#omnia-dev-publish)
 
 # Step 3. Push the new version to Omnia Cloud
 
@@ -45,7 +45,7 @@ We use `dev` intent and version `1.0.0` in this tutorial
 omnia extensions push {extension-id}:1.0.0 --intent dev
 ```
 
->Tip: For more pushing options visit [omnia-extensions-push](../../../cli#omnia-extensions-push)
+>Tip: For more pushing options visit [omnia extensions push](../../../cli#omnia-extensions-push)
 
 # Step 4. Deploy the new version to your tenant
 
