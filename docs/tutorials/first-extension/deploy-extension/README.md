@@ -77,5 +77,9 @@ Now you can test the result.
 
 Enjoy!
 
+# Note!
+
+## After publishing a version, a `publish` folder will be created in your project and it could cause build failed. Remember to remove it after the deployment!
+
 # Next Part
 -   [Create an Omnia block](../create-omnia-block#create-an-omnia-block)
