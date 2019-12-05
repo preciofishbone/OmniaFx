@@ -1,7 +1,7 @@
 # Omnia Fx Docs, Examples and Best Practices
 
 ## Getting Started
-[Let's install something!](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/getting-started)
+[Let's install something!](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/getting-started#getting-started)
 
 ## Documentation
 [Cmds Documentation](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli)
