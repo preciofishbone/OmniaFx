@@ -6,11 +6,11 @@ In this tutorial, we will take you through the steps of building a Omnia G2 exte
 
 ## Basic
 
-### [Part 1. Create a extension](./first-extension/create-extension)
+### [Part 1. Create a extension](./create-extension)
 
-### [Part 2. Call a Web API](./first-extension/call-web-api)
+### [Part 2. Call a Web API](./call-web-api)
 
-### [Part 3. Deploy a extension](./first-extension/deploy-extension)
+### [Part 3. Deploy a extension](./deploy-extension)
 
 ## Advanced
 
