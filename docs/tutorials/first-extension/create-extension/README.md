@@ -8,6 +8,8 @@ In this part of tutorial, you will create a simple extension that includes a cli
 
 >Note: Please make sure no white space in relevant folder names 
 
+>[Sample Source Code](../../../../src/tutorials/first-extension/create-extension)
+
 # Step 1. Create a extension
 
 ## Install latest templates
