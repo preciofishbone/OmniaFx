@@ -6,7 +6,7 @@ In this part of tutorial, you will create a simple extension that includes a cli
 
 >Tip: Please make sure you've been through [Installation](../../getting-started#installation)
 
->Note: Please make sure no white space in relevant folder names 
+>Tip: Please make sure no white space in relevant folder names 
 
 >[Sample Source Code](../../../../src/tutorials/first-extension/create-extension)
 
