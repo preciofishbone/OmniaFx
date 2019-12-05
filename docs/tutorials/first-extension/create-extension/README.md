@@ -1,4 +1,4 @@
-# Create a extension
+# Create an extension
 
 Time to **Hello from Omnia Fx**.
 
@@ -10,7 +10,7 @@ In this part of tutorial, you will create a simple extension that includes a cli
 
 >[Sample Source Code](../../../../src/tutorials/first-extension/create-extension)
 
-# Step 1. Create a extension
+# Step 1. Create an extension
 
 ## Install latest templates
 
@@ -76,7 +76,7 @@ Build and start the project.
 
 # Step 5. Serve the extension locally 
 
-Open browser to your Omnia Developing site
+Open a browser and browse to your Omnia Developing site
 
 >Tip: You could also find the site url by looking at the information in your appsettings.local.json file (e.g. `domain-something.omniacloud.net`)
 

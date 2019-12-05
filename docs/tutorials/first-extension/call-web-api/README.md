@@ -4,7 +4,7 @@ Time to **Hello from Omnia Fx Web API**.
 
 In this part of tutorial, you will make a client-side component call to a Web API then display the response message
 
->Note: The following example will continue what we have done in [Create Your First Extension](../create-extension#create-a-extension) so make sure you've been through it.
+>Note: The following example will continue what we have done in [Create an extension](../create-extension#create-an-extension) so make sure you've been through it.
 
 >[Sample Source Code](../../../../src/tutorials/first-extension/call-web-api)
 
@@ -102,4 +102,4 @@ Enter your name in the text box, and click the send button
 Enjoy!
 
 # Next Part
--   [Deploy a extension](../deploy-extension#deploy-a-extension)
+-   [Deploy an extension](../deploy-extension#deploy-an-extension)
