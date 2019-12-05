@@ -6,6 +6,8 @@ In this part of tutorial, you will make a client-side component call to a Web AP
 
 >Note: The following example will continue what we have done in [Create Your First Extension](../create-extension) so make sure you've been through it.
 
+>[Sample Source Code](../../../../src/tutorials/first-extension/call-web-api)
+
 # Step 1. Create a controller
 
 Create a new folder `Controllers` under `..\HelloOmniaFx.Web\`
