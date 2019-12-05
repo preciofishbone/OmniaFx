@@ -1,4 +1,4 @@
-# Deploy a Extension
+# Deploy a extension
 
 Time to **'Ship it'**!
 
