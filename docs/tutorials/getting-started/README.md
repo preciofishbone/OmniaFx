@@ -45,4 +45,4 @@ For a full commands documentation visit [Omnia Cli](../cli)
 
 # Build Your First Extension
 
-Please visit the tutorial [here](../first-extension)
+Please visit the tutorial [here](../first-extension#build-your-first-extension-like-a-boss)
