@@ -98,7 +98,7 @@ serve list
 
 # Step 6. Test the component
 
-## For testing purpose only, we will make the component automatically render itself as full screen on the browser
+## For testing purpose only, you will make the component automatically render itself as full screen on the browser
 
 
 Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules

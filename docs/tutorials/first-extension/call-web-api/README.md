@@ -40,7 +40,7 @@ namespace HelloOmniaFx.Web.Controllers
 
 Open the `HelloOmniaFxComponent.tsx`  
 
-## Inject a HttpClient instance
+Inject a HttpClient instance
 
 ```tsx
 @Component
@@ -61,7 +61,7 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
 >Tip: Use the built-in [Potential Fixes](https://docs.microsoft.com/en-us/visualstudio/ide/quick-actions?view=vs-2019#to-see-a-light-bulb-or-screwdriver) in Visual Studio to automatically import required modules from omnia fx npm
 
 
-## Add new properties and function
+Add new properties and function
 
 ```tsx
 private name = '';
@@ -77,7 +77,7 @@ callWebAPI() {
 }
 ```
 
-## Update the render function
+Update the render function
 
 ```tsx
 render(h) {
