@@ -6,7 +6,7 @@ In this part of tutorial, you will deploy a extension to your tenant
 
 >Note: Please make sure you've installed [Docker](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/getting-started#docker) and been running it
 
->Note: The following example will continue what we have done in [Call a Web API](../call-web-api) so make sure you've been through it.
+>Note: The following example will continue what we have done in [Call a Web API](../call-web-api#call-a-web-api) so make sure you've been through it.
 
 # Step 1. Registers a new extension in Omnia Cloud
 
