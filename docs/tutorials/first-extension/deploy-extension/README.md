@@ -31,7 +31,7 @@ omnia dev publish --path C:\your-hello-omnia-fx-path\extension.json --version 1.
 
 >Tip: For more publishing options visit [omnia dev publish](../../../cli#omnia-dev-publish)
 
-# Step 3. Push the new version to Omnia Cloud
+# Step 3. Push a new version to Omnia Cloud
 
 Check what intent your tenant has been provisioned with. It could be `dev` or `prod`
 
@@ -47,7 +47,7 @@ omnia extensions push {extension-id}:1.0.0 --intent dev
 
 >Tip: For more pushing options visit [omnia extensions push](../../../cli#omnia-extensions-push)
 
-# Step 4. Deploy the new version to your tenant
+# Step 4. Deploy a new version to your tenant
 
 Get all existing versions of the extension
 
