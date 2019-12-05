@@ -1,0 +1,1 @@
+{"Id":"{extension id}","Type":"Extension","Projects":[{"Path":"HelloOmniaFx.Web/HelloOmniaFx.Web.csproj","BaseImage":"preciofishbone/omnia:3.0-webapp"}]}
