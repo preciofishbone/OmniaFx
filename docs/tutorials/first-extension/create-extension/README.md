@@ -1,4 +1,4 @@
-# Create a Extension
+# Create a extension
 
 Time to **Hello from Omnia Fx**.
 
