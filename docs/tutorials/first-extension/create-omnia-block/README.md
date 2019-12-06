@@ -144,7 +144,7 @@ Add a new @Prop
 @Prop() settingsKey: string;
 ```
 
-Inject SettingsService instace
+Inject a SettingsService instace
 
 ```tsx
 @Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<HelloOmniaFxBlockData>;
