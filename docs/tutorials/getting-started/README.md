@@ -1,6 +1,6 @@
 # Getting Started
 
-Begin the journey to become an Omnia Developer.
+Let's begin the journey to become an Omnia Developer.
 
 # Installation
 
