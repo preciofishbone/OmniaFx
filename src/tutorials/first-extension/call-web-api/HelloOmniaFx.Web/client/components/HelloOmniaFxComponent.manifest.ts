@@ -8,6 +8,6 @@ Composer
         entryPoint: "./HelloOmniaFxComponent.jsx",
         typings: ["./IHelloOmniaFxComponent.ts"]
     })
-    //add load rules
+    //load rule to load this manifest after page load
     .withLoadRules()
     .loadByUrlMatching({ startsWith: '/' });

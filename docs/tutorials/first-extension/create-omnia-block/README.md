@@ -2,39 +2,73 @@
 
 Time to play around with **Omnia block**
 
-In this part of tutorial, you will update the `Hello Omnia Fx Component` to be a Omnia block.
+In this part of tutorial, you will update the `Hello Omnia Fx Component` to be an Omnia block and create a block setting.
 
 >Note: The following example will continue what you have done in [Deploy an extension](../deploy-extension#deploy-an-extension) so make sure you've been through it.
 
->Tip: In this example, you need to add a Omnia block to Omnia page. For more information visit [Omnia Web Content Management (WCM) - not implemented yet]()
+>Tip: [Omnia Web Content Management (WCM)]() is an Omnia core extension that control all the Omnia block. In this example, you will add an Omnia block on to an Omnia page. so make sure you know how to do it.
 
 >[Sample Source Code](../../../../src/tutorials/first-extension/create-omnia-block)
 
-# Step 1. Preparation
+# Step 1. Update Hello Omnia Fx Component
 
-You need to revert back the `Hello Omnia Fx Component` to **NOT** automatically render itself as full screen on the browser. 
+You need to **REMOVE** some test code to make the `Hello Omnia Fx Component` **NOT** automatically render itself as full screen on the browser. 
 
->Tip: You can revisit what you need to revert back [here](../create-extension#step-6-test-the-component)
+In the `HelloOmniaFxComponent.manifest.ts`
 
-Start the extension and serve it locally
+```diff
+.registerWebComponent({
+    elementName: "hello-omnia-fx-component",
+    entryPoint: "./HelloOmniaFxComponent.jsx",
+    typings: ["./IHelloOmniaFxComponent.ts"]
+})
+-   //load rule to load this manifest after page load
+-   .withLoadRules()
+-   .loadByUrlMatching({ startsWith: '/' });
+```
 
->Tip: You can revisit how to do it [here](../create-extension#step-5-serve-the-extension-locally)
+In the `HelloOmniaFxComponent.tsx`
+
+```diff
+WebComponentBootstrapper.registerElement((manifest) => {
+    vueCustomElement(manifest.elementName, HelloOmniaFxComponent);
+-   //component injects itself into document body
+-   document.body.appendChild(document.createElement(manifest.elementName));
+});
+```
+
+In the `HelloOmniaFxComponent.css.ts`
+
+```diff
+StyleFlow.define(HelloOmniaFxComponentStyles, {
+    container: {
+-       //Full screen styles
+-       position: 'absolute',
+-       top: 0,
+-       bottom: 0,
+-       left: 0,
+-       right: 0,
+-       background: 'white',
+-       color: 'black',
+-       zIndex: 9999,
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex'
+    }
+})
+```
 
 # Step 2. Install WCM npm
 
-WCM is a Omnia core extension that control all the Omnia block
-
 You need to install WCM npm to be able to register a Omnia block.
 
-To do it, add a dependency to `package.json` in your project
+Add a dependency in the `package.json` file in your project
 
 ```json
-"dependencies": {
-    ...
+"dependencies": {  
 
     "@omnia/wcm": "3.0.2-dev",
-
-    ...
+  
   },
 ```
 
@@ -62,10 +96,144 @@ Update the `HelloOmniaFxComponent.tsx`
 });
 ```
 
-# Step 4. Test the result
+# Step 4. Test your Omnia block
+
+Start the extension and serve it locally
+
+>Note: Now the component should **NOT** be automatically rendered on the browser.
+
+>Tip: You can revisit how serve extension [here](../create-extension#step-5-serve-the-extension-locally)
+
+Add your block on to the page and test it
+
+# Step 5. Create Omnia block's settings component
+
+Each Omnia block can have its own settings data and be edited through its own settings component
+
+Inside the folder `..\HelloOmniaFx.Web\client\components` run the following cmd
+
+```
+omnia dev new vuewebcomponent --name HelloOmniaFxSettingComponent --tokens element=hello-omnia-fx-setting-component
+```
+
+Open the `HelloOmniaFxSettingComponent.tsx`
+
+Add a new @Prop
+
+```tsx
+@Prop() settingsKey: string;
+```
+
+Inject SettingsService instace
+
+```tsx
+@Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<string>;
+```
+
+Get the settings data
+
+```tsx
+private settingsData: string = '';
+
+created() {
+    this.settingsService.getValue(this.settingsKey).then((settingsData) => {
+        this.settingsData = settingsData;
+    })
+}
+```
+
+Add a function to update settings data
+
+```tsx
+onSettingChanged() {
+    this.settingsService.setValue(this.settingsKey, this.settingsData);
+}
+```
+
+Render a text field to edit the setting
+
+```tsx
+render(h) {
+    return (
+        <div class={this.HelloOmniaFxSettingComponentClasses.container}>
+            <v-text-field name="Header" v-model={this.settingsData} onChange={this.onSettingChanged}  />
+        </div>
+    )
+}
+```
+
+# Step 5. Update Omnia block to read the setting
+
+Open the `HelloOmniaFxComponent.tsx`
+
+Add a new @Prop
+
+```tsx
+@Prop() settingsKey: string;
+```
+
+Inject a SettingsService instace
+
+```tsx
+@Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<string>;
+```
+
+Inject a 
+
+```tsx
+@Inject(SubscriptionHandler) subscriptionHandler: SubscriptionHandler;
+```
+
+Update the `created` function
+
+```tsx
+private settingsData: string = '';
+
+created() {
+    //Get the settings data
+    this.settingsService.getValue(this.settingsKey).then((settingsData) => {
+        this.settingsData = settingsData;
+    })
+
+    //Register the settings component
+    this.settingsService.suggestKeyRenderer(this.settingsKey, "hello-omnia-fx-setting-component");
+
+    //Subscribe to the settings data changed event to be able to re-render the with the latest settings
+    this.subscriptionHandler.add(
+        this.settingsService.onKeyValueUpdated(this.settingsKey)
+            .subscribe((settingsData) => {
+                this.settingsData = settingsData;
+            })
+    );
+}
+```
+
+>Tip: the `hello-omnia-fx-setting-component` is the element name defined in `HelloOmniaFxSettingComponent.manifest.ts`
+
+Render the settings data
+
+```tsx
+render(h) {
+    return (
+        <div class={this.HelloOmniaFxComponentClasses.container}>
+            <div class='text-xs-center'>
+                
+                {/*Render settings data*/}
+                <h1>{this.settingsData}</h1>
+
+                <div><v-text-field label="Name" v-model={this.name}></v-text-field></div>
+                <div><v-btn flat loading={this.waiting} onClick={this.callWebAPI}>Send</v-btn></div>
+                <div><p>{this.responseMsg}</p></div>
+            </div>
+        </div>
+    )
+}
+```
+
+# Step 6. Test the result
 
 Build and start the project.
 
-Edit a page, add your `Hello Omnia Block` on to the page, then publish it.
+Try to edit the block settings.
 
 Enjoy!

@@ -60,7 +60,7 @@ omnia dev new vuewebcomponent --name HelloOmniaFxComponent --tokens element=hell
 
 # Step 4. Open your project in visual studio 2019
 
-Open the `HelloOmniaFxComponent.tsx` and modify the `render` function 
+Open `HelloOmniaFxComponent.tsx` and modify the `render` function 
 
 ```tsx
 render(h) {
@@ -103,22 +103,18 @@ serve list
 
 Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules
 
--   this will make the manifest automatically loaded
-
 ```tsx
 .registerWebComponent({
     elementName: "hello-omnia-fx-component",
     entryPoint: "./HelloOmniaFxComponent.jsx",
     typings: ["./IHelloOmniaFxComponent.ts"]
 })
-//add load rules
+//load rule to load this manifest after page load
 .withLoadRules()
 .loadByUrlMatching({startsWith: '/'});
 ```
 
 Open the `HelloOmniaFxComponent.tsx` and modify the `registerElement` logic at the end of the file 
-
--   this will make the component automatically injects itself into the document body after the manifest is loaded
 
 ```tsx
 WebComponentBootstrapper.registerElement((manifest) => {
@@ -129,8 +125,6 @@ WebComponentBootstrapper.registerElement((manifest) => {
 ```
 
 Open the `HelloOmniaFxComponent.css.ts` and modify the `container` styles
-
--   this make the component has full screen style
 
 ```ts
 StyleFlow.define(HelloOmniaFxComponentStyles, {
