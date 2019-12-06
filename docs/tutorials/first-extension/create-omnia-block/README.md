@@ -106,9 +106,29 @@ Start the extension and serve it locally
 
 Add your block on to the page and test it
 
-# Step 5. Create Omnia block's settings component
+# Step 5. Create Omnia block settings component
 
->Tip: Each Omnia block can have its own settings data and be edited through its own settings component
+>Tip: Each Omnia block can have its own data settings and be edited through its own block settings component
+
+Create a data model for the block in `..\HelloOmniaFx.Web\client\models\HelloOmniaFxBlockData.ts`
+
+```ts
+import { BlockDataWithSettingsAndData } from '@omnia/wcm/models'
+
+//For any settings that set through the block component, put it here
+export interface HelloOmniaFxBlockDataData {
+
+}
+
+//For any settings that set through the block settings component, put it here
+//All the settings here will have the inheritance rule follow the wcm concept.
+export interface HelloOmniaFxBlockDataSettings {
+    header: string
+} 
+
+export interface HelloOmniaFxBlockData extends BlockDataWithSettingsAndData<HelloOmniaFxBlockDataData, HelloOmniaFxBlockDataSettings> {
+}
+```
 
 Inside the folder `..\HelloOmniaFx.Web\client\components` run the following cmd to create a new component
 
@@ -127,17 +147,24 @@ Add a new @Prop
 Inject SettingsService instace
 
 ```tsx
-@Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<string>;
+@Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<HelloOmniaFxBlockData>;
 ```
 
 Update the `created` function to get the settings data
 
 ```tsx
-private settingsData: string = '';
+private blockData: HelloOmniaFxBlockData = {
+    data: {},
+    settings: {
+        header: ''
+    }
+};
 
 created() {
-    this.settingsService.getValue(this.settingsKey).then((settingsData) => {
-        this.settingsData = settingsData;
+    this.settingsService.getValue(this.settingsKey).then((blockData) => {
+        if (blockData) {
+            this.blockData = blockData;
+        }
     })
 }
 ```
@@ -146,7 +173,7 @@ Add a new function to handle settings changed event
 
 ```tsx
 onSettingChanged() {
-    this.settingsService.setValue(this.settingsKey, this.settingsData);
+    this.settingsService.setValue(this.settingsKey, this.blockData);
 }
 ```
 
@@ -156,7 +183,7 @@ Update the `render` function to render a text field to edit the settings
 render(h) {
     return (
         <div class={this.HelloOmniaFxSettingComponentClasses.container}>
-            <v-text-field name="Header" v-model={this.settingsData} onChange={this.onSettingChanged}  />
+            <v-text-field name="Header" v-model={this.blockData.settings.header} onChange={this.onSettingChanged}  />
         </div>
     )
 }
@@ -175,7 +202,7 @@ Add a new @Prop
 Inject a SettingsService instace
 
 ```tsx
-@Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<string>;
+@Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<HelloOmniaFxBlockData>;
 ```
 
 Inject a SubscriptionHandler instance
@@ -187,12 +214,19 @@ Inject a SubscriptionHandler instance
 Update the `created` function
 
 ```tsx
-private settingsData: string = '';
+private blockData: HelloOmniaFxBlockData = {
+    data: {},
+    settings: {
+        header: ''
+    }
+};
 
 created() {
     //Get the settings data
-    this.settingsService.getValue(this.settingsKey).then((settingsData) => {
-        this.settingsData = settingsData;
+    this.settingsService.getValue(this.settingsKey).then((blockData) => {
+        if (blockData) {
+            this.blockData = blockData;
+        }
     })
 
     //Register the settings component
@@ -201,8 +235,8 @@ created() {
     //Subscribe to the settings data changed event to be able to re-render the with the latest settings
     this.subscriptionHandler.add(
         this.settingsService.onKeyValueUpdated(this.settingsKey)
-            .subscribe((settingsData) => {
-                this.settingsData = settingsData;
+            .subscribe((blockData) => {
+                this.blockData = blockData;
             })
     );
 }
@@ -219,7 +253,7 @@ render(h) {
             <div class='text-xs-center'>
                 
                 {/*Render settings data*/}
-                <h1>{this.settingsData}</h1>
+                <h1>{this.blockData.settings.header}</h1>
 
                 <div><v-text-field label="Name" v-model={this.name}></v-text-field></div>
                 <div><v-btn flat loading={this.waiting} onClick={this.callWebAPI}>Send</v-btn></div>

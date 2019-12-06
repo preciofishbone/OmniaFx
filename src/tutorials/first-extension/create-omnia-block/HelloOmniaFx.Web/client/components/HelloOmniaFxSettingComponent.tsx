@@ -5,6 +5,7 @@ import { StyleFlow } from '@omnia/fx/ux';
 import { IHelloOmniaFxSettingComponent, HelloOmniaFxSettingComponentData } from './IHelloOmniaFxSettingComponent';
 import { HelloOmniaFxSettingComponentStyles } from './HelloOmniaFxSettingComponent.css';
 import { SettingsServiceConstructor, SettingsService, SecurityRoles } from '@omnia/fx/services'
+import { HelloOmniaFxBlockData } from '../models/HelloOmniaFxBlockData';
 
 @Component
 export default class HelloOmniaFxSettingComponent extends Vue implements IWebComponentInstance, IHelloOmniaFxSettingComponent {
@@ -15,14 +16,22 @@ export default class HelloOmniaFxSettingComponent extends Vue implements IWebCom
     @Prop({ default: { title: 'Hello from HelloOmniaFxSettingComponent!' } }) data?: HelloOmniaFxSettingComponentData
     @Prop() styles?: typeof HelloOmniaFxSettingComponentStyles;
 
-    @Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<string>;
+    @Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<HelloOmniaFxBlockData>;
 
     private HelloOmniaFxSettingComponentClasses = StyleFlow.use(HelloOmniaFxSettingComponentStyles);
 
-    private settingsData: string = '';
+    private blockData: HelloOmniaFxBlockData = {
+        data: {},
+        settings: {
+            header: ''
+        }
+    };
+
     created() {
-        this.settingsService.getValue(this.settingsKey).then((settingsData) => {
-            this.settingsData = settingsData;
+        this.settingsService.getValue(this.settingsKey).then((blockData) => {
+            if (blockData) {
+                this.blockData = blockData;
+            }
         })
     }
 
@@ -32,13 +41,13 @@ export default class HelloOmniaFxSettingComponent extends Vue implements IWebCom
     }
 
     onSettingChanged() {
-        this.settingsService.setValue(this.settingsKey, this.settingsData);
+        this.settingsService.setValue(this.settingsKey, this.blockData);
     }
 
     render(h) {
         return (
             <div class={this.HelloOmniaFxSettingComponentClasses.container}>
-                <v-text-field label="Header" v-model={this.settingsData} onChange={this.onSettingChanged} />
+                <v-text-field label="Header" v-model={this.blockData.settings.header} onChange={this.onSettingChanged} />
             </div>
         )
     }

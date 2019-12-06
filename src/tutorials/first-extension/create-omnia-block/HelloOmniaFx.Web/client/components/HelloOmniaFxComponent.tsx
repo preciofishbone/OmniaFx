@@ -5,6 +5,7 @@ import { StyleFlow } from '@omnia/fx/ux';
 import { IHelloOmniaFxComponent, HelloOmniaFxComponentData } from './IHelloOmniaFxComponent';
 import { HelloOmniaFxComponentStyles } from './HelloOmniaFxComponent.css';
 import { SettingsServiceConstructor, SettingsService } from '@omnia/fx/services';
+import { HelloOmniaFxBlockData } from '../models/HelloOmniaFxBlockData';
 
 @Component
 export default class HelloOmniaFxComponent extends Vue implements IWebComponentInstance, IHelloOmniaFxComponent {
@@ -13,7 +14,7 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
         configPromise: HttpClient.createOmniaServiceRequestConfig('{service id}')
     }) private httpClient: HttpClient;
 
-    @Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<string>;
+    @Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<HelloOmniaFxBlockData>;
     @Inject(SubscriptionHandler) subscriptionHandler: SubscriptionHandler;
     @Prop() settingsKey: string;
     @Prop({ default: false }) required: boolean;
@@ -26,11 +27,19 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
     private responseMsg = '';
     private waiting = false;
 
-    private settingsData: string = '';
+    private blockData: HelloOmniaFxBlockData = {
+        data: {},
+        settings: {
+            header: ''
+        }
+    };
+
     created() {
         //Get the settings data
-        this.settingsService.getValue(this.settingsKey).then((settingsData) => {
-            this.settingsData = settingsData;
+        this.settingsService.getValue(this.settingsKey).then((blockData) => {
+            if (blockData) {
+                this.blockData = blockData;
+            }
         })
 
         //Register the settings component
@@ -39,8 +48,8 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
         //Subscribe to the settings data changed event to be able to re-render the with the latest settings
         this.subscriptionHandler.add(
             this.settingsService.onKeyValueUpdated(this.settingsKey)
-                .subscribe((settingsData) => {
-                    this.settingsData = settingsData;
+                .subscribe((blockData) => {
+                    this.blockData = blockData;
                 })
         );
     }
@@ -63,7 +72,7 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
             <div class={this.HelloOmniaFxComponentClasses.container}>
                 <div class='text-xs-center'>
                     {/*Render settings data*/}
-                    <h1>{this.settingsData}</h1>
+                    <h1>{this.blockData.settings.header}</h1>
 
                     <div><v-text-field label="Name" v-model={this.name}></v-text-field></div>
                     <div><v-btn flat loading={this.waiting} onClick={this.callWebAPI}>Send</v-btn></div>
