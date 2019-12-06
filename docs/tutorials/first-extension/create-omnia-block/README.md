@@ -60,7 +60,7 @@ StyleFlow.define(HelloOmniaFxComponentStyles, {
 
 # Step 2. Install WCM npm
 
-You need to install WCM npm to be able to register a Omnia block.
+You need to install WCM npm to be able to register an Omnia block.
 
 Add a dependency in the `package.json` file in your project
 
@@ -69,14 +69,14 @@ Add a dependency in the `package.json` file in your project
 
     "@omnia/wcm": "3.0.2-dev",
   
-  },
+}
 ```
 
 >Tip: To check latest version visit [@omnia/wcm](https://www.npmjs.com/package/@omnia/wcm)
 
 # Step 3. Regsiter a WebComponent as a Omnia block
 
-Update the `HelloOmniaFxComponent.tsx`
+Open the `HelloOmniaFxComponent.manifest.ts`
 
 ```tsx
 .registerWebComponent({
@@ -108,9 +108,9 @@ Add your block on to the page and test it
 
 # Step 5. Create Omnia block's settings component
 
-Each Omnia block can have its own settings data and be edited through its own settings component
+>Tip: Each Omnia block can have its own settings data and be edited through its own settings component
 
-Inside the folder `..\HelloOmniaFx.Web\client\components` run the following cmd
+Inside the folder `..\HelloOmniaFx.Web\client\components` run the following cmd to create a new component
 
 ```
 omnia dev new vuewebcomponent --name HelloOmniaFxSettingComponent --tokens element=hello-omnia-fx-setting-component
@@ -162,7 +162,7 @@ render(h) {
 }
 ```
 
-# Step 5. Update Omnia block to read the setting
+# Step 5. Update Omnia block to read its settings
 
 Open the `HelloOmniaFxComponent.tsx`
 
@@ -178,7 +178,7 @@ Inject a SettingsService instace
 @Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<string>;
 ```
 
-Inject a 
+Inject a SubscriptionHandler instance
 
 ```tsx
 @Inject(SubscriptionHandler) subscriptionHandler: SubscriptionHandler;
