@@ -302,6 +302,27 @@ No optional parameters
 
 ---
 
+## Tenant Commands
+
+## omnia tenant list
+
+List all the existing tenants
+
+##### Example
+```
+omnia tenants list
+```
+
+##### Required Parameters
+
+No required parameters  
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
 ## Extension Commands
 
 ## omnia extensions new
