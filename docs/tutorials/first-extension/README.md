@@ -16,10 +16,12 @@ In this tutorial, we will take you through the steps of building an Omnia G2 ext
 
 ### [Part 4. Create an Omnia Block](./create-omnia-block#create-an-omnia-block)
 
-### [Part 5. Using Omnia Fx Components]()
+### [Part 5. Localization [ongoing]]()
 
-### [Part 6. Using Omnia Fx Services (client-side)]()
+### [Part 6. Using Omnia Fx Components [ongoing]]()
 
-### [Part 7. Using Omnia Fx Services (server-side)]()
+### [Part 7. Using Omnia Fx Services in client-side [ongoing]]()
 
-### [Part 8.  Create Tenant Feature]()
+### [Part 8. Using Omnia Fx Services in server-side [ongoing]]()
+
+### [Part 9.  Create Tenant Feature [ongoing]]()
