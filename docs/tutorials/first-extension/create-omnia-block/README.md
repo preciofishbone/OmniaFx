@@ -130,7 +130,7 @@ Inject SettingsService instace
 @Inject<SettingsServiceConstructor>(SettingsService) private settingsService: SettingsService<string>;
 ```
 
-Get the settings data
+Update the `created` function to get the settings data
 
 ```tsx
 private settingsData: string = '';
@@ -142,7 +142,7 @@ created() {
 }
 ```
 
-Add a function to update settings data
+Add a new function to handle settings changed event
 
 ```tsx
 onSettingChanged() {
@@ -150,7 +150,7 @@ onSettingChanged() {
 }
 ```
 
-Render a text field to edit the setting
+Update the `render` function to render a text field to edit the settings
 
 ```tsx
 render(h) {
@@ -210,7 +210,7 @@ created() {
 
 >Tip: the `hello-omnia-fx-setting-component` is the element name defined in `HelloOmniaFxSettingComponent.manifest.ts`
 
-Render the settings data
+Update the `render` function to render the settings
 
 ```tsx
 render(h) {
