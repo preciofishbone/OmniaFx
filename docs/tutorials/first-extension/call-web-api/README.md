@@ -1,18 +1,18 @@
 # Call a Web API
 
-Time to **Hello from Omnia Fx Web API**.
+Time to say **Hello to an Omnia Fx Web API**.
 
-In this part of tutorial, you will make a client-side component call to a Web API then display the response message
+In this part of the tutorial, you will make a client-side component call to a Web API and then display a response message.
 
->Note: The following example will continue what we have done in [Create an extension](../create-extension#create-an-extension) so make sure you've been through it.
+>Note: The following example will build upon what we have done in [Create an extension](../create-extension#create-an-extension), so make sure you've been through it.
 
 >[Sample Source Code](../../../../src/tutorials/first-extension/call-web-api)
 
 # Step 1. Create a controller
 
-Create a new folder `Controllers` under `..\HelloOmniaFx.Web\`
+Create a new folder called `Controllers` under `..\HelloOmniaFx.Web\`.
 
-Inside the created folder, create a new `API Controller - Empty`  with the name `TestController`
+Inside the newly created folder, create a new item of typ `API Controller Class`  with the name `TestController`.
 
 Add a GET method in the controller
 
@@ -38,7 +38,7 @@ namespace HelloOmniaFx.Web.Controllers
 
 # Step 2. Call the Web API
 
-Open the `HelloOmniaFxComponent.tsx`  
+Open the file `HelloOmniaFxComponent.tsx`.  
 
 Inject a HttpClient instance
 
@@ -48,7 +48,7 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
 
     //Inject HttpClient
     @Inject<HttpClientConstructor>(HttpClient, {
-        configPromise: HttpClient.createOmniaServiceRequestConfig('web-service-id')
+        configPromise: HttpClient.createOmniaServiceRequestConfig('[web-service-id]')
     }) private httpClient: HttpClient;
 
 
@@ -56,12 +56,13 @@ export default class HelloOmniaFxComponent extends Vue implements IWebComponentI
 }
 ```
 
->Note: Replace  `web-service-id` to the guid id defined in `omnia.service.ts` file in the project
+>Note: Replace  `[web-service-id]` with the guid defined in registerManifest in the `omnia.service.ts` file.
 
->Tip: Use the built-in [Potential Fixes](https://docs.microsoft.com/en-us/visualstudio/ide/quick-actions?view=vs-2019#to-see-a-light-bulb-or-screwdriver) in Visual Studio to automatically import required modules from omnia fx npm
+>Tip: Use the built-in [Quick Actions](https://docs.microsoft.com/en-us/visualstudio/ide/quick-actions?view=vs-2019#to-see-a-light-bulb-or-screwdriver) in Visual Studio to automatically import required modules from omnia fx npm.
+>Tip: If Quick Actions can't help you with the needed imports, you can always check the source code of the sample project.
 
 
-Add new properties and function
+Add new properties and function:
 
 ```tsx
 private name = '';
@@ -77,7 +78,7 @@ callWebAPI() {
 }
 ```
 
-Update the render function
+Update the render function:
 
 ```tsx
 render(h) {
@@ -95,11 +96,11 @@ render(h) {
 
 # Step 3. Test the result
 
-Build and start the project.
+Build and run the project.
 
-Enter your name in the text box, and click the send button
+Enter your name in the text box, and click the send button.
 
-Enjoy!
+Wow, your solution has got a backend up and running!
 
 # Next Part
 -   [Deploy an extension](../deploy-extension#deploy-an-extension)
