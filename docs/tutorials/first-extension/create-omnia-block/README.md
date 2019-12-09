@@ -189,7 +189,7 @@ render(h) {
 }
 ```
 
-# Step 5. Update Omnia block to read its settings
+# Step 6. Update Omnia block to read its settings
 
 Open the `HelloOmniaFxComponent.tsx`
 
@@ -264,7 +264,7 @@ render(h) {
 }
 ```
 
-# Step 6. Test the result
+# Step 7. Test the result
 
 Build and start the project.
 
