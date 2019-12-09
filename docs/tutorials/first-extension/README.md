@@ -1,8 +1,8 @@
-# Build Your First Extension Like a Boss
+# Build your first Extension like a Boss
 
-In this tutorial, we will take you through the steps of building an Omnia G2 extension from scratch
+In this tutorial, we will take you through the steps of building an Omnia G2 extension from scratch.
 
->Tip: You can reference to the sample source code linked to each part
+>Tip: You can check the full sample source code in each part of the tutorial if you run into any issues.
 
 ## Basic
 
