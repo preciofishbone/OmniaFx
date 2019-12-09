@@ -1,26 +1,26 @@
 # Create an extension
 
-Time to **Hello from Omnia Fx**.
+Time to say **Hello to Omnia Fx**.
 
-In this part of tutorial, you will create a simple extension that includes a client-side component to display `Hello from Omnia Fx` text then run it locally
+In this part of the tutorial, you will create a simple extension that consists of a client-side component showing `Hello from Omnia Fx`. You will learn how to run and test the code locally.
 
->Tip: Please make sure you've been through [Installation](../../getting-started#installation)
+>Tip: Please make sure you have installed all [prerequisites](../../getting-started#installation).
 
->Tip: Please make sure no white space in relevant folder names 
+>Tip: Please make sure there are no white space in the relevant folder names. 
 
 >[Sample Source Code](../../../../src/tutorials/first-extension/create-extension)
 
 # Step 1. Create an extension
 
-## Install latest templates
+## Install the latest templates
 
 ```
 omnia dev new --install 3.0.0
 ```
 
->Tip: You only need to do this once until there is any newer version
+>Tip: You only need to run this command once in your development environment as long as you want to develop for this version. If you need to use another version, you need to run the command for that specific version.
 
->Tip: For more information visit [Omnia Cli Templates](https://github.com/preciofishbone/omniaclitemplates)
+>Tip: For more information about different versions of the templates, please visit [Omnia Cli Templates](https://github.com/preciofishbone/omniaclitemplates)
 
 ## Create a new extension project using template
 
@@ -28,13 +28,13 @@ omnia dev new --install 3.0.0
 omnia dev new extension --name web=HelloOmniaFx.Web
 ```
 
->Tip: The project will be created at the current path running the cmd. If there is no any reason, you should create a new folder and run the cmd inside
+>Tip: The project will be created at the current path running the cmd.
 
 # Step 2. Generate appsettings.local.json file
 
-This appsettings.local.json file contains all the information to run your extension locally with integrating to your cloud tenant
+The appsettings.local.json file contains all information you need to run your extension locally and test the code in a specific tenant.
 
->Note: You may be required to login to Omnia Cloud with a valid account
+>Note: You need to login to the Omnia Cloud with a valid account. Make sure the tenant you want to generate an app settings file for have dev intent.
 
 Get your `tenant-id`
 
@@ -48,11 +48,11 @@ Generate appsettings.local.json
 omnia dev appsettings get --path C:\your-hello-omnia-fx-path\extension.json --tenantid {tenant-id}
 ```
 
-# Step 3. Create a new Vue based WebComponent
+# Step 3. Create a new Vue-based Web Component
 
-Create a new folder `components` under `..\HelloOmniaFx.Web\client\`
+Create a new folder called `components` under `..\HelloOmniaFx.Web\client\`.
 
-Inside the created folder, run the following cmd
+Inside the newly created folder, run the following cmd:
 
 ```
 omnia dev new vuewebcomponent --name HelloOmniaFxComponent --tokens element=hello-omnia-fx-component
@@ -72,25 +72,25 @@ render(h) {
 }
 ```
 
-Build and start the project. 
+Build and run the project. 
 
 # Step 5. Serve the extension locally 
 
-Open a browser and browse to your Omnia Developing site
+Open a browser and browse to your Omnia Developing tenant.
 
->Tip: You could also find the site url by looking at the information in your appsettings.local.json file (e.g. `domain-something.omniacloud.net`)
+>Tip: You can find the url to browse to by looking at the information in your appsettings.local.json file (e.g. `domain-something.omniacloud.net`)
 
-When the site is loaded, press `Shift + O` then `Shift + C` to open the `Omnia Developer Console`, then run the following cmd to serve your extension
+When the site is loaded, press `Shift + O` then `Shift + C` to open the `Omnia Developer Console`, then run the following cmd to serve your extension locally:
 
 ```
 serve https://localhost:44351
 ```
 
->Tip: The default port for the project created by template is 44351. Feel free to change the port to a new unique value in your machine if needed.
+>Tip: The default port for the project created by the template is 44351. Feel free to change the port to a new unique value on your machine if needed.
 
 The browser will be reloaded after serving successfully.
 
-You can verify the serve status by running the following cmd in the `Omnia Developer Console`
+You can verify the serve status by running the following cmd in the `Omnia Developer Console`:
 
 ```
 serve list
@@ -98,10 +98,10 @@ serve list
 
 # Step 6. Test the component
 
-## For testing purpose only, you will make the component automatically render itself as full screen on the browser
+## For testing purpose only, you will make the component automatically render itself as full screen on the browser.
 
 
-Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules
+Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules:
 
 ```tsx
 .registerWebComponent({
@@ -114,7 +114,7 @@ Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules
 .loadByUrlMatching({startsWith: '/'});
 ```
 
-Open the `HelloOmniaFxComponent.tsx` and modify the `registerElement` logic at the end of the file 
+Open the `HelloOmniaFxComponent.tsx` and modify the `registerElement` logic at the end of the file:
 
 ```tsx
 WebComponentBootstrapper.registerElement((manifest) => {
@@ -124,7 +124,7 @@ WebComponentBootstrapper.registerElement((manifest) => {
 });
 ```
 
-Open the `HelloOmniaFxComponent.css.ts` and modify the `container` styles
+Open the `HelloOmniaFxComponent.css.ts` and modify the `container` styles:
 
 ```ts
 StyleFlow.define(HelloOmniaFxComponentStyles, {
@@ -145,9 +145,9 @@ StyleFlow.define(HelloOmniaFxComponentStyles, {
 })
 ```
 
-Rebuild and start the project, then refresh the browser
+Rebuild and run the project, then refresh the browser.
 
-Enjoy!
+Cool, you've got your first component in Omnia up and running!
 
 # Next Part
 -   [Call a Web API](../call-web-api#call-a-web-api)
