@@ -74,7 +74,7 @@ Add a dependency in the `package.json` file in your project
 
 >Tip: To check latest version visit [@omnia/wcm](https://www.npmjs.com/package/@omnia/wcm)
 
-# Step 3. Regsiter a WebComponent as a Omnia block
+# Step 3. Regsiter a WebComponent as an Omnia block
 
 Open the `HelloOmniaFxComponent.manifest.ts`
 
