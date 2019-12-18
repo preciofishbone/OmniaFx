@@ -75,7 +75,7 @@ Now you need to restore the package you added using the "omnia dev restore" cmd.
 
 >Tip: To check latest version visit [@omnia/wcm](https://www.npmjs.com/package/@omnia/wcm)
 
-# Step 3. Regsiter a WebComponent as an Omnia block
+# Step 3. Register a WebComponent as an Omnia block
 
 Open the `HelloOmniaFxComponent.manifest.ts`
 
