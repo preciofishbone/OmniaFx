@@ -71,6 +71,7 @@ Add a dependency in the `package.json` file in your project
   
 }
 ```
+Now you need to restore the package you added using the "omnia dev restore" cmd. Open the console to the root of the extension folder and simply run > omnia dev restore
 
 >Tip: To check latest version visit [@omnia/wcm](https://www.npmjs.com/package/@omnia/wcm)
 
