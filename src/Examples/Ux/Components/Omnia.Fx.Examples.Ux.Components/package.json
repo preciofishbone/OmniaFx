@@ -1,0 +1,45 @@
+{
+  "name": "Omnia.Fx.Examples.Ux.Components",
+  "version": "0.1.0",
+  "scripts": {
+    "omnia-before-build": "gulp omnia-before-build",
+    "omnia-after-build": "gulp omnia-after-build",
+    "omnia-after-build-release": "gulp omnia-after-build --docs",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@omnia/fx-models": "3.0.35-preview",
+    "@omnia/fx-sp": "3.0.35-preview",
+    "@omnia/fx-spfx": "3.0.35-preview",
+    "@omnia/tooling-vue": "3.0.35-preview",
+    "@omnia/wcm": "3.0.24-preview"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.1.0",
+    "jest": "^22.1.4",
+    "jest-cli": "^22.1.4",
+    "ts-jest": "^22.0.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx|jsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "moduleNameMapper": {
+      "(@omnia/fx/)": "<rootDir>/__mocks__/index.ts"
+    },
+    "testRegex": "(/.*|\\.(test|spec))\\.(test.ts|test.tsx)$",
+    "testPathIgnorePatterns": [
+      "<rootDir>/wwwroot",
+      "<rootDir>/node_modules"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testEnvironment": "node"
+  }
+}

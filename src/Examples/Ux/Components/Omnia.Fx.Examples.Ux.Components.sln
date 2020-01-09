@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Omnia.Fx.Examples.Ux.Components", "Omnia.Fx.Examples.Ux.Components\Omnia.Fx.Examples.Ux.Components.csproj", "{808135E8-8ADB-4DE0-A364-E25480BD7CA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{808135E8-8ADB-4DE0-A364-E25480BD7CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{808135E8-8ADB-4DE0-A364-E25480BD7CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{808135E8-8ADB-4DE0-A364-E25480BD7CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{808135E8-8ADB-4DE0-A364-E25480BD7CA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {839D26E3-DC8B-41ED-92E9-8AECD8CC876D}
+	EndGlobalSection
+EndGlobal
