@@ -13,10 +13,7 @@ export default class Switch extends VueComponentBase<SwitchProps> {
 
     public mounted() { }
 
-    public render(h) {
-        this.theming.content.components.expansionPanel.css;
-        this.theming.content.components.skeletonLoader.css;
-            
+    public render(h) {            
         return (
             <div>
                 <v-switch

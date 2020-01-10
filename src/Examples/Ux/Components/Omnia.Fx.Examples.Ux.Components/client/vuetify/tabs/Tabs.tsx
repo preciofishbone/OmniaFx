@@ -19,8 +19,8 @@ export default class Tabs extends VueComponentBase<TabProps> {
             <div>
                 <v-tabs
                     dark={this.theming.header.bg.dark}
-                    slider-color={this.theming.header.components.color}
-                    background-color={this.theming.header.bg.color}
+                    slider-color={this.theming.header.components.color.base}
+                    background-color={this.theming.header.bg.color.base}
                 >
                     <v-tab>
                         <v-icon
