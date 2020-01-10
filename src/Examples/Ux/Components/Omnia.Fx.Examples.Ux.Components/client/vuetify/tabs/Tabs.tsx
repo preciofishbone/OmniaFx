@@ -24,17 +24,16 @@ export default class Tabs extends VueComponentBase<TabProps> {
                 >
                     <v-tab>
                         <v-icon
-                            dark={this.theming.header.bg.dark}
-                            color={this.theming.header.text.color.base}>fal fa-copy</v-icon>
+                            dark={this.theming.header.bg.dark}>fal fa-copy</v-icon>
                         tab 1
                     </v-tab>
                     <v-tab>
                         tab 2
                     </v-tab>
-                    <v-tab-item>
+                    <v-tab-item class="mt-5">
                         tab item 1
                     </v-tab-item>
-                    <v-tab-item>
+                    <v-tab-item class="mt-5">
                         tab item 2
                     </v-tab-item>
                 </v-tabs>
