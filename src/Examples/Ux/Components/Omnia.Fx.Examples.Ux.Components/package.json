@@ -8,11 +8,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@omnia/fx-models": "3.0.35-preview",
-    "@omnia/fx-sp": "3.0.35-preview",
-    "@omnia/fx-spfx": "3.0.35-preview",
-    "@omnia/tooling-vue": "3.0.35-preview",
-    "@omnia/wcm": "3.0.24-preview"
+    "@omnia/fx": "4.0.45-dev",
+    "@omnia/fx-models": "4.0.45-dev",
+    "@omnia/fx-sp": "4.0.45-dev",
+    "@omnia/fx-spfx": "4.0.45-dev",
+    "@omnia/tooling-vue": "4.0.45-dev",
+    "@omnia/wcm": "4.0.1-dev"
   },
   "devDependencies": {
     "@types/jest": "^22.1.0",

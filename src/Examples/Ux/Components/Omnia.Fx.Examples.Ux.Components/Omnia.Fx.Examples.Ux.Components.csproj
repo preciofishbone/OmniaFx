@@ -16,6 +16,11 @@
     <None Remove="**\*.jsx" />
     <None Remove="**\*.map" />
     <None Remove="wwwroot\omnia\**" />
+    <TypeScriptCompile Remove="client\vuetify\card\Card.tsx" />
+    <TypeScriptCompile Remove="client\vuetify\expansionpanels\ExpansionPanels.tsx" />
+    <TypeScriptCompile Remove="client\vuetify\skeletonloader\SkeletonLoader.tsx" />
+    <TypeScriptCompile Remove="client\vuetify\slider\slider.tsx" />
+    <TypeScriptCompile Remove="client\vuetify\switch\Switch.tsx" />
     <None Include="gulpfile.js" />
   </ItemGroup>
 
