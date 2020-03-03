@@ -20,7 +20,7 @@ declare global {
         interface ElementAttributesProperty { }
         interface IntrinsicElements {
             /*@WebComponent*/
-            "WebAppWithDb-bike": TsxAllowUnknowProperties<IBikeComponent>
+            "webappwithdb-bike": TsxAllowUnknowProperties<IBikeComponent>
         }
     }
 }
