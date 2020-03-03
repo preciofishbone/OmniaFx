@@ -5,7 +5,6 @@ using Omnia.Fx.Examples.WebAppWithDb.Core.Entities;
 using Omnia.Fx.Examples.WebAppWithDb.Models;
 using Omnia.Fx.Contexts;
 using Omnia.Fx.Contexts.Scoped;
-using Omnia.Fx.NetCore.Repositories.EntityFramework;
 using System;
 
 

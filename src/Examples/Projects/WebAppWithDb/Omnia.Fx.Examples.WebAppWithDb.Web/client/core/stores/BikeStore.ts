@@ -40,7 +40,7 @@ export class BikeStore extends Store {
             return this.bikesOrdersState.state[userId];
         },
         getUserOrders: () => {
-            return this.bikesOrdersState.state[this.currentUser.id];
+            return this.currentUser ? this.bikesOrdersState.state[this.currentUser.id] : [];
         },
         getAvailable: () => {
             return this.availableBikes.state;

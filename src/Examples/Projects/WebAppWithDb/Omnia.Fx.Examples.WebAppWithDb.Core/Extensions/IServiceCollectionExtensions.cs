@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Omnia.Fx.Examples.WebAppWithDb.Core.Repositories;
 using Omnia.Fx.Examples.WebAppWithDb.Core.Services;
+using Omnia.Fx.Models.AppSettings;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,7 +19,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Extensions
 
             //Connect the interface to the service implementation (Interface is public, implementation is internal)
             services.AddScoped<IBikeService, BikeService>();
- 
+
             return services;
         }
 
@@ -42,6 +44,37 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Extensions
                 });
 
             return services;
+        }
+
+        //public static class ServiceCollectionExtensions
+        //{
+            public delegate void DatabaseContextFactoryFunction<T>(SqlServiceResource sqlResourceInformation, IServiceProvider serviceProvider, DbContextOptionsBuilder options) where T : DbContext;
+
+        public static void AddOmniaSqlDBContext<T>(this IServiceCollection serviceCollection, Guid sqlResource, DatabaseContextFactoryFunction<T> dbContextFactory, ServiceLifetime contextLifetime = ServiceLifetime.Scoped, ServiceLifetime optionsLifetime = ServiceLifetime.Scoped) where T : BaseDbContext
+        {
+            serviceCollection.AddDbContext<T>((sp, optBuilder) =>
+            {
+                var resource = GetSqlServiceResourceForId(sp, sqlResource);
+                dbContextFactory(resource, sp, optBuilder);
+            }, contextLifetime, optionsLifetime);
+        }
+
+        private static SqlServiceResource GetSqlServiceResourceForId(IServiceProvider serviceProvider, Guid sqlResource)
+        {
+            SqlServiceResource resource = null;
+
+            var appSettingsMonitor = serviceProvider.GetRequiredService<IOptionsMonitor<OmniaAppSettings>>();
+
+            if (appSettingsMonitor.CurrentValue.SqlServiceResources.ContainsKey(sqlResource.ToString()))
+            {
+                resource = appSettingsMonitor.CurrentValue.SqlServiceResources[sqlResource.ToString()];
+            }
+            else
+            {
+                throw new ArgumentException($"Missing sql resource for sql resource id {sqlResource}");
+            }
+
+            return resource;
         }
     }
 }
