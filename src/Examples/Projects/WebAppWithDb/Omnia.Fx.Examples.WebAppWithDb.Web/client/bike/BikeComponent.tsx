@@ -4,7 +4,6 @@ import { vueCustomElement, IWebComponentInstance, WebComponentBootstrapper, Loca
 import { IBikeComponent, BikeComponentData } from './IBikeComponent';
 import { BikeComponentStyles } from './BikeComponent.css';
 import { BikeStore } from '../core/stores';
-import { VBtn } from '@omnia/fx/ux/vuetify';
 import { OmniaTheming } from '@omnia/fx/ux';
 import { BasicBike } from '../models';
 
@@ -63,9 +62,9 @@ export default class BikeComponent extends Vue implements IWebComponentInstance,
                         </v-select>
                     </div>
                     <div class="d-inline-block">
-                        <VBtn flat onClick={() => { this.orderBike() }}>
+                        <v-btn flat onClick={() => { this.orderBike() }}>
                             Order
-                    </VBtn>
+                    </v-btn>
                     </div>
                 </div>
                 <div>Ordered bikes</div>

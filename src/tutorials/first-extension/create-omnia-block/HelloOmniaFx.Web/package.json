@@ -7,10 +7,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@omnia/fx-models": "3.0.73-dev",
-    "@omnia/fx-sp": "3.0.73-dev",
-    "@omnia/fx-spfx": "3.0.73-dev",
-    "@omnia/tooling-vue": "3.0.73-dev",
+    "@omnia/fx-models": "3.1.4",
+    "@omnia/fx-sp": "3.1.4",
+    "@omnia/fx-spfx": "3.1.4",
+    "@omnia/tooling-vue": "3.1.4",
     "@omnia/wcm": "3.0.2-dev"
   },
   "devDependencies": {

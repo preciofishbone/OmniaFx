@@ -8,11 +8,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "@omnia/fx": "4.0.45-dev",
-    "@omnia/fx-models": "4.0.45-dev",
-    "@omnia/fx-sp": "4.0.45-dev",
-    "@omnia/fx-spfx": "4.0.45-dev",
-    "@omnia/tooling-vue": "4.0.45-dev",
+    "@omnia/fx": "3.1.4",
+    "@omnia/fx-models": "3.1.4",
+    "@omnia/fx-sp": "3.1.4",
+    "@omnia/fx-spfx": "3.1.4",
+    "@omnia/tooling-vue": "3.1.4",
     "@omnia/wcm": "4.0.1-dev"
   },
   "devDependencies": {

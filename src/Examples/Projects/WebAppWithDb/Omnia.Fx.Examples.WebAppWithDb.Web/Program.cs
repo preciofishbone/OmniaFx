@@ -1,51 +1,95 @@
+using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Omnia.Fx.HostConfiguration;
 using Omnia.Fx.HostConfiguration.Extensions;
 using Omnia.Fx.NetCore.WebApp.Hosting;
-using System.Threading.Tasks;
-
-//Add namespaces for configuration extensions
-using Omnia.Fx.HostConfiguration;
-using Microsoft.Extensions.DependencyInjection;
 using Omnia.Fx.Examples.WebAppWithDb.Core.Extensions;
+
 
 namespace Omnia.Fx.Examples.WebAppWithDb.Web
 {
+    /// <summary>
+    /// Program
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Main entry point
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static async Task Main(string[] args)
         {
-            await BuildWebHost(args)
-                    .RunOmniaAsync();
+            await CreateHostBuilder(args).Build().RunAsync();
         }
 
-        public static IWebHost BuildWebHost(string[] args)
+        /// <summary>
+        /// Build host here to support add migration
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static IHostBuilder CreateHostBuilder(string[] args)
         {
-                return new WebAppHost(args)
-                    .ConfigureOmnia<Startup>((omniaConfig, logging) =>
+            return new OmniaHostBuilder(args)
+                    .ConfigureOmniaFx((omniaConfig, logger) =>
                     {
                         omniaConfig
-                            .AddAppSettingsJsonFile("appsettings.local.json")
-                            .AddOmniaFxWebApp();
+                        .AddAppSettingsJsonFile("appsettings.json")
+                        .AddAppSettingsJsonFile("appsettings.local.json")
+                        .AddOmniaFxWebApp();
 
-                        omniaConfig.ConfigureServices(serviceCollection => {
+                    }).ConfigureHost(hostBuilder =>
+                    {
+                        hostBuilder
+                        .ConfigureServices(services =>
+                        {
+                            services.AddRouting();
+
+                            // Register the Swagger generator, defining one or more Swagger documents
+                            services.AddSwaggerGen(c =>
+                            {
+                                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+                            });
 
                             //Configure the DB to be used in the core project, i.e. the DB with reference id f8debb44-be08-4ae2-9cf5-c1cebc839123
-                            serviceCollection.AddWebAppWithDbDB();
+                            services.AddWebAppWithDbDB();
 
                             //Configure the services in core project
-                            serviceCollection.AddWebAppWithDbServices();
-                        });
-                    })
-                    .ConfigureHost((host, logging) =>
-                    {
-                        host
-                            .ConfigureLogging((hostCtx, cfgLogging) =>
+                            services.AddWebAppWithDbServices();
+                        })
+                        .ConfigureWebHost(webHostBuilder =>
+                        {
+                            webHostBuilder.Configure((ctx, app) =>
                             {
-                                cfgLogging.UseOmniaLogging();
+                                app.UseStaticFiles();
+
+                                app.UseRouting();
+
+                                // Enable middleware to serve generated Swagger as a JSON endpoint.
+                                app.UseSwagger();
+
+                                // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+                                app.UseSwaggerUI(c =>
+                                {
+                                    //c.RoutePrefix = "api/sandbox/index";
+                                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Omnia API V1");
+                                });
+
+                                //Use middlwaree
+                                app.UseAuthentication();
+                                app.UseAuthorization();
+
+                                app.UseEndpoints(endpoints =>
+                                {
+                                    endpoints.MapControllers();
+                                });
                             });
-                    })
-                    .Build();
+                        });
+                    });
         }
     }
 }

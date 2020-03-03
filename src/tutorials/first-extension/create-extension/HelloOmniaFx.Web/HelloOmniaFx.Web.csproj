@@ -38,7 +38,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
-    <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="3.0.73-dev" />
+    <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="3.1.4" />
   </ItemGroup>
 
   <!--***************************************************************************************-->

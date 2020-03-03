@@ -1,18 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <AssemblyName>Omnia.Fx.Examples.WebAppWithDb.Web</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp2.2\Omnia.Fx.Examples.WebAppWithDb.xml</DocumentationFile>
-    <LangVersion>7.1</LangVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <LangVersion>7.1</LangVersion>
+    <DocumentationFile>bin\Debug\netcoreapp3.1\Omnia.Fx.Examples.WebAppWithDb.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,9 +47,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
-    <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="2.1.1" />
+    <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="3.1.4" />
   </ItemGroup>
 
   <ItemGroup>
