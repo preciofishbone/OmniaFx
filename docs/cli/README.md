@@ -306,11 +306,15 @@ No optional parameters
 
 ## omnia tenant list
 
-List all the existing tenants
+List all the existing tenants or detailed information about a tenant if id is provided
 
 ##### Example
 ```
 omnia tenants list
+
+omnia tenants list {tenantid}
+
+omnia tenants list --filter name
 ```
 
 ##### Required Parameters
@@ -319,7 +323,9 @@ No required parameters
 
 ##### Optional Parameters
 
-No optional parameters
+| Name         | Description                                               |
+| ------------ | --------------------------------------------------------- |
+| -f --filter  | Filters tenants by name                                   |
 
 ---
 
