@@ -6,7 +6,7 @@
     "omnia-after-build": "gulp omnia-after-build"
   },
   "dependencies": {
-    "@omnia/tooling-composers": "3.1.4"
+    "@omnia/tooling-composers": "3.4.4"
   },
   "engines": {
     "node": ">=10.0.0"

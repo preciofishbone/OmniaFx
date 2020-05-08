@@ -21,18 +21,16 @@ namespace Omnia.Fx.Examples.BasicSharePointFeature.Features
     internal class ChangeSiteTitle : BaseAppFeatureProvider
     {
         ILogger<ChangeSiteTitle> Logger { get; }
-        ISharePointScopedContext SharePointScopedContext { get; }
+
         ISharePointClientContextProvider SharePointClientContextProvider { get; }
 
         public ChangeSiteTitle(
             ILogger<ChangeSiteTitle> logger,
             IAppService appService,
-            ISharePointScopedContext sharePointScopedContext,
             ISharePointClientContextProvider sharePointContext
             ) : base(appService)
         {
             Logger = logger;
-            SharePointScopedContext = sharePointScopedContext;
             SharePointClientContextProvider = sharePointContext;
         }
 

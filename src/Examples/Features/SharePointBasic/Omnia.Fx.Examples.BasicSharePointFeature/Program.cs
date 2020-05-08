@@ -14,38 +14,45 @@ namespace Omnia.Fx.Examples.BasicSharePointFeature
 {
     public class Program
     {
+
+        /// <summary>
+        /// Main entry point
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static async Task Main(string[] args)
         {
-                await new WorkerHost(args)
-                    .ConfigureOmnia((omniaConfig, logging) =>
+            await CreateHostBuilder(args).Build().RunAsync();
+        }
+
+        /// <summary>
+        /// Build host here to support add migration
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return new OmniaHostBuilder(args)
+                .ConfigureOmniaFx((omniaConfig, logger) => {
+
+                    omniaConfig.AddAppSettingsJsonFile("appsettings.json");
+                    omniaConfig.AddAppSettingsJsonFile("appsettings.local.json", Directory.GetCurrentDirectory());
+                    omniaConfig.AddOmniaFxNetCore((configBuilder) =>
                     {
-                        omniaConfig.AddAppSettingsJsonFile("appsettings.json", Directory.GetCurrentDirectory());
-                        omniaConfig.AddAppSettingsJsonFile("appsettings.local.json", Directory.GetCurrentDirectory());
-
-                        omniaConfig.AddOmniaFxNetCore((configBuilder) =>
+                        //Configure apphandlers etc
+                        configBuilder.AddFeatureHandlers((featureProviderOptions) =>
                         {
-                            configBuilder.AddFeatureHandlers((featureProviderOptions) =>
-                            {
-                                featureProviderOptions.AddFeatureProvider<ChangeSiteTitle>();
-                            });
-                        })
-                        .AddOmniaFxNetCoreSharePoint();
-
-
-                        omniaConfig.Configuration((configBuilder) =>
-                        {
-                            configBuilder.AddCommandLine(args);
-                            omniaConfig.ConfigureServices((serviceCollection) =>
-                            {
-                                var configuration = configBuilder.Build();
-
-                                serviceCollection.AddLogging();
-                                serviceCollection.AddAsOption<OmniaAppSettings>(configuration);
-
-                            });
+                            featureProviderOptions.AddFeatureProvider<ChangeSiteTitle>();
                         });
                     })
-                    .RunAsync();
+                    .AddOmniaFxNetCoreSharePoint();
+
+                }).ConfigureHost(hostbuilder => {
+                    hostbuilder.ConfigureServices(serviceCollection => {
+                        //Configure services here
+                        
+                    });
+                });
         }
     }
 }
