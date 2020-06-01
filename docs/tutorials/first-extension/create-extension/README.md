@@ -15,7 +15,7 @@ In this part of the tutorial, you will create a simple extension that consists o
 ## Install the latest templates
 
 ```
-omnia dev new --install 3.0.0
+omnia dev new --install 4.0.0
 ```
 
 >Tip: You only need to run this command once in your development environment as long as you want to develop for this version. If you need to use another version, you need to run the command for that specific version.
@@ -46,6 +46,12 @@ Generate appsettings.local.json
 
 ```
 omnia dev appsettings get --path C:\your-hello-omnia-fx-path\extension.json --tenantid {tenant-id}
+```
+
+Or
+
+```
+omnia dev appsettings get --path extension.json --tenantid {tenant-id}
 ```
 
 # Step 3. Create a new Vue-based Web Component
@@ -83,17 +89,17 @@ Open a browser and browse to your Omnia Developing tenant.
 When the site is loaded, press `Shift + O` then `Shift + C` to open the `Omnia Developer Console`, then run the following cmd to serve your extension locally:
 
 ```
-serve https://localhost:44351
+serve https://localhost:44315
 ```
 
->Tip: The default port for the project created by the template is 44351. Feel free to change the port to a new unique value on your machine if needed.
+>Tip: The default port for the project created by the template is 44315. Feel free to change the port to a new unique value on your machine if needed.
 
 The browser will be reloaded after serving successfully.
 
 You can verify the serve status by running the following cmd in the `Omnia Developer Console`:
 
 ```
-serve list
+serve --list
 ```
 
 # Step 6. Test the component
