@@ -70,7 +70,7 @@ omnia extensions deploy {extension-id}:1.0.0 --tenantid {tenant-id}
 To stop service, open `Omnia Developer Console` in your Omnia Developing site and run the following cmd:
 
 ```
-serve stop https://localhost:44351
+serve --stop https://localhost:44315
 ```
 
 Now you can test the result.
