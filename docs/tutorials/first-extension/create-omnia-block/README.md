@@ -39,3 +39,6 @@ Build and start the project.
 Try to add the block on to the page and edit its settings.
 
 Enjoy!
+
+# Next Part
+-   [Create a Timer Job](../create-timer-job#create-timer-job)

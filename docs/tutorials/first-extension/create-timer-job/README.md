@@ -1,7 +1,7 @@
-# Create a Worker service with a timer job
+# Create a Timer Job
 So far in this tutorial, you have created a Web App service `HelloOmniaFx.Web` that serves UI resources and APIs.
 
-In this part of the tutorial, you will create a Worker service `HelloOmniaFx.Worker` that run a timer job.
+In this part of the tutorial, you will create a Worker service `HelloOmniaFx.Worker` that run a Timer Job.
 
 # Step 1. Create a worker service
 
@@ -19,7 +19,7 @@ omnia dev appsettings get --path C:\your-hello-omnia-fx-path\extension.json --te
 
 Manually copy the appsettings.local.json to bin folder `..\HelloOmniaFx.Worker\bin\Debug\netcoreapp3.1\appsettings.local.json`.
 
-# Step 2. Create a timer job
+# Step 2. Create a Timer Job in worker
 
 Create a new folder called `TimerJobs` under `..\HelloOmniaFx.Worker\`.
 
@@ -49,6 +49,6 @@ hostbuilder.ConfigureServices(serviceCollection => {
 
 Build and start the worker. 
 
-Try to debug the timer job.
+Try to debug it.
 
 Enjoy!
