@@ -25,7 +25,7 @@ Follow the instruction written in `FirstSPFeature.cs`:
 - Update the namespace of the file:
 
 ```cs
-namespace HelloOmniaFx.Worker.TimerJobs
+namespace HelloOmniaFx.Worker.Features
 ```
 
 - Installed nuget package: Omnia.Fx.NetCore.SharePoint.
@@ -64,7 +64,7 @@ private async Task ActivateOrUpdate()
 
     if (!page.Exists)
     {
-        ListItem item = sitePageList.RootFolder.Files.AddTemplateFile(pageRelativeUrl, TemplateFileType.ClientSidePage).ListItemAllFields;
+        ListItem item = sitePageList.RootFolder.Files.AddTemplateFile(pageRelativeUrl, TemplateFileType.StandardPage).ListItemAllFields;
         await ctx.ExecuteQueryAsync();
     }
 }
