@@ -41,4 +41,4 @@ Try to add the block on to the page and edit its settings.
 Enjoy!
 
 # Next Part
--   [Create a Timer Job](../create-timer-job#create-timer-job)
+-   [Create a Timer Job](../create-timer-job#create-a-timer-job)
