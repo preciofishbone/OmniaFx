@@ -1,7 +1,7 @@
 # Create a Timer Job
 So far in this tutorial, you have created a Web App service `HelloOmniaFx.Web` that serves UI resources and APIs.
 
-In this part of the tutorial, you will create a Worker service `HelloOmniaFx.Worker` that run a Timer Job.
+In this part of tutorial, you will create a Worker service `HelloOmniaFx.Worker` that run a Timer Job.
 
 # Step 1. Create a worker service
 
@@ -31,13 +31,15 @@ omnia dev new timerjob -n FirstTimerJob
 
 A new .cs file will be created at `..\HelloOmniaFx.Worker\TimerJobs\FirstTimerJob.cs`.
 
-Update the namespace of the file.
+Follow the instruction written in `FirstTimerJob.cs`:
+
+- Update the namespace of the file.
 
 ```cs
 namespace HelloOmniaFx.Worker.TimerJobs
 ```
 
-Add the configuration code in `..\HelloOmniaFx.Worker\Program.cs`.
+- Add the configuration code in `..\HelloOmniaFx.Worker\Program.cs`.
 
 ```cs
 hostbuilder.ConfigureServices(serviceCollection => {
