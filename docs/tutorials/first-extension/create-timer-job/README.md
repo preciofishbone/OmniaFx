@@ -54,3 +54,6 @@ Build and start the worker.
 Try to debug it.
 
 Enjoy!
+
+# Next Part
+-   [Create a feature](../create-feature#create-a-feature)

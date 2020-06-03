@@ -1,4 +1,4 @@
-# Feature
+# Create a Feature
 
 In this part of tutorial, you will create a feature that create an aspx page on SharePoint Team Site.
 
