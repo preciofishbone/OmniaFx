@@ -1,8 +1,10 @@
-# Create an admin blade
+# Create an Admin Journey
 
 Omnia Admin uses a 'Blades' system. 
 
-In this part of tutorial, you will create a common journey component with 2 blades. 
+Each side nav will lead to an Admin Journey component which contains a collection of blades.
+
+In this part of tutorial, you will create a common admin journey component with 2 blades. 
 
 # Step 1. Create a journey
 

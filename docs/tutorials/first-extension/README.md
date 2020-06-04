@@ -16,6 +16,8 @@ In this tutorial, we will take you through the steps of building an Omnia G2 ext
 
 ### [Part 4. Create an Omnia Block](./create-omnia-block#create-an-omnia-block)
 
-### [Part 5. Create a Timer Job](./create-timer-job#create-a-timer-job)
+### [Part 5. Create an Admin Journey](./create-feature#create-an-admin-journey)
 
-### [Part 6. Create a Feature](./create-feature#create-a-feature)
+### [Part 6. Create a Timer Job](./create-timer-job#create-a-timer-job)
+
+### [Part 7. Create a Feature](./create-feature#create-a-feature)
