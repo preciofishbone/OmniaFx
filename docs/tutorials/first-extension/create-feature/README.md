@@ -11,16 +11,16 @@ Create a new folder called `Features` under `..\HelloOmniaFx.Worker\`.
 Inside the newly created folder, run the following cmd:
 
 ```
-omnia dev new spfeature -n FirstSPFeature
+omnia dev new spfeature -n HelloOmniaFxFeature
 ```
 
 There are 2 files will be created:
  
- `..\HelloOmniaFx.Worker\Features\FirstSPFeature.cs` 
+ `..\HelloOmniaFx.Worker\Features\HelloOmniaFxFeature.cs` 
  
- `..\HelloOmniaFx.Worker\Features\FirstSPFeature.manifest.ts`
+ `..\HelloOmniaFx.Worker\Features\HelloOmniaFxFeature.manifest.ts`
 
-Follow the instruction written in `FirstSPFeature.cs`:
+Follow the instruction written in `HelloOmniaFxFeature.cs`:
 
 - Update the namespace of the file:
 
@@ -37,7 +37,7 @@ omniaConfig.AddOmniaFxNetCore((options) =>
 {
     options.AddFeatureHandlers((featureProviderOptions) =>
     {
-        featureProviderOptions.AddFeatureProvider<FirstSPFeature>();
+        featureProviderOptions.AddFeatureProvider<HelloOmniaFxFeature>();
     });
 });
 omniaConfig.AddOmniaFxNetCoreSharePoint();

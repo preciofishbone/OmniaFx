@@ -26,12 +26,12 @@ Create a new folder called `TimerJobs` under `..\HelloOmniaFx.Worker\`.
 Inside the newly created folder, run the following cmd:
 
 ```
-omnia dev new timerjob -n FirstTimerJob
+omnia dev new timerjob -n HelloOmniaFxTimerJob
 ```
 
-A new .cs file will be created at `..\HelloOmniaFx.Worker\TimerJobs\FirstTimerJob.cs`.
+A new .cs file will be created at `..\HelloOmniaFx.Worker\TimerJobs\HelloOmniaFxTimerJob.cs`.
 
-Follow the instruction written in `FirstTimerJob.cs`:
+Follow the instruction written in `HelloOmniaFxTimerJob.cs`:
 
 - Update the namespace of the file.
 
@@ -43,7 +43,7 @@ namespace HelloOmniaFx.Worker.TimerJobs
 
 ```cs
 hostbuilder.ConfigureServices(serviceCollection => {
-    serviceCollection.AddHostedService<FirstTimerJob>();
+    serviceCollection.AddHostedService<HelloOmniaFxTimerJob>();
 });
 ```
 
