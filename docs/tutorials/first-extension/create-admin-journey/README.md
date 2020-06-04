@@ -23,3 +23,6 @@ Build and start the project.
 Press `Shift + O` then `Shift + C` to open the `Omnia Admin`. 
 
 Enjoy!
+
+# Next Part
+-   [Create a Timer Job](../create-timer-job#create-a-timer-job)
