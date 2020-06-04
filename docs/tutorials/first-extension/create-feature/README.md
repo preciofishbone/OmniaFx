@@ -28,7 +28,7 @@ Follow the instruction written in `HelloOmniaFxFeature.cs`:
 namespace HelloOmniaFx.Worker.Features
 ```
 
-- Installed nuget package: Omnia.Fx.NetCore.SharePoint.
+- Install nuget package: Omnia.Fx.NetCore.SharePoint.
 
 - Add the configuration code in `..\HelloOmniaFx.Worker\Program.cs`:
 
