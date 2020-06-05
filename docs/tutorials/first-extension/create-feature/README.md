@@ -11,7 +11,7 @@ Create a new folder called `Features` under `..\HelloOmniaFx.Worker\`.
 Inside the newly created folder, run the following cmd:
 
 ```
-omnia dev new spfeature -n HelloOmniaFxFeature
+omnia dev new spfeature --name HelloOmniaFxFeature
 ```
 
 There are 2 files will be created:
@@ -101,3 +101,6 @@ omnia extensions scale {worker-service-id} --tenantid {tenant-id} --replicas 1
 The page `../SitePages/HelloOmniaFx.aspx` will be created on the SharePoint site that activated the feature.
 
 Enjoy!
+
+# Next Part
+-   [Create a Page Rollup view](../create-page-rollup-view#create-a-page-rollup-view)

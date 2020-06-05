@@ -26,7 +26,7 @@ Create a new folder called `TimerJobs` under `..\HelloOmniaFx.Worker\`.
 Inside the newly created folder, run the following cmd:
 
 ```
-omnia dev new timerjob -n HelloOmniaFxTimerJob
+omnia dev new timerjob --name HelloOmniaFxTimerJob
 ```
 
 A new .cs file will be created at `..\HelloOmniaFx.Worker\TimerJobs\HelloOmniaFxTimerJob.cs`.

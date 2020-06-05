@@ -24,12 +24,12 @@ Now you need to restore the package you added using the "omnia dev restore" cmd.
 
 # Step 2. Create a new Omnia block
 
-Create a new folder called `helloomniafxblock` under `..\HelloOmniaFx.Web\client\`
+Create a new folder called `block` under `..\HelloOmniaFx.Web\client\`
 
 Inside the newly created folder, run the following cmd:
 
 ```
-omnia dev new omniablock -n HelloOmniaFxBlock -t element="hello-omnia-fx-block"
+omnia dev new omniablock --name HelloOmniaFxBlock --tokens element=hello-omnia-fx-block
 ```
 
 # Step 3. Test the result
