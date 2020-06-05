@@ -2,7 +2,7 @@
 
 In this tutorial, we will take you through the steps of building an Omnia G2 extension from scratch.
 
->Tip: You can check the full sample source code in each part of the tutorial if you run into any issues.
+>Tip: There are sample source code attached in the basic parts of the tutorial if you run into any issues.
 
 ## Basic
 
