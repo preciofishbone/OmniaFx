@@ -1,8 +1,6 @@
 # WELCOME TO OMNIA LEARN
 
-"Whether you're just starting or an experienced professional, 
-our hands-on approach helps you arrive at your goals faster, 
-with more confidence and at your own pace" - Microsoft
+"Whether you're just starting or an experienced professional, our hands-on approach helps you arrive at your goals faster, with more confidence and at your own pace" - Microsoft
 
 As a Microsoft Partner, we want our Omnia developers to be encouraged to improve the quality of approach. 
 
