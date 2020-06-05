@@ -21,3 +21,5 @@ In this tutorial, we will take you through the steps of building an Omnia G2 ext
 ### [Part 6. Create a Timer Job](./create-timer-job#create-a-timer-job)
 
 ### [Part 7. Create a Feature](./create-feature#create-a-feature)
+
+### [Part 8. Create a Page Rollup view](./create-page-rollup-view#create-a-page-rollup-view)
