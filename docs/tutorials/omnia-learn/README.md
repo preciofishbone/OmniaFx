@@ -23,6 +23,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 - ## [Omnia Fx components.](./omnia-fx-components#omnia-fx-components)
 
     Where you can find all the out-of-the-box fx components, such as People Picker and Color Picker.
+    
 
 - ## [Load a resource manifest when a certain feature is activated.](./load-resource-manifest-when-feature-activated#load-a-resource-manifest-when-a-certain-feature-is-activated)
 
@@ -32,11 +33,24 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     Using StyleFlow to override the style of the left navigation on wcm page.
 
-- ## [Add localization to the extension.]()
+- ## Add localization to the extension.
 
     The best practice for applying localization and maintaining translations.
   
-- ## [Send email.]()
+- ## Send email.
 
     It would be easy-peasy to send an email. It is also possible to use localization as email template.
+
+- ## Set up Database in web service.
+
+- ## Omnia Caching.
+
+- ## Provision a Enterprise Property.
+
+- ## Create a Tenant Settings.
+
+- ## Take advantage of Property Bag.
+
+- ## Patch data with Omnia Data Migration.
+
 
