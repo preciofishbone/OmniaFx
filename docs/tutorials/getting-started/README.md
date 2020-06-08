@@ -46,3 +46,8 @@ For a full commands documentation visit [Omnia Cli](../cli)
 # Build Your First Extension
 
 Please visit the tutorial on how to create a first extension [here](../first-extension#build-your-first-extension-like-a-boss).
+
+
+# Omnia Learn
+
+Learn more [here](../omnia-learn#welcome-to-omnia-learn).

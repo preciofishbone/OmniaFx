@@ -19,5 +19,3 @@ omnia dev new pagerollupview --name HelloOmniaFxPageRollupView --tokens element=
 Build and start the project.
 
 Try to select the new view in Page Rollup.
-
-Enjoy!
