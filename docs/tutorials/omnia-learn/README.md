@@ -26,7 +26,11 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 - ## [Load a resource manifest when a certain feature is activated.](./load-resource-manifest-when-feature-activated#load-a-resource-manifest-when-a-certain-feature-is-activated)
 
-    A simple solution to enable/disable a custom script.js or a custom style.css.
+    A simple solution to enable/disable a custom script.js or a custom style.css. 
+
+- ## [Override the style of Current Navigation block](./override-style-of-current-navigation)
+
+    Using StyleFlow to override the style of the left navigation on wcm page.
 
 - ## [Add localization to the extension.]()
 

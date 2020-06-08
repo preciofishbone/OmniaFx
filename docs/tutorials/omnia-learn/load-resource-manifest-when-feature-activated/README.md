@@ -4,24 +4,23 @@ Ensure you have created [a tenant feature](../../first-extension/create-feature)
 
 Create a folder that contains 2 files:
 
+- Test.ts
+
+```ts
+alert('Loaded test.js');
+```
+
 - Resource.manifest.ts
 
 ```ts
 import { Composer } from '@omnia/tooling/composers';
 
 Composer
-    .registerManifest(new Guid('guid id'), "test.manifest.resource")
-    .registerResources({ resourcePaths: ["./test.js"] })
+    .registerManifest(new Guid(a-guid-id), "test.manifest.resource")
+    .registerResources({ resourcePaths: ["./Test.js"] })
     .withLoadRules()
-    .loadIfFeatureActivated({ featureId: 'tenant-feature-id' })
+    .loadIfFeatureActivated({ featureId: the-tenant-feature-id })
 ```
 
-- Test.ts
-
-```ts
-
-alert('Loaded test.js');
-
-```
 
 As an expected resul, an alert with a specified message will be displayed on page load.
