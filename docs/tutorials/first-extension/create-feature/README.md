@@ -102,5 +102,24 @@ The page `../SitePages/HelloOmniaFx.aspx` will be created on the SharePoint site
 
 Enjoy!
 
+# Good to know
+
+You are able to change the feature definition - the feature's `manifest.ts` file.
+
+- Feature scope
+  
+    There are 3 scopes: Tenant, Business Profile and App Instance. 
+
+- Feature provider handling
+  
+    A feature handle .cs that will pick up and process the activation messages. you might want to turn off this setting in some cases (i.e. a tenant feature that is only used for manifest load rule) 
+
+    When you turn it off, you can delete the .cs file that created by the omnia cli.
+
+- Localization is available 
+
+    i.e. Title:  "$Localize:Your.Extension.Localization.Namespace.FeatureTitle;",
+
+
 # Next Part
 -   [Create a Page Rollup view](../create-page-rollup-view#create-a-page-rollup-view)

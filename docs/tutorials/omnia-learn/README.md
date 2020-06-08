@@ -24,7 +24,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     Where you can find all the out-of-the-box fx components, such as People Picker and Color Picker.
 
-- ## [Load a resource manifest when a certain feature is activated.]()
+- ## [Load a resource manifest when a certain feature is activated.](./load-resource-manifest-when-feature-activated#load-a-resource-manifest-when-a-certain-feature-is-activated)
 
     A simple solution to enable/disable a custom script.js or a custom style.css.
 
