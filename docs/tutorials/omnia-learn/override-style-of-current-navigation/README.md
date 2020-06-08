@@ -39,12 +39,7 @@ Composer
     })
     .withLoadRules().loadIfManifestLoaded({
         omniaServiceId: WcmService.Id.toString(),
-        resourceId: WcmWebComponentManifests.CurrentNavigation.toString()
-    })
-    .or()
-    .loadIfManifestLoaded({
-        omniaServiceId: WcmService.Id.toString(),
-        resourceId: WcmWebComponentManifests.CurrentNavigationSettings.toString()
-    })
+        resourceId: WcmWebComponentManifests.PageRenderer.toString()
+    });
 
 ```
