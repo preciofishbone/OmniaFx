@@ -14,13 +14,9 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 - ## Swagger
 
-    Swagger is avaiable by default.
+    `https://{localhost:port}/swagger` 
     
-     https://{localhost:port}/swagger
-    
-     or 
-     
-     https://{web-service-id-without-dash}-{tenant}.omniaclound.net/swagger
+    `https://{web-service-id-without-dash}-{tenant}.omniaclound.net/swagger`
 
 - ## [Omnia Fx components.](./omnia-fx-components#omnia-fx-components)
 
@@ -30,6 +26,20 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 - ## [Load a resource manifest when a certain feature is activated.](./load-resource-manifest-when-feature-activated#load-a-resource-manifest-when-a-certain-feature-is-activated)
 
     A simple solution to enable/disable a custom script.js or a custom style.css. 
+
+
+- ## [WebApp with database](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Projects/WebAppWithDb)
+
+    A sample source code of setting up a database in WebApp.
+
+- ## [Add custom steps in App Provisioning](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/AppProvisioning/CustomSteps)
+
+    A sample source code of adding custom steps in App Provisioning.
+
+
+- ## [Custom fonts](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Ux/CustomFonts)
+
+    A sample source code for applying custom font in your tenant.
 
 - ## Add localization to the extension.
 

@@ -1,23 +1,20 @@
 # Omnia Fx Docs, Examples and Best Practices
 
 ## Getting Started
-[Let's begin the journey to become an Omnia developer](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/getting-started#getting-started)
 
-## Documentation
-[Cmds Documentation](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli)
+- [Prerequisites](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/prerequisites#prerequisites)
 
-## Examples
+- [Build your first Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension#build-your-first-extension-like-a-boss)
 
-Below is a list of specific implementation code examples that follows Omnia Fx best practices and patterns.
 
-### Projects
-[WebApp with database](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Projects/WebAppWithDb)
+## See Also
 
-### Apps
-[Custom Steps](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/AppProvisioning/CustomSteps)
+- [Omnia Learn](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/omnia-learn#welcome-to-omnia-learn)
 
-### Features
-[Basic SharePoint feature](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Features/SharePointBasic)
+- [Omnia Cli](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli)
 
-### Ux
-[Custom fonts](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Ux/CustomFonts)
+- [Common Errors]()
+
+- [Migration]()
+
+

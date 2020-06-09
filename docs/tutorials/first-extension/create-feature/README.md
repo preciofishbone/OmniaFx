@@ -119,3 +119,8 @@ You are able to change the feature definition - the feature's `manifest.ts` file
 - Localization is available 
 
     i.e. Title:  "$Localize:Your.Extension.Localization.Namespace.FeatureTitle;"
+
+
+# See Also
+
+See another example of SharePoint feature in source code [here](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Features/SharePointBasic).
