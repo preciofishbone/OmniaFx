@@ -44,22 +44,6 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 - ## Add localization to the extension.
 
     The best practice for applying localization and maintaining translations.
-  
-- ## Send email.
-
-    It would be easy-peasy to send an email. It is also possible to use localization as email template.
-
-- ## Set up Database in web service.
-
-- ## Omnia Caching.
-
-- ## Provision a Enterprise Property.
-
-- ## Create a Tenant Settings.
-
-- ## Take advantage of Property Bag.
-
-- ## Patch data with Omnia Data Migration.
 
 # WCM Fx
 
