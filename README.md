@@ -1,6 +1,6 @@
 # Omnia Fx Docs, Examples and Best Practices
 
-## Getting Started
+## :beginner: Getting Started
 
 - [Prerequisites](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/prerequisites#prerequisites)
 
