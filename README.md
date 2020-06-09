@@ -11,7 +11,7 @@
 
 - [Omnia Learn](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/omnia-learn#welcome-to-omnia-learn)
 
-- [Omnia Cli](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli)
+- [Omnia Cli](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-cli)
 
 - [Common Errors]()
 
