@@ -1,7 +1,5 @@
 # Create an Omnia block
 
-Time to play around with **Omnia block**
-
 In this part of tutorial, you will create an simple Omnia block.
 
 # Step 1. Install WCM npm
@@ -24,7 +22,7 @@ Now you need to restore the package you added using the "omnia dev restore" cmd.
 
 # Step 2. Create a new Omnia block
 
-Create a new folder called `block` under `..\HelloOmniaFx.Web\client\`
+Create a new folder called `block` under `..\client\`
 
 Inside the newly created folder, run the following cmd:
 
@@ -40,5 +38,3 @@ Try to add the block on to the page and edit its settings.
 
 Enjoy!
 
-# Next Part
--   [Create an Admin Journey](../create-admin-journey#create-an-admin-journey)

@@ -4,7 +4,9 @@
 
 As a Microsoft Partner, we want our Omnia developers to be encouraged to improve the quality of approach. 
 
-# Learning Resources:
+## Learning Resources:
+
+# Omnia Fx
 
 - ## [Build your first extension.](../first-extension#build-your-first-extension-like-a-boss)
 
@@ -29,10 +31,6 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     A simple solution to enable/disable a custom script.js or a custom style.css. 
 
-- ## [Override the style of Current Navigation block](./override-style-of-current-navigation#override-the-style-of-current-navigation-block)
-
-    Using StyleFlow to override the style of the left navigation on wcm page.
-
 - ## Add localization to the extension.
 
     The best practice for applying localization and maintaining translations.
@@ -52,5 +50,21 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 - ## Take advantage of Property Bag.
 
 - ## Patch data with Omnia Data Migration.
+
+# WCM Fx
+
+- ## [Create a Omnia Block](./create-omnia-block#create-a-omnia-block)
+
+    Learn how to create a new Omnia Block for WCM page.
+
+- ## [Create a Page Rollup View](./create-page-rollup-view#create-a-page-rollup-view)
+
+    Learn how to create a new view for Page Rollup.
+
+- ## [Override the style of Current Navigation block](./override-style-of-current-navigation#override-the-style-of-current-navigation-block)
+
+    Using StyleFlow to override the style of the left navigation on wcm page.
+
+
 
 

@@ -103,4 +103,4 @@ Enter your name in the text box, and click the send button.
 Wow, your solution has got a backend up and running!
 
 # Next Part
--   [Deploy an extension](../deploy-extension#deploy-an-extension)
+-   [Create an Admin Journey](../create-admin-journey#create-an-admin-journey)

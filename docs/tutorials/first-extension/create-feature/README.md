@@ -118,8 +118,4 @@ You are able to change the feature definition - the feature's `manifest.ts` file
 
 - Localization is available 
 
-    i.e. Title:  "$Localize:Your.Extension.Localization.Namespace.FeatureTitle;",
-
-
-# Next Part
--   [Create a Page Rollup view](../create-page-rollup-view#create-a-page-rollup-view)
+    i.e. Title:  "$Localize:Your.Extension.Localization.Namespace.FeatureTitle;"
