@@ -8,7 +8,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 # Omnia Fx
 
-- ## [Build your first extension.](../first-extension#build-your-first-extension-like-a-boss)
+- ## [Build your first extension](../first-extension#build-your-first-extension-like-a-boss)
 
     In this tutorial, we will take you through the steps of building an Omnia G2 extension from scratch. You will also play around with serveral general things, such as Omnia block, Admin Journey, Page Rollup view, Timer Job and SharePoint Feature.
 
@@ -18,12 +18,12 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
     
     `https://{web-service-id-without-dash}-{tenant}.omniaclound.net/swagger`
 
-- ## [Omnia Fx components.](./omnia-fx-components#omnia-fx-components)
+- ## [Omnia Fx components](./omnia-fx-components#omnia-fx-components)
 
     Where you can find all the out-of-the-box fx components, such as People Picker and Color Picker.
     
 
-- ## [Load a resource manifest when a certain feature is activated.](./load-resource-manifest-when-feature-activated#load-a-resource-manifest-when-a-certain-feature-is-activated)
+- ## [Load a resource manifest when a certain feature is activated](./load-resource-manifest-when-feature-activated#load-a-resource-manifest-when-a-certain-feature-is-activated)
 
     A simple solution to enable/disable a custom script.js or a custom style.css. 
 
@@ -41,7 +41,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     A sample source code for applying custom font in your tenant.
 
-- ## Add localization to the extension.
+- ## Localization
 
     The best practice for applying localization and maintaining translations.
 
