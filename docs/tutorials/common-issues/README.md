@@ -79,7 +79,7 @@
 
 ---
 
-# Publish failed
+## Publish failed
 
 **Error**
 
