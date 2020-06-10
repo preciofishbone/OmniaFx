@@ -2,7 +2,7 @@
 
 This article explains how to update an existing Omnia extension from 4.0 to 5.0
 
-:exclamation: Fx 5.0 is currently in preview.
+> :exclamation: Fx 5.0 is currently in preview.
 
 # Omnia Fx 
 
