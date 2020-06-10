@@ -53,7 +53,7 @@
 
     Run the below cmd to generate latest settings:
 
-    omnia dev appsettings get --path C:\your-hello-omnia-fx-path\extension.json --tenantid {tenant-id}
+    omnia dev appsettings get --path C:\your-extension-path\extension.json --tenantid {tenant-id}
 
 **Reason 2**
 

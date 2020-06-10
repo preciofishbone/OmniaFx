@@ -13,8 +13,8 @@
 
 - [Omnia Cli](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-cli)
 
-- [Common Issues](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/common-issues#common-issues)
+- [Common Issues](https://github.com/preciofishbone/OmniaFx/tree/master/docs/common-issues#common-issues)
 
-- [Migration]()
+- Migration
 
 
