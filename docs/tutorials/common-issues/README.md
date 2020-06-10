@@ -92,3 +92,22 @@
 **Solution**
 
     Start the Docker Destop.
+
+---
+
+## Worker service issues
+
+**Error**
+
+    Worker service doesn't work on cloud server but local works well.
+
+**Reason**
+
+    The worker might be disabled on cloud server. 
+
+**Solution**
+
+    Run the below cmd to enable the worker: 
+
+    omnia extensions scale {worker-service-id} --tenantid {tenant-id} --replicas 1
+

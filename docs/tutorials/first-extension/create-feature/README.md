@@ -80,7 +80,7 @@ Try to activate the feature on a Teamwork app.
 
 You might now notice that the sample feature is activated failed. So now you need to debug and fix it!
 
-Turn off the worker that running on cloud server so that the local worker can pick up the activation queue messages.
+Disable the worker that running on cloud server so that the local worker can pick up the activation queue messages.
 
 ```
 omnia extensions scale {worker-service-id} --tenantid {tenant-id} --replicas 0	
@@ -90,7 +90,7 @@ omnia extensions scale {worker-service-id} --tenantid {tenant-id} --replicas 0
 
 Now start debugging and activate the feature again.
 
-Remember to turn on the worker again after debugging it.
+Remember to enable the worker again after debugging it.
 
 ```
 omnia extensions scale {worker-service-id} --tenantid {tenant-id} --replicas 1	
