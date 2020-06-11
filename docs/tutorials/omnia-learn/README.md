@@ -10,7 +10,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 - ## [Build your first extension](../first-extension#build-your-first-extension-like-a-boss)
 
-    In this tutorial, we will take you through the steps of building an Omnia G2 extension from scratch. You will also play around with serveral general things, such as Admin Journey, Timer Job and SharePoint Feature.
+    In this tutorial, we will take you through the steps of building an Omnia G2 extension from scratch. You will also play around with serveral general things, such as Admin Journey, Timer Job, SharePoint Feature and localization.
 
 - ## Swagger
 
@@ -40,10 +40,6 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 - ## [Custom fonts](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Ux/CustomFonts)
 
     A sample source code for applying custom font in your tenant.
-
-- ## Localization
-
-    The best practice for applying localization and maintaining translations.
 
 # WCM Fx
 
