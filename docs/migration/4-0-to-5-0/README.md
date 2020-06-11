@@ -17,6 +17,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | --- |
 | [Custom RTF extension](#custom-rtf-extension)|
 
+---
 
 # WCM Fx
 
@@ -29,6 +30,8 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [Delete Page](#delete-page)|
+
+---
 
 # Breaking Changes
 
