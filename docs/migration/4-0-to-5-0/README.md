@@ -1,6 +1,6 @@
 # Migrate from 4.0 to 5.0
 
-This article explains how to update an existing Omnia extension from 4.0 to 5.0
+This article explains how to update an existing Omnia extension from 4.0 to 5.0.
 
 | WARNING: Fx 5.0 is currently in preview! |
 | --- |
@@ -61,9 +61,9 @@ You are no longer allowed to delete pages, you have to archive it instead.
 
 **Server side:**
 
-IPageService - `DeletePageAsync` has been replaced with `ArchivePageAsync`
+IPageService - `DeletePageAsync` has been replaced with `ArchivePageAsync`.
 
 **Client side:**
 
-PagesStore - `delete` action has been replaced with `archive`
+PagesStore - `delete` action has been replaced with `archive`.
 
