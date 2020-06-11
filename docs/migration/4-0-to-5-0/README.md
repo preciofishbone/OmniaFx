@@ -16,6 +16,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [Custom RTF extension](#custom-rtf-extension)|
+| [Server Side HttpClient](#server-side-http-client)|
 
 ---
 
@@ -49,6 +50,10 @@ export class ACustomEditorExtension implements RichTextEditorExtension {
     getDefition(): Promise<ACustomEditorExtensionDefinition> {}
 }
 ```
+
+## Server Side HttpClient
+
+All obsolete parts of HttpClient are offically removed from this version, please follow the instruction written in obsolete attributes to fix it all before updating to new Nuget.
 
 ## Delete Page
 
