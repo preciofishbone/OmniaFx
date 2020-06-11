@@ -1,4 +1,4 @@
-# Migrate from 4.0 to 5.0
+# Migrate from Fx 4.0 to 5.0
 
 This article explains how to update an existing Omnia extension from 4.0 to 5.0.
 
