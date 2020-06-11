@@ -1,4 +1,4 @@
-# :beginner: Omnia Fx Docs, Examples and Best Practices
+# Omnia Fx Docs, Examples and Best Practices
 
 ## Getting Started
 
