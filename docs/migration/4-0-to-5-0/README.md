@@ -60,7 +60,7 @@ All obsolete parts of HttpClient are offically removed from this version, please
 
 **Server-side:**
 
-It is forbidden to update a existing audit log. 
+It is forbidden to update an existing audit log. 
 
 IAuditLogService - `AddOrUpdateAsync` has been replaced with `AddAsync`.
 
