@@ -16,7 +16,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [Custom RTF extension](#custom-rtf-extension)|
-| [Server-side HttpClient](#server-side-http-client)|
+| [Server-side HttpClient](#server-side-httpclient)|
 | [Audit Log](#audit-log)|
 
 ---
