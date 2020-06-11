@@ -1,6 +1,6 @@
 # Common Issues
 
-here are the most common errors you may encounter
+Here are the most common errors you may encounter.
 
 # Build failed
 
