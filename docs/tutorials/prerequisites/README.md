@@ -41,4 +41,4 @@ To update the Omnia Cli to the latest version, run the following cmd:
 dotnet tool update -g omnia
 ```
 
-For a full commands documentation visit [Omnia Cli](../cli)
+For a full commands documentation visit [Omnia Cli](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-cli))
