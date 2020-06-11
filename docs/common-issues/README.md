@@ -1,7 +1,8 @@
 # Common Issues
 
+here are the most common errors you may encounter
 
-## Build failed
+# Build failed
 
 **Error**
 
@@ -39,7 +40,7 @@
 
 ---
 
-## Startup failed
+# Startup failed
 
 **Error**
 
@@ -79,7 +80,7 @@
 
 ---
 
-## Publish failed
+# Publish failed
 
 **Error**
 
@@ -95,7 +96,7 @@
 
 ---
 
-## Worker service issues
+# Worker service issues
 
 **Error**
 
