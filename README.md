@@ -1,15 +1,15 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/17378364/84458913-4f10f180-ac90-11ea-82cc-edc7a834a680.png" /></p>
     
-<p align="center"><h1>Documentation, Examples and Best Practices</h1></p>
+<h2 align="center">Documentation, Examples and Best Practices</h2>
 
-## Getting Started
+### Getting Started
 
 - [Prerequisites](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/prerequisites#prerequisites)
 
 - [Build your first Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension#build-your-first-extension-like-a-boss)
 
 
-## See Also
+### See Also
 
 - [Omnia Learn](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/omnia-learn#welcome-to-omnia-learn)
 
