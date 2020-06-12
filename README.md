@@ -1,4 +1,6 @@
-# Omnia Fx Docs, Examples and Best Practices
+<p align="center"><img src="https://user-images.githubusercontent.com/17378364/84458913-4f10f180-ac90-11ea-82cc-edc7a834a680.png" /></p>
+    
+<p align="center"><h1>Documentation, Examples and Best Practices</h1></p>
 
 ## Getting Started
 
