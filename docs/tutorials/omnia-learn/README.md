@@ -18,6 +18,8 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
     
     `https://{web-service-id-without-dash}-{tenant}.omniaclound.net/swagger`
 
+    Omnia Developer Console > `swagger --help` (only available in Fx 5.0+)
+
 - ## [Omnia Fx components](./omnia-fx-components#omnia-fx-components)
 
     Where you can find all the out-of-the-box fx components, such as People Picker and Color Picker.
