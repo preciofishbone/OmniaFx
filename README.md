@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/preciofishbone/OmniaFx/blob/master/swag/omnia_bg_fx_low_res.jpg.jpg" /></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/17378364/84889118-87666480-b0c2-11ea-9c32-0006c2d31053.jpg" /></p>
     
 <h2 align="center">Documentation, Examples and Best Practices</h2>
 
