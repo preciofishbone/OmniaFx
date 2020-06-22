@@ -18,5 +18,6 @@
 - [Common Issues](https://github.com/preciofishbone/OmniaFx/tree/master/docs/common-issues#common-issues)
 
 - Migration
+    - [3.0 to 4.0](https://github.com/preciofishbone/OmniaFx/blob/master/docs/migration/3-0-to-4-0/README.md#migrate-from-fx-30-to-40)
     - [4.0 to 5.0](https://github.com/preciofishbone/OmniaFx/blob/master/docs/migration/4-0-to-5-0/README.md#migrate-from-fx-40-to-50)
 

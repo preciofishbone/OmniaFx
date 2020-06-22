@@ -112,3 +112,18 @@ Here are the most common issues you may encounter.
 
     omnia extensions scale {worker-service-id} --tenantid {tenant-id} --replicas 1
 
+---
+
+**Error**
+
+    Can't get current extensions using Current, missing environment variable OMNIA_EXTENSIONID
+
+**Reason**
+
+    Missing environment variable OMNIA_EXTENSIONID in launchSettings.json
+
+**Solution**
+
+> Find the details in [migration 3.0 - 4.0](../migration/3-0-to-4-0#environment-variables).
+
+> The fixed has been included in the latest Omnia cli templates.
