@@ -184,6 +184,16 @@ omnia dev pack -p C:\Projects\OmniaFork\Omnia\src\Omnia.Fx.Models -v 1.0.11-mylo
 
 Enables easy add of Omnia Fx and other Omnia Extensibility dependencies.
 
+##### Example Adding new Omnia Fx
+```
+Add Omnia.Fx.NetCore.SharePoint in latest available version to Webapp 
+omnia dev add Omnia.Fx.NetCore.SharePoint -- path C://MyExtension/MyExtension.Web/
+```
+
+>It is recommended that you always specify --path to the particular project which need to add/install the Omnia Fx. Recursively adding Fx to all existing projects is not necessary in most of the cases.
+
+>It is recommended that you always specify specific Nuget or Npm package to add to the project. Adding all packages of an Omnia Fx is not necessary in most of the cases.
+
 ##### Required Parameters
 
 No required parameters
@@ -197,33 +207,25 @@ No required parameters
 | -t --tag     | Switch between prerelase tags (dev, preview) |
 | -r --restore | Restores the dependencies after adding     |
 
->It is recommended that you always specify --path to the particular project which need to add/install the Omnia Fx. Recursively adding Fx to all existing projects is not necessary in most of the cases.
 
->It is recommended that you always specify specific Nuget or Npm package to add to the project. Adding all packages of an Omnia Fx is not necessary in most of the cases.
+##### Other Examples
 
-
-##### Example Adding new Omnia Fx
 ```
---Recommended
+-- Not recommended but it is able to
 
-Add Omnia.Fx.NetCore.SharePoint in latest available version to Webapp 
-omnia dev add Omnia.Fx.NetCore.SharePoint -- path C://MyExtension/MyExtension.Web/
-
---Also able to
-
-Add Omnia Fx in latest available version 
+Add all of Omnia Fx in latest available version 
 omnia dev add omniafx
 
-Add Omnia Wcm Fx in latest available version 
+Add all of Omnia Wcm Fx in latest available version 
 omnia dev add wcmfx
 
-Add Omnia Tenant Admin Fx in latest available version 
+Add all of Omnia Tenant Admin Fx in latest available version 
 omnia dev add adminfx
 
-Add Omnia Workplace Fx in latest available version 
+Add all of Omnia Workplace Fx in latest available version 
 omnia dev add workplacefx
 
-Add Omnia Team Collaboration Fx in latest available version 
+Add all of Omnia Team Collaboration Fx in latest available version 
 omnia dev add tbfx
 
 Add in specific version
