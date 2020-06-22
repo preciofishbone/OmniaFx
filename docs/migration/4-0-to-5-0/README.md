@@ -100,7 +100,7 @@ PagesStore - `delete` action has been replaced with `archive`.
 
 ## Delete Navigation Node
 
-You are no longer allowed to delete page navigations. they wil be archived together with pages.
+You are no longer allowed to delete page navigation nodes. They wil be archived together with pages in new archive functionality.
 
 If you want to delete link navigation node.
 
