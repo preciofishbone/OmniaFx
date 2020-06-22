@@ -43,6 +43,15 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     A sample source code for applying custom font in your tenant.
 
+- ## [Wait for app provisioning](./wait-for-app-provisioning#wait-for-app-provisioning)
+
+    Learn how to wait for app provisioning to complete.
+
+- ## [Activate Feature](./activate-feature#activate-a-feature)
+
+    Want to activate a feature by code?
+
+
 # WCM Fx
 
 - ## [Create a Omnia Block](./create-omnia-block#create-a-omnia-block)
@@ -55,8 +64,12 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 - ## [Override the style of Current Navigation block](./override-style-of-current-navigation#override-the-style-of-current-navigation-block)
 
-    Using StyleFlow to override the style of the left navigation on wcm page.
+    Use StyleFlow to override the style of the left navigation on wcm page.
 
 
+# TeamCollaboration Fx
 
+- ## [Teamwork app](./team-work#team-work)
+
+    Figure out how easy it is to work with Teamwork App. 
 
