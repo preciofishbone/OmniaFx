@@ -16,7 +16,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     `https://{localhost:port}/swagger` 
     
-    `https://{webapp-service-id-without-dash}-{tenant}.omniaclound.net/swagger` (NOT extension-id)
+    `https://{webapp-service-id-without-dash}-{tenant}.omniaclound.net/swagger` (not extension-id)
 
     Omnia Developer Console > `swagger --help` (only available in Fx 5.0+)
 
