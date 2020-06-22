@@ -33,6 +33,7 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 | --- |
 | [Create Page](#create-page)|
 | [Delete Page](#delete-page)|
+| [Delete Navigation Node](#delete-navigation-node)|
 
 ---
 
@@ -73,23 +74,21 @@ You are no longer allowed to add audit log from client-side, which is also not a
 
 ## Create Page
 
-**Normal page or Default Variation page:**
-
 To create normal/default variation page, you are no longer allowed to input `Security Resource Id`. It will be handled internally.
 
-To create non-default variation page, you have to update to use the new api
+To create non-default variation page, you have to update to use the new api.
 
 **Server-side:**
 
-IPageService - `CreatePageAsync` 
+INavigationService - `CreatePageAsync`.
 
 **Client-side:**
 
-PagesStore - `createPageWithVariation` action
+PagesStore - `createPageWithVariation` action.
 
 ## Delete Page
 
-You are no longer allowed to delete pages, you have to archive it instead. 
+You are no longer allowed to delete pages, you have to archive it instead.
 
 **Server-side:**
 
@@ -99,4 +98,16 @@ IPageService - `DeletePageAsync` has been replaced with `ArchivePageAsync`.
 
 PagesStore - `delete` action has been replaced with `archive`.
 
+## Delete Navigation Node
 
+You are no longer allowed to delete page navigations. they wil be archived together with pages.
+
+If you want to delete link navigation node.
+
+**Server-side:**
+
+IPageService - `DeleteLinkNavigationNodeAsync`.
+
+**Client-side:**
+
+NavigationStore - `deleteLinkNode` action.
