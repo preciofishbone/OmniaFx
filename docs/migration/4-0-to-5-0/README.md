@@ -31,6 +31,7 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 
 | Breaking Changes |
 | --- |
+| [Create Page](#create-page)|
 | [Delete Page](#delete-page)|
 
 ---
@@ -69,6 +70,22 @@ To see whether the AuditLog is enabled or not, you must use IAuditLogService - `
 **Client-side:**
 
 You are no longer allowed to add audit log from client-side, which is also not a best practice. Audit log must be added during an action flow on server-side so that client cannot bypass it.
+
+## Create Page
+
+**Normal page or Default Variation page:**
+
+To create normal/default variation page, you are no longer allowed to input `Security Resource Id`. It will be handled internally.
+
+To create non-default variation page, you have to update to use the new api
+
+**Server-side:**
+
+IPageService - `CreatePageAsync` 
+
+**Client-side:**
+
+PagesStore - `createPageWithVariation` action
 
 ## Delete Page
 
