@@ -184,7 +184,7 @@ omnia dev pack -p C:\Projects\OmniaFork\Omnia\src\Omnia.Fx.Models -v 1.0.11-mylo
 
 Enables easy add of Omnia Fx and other Omnia Extensibility dependencies.
 
-##### Example Add new fx
+##### Example Adding new Omnia Fx
 ```
 Add Omnia Fx in latest available version 
 omnia dev add omniafx
@@ -197,6 +197,9 @@ omnia dev add adminfx
 
 Add Omnia Workplace Fx in latest available version 
 omnia dev add workplacefx
+
+Add Omnia Team Collaboration Fx in latest available version 
+omnia dev add tbfx
 
 Add in specific version
 omnia dev add omniafx --version 2.0.0
@@ -211,24 +214,12 @@ No required parameters
 
 | Name         | Description                                  |
 | ------------ | -------------------------------------------- |
-| -v --version | The version to update to                     |
+| -p --path    | Add to all projects from this point down, i.e. recursive|
+| -v --version | The version to add to                     |
 | -t --tag     | Switch between prerelase tags (dev, preview) |
-| -r --restore | Restores the dependencies after updating     |
+| -r --restore | Restores the dependencies after adding     |
 
-##### Required Parameters
-
-| Name                  | Description                                                                  |
-| --------------------- | ---------------------------------------------------------------------------- |
-| -p --path             | Update all projects from this point down, i.e. recursive                     |
-| -v --version          | The version to update to, i.e. the versions to use from (-l)                 |
-| -l --localPackage     | Path to the locally generated packages                                       |
-| -r --restore          | Restores the dependencies after updating                                     |
-
-##### Optional Parameters
-
-No optional parameters
-
-
+>It is recommended that you always specify --path to the particular project which need to add/install the Omnia Fx. Recursively adding Fx to all existing projects is not necessary in most of the cases.
 ---
 
 
@@ -251,6 +242,9 @@ omnia dev update adminfx
 Update Omnia Workplace Fx to latest available version
 omnia dev update workplacefx
 
+Update Omnia Team Collaboration Fx to latest available version
+omnia dev update tbfx
+
 Update to specific version
 omnia dev update omniafx --version 2.0.0
 
@@ -264,6 +258,7 @@ No required parameters
 
 | Name         | Description                                  |
 | ------------ | -------------------------------------------- |
+| -p --path             | Update all projects from this point down, i.e. recursive                     |
 | -v --version | The version to update to                     |
 | -t --tag     | Switch between prerelase tags (dev, preview) |
 | -r --restore | Restores the dependencies after updating     |
