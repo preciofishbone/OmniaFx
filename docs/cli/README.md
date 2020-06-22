@@ -180,6 +180,58 @@ omnia dev pack -p C:\Projects\OmniaFork\Omnia\src\Omnia.Fx.Models -v 1.0.11-mylo
 ---
 
 
+## omnia dev add
+
+Enables easy add of Omnia Fx and other Omnia Extensibility dependencies.
+
+##### Example Add new fx
+```
+Add Omnia Fx in latest available version 
+omnia dev add omniafx
+
+Add Omnia Wcm Fx in latest available version 
+omnia dev add wcmfx
+
+Add Omnia Tenant Admin Fx in latest available version 
+omnia dev add adminfx
+
+Add Omnia Workplace Fx in latest available version 
+omnia dev add workplacefx
+
+Add in specific version
+omnia dev add omniafx --version 2.0.0
+
+```
+
+##### Required Parameters
+
+No required parameters
+
+##### Optional Parameters
+
+| Name         | Description                                  |
+| ------------ | -------------------------------------------- |
+| -v --version | The version to update to                     |
+| -t --tag     | Switch between prerelase tags (dev, preview) |
+| -r --restore | Restores the dependencies after updating     |
+
+##### Required Parameters
+
+| Name                  | Description                                                                  |
+| --------------------- | ---------------------------------------------------------------------------- |
+| -p --path             | Update all projects from this point down, i.e. recursive                     |
+| -v --version          | The version to update to, i.e. the versions to use from (-l)                 |
+| -l --localPackage     | Path to the locally generated packages                                       |
+| -r --restore          | Restores the dependencies after updating                                     |
+
+##### Optional Parameters
+
+No optional parameters
+
+
+---
+
+
 ## omnia dev update
 
 Enables easy update of Omnia Fx and other Omnia Extensibility dependencies
