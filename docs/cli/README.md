@@ -184,6 +184,19 @@ omnia dev pack -p C:\Projects\OmniaFork\Omnia\src\Omnia.Fx.Models -v 1.0.11-mylo
 
 Enables easy add of Omnia Fx and other Omnia Extensibility dependencies.
 
+##### Required Parameters
+
+No required parameters
+
+##### Optional Parameters
+
+| Name         | Description                                  |
+| ------------ | -------------------------------------------- |
+| -p --path    | Add to all projects from this point down, i.e. recursive|
+| -v --version | The version to add to                     |
+| -t --tag     | Switch between prerelase tags (dev, preview) |
+| -r --restore | Restores the dependencies after adding     |
+
 >It is recommended that you always specify --path to the particular project which need to add/install the Omnia Fx. Recursively adding Fx to all existing projects is not necessary in most of the cases.
 
 >It is recommended that you always specify specific Nuget or Npm package to add to the project. Adding all packages of an Omnia Fx is not necessary in most of the cases.
@@ -196,7 +209,8 @@ Enables easy add of Omnia Fx and other Omnia Extensibility dependencies.
 Add Omnia.Fx.NetCore.SharePoint in latest available version to Webapp 
 omnia dev add Omnia.Fx.NetCore.SharePoint -- path C://MyExtension/MyExtension.Web/
 
---Able to
+--Also able to
+
 Add Omnia Fx in latest available version 
 omnia dev add omniafx
 
@@ -217,21 +231,7 @@ omnia dev add omniafx --version 2.0.0
 
 ```
 
-##### Required Parameters
-
-No required parameters
-
-##### Optional Parameters
-
-| Name         | Description                                  |
-| ------------ | -------------------------------------------- |
-| -p --path    | Add to all projects from this point down, i.e. recursive|
-| -v --version | The version to add to                     |
-| -t --tag     | Switch between prerelase tags (dev, preview) |
-| -r --restore | Restores the dependencies after adding     |
-
 ---
-
 
 ## omnia dev update
 
