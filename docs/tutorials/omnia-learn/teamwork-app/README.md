@@ -1,7 +1,8 @@
 # Teamwork App
 
+Install `Omnia.TeamCollaboration.Fx` nuget.
+
 ```cs
-//Install Omnia.TeamCollaboration.Fx nuget
 using Omnia.TeamCollaboration.Fx;
 
 //Inject IAppService (Omnia.Fx.Apps.IAppService)

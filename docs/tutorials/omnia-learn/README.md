@@ -69,7 +69,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 # TeamCollaboration Fx
 
-- ## [Teamwork app](./team-work#team-work)
+- ## [Teamwork app](./teamwork-app#teamwork-app)
 
     Figure out how easy it is to work with Teamwork App. 
 
