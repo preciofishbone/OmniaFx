@@ -18,7 +18,7 @@ AppService.WaitForProvisioningStateAsync(appInstance,
     {
 
     },
-    failedFunc: async (appInstance) =>
+    errorFunc: async (appInstance) =>
     {
 
     },
@@ -33,6 +33,6 @@ AppService.WaitForProvisioningStateAsync(appInstance,
 
 # Note
 
-- If the relevant app template require approval then it will throw exception, you are not supposed to wait for that.
+- If the relevant app template requires approval then it will throw exception. You are not supposed to wait for that.
 - There are some special cases in provisioning App that might take up to 30 minutes. (i.e. create SharePoint site failed and keep retry internally).
 
