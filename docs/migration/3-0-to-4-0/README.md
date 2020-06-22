@@ -4,7 +4,7 @@ This article explains how to update an existing Omnia extension from 3.0 to 4.0.
 
 # Omnia Fx 
 
-Run the below cmd to update all omnia fx npm/nuget to 5.0 version:
+Run the below cmd to update all omnia fx npm/nuget to 4.0 version:
 
 ```
 omnia dev update omniafx -v 4.1.0 -p C:\your-extension-path
