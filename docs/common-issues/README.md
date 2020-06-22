@@ -116,7 +116,7 @@ Here are the most common issues you may encounter.
 
 **Error**
 
-    Can't get current extensions using Current, missing environment variable OMNIA_EXTENSIONID
+    Runtime error: Can't get current extensions using Current, missing environment variable OMNIA_EXTENSIONID
 
 **Reason**
 
