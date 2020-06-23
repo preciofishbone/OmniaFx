@@ -37,7 +37,7 @@ Follow the instruction beflow to fix the issue:
             "IIS Express": {
                 "environmentVariables": {
 
-                    "OMNIA_EXTENSIONID": "replace-you-extension-id"
+                    "OMNIA_EXTENSIONID": "you-extension-id"
 
                 }
             },
