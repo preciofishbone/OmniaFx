@@ -127,3 +127,21 @@ Here are the most common issues you may encounter.
 > Find the details in [migration 3.0 - 4.0](../migration/3-0-to-4-0#environment-variables).
 
 > The fixed has been included in the latest Omnia cli templates.
+
+---
+
+# 'omnia dev run' failed
+
+**Error**
+
+    missing script: omnia-watch
+
+**Reason**
+
+    Missing the omnia script omnia-watch in package.json
+
+**Solution**
+
+> Find the details in [migration 3.0 - 4.0](../migration/3-0-to-4-0#build-configuration).
+
+> The fixed has been included in the latest Omnia cli templates.
