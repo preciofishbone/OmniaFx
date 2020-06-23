@@ -5,9 +5,17 @@ This article explains how to update an existing Omnia extension from 4.0 to 5.0.
 | WARNING: Fx 5.0 is currently in preview! |
 | --- |
 
+# Cli Template
+
+Run the below cmd to update all cli templates:
+
+```
+omnia dev new --install 5.0.0 --force
+```
+
 # Omnia Fx 
 
-Run the below cmd to update all omnia fx npm/nuget to 5.0 version:
+Run the below cmd to update all omnia fx npm/nuget:
 
 ```
 omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
@@ -25,7 +33,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 
 # WCM Fx
 
-Run the below cmd to update all wcm fx npm/nuget to 5.0 version:
+Run the below cmd to update all wcm fx npm/nuget:
 
 ```
 omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
