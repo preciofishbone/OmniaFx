@@ -4,7 +4,7 @@ Time to say **Hello to Omnia Fx**.
 
 In this part of the tutorial, you will create a simple extension that consists of a client-side component showing `Hello from Omnia Fx`. You will learn how to run and test the code locally.
 
->Tip: Please make sure you have installed all [prerequisites](../../getting-started#installation).
+>Tip: Please make sure you have installed all [prerequisites](../../prerequisites#prerequisites).
 
 >Tip: Please make sure there are no white space in the relevant folder names. 
 
