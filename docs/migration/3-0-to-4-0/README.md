@@ -44,7 +44,7 @@ Follow the instruction beflow to fix the issue:
             "The-file-name-of-webapp-csproj-file": { 
                 "environmentVariables": {
 
-                    "OMNIA_EXTENSIONID": "replace-you-extension-id"
+                    "OMNIA_EXTENSIONID": "you-extension-id"
 
                 },
             }
@@ -62,7 +62,7 @@ Follow the instruction beflow to fix the issue:
             "The-file-name-of-worker-csproj-file": {
                 "environmentVariables": {
                 
-                    "OMNIA_EXTENSIONID": "replace-you-extension-id"
+                    "OMNIA_EXTENSIONID": "you-extension-id"
                     
                 }
             }
