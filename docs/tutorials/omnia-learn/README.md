@@ -20,7 +20,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     Omnia Developer Console > `swagger --help` (only available in Fx 5.0+)
 
-- ## [Looking for some alternatives to Visual Studio?](./other-code-editors#vddwas-code-for-omnia-development)
+- ## [Looking for some alternatives to Visual Studio?](./other-editors#vddwas-code-for-omnia-development)
 
     VS Code, or even Notepad.
 
