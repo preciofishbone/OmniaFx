@@ -18,6 +18,8 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | [Custom RTF extension](#custom-rtf-extension)|
 | [Server-side HttpClient](#server-side-httpclient)|
 | [Audit Log](#audit-log)|
+| [User](#user )|
+
 
 ---
 
@@ -71,6 +73,14 @@ To see whether the AuditLog is enabled or not, you must use IAuditLogService - `
 **Client-side:**
 
 You are no longer allowed to add audit log from client-side, which is also not a best practice. Audit log must be added during an action flow on server-side so that client cannot bypass it.
+
+## User
+
+Enum `UserPrincipalType` has been renamed to `AzureAdObjectPrincipalTypes`, in both client-side and server-side.
+
+Client-side model `OmniaUserContext` has been replaced with `UserWithPropertyBag`.
+
+Model `User` has been updated to be generic to support different types of user. The new model `AzureAdUser`, which is a specific of `User`, is equivalent to the old `User`.
 
 ## Create Page
 
