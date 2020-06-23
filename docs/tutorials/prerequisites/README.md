@@ -8,6 +8,8 @@ Let's begin the journey to become an Omnia Developer.
 
 Download and install Visual Studio 2019 from your MSDN subscription or company repository.
 
+[Looking for some alternatives to Visual Studio?](./omnia-learn/other-editors#vs-code-for-omnia-development)
+
 ---
 
 ### .NET Core SDK 
