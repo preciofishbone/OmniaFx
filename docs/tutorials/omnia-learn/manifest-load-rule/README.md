@@ -11,13 +11,13 @@ Manifest custom load rule defines when to load a manifest automatically.
 
 # Examples 
 
-`script.ts`
+- script.ts
 
 ```ts
 alert('script is loaded');
 ```
 
-`resource.manifest.ts`
+- resource.manifest.ts
 
 ```ts
 import { Composer } from '@omnia/tooling/composers';
