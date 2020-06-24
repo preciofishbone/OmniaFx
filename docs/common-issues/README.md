@@ -130,7 +130,9 @@ Here are the most common issues you may encounter.
 
 ---
 
-# 'omnia dev run' failed
+# Omnia Cli 
+
+`omnia dev run`
 
 **Error**
 
@@ -138,7 +140,7 @@ Here are the most common issues you may encounter.
 
 **Reason**
 
-    Missing the omnia script omnia-watch in package.json
+    Omnia script omnia-watch is missing the  in package.json
 
 **Solution**
 
