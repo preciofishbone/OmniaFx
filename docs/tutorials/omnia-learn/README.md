@@ -27,12 +27,10 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 - ## [Omnia Fx components](./omnia-fx-components#omnia-fx-components)
 
     Where you can find all the out-of-the-box fx components, such as People Picker and Color Picker.
-    
 
-- ## [Load a resource manifest when a certain feature is activated](./load-resource-manifest-when-feature-activated#load-a-resource-manifest-when-a-certain-feature-is-activated)
+- ## [Load a resource manifest with load rule](./manifest-load-rule#manifest-custom-load-rule)
 
-    A simple solution to enable/disable a custom script.js or a custom style.css. 
-
+    Some common scenarios in which you may need to use manifest load rule.
 
 - ## [WebApp with database](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Projects/WebAppWithDb)
 
