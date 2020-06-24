@@ -130,7 +130,7 @@ Here are the most common issues you may encounter.
 
 ---
 
-# Omnia Cli 
+# Omnia Cli failed
 
 `omnia dev run`
 
