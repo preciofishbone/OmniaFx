@@ -132,7 +132,7 @@ Here are the most common issues you may encounter.
 
 # Omnia Cli issues
 
-`omnia dev run`
+## omnia dev run
 
 **Error**
 
