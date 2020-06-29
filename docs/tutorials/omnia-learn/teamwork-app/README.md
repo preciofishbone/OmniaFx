@@ -27,7 +27,29 @@ AppService.WorkWithTeamwork().CreateMicrosoftTeamAsync
 AppService.WorkWithTeamwork().CreateO365GroupAsync
 AppService.WorkWithTeamwork().CreateSharePointTeamSiteAsync
 AppService.WorkWithTeamwork().CreateSharePointCommunicationSiteAsync
+
+//- initial enterprise property values for creating Teamwork 
+var enterpriseProperties = new EnterprisePropertyDictionary();
+enterpriseProperties
+    .AddPerson(personProperty, new UserIdentity {Uid = "user1@tenant.com" } , new UserIdentity {Uid = "user2@tenant.com" })
+    .AddBoolean(booleanProperty, true)
+    .AddDateTime(dateTimeProperty, DateTime.UtcNow)
+    .AddEnterpriseKeywords(keyWordProperty, Guid.NewGuid())
+    .AddTaxonomy(taxonomyProperty, Guid.NewGuid(), Guid.NewGuid())
+    .AddNumber(numberProperty, 1)
+    .AddTags(tagProperty, new Tag { Name = "TagA" })
+    .AddText(textProperty, "Lorem ipsum dolor sit amet")
+    .AddRichText(richTextProperty, "Lorem ipsum dolor sit amet");
+
+AppService.WorkWithTeamwork().AttachO365GroupAsync(
+    ...
+    enterpriseProperties: enterpriseProperties
+);
 ```
+
+## Enterpise Properties
+
+For 
 
 ## App Context issues
 
