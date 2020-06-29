@@ -50,7 +50,7 @@ AppService.WorkWithTeamwork().AttachO365GroupAsync(
 ## App Context issues
 
 - SharePoint Teamwork is not supported to workwith App Context.
-- Setting up Systeam Account might solve the App Context issue, but it is not fully supported. 
+- Setting up System Account might solve the App Context issue, but it is not fully supported. 
 
 > It is recommended to use User Context.
 
