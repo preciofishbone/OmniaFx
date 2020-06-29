@@ -37,7 +37,7 @@ enterpriseProperties
     .AddEnterpriseKeywords(keyWordProperty, Guid.NewGuid())
     .AddTaxonomy(taxonomyProperty, Guid.NewGuid(), Guid.NewGuid())
     .AddNumber(numberProperty, 1)
-    .AddTags(tagProperty, new Tag { Name = "TagA" })
+    .AddTags(tagProperty, new Tag { Name = "TagA" }, new Tag { Name = "TagB" })
     .AddText(textProperty, "Lorem ipsum dolor sit amet")
     .AddRichText(richTextProperty, "Lorem ipsum dolor sit amet");
 
@@ -46,10 +46,6 @@ AppService.WorkWithTeamwork().AttachO365GroupAsync(
     enterpriseProperties: enterpriseProperties
 );
 ```
-
-## Enterpise Properties
-
-For 
 
 ## App Context issues
 
