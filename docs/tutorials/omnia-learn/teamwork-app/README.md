@@ -28,7 +28,7 @@ AppService.WorkWithTeamwork().CreateO365GroupAsync
 AppService.WorkWithTeamwork().CreateSharePointTeamSiteAsync
 AppService.WorkWithTeamwork().CreateSharePointCommunicationSiteAsync
 
-//- initial enterprise property values for creating Teamwork 
+//- Initial enterprise property values when creating a Teamwork 
 var enterpriseProperties = new EnterprisePropertyDictionary();
 enterpriseProperties
     .AddPerson(personProperty, new UserIdentity {Uid = "user1@tenant.com" } , new UserIdentity {Uid = "user2@tenant.com" })
