@@ -26,15 +26,6 @@ omnia dev update omniafx -v 4.1.0 -p C:\your-extension-path
 | --- |
 | [Environment Variables](#environment-variables)|
 
-
-# WCM Fx
-
-Run the below cmd to update all wcm fx npm/nuget:
-
-```
-omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
-```
-
 # Recommended Changes
 
 ## Build configuration
