@@ -23,6 +23,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 
 | Breaking Changes |
 | --- |
+| [Environment Variables](#environment-variables)|
 | [Custom RTF extension](#custom-rtf-extension)|
 | [Server-side HttpClient](#server-side-httpclient)|
 | [Audit Log](#audit-log)|
@@ -48,6 +49,57 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 ---
 
 # Breaking Changes
+
+## Environment Variables 
+
+Runtime error: 
+
+    Can't get current extensions using Current, missing environment variable OMNIA_EXTENSIONID
+
+Follow the instruction beflow to fix the issue:
+
+-   For WebApp
+  
+    Edit the existing file `Properties\launchSettings.json`
+
+    ```json
+    {
+        "profiles": {
+            "IIS Express": {
+                "environmentVariables": {
+
+                    "OMNIA_EXTENSIONID": "you-extension-id"
+
+                }
+            },
+            "The-file-name-of-webapp-csproj-file": { 
+                "environmentVariables": {
+
+                    "OMNIA_EXTENSIONID": "you-extension-id"
+
+                },
+            }
+        }
+    }
+    ```
+
+-   For Worker
+
+    Add the new file `Properties\launchSettings.json`
+
+    ```json
+    {
+        "profiles": {
+            "The-file-name-of-worker-csproj-file": {
+                "environmentVariables": {
+                
+                    "OMNIA_EXTENSIONID": "you-extension-id"
+                    
+                }
+            }
+        }
+    }
+    ```
 
 ## Custom RTF extension
 
