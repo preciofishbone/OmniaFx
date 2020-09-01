@@ -53,7 +53,7 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 
 Follow the instruction below to update existing web components in your extension:
 
-1. Ensure all the `/*@DomProperty*/` are removed in web component interface definition. For example:
+1. Remove  `/*@DomProperty*/` in web component interface definition. For example:
 
     From
 
@@ -78,7 +78,7 @@ Follow the instruction below to update existing web components in your extension
     }
     ```
 
-2. Ensure the web component class must extend `VueComponentBase`. For example:
+2. Web component class must extend `VueComponentBase`. For example:
 
     ```ts
     @Component
