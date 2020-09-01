@@ -21,6 +21,10 @@ Run the below cmd to update all omnia fx npm/nuget:
 omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 ```
 
+| Recommended Changes |
+| --- |
+| [Web Component](#web-component)|
+
 | Breaking Changes |
 | --- |
 | [Environment Variables](#environment-variables)|
@@ -28,9 +32,6 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | [Server-side HttpClient](#server-side-httpclient)|
 | [Audit Log](#audit-log)|
 | [User](#user )|
-
-
----
 
 # WCM Fx
 
@@ -46,7 +47,43 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 | [Delete Page](#delete-page)|
 | [Delete Navigation Node](#delete-navigation-node)|
 
----
+# Recommended Changes
+
+## Web Component
+
+Follow the instruction below to update existing web components in your extension:
+
+1. Ensure all the `/*@DomProperty*/` are removed in web component interface definition. For example:
+
+    From
+
+    ```ts
+    /*@WebComponentInterface("component-a")*/
+    export interface IComponentA {
+        /*@DomProperty*/  
+        propertyA: object;
+
+        /*@DomProperty*/
+        propertyB: object;
+    }
+    ```
+
+    To
+
+    ```ts
+    /*@WebComponentInterface("component-a")*/
+    export interface IComponentA {
+        propertyA: object;
+        propertyB: object;
+    }
+    ```
+
+2. Ensure the web component class must extend `VueComponentBase`. For example:
+
+    ```ts
+    @Component
+    export default class ComponentA extends VueComponentBase implements IComponentA
+    ```
 
 # Breaking Changes
 
