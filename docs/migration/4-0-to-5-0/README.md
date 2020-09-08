@@ -54,10 +54,10 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 Follow the instruction below to update existing web components in your extension:
 
 1. Remove  `/*@DomProperty*/` in web component interface definition. For example:
-
-    From
-
+    
     ```ts
+    /*-----Old-----*/
+
     /*@WebComponentInterface("component-a")*/
     export interface IComponentA {
         /*@DomProperty*/  
@@ -66,11 +66,9 @@ Follow the instruction below to update existing web components in your extension
         /*@DomProperty*/
         propertyB: object;
     }
-    ```
 
-    To
+    /*-----New-----*/
 
-    ```ts
     /*@WebComponentInterface("component-a")*/
     export interface IComponentA {
         propertyA: object;
@@ -81,8 +79,15 @@ Follow the instruction below to update existing web components in your extension
 2. Web component class must extend `VueComponentBase`. For example:
 
     ```ts
+    /*-----Old-----*/
+
     @Component
     export default class ComponentA extends VueComponentBase implements IComponentA
+
+    /*-----New-----*/
+
+    @Component
+    export default class ComponentA extends Vue implements IComponentA
     ```
 
 # Breaking Changes
