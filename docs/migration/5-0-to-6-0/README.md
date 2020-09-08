@@ -215,7 +215,7 @@ export class MyBlockComponent extends VueComponentBase {
 
 ## Page Rollup
 
-Fix custom view - CustomView.tsx
+Fix the way to navigate pages in custom view:
 
 ```ts
 
@@ -234,7 +234,7 @@ this.pageRollupStore.actions.navigate.dispatch(pageNavigationNode, pageId, pageU
 
 If you see errors that getting all variation pages from a default page, then you have to change the logic.
 
-Form now on, the default page will contains all the variation pages, and the page navigation node will always link to the default page.
+Form now on, the default page will contain all the variation pages, and the page navigation node will always link to the default page.
 
 **Server-side:**
 
