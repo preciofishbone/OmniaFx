@@ -37,7 +37,8 @@ omnia dev update wcmfx -v 6.0.0 -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [WCM Block](#wcm-block)|
-
+| [Page Rollup](#page-rollup)|
+| [Variation Page](#variation-page)|
 
 # Breaking Changes
 
@@ -209,5 +210,52 @@ export class MyBlockComponent extends VueComponentBase {
     ...
     layoutDependencyProviders: ["wcm"] //this block is available for using inside wcm layout
 });
+
+```
+
+## Page Rollup
+
+Fix custom view - CustomView.tsx
+
+```ts
+
+/*-----Old-----*/
+this.pageRollupStore.actions.navigate.dispatch(pageId, pageUrl);
+
+
+/*-----New-----*/
+this.pageRollupStore.actions.navigate.dispatch(pageNavigationNode, pageId, pageUrl);
+
+//you can get the pageNavigationNode from the PageDetailsQueryResult that passing into the view
+
+```
+
+## Variation Page
+
+If you see errors that getting all variation pages from a default page, then you have to change the logic.
+
+Form now on, the default page will contains all the variation pages, and the page navigation node will always link to the default page.
+
+**Server-side:**
+
+```cs
+
+    //check if the page is default variation page
+    if(page is DefaultVariationPage defaultVariationPage){
+        //then you can get all related variation pages (not include default page)
+        defaultVariationPage.VariationPages
+    }
+
+```
+
+**Client-side:**
+
+```ts
+
+    let defaultVariationPage = page as DefaultVariationPage
+    if(defaultVariationPage.variationPages){
+        //then you can get all related variation pages (not include default page)
+        defaultVariationPage.VariationPages
+    }
 
 ```
