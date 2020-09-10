@@ -53,8 +53,10 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 
 Follow the instruction below to update existing web components in your extension:
 
-1. Remove  `/*@DomProperty*/` in web component interface definition. For example:
+1. Remove all comment syntax start with `/*@....` in web component interface. For example:
     
+    - IComponentA.ts
+  
     ```ts
     /*-----Old-----*/
 
@@ -67,16 +69,44 @@ Follow the instruction below to update existing web components in your extension
         propertyB: object;
     }
 
-    /*-----New-----*/
+    declare global {
+        namespace JSX {
+            interface Element { }
+            interface ElementClass { }
+            interface ElementAttributesProperty { }
+            interface IntrinsicElements {
+                /*@WebComponent*/
+                "component-a": TsxAllowUnknowProperties<IComponentA>;
+            }
+        }
+    }
 
-    /*@WebComponentInterface("component-a")*/
+
+
+
+    /*-----New-----*/
+ 
     export interface IComponentA {
         propertyA: object;
         propertyB: object;
     }
+
+    declare global {
+        namespace JSX {
+            interface Element { }
+            interface ElementClass { }
+            interface ElementAttributesProperty { }
+            interface IntrinsicElements {
+                "component-a": TsxAllowUnknowProperties<IComponentA>;
+            }
+        }
+    }
+
     ```
 
 2. Web component class must extend `VueComponentBase`. For example:
+
+    - ComponentA.tsx
 
     ```ts
     /*-----Old-----*/
