@@ -50,7 +50,7 @@ omnia dev update wcmfx -v 6.0.0 -p C:\your-extension-path
 
 ## Enterprise Property
 
-From now on, enterprise property could be grouped under categories. If you use `v-autocomplete` or `v-select` to render a list of enterprise properties, you might want to switch to using our new component  `omfx-enterpriseproperty-picker`. 
+From now on, enterprise properties could be grouped under categories. If you use `v-autocomplete` or `v-select` to render a list of enterprise properties, you might want to switch to using our new component  `omfx-enterpriseproperty-picker`. 
 
 # Breaking Changes
 
