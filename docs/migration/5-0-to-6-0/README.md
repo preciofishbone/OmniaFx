@@ -37,6 +37,7 @@ omnia dev update wcmfx -v 6.0.0 -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [WCM Block](#wcm-block)|
+| [WCM Web Component](#wcm-web-component)|
 | [Page Rollup](#page-rollup)|
 | [Variation Page](#variation-page)|
 
@@ -201,7 +202,7 @@ export class MyBlockComponent extends VueComponentBase {
 
 ```
 
-- Update block manifest - MyBlock.manifest.ts
+- Update block registration in manifest - MyBlock.manifest.ts
 
 ```ts
 
@@ -211,6 +212,38 @@ export class MyBlockComponent extends VueComponentBase {
     layoutDependencyProviders: ["wcm"] //this block is available for using inside wcm layout
 });
 
+```
+
+## WCM Web Component
+
+If you are using these wcm web components below, you have to replace it with:
+
+```html
+
+```tsx
+render(h) {
+    return (
+       
+        /*-----Old-----*/
+        <wcm-empty-block-view></wcm-empty-block-view>
+        /*-----New-----*/
+        <omfx-layout-block-placeholder></omfx-layout-block-placeholder>
+
+
+
+        /*-----Old-----*/
+        <wcm-block-title></wcm-block-title>
+        /*-----New-----*/
+        <omfx-layout-block-title></omfx-layout-block-title>
+
+
+
+        /*-----Old-----*/
+        <wcm-block-title-settings></wcm-block-title-settings>
+        /*-----New-----*/
+        <omfx-layout-block-title-settings></omfx-layout-block-title-settings>
+    )
+}
 ```
 
 ## Page Rollup
@@ -232,7 +265,7 @@ this.pageRollupStore.actions.navigate.dispatch(pageNavigationNode, pageId, pageU
 
 ## Variation Page
 
-If you see errors that getting all variation pages from a default page, then you have to change the logic.
+If you see errors that getting all variation pages from a default page, you have to change the logic.
 
 Form now on, the default page will contain all the variation pages, and the page navigation node will always link to the default page.
 
