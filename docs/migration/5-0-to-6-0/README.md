@@ -21,6 +21,10 @@ Run the below cmd to update all omnia fx npm/nuget:
 omnia dev update omniafx -v 6.0.0 -p C:\your-extension-path
 ```
 
+| Recommended Changes |
+| --- |
+| [Enterprise Property](#enterprise-property)|
+
 | Breaking Changes |
 | --- |
 | [User](#user)|
@@ -40,6 +44,13 @@ omnia dev update wcmfx -v 6.0.0 -p C:\your-extension-path
 | [WCM Web Component](#wcm-web-component)|
 | [Page Rollup](#page-rollup)|
 | [Variation Page](#variation-page)|
+
+
+# Recommended Changes
+
+## Enterprise Property
+
+From now on, enterprise property could be grouped under categories. If you use `v-autocomplete` or `v-select` to render a list of enterprise properties, you might want to switch to using our new component  `omfx-enterpriseproperty-picker`. 
 
 # Breaking Changes
 
