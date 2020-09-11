@@ -41,6 +41,17 @@ enterpriseProperties
     .AddText(textProperty, "Lorem ipsum dolor sit amet")
     .AddRichText(richTextProperty, "Lorem ipsum dolor sit amet");
 
+    //Or use the property internal name directly
+    .AddPerson("personPropertyInternalName", new UserIdentity {Uid = "user1@tenant.com" } , new UserIdentity {Uid = "user2@tenant.com" })
+    .AddBoolean("booleanPropertyInternalName", true)
+    .AddDateTime("dateTimePropertyInternalName", DateTime.UtcNow)
+    .AddEnterpriseKeywords("keywordPropertyInternalName", Guid.NewGuid())
+    .AddTaxonomy("taxonomyPropertyInternalName", Guid.NewGuid(), Guid.NewGuid())
+    .AddNumber("numberPropertyInternalName", 1)
+    .AddTags("tagPropertyInternalName", new Tag { Name = "TagA" }, new Tag { Name = "TagB" })
+    .AddText("textPropertyInternalName", "Lorem ipsum dolor sit amet")
+    .AddRichText("richTextPropertyInternalName", "Lorem ipsum dolor sit amet");
+
 AppService.WorkWithTeamwork().AttachO365GroupAsync(
     ...
     enterpriseProperties: enterpriseProperties
@@ -49,8 +60,8 @@ AppService.WorkWithTeamwork().AttachO365GroupAsync(
 
 ## App Context issues
 
-- SharePoint Teamwork is not supported to workwith App Context.
-- Setting up System Account might solve the App Context issue, but it is not fully supported. 
+- It is not supported to create O365 Group for now.
 
-> It is recommended to use User Context.
+- If your tenant is using System Account, it might cause unexpected issue if the same user is used in permsision settings (e.g. site owner).
+
 
