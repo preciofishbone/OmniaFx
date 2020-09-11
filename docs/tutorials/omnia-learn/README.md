@@ -28,6 +28,10 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     Where you can find all the out-of-the-box fx components, such as People Picker and Color Picker.
 
+- ## [Omnia Feature](./omnia-feature#omnia-feature)
+
+    Some common scenarios in which you may need to use manifest load rule.
+
 - ## [Load a resource manifest with load rule](./manifest-load-rule#manifest-custom-load-rule)
 
     Some common scenarios in which you may need to use manifest load rule.
