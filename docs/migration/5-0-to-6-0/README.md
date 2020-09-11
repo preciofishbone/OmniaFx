@@ -41,7 +41,7 @@ omnia dev update wcmfx -v 6.0.0 -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [WCM Block](#wcm-block)|
-| [WCM Web Component](#wcm-web-component)|
+| [WCM Block Title](#wcm-block-title)|
 | [Page Rollup](#page-rollup)|
 | [Variation Page](#variation-page)|
 
@@ -225,13 +225,24 @@ export class MyBlockComponent extends VueComponentBase {
 
 ```
 
-## WCM Web Component
+## WCM Block TItle
 
-If you are using these wcm web components below, you have to replace it with:
+If you are using wcm block title stuffs, you have to replace it:
 
-```html
 
 ```tsx
+/*-----Old-----*/
+import { BlockTitleSettingsStore } from '@omnia/wcm';
+/*-----New-----*/
+import { BlockTitleSettingsStore } from '@omnia/fx/stores';
+
+
+/*-----Old-----*/
+import { BlockTitleSettings } from '@omnia/fx-models';
+/*-----New-----*/
+import { BlockTitleSettings } from '@omnia/wcm/models';
+
+
 render(h) {
     return (
        
