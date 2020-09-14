@@ -8,19 +8,19 @@ using Omnia.TeamCollaboration.Fx;
 //Inject IAppService (Omnia.Fx.Apps.IAppService)
 IAppService AppService;
 
-//Then you can
+//Then it is able to
 
-//- Get a Teamwork by SharePoint site url
+//- get a Teamwork by SharePoint site url
 AppService.WorkWithTeamwork().GetTeamworkAppAsync
 
-//- Attach a SharePoint site to a new Teamwork
+//- create a new Teamwork and attach an existing SharePoint site to it.
 AppService.WorkWithTeamwork().AttachO365GroupAsync
 AppService.WorkWithTeamwork().AttachSharePointTeamSiteAsync
 AppService.WorkWithTeamwork().AttachSharePointCommunicationSiteAsync
 AppService.WorkWithTeamwork().AttachYammerGroupAsync
 AppService.WorkWithTeamwork().AttachMicrosoftTeamAsync
 
-//- Create a new Teamwork
+//- create a new Teamwork 
 AppService.WorkWithTeamwork().CreateFacebookWorkplaceGroupAsync
 AppService.WorkWithTeamwork().CreateYammerGroupAsync
 AppService.WorkWithTeamwork().CreateMicrosoftTeamAsync
@@ -28,32 +28,36 @@ AppService.WorkWithTeamwork().CreateO365GroupAsync
 AppService.WorkWithTeamwork().CreateSharePointTeamSiteAsync
 AppService.WorkWithTeamwork().CreateSharePointCommunicationSiteAsync
 
-//- Initial enterprise property values when creating a Teamwork 
+
+//To create a new Teamwork with its default enterprise properties, you can initialize the properties with EnterprisePropertyDictionary. For example:
 var enterpriseProperties = new EnterprisePropertyDictionary();
 enterpriseProperties
-    .AddPerson(personProperty, new UserIdentity {Uid = "user1@tenant.com" } , new UserIdentity {Uid = "user2@tenant.com" })
-    .AddBoolean(booleanProperty, true)
-    .AddDateTime(dateTimeProperty, DateTime.UtcNow)
-    .AddEnterpriseKeywords(keyWordProperty, Guid.NewGuid())
-    .AddTaxonomy(taxonomyProperty, Guid.NewGuid(), Guid.NewGuid())
-    .AddNumber(numberProperty, 1)
-    .AddTags(tagProperty, new Tag { Name = "TagA" }, new Tag { Name = "TagB" })
-    .AddText(textProperty, "Lorem ipsum dolor sit amet")
-    .AddRichText(richTextProperty, "Lorem ipsum dolor sit amet");
+    .AddOrUpdatePerson(personProperty, new IdentityId {Uid = "user1@tenant.com" } , new IdentityId {Uid = "user2@tenant.com" })
+    .AddOrUpdateBoolean(booleanProperty, true)
+    .AddOrUpdateDateTime(dateTimeProperty, DateTime.UtcNow)
+    .AddOrUpdateEnterpriseKeywords(keyWordProperty, Guid.NewGuid())
+    .AddOrUpdateTaxonomy(taxonomyProperty, Guid.NewGuid(), Guid.NewGuid())
+    .AddOrUpdateNumber(numberProperty, 1)
+    .AddOrUpdateTags(tagProperty, new Tag { Name = "TagA" }, new Tag { Name = "TagB" })
+    .AddOrUpdateText(textProperty, "Lorem ipsum dolor sit amet")
+    .AddOrUpdateRichText(richTextProperty, "<p>Lorem ipsum dolor sit amet</p>");
 
     //Or use the property internal name directly
-    .AddPerson("personPropertyInternalName", new UserIdentity {Uid = "user1@tenant.com" } , new UserIdentity {Uid = "user2@tenant.com" })
-    .AddBoolean("booleanPropertyInternalName", true)
-    .AddDateTime("dateTimePropertyInternalName", DateTime.UtcNow)
-    .AddEnterpriseKeywords("keywordPropertyInternalName", Guid.NewGuid())
-    .AddTaxonomy("taxonomyPropertyInternalName", Guid.NewGuid(), Guid.NewGuid())
-    .AddNumber("numberPropertyInternalName", 1)
-    .AddTags("tagPropertyInternalName", new Tag { Name = "TagA" }, new Tag { Name = "TagB" })
-    .AddText("textPropertyInternalName", "Lorem ipsum dolor sit amet")
-    .AddRichText("richTextPropertyInternalName", "Lorem ipsum dolor sit amet");
+    .AddOrUpdatePerson("personPropertyInternalName", new IdentityId {Uid = "user1@tenant.com" } , new IdentityId {Uid = "user2@tenant.com" })
+    .AddOrUpdateBoolean("booleanPropertyInternalName", true)
+    .AddOrUpdateDateTime("dateTimePropertyInternalName", DateTime.UtcNow)
+    .AddOrUpdateEnterpriseKeywords("keywordPropertyInternalName", Guid.NewGuid())
+    .AddOrUpdateTaxonomy("taxonomyPropertyInternalName", Guid.NewGuid(), Guid.NewGuid())
+    .AddOrUpdateNumber("numberPropertyInternalName", 1)
+    .AddOrUpdateTags("tagPropertyInternalName", new Tag { Name = "TagA" }, new Tag { Name = "TagB" })
+    .AddOrUpdateText("textPropertyInternalName", "Lorem ipsum dolor sit amet")
+    .AddOrUpdateRichText("richTextPropertyInternalName", "Lorem ipsum dolor sit amet");
 
+AppService.WorkWithTeamwork().CreateO365GroupAsync(
+    enterpriseProperties: enterpriseProperties
+)
+ 
 AppService.WorkWithTeamwork().AttachO365GroupAsync(
-    ...
     enterpriseProperties: enterpriseProperties
 );
 ```
@@ -62,6 +66,6 @@ AppService.WorkWithTeamwork().AttachO365GroupAsync(
 
 - It is not supported to create O365 Group for now.
 
-- If your tenant is using System Account, it might cause unexpected issue if the same user is used in permsision settings (e.g. site owner).
+- If your tenant is using System Account mode, make sure that the System Account's user is not used in teamwork's app instance admin. Otherwise, it might cause unexpected issues. 
 
 
