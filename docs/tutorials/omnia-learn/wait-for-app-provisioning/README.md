@@ -1,38 +1,36 @@
 # Wait for App provisioning
 
-After creating an app (app instance), provisiong might still running in background. 
-
-The following sample show how to wait for the provisioning state.
+After creating an app instance, there may be some provisioning tasks that are still running in background. You might want to follow the sample code below to wait for provisioning state:
 
 ```cs
 
-//Inject IAppService (Omnia.Fx.Apps.IAppService)
+//Inject IAppService from Omnia.Fx.Apps namespace
 IAppService AppService;
 
-//The newly created appInstance that need to wait for the provisioning
+//A newly created appInstance that need to wait for the provisioning
 AppInstance appInstance;
 
 //Wait
-AppService.WaitForProvisioningStateAsync(appInstance,
+await AppService.WaitForProvisioningStateAsync(appInstance,
     successFunc: async (appInstance) =>
     {
-
+        //all provisioning tasks were completed successfully!
     },
     errorFunc: async (appInstance) =>
     {
-
+        //something was failed!
     },
     timeoutFunc: async (appInstance) =>
     {
-
+        //timeout was reached!
     },
-    minutesTimeout: 30
+    minutesTimeout: 10
 );
 
 ```
 
 # Note
 
-- If the relevant app template requires approval then it will throw exception. You are not supposed to wait for that.
-- There are some special cases in provisioning App that might take up to 30 minutes. (i.e. create SharePoint site failed and keep retry internally).
+- If the associated app template requires approval then it will throw exception in `WaitForProvisioningStateAsync`. 
+- There may be some special cases that take up to 30 minutes to wait for. (e.g. The system will try to handle SharePoint's temporary failures internally)
 
