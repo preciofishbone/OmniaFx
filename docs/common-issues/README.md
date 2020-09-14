@@ -158,15 +158,15 @@ Omnia Feature registration does not get deployed.
 
 **Reason**
 
-your-feature.manifest.ts file is probably put outside 'client' folder in Web project. 
+`your-feature.manifest.ts` file is probably put outside `client` folder in Web project. 
 
 **Solution 1**
 
-Move feature files into 'client' folder.
+Move feature files into `client` folder.
 
 **Solution 2**
 
-Update omnia.service.ts, ensure your feature's folder is included
+Update `omnia.service.ts` so that it includes your feature's folder.
 
 ```ts
 .withBuildOptions({
