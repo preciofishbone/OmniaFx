@@ -1,14 +1,18 @@
 # Omnia Feature
 
+## Feature scopes
+
+There are 3 main Feature scopes: Tenant, Business Profile and App Instance. You could find more information about it below.
+
 ## Feature with C# (Feature with handler)
 
-This type of feature will interact with a `feature handler`, aka a queue job, in worker. Every time user click on activate/upgrade/deactive the feature, it will send a queue message to `feature handler` and wait for the job to complete. For example: 
+This type of feature will interact with a `feature handler` (aka a queue job) in Worker. When you activate/upgrade/deactive the feature, it will send a queue message to `feature handler` and wait for the handler job to complete. For example: 
 
 - TestFeature.manifest.ts
 
     ```ts
     Composer
-        .registerManifest(new Guid(test-feature-guid))
+        .registerManifest(new Guid({TEST-FEATURE-GUID}))
         .registerFeature
         ({
             version: "1.0.0",
@@ -38,10 +42,10 @@ This type of feature will interact with a `feature handler`, aka a queue job, in
             //This property is not used at the moment
             parameters: [], 
             
-            //Define that this feature has C# handler 
+            //Define that this feature has feature handler (C# queue job) 
             hasProviderHandling: true,
 
-            //Define that this feature is hidden from UI  
+            //Define that this feature is hidden from UI, it is still able to activate through Swagger/Postman. 
             hidden: true
         });
     ```
@@ -51,26 +55,26 @@ This type of feature will interact with a `feature handler`, aka a queue job, in
     ```cs
     namespace NamespaceSomething.Features {
         
-        //test-feature-guid is the same id in TestFeature.manifest.ts
-        [OmniaFeature(id: test-feature-guid)]
+        //{TEST-FEATURE-GUID} is the same value as ManifestId in TestFeature.manifest.ts
+        [OmniaFeature(id: {TEST-FEATURE-GUID})]
         internal class TestFeatureProvider : BaseFeatureProvider
         {
-            //Do not try-catch to swallow the exceptions without purpose
-            //Omnia will handle error status if there is any errors
+            //Do not try-catch to swallow the exceptions without a purpose
+            //Omnia will handle feature failed status if there is any errors
             protected override async Task ActivateAsync()
             {
                 return Task.CompletedTask;
             }
 
-            //Do not try-catch to swallow the exceptions without purpose
-            //Omnia will handle error status if there is any errors
+            //Do not try-catch to swallow the exceptions without a purpose
+            //Omnia will handle feature failed status if there is any errors
             protected override Task UpgradeAsync(string fromVersion)
             {
                 return Task.CompletedTask;
             }
 
-            //Do not try-catch to swallow the exceptions without purpose
-            //Omnia will handle error status if there is any errors
+            //Do not try-catch to swallow the exceptions without a purpose
+            //Omnia will handle feature failed status if there is any errors
             protected override Task DeactivateAsync(string fromVersion)
             {
                 return Task.CompletedTask;
@@ -80,7 +84,7 @@ This type of feature will interact with a `feature handler`, aka a queue job, in
     }
     ```
 
-    - If it is a Business Profile scope feature, you might want to get the profile id:
+    - If it is a Business Profile scope feature, you might want to get associated profile id:
 
     ```cs
     
@@ -89,7 +93,7 @@ This type of feature will interact with a `feature handler`, aka a queue job, in
     {
         protected override async Task ActivateAsync()
         {
-            //...then get the business profile id that trigger the queue job
+            //...then get the associated business profile id 
             var profileId = BusinessProfile.Id;
 
             return Task.CompletedTask;
@@ -98,7 +102,7 @@ This type of feature will interact with a `feature handler`, aka a queue job, in
 
     ```
 
-    - If it is an App instance scope feature, you might want to get the SharePoint url:
+    - If it is an App instance scope feature, you might want to get associated SharePoint site url:
 
     ```cs
 
@@ -107,7 +111,7 @@ This type of feature will interact with a `feature handler`, aka a queue job, in
     {
         protected override async Task ActivateAsync()
         {
-            //...then get the sp url that trigger the queue job
+            //...then get the associated sp url
             var spUrl = AppInstance.Properties.ContextParams.EnsureContextParamStringValue(Fx.SharePoint.Constants.Parameters.SPUrl);
 
             return Task.CompletedTask;
@@ -119,18 +123,18 @@ This type of feature will interact with a `feature handler`, aka a queue job, in
 
 ## Feature without C# (Feature without handler)
 
-This type of feature is just an On/Off-switch and usually combine with [manifest load rule](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/omnia-learn/manifest-load-rule#manifest-custom-load-rule) to load resources. For example: 
+This type of feature is just an On/Off-switch and usually be used together with [manifest load rule](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/omnia-learn/manifest-load-rule#manifest-custom-load-rule). For example: 
 
 - TestFeature.manifest.ts
 
     ```ts
     Composer
-        .registerManifest(new Guid(test-feature-guid))
+        .registerManifest(new Guid({TEST-FEATURE-GUID}))
         .registerFeature
         ({
             ...
 
-            //Define that this feature DOES NOT have C# handler 
+            //Define that this feature DOES NOT have feature handler (C#) 
             hasProviderHandling: false
 
             ...
@@ -146,14 +150,14 @@ This type of feature is just an On/Off-switch and usually combine with [manifest
 
 - Feature with C#
 
-    It is mandatory to put feature-with-C# in Worker project. Because the feature-handler.cs (queue job) need to be registered in the Worker. 
+    It is mandatory to put feature-with-C# in Worker project. Because feature-handler.cs (queue job) have to be registered in the Worker. 
 
 - Feature without C#
 
     It is recommended to put feature-without-C# in Web project. So that you can easily control the feature and manifest load rule in the same place.
 
-> Note: After deploying, features will be stuck with a service (Web or Worker) that contains it. You should not move the features to other service.
+> Note: After deploying, features will be stuck with a service (Web or Worker) that contains it. You should not move the features to other services.
 
 ## How to create a feature
 
-You can visit the [Create a Feature](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/create-feature#create-a-feature) part in [Create Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension#build-your-first-extension-like-a-boss) tutorial to learn how to create a feature step by step.  
+You can visit the [Create a Feature](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension/create-feature#create-a-feature) part in [Create Extension](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/first-extension#build-your-first-extension-like-a-boss) tutorial to learn how to create a feature step by step. 

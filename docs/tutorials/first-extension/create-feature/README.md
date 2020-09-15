@@ -78,7 +78,7 @@ Try to activate the feature on a Teamwork app.
 
 # Step 3. Debug
 
-You might now notice that the sample feature is activated failed. So now you need to debug and fix it!
+Now, You might notice that the sample feature is activated failed. So you need to debug and fix it!
 
 Disable the worker that running on cloud server so that the local worker can pick up the activation queue messages.
 
@@ -88,9 +88,9 @@ omnia extensions scale {worker-service-id} --tenantid {tenant-id} --replicas 0
 
 >Tip: You can find the `worker-service-id` defined in `..\HelloOmniaFx.Worker\omnia.service.ts`.
 
-Now start debugging and activate the feature again.
+Start debugging and activate the feature again.
 
-Remember to enable the worker again after debugging it.
+**Remember to enable the worker again after debugging it.**
 
 ```
 omnia extensions scale {worker-service-id} --tenantid {tenant-id} --replicas 1	
