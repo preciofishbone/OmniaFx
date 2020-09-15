@@ -32,6 +32,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | [Server-side HttpClient](#server-side-httpclient)|
 | [Audit Log](#audit-log)|
 | [User](#user )|
+| [Worker Program.cs](#worker-program.cs )|
 
 # WCM Fx
 
@@ -213,6 +214,10 @@ Enum `UserPrincipalType` has been renamed to `AzureAdObjectPrincipalTypes`, in b
 Client-side model `OmniaUserContext` has been replaced with `UserWithPropertyBag`.
 
 Model `User` has been updated to be generic to support different types of user. The new model `AzureAdUser`, which is a specific of `User`, is equivalent to the old `User`.
+
+## Worker program.cs
+
+Replace `.AddOmniaFxNetCore` to `.AddOmniaFxWorker`
 
 ## Create Page
 

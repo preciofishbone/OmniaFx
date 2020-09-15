@@ -33,7 +33,7 @@ namespace HelloOmniaFx.Worker.Features
 - Add the configuration code in `..\HelloOmniaFx.Worker\Program.cs`:
 
 ```cs
-omniaConfig.AddOmniaFxNetCore((options) =>
+omniaConfig.AddOmniaFxWorker((options) =>
 {
     options.AddFeatureHandlers((featureProviderOptions) =>
     {
