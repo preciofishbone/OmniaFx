@@ -170,20 +170,27 @@ export class MyBlockComponent extends VueComponentBase {
 
     //New way to get block settings
     @BlockSettingsReader<MyBlockSettings>({
-            //New way to set default value for MyBlockSettings.
-            //NOTE: it is recommended to set default value for all properties of MyBlockSettings. Otherwise you will lost reactivity on block settings and end up with using bad-$forceUpdate() everywhere.
+            /**
+            * New way to set default value for MyBlockSettings.
+            
+            * IT IS RECOMMENDED TO SET DEFAULT VALUE FOR ALL PROPERTIES OF MyBlockSettings. 
+            
+            * Otherwise, your component might lost reactivity on settings then end up with using bad-$forceUpdate() everywhere.
+            
+            */
             defaultValue: MyBlockConfigurationFactory.defaultSettings(),
             
-            //New way to get register block settings web component
+            //New way to register block settings web component
             editElement: "my-block-settings"
     })
-    private settings: MyBlockSettings; //Block settings will be addedto this property before the block component is created. 
+    //Block settings will be set to this property automatically before creating the block component.
+    private settings: MyBlockSettings;
 
 
     /*--------------------------------------------------------*/
 
 
-    //If you want to lister on the block settings changed to handle extra logic (e.g. re-query server base on the new settings). Then you can watch the block settings. 
+    //If you want to lister on changes of block settings, (e.g. re-query data based on the new settings), you can @Watch the block settings. 
     //However, if you only use the block settings for rendering, it will automatically trigger re-render after changing the value.
 
     @Watch('settings', { immediate: false, deep: true })
@@ -193,7 +200,7 @@ export class MyBlockComponent extends VueComponentBase {
     }
 
     public created(){
-        //block is created, do some init
+        //block is created, do first init
         this.init();
     }
 
@@ -201,13 +208,16 @@ export class MyBlockComponent extends VueComponentBase {
     /*--------------------------------------------------------*/
 
     
-    //If your block is working with block property (AKA block data data in 5.0). Follow the following code to know how to get/set the block property.
+    //If your block is working with block property (AKA block-data's data in 5.0), you can see the following code to know how to get/set the block property in new way.
 
     private blockProperty: ReactivePageBlockProperty<MyBlockProperty> = null;
     private init(){
-        //Check if the block is render inside wcm layout
+        //Check if the block is rendered inside wcm layout
         if(this.blockInstance.wcm){
-            //Get the block property
+            //Get the block property from wcm api
+            
+            //IT IS RECOMMENDED TO SET DEFAULT VALUE FOR ALL PROPERTIES OF BlockProperty. 
+            
             this.blockProperty = this.blockInstance.wcm.pageBlockPropertyStore.getBlockProperty(this.blockInstance, this.settings, MyBlockConfigurationFactory.defaultProperty())
         }
     }
@@ -232,11 +242,18 @@ export class MyBlockComponent extends VueComponentBase {
 
     //New way to get block settings
     @BlockSettingsWriter<MyBlockSettings>({
-        //New way to set default value for MyBlockSettings.
-        //NOTE: it is recommended to set default value for all properties of MyBlockSettings. Otherwise you will lost reactivity on block settings and end up with using bad-$forceUpdate() everywhere.
+        /**
+        * New way to set default value for MyBlockSettings.
+        
+        * IT IS RECOMMENDED TO SET DEFAULT VALUE FOR ALL PROPERTIES OF MyBlockSettings. 
+        
+        * Otherwise, your component might lost reactivity on settings then end up with using bad-$forceUpdate() everywhere.
+        
+        */
         defaultValue: MyBlockConfigurationFactory.defaultSettings()
     })
-    private settings: IBlockSettingsWriter<MyBlockSettings>; //Block settings will be added to this property before the block component is created. 
+    //Block settings will be set to this property automatically before creating the block settings component.
+    private settings: IBlockSettingsWriter<MyBlockSettings>; 
 
 }
 
@@ -249,12 +266,14 @@ export class MyBlockComponent extends VueComponentBase {
 ...
 .registerOmniaBlock({
     ...
-    layoutDependencyProviders: ["wcm"] //this block is available for using inside wcm layout
+    //Define layout providers in which this block is supported
+    //For example: this block is supported to use inside wcm layout
+    layoutDependencyProviders: ["wcm"] 
 });
 
 ```
 
-## WCM Block TItle
+## WCM Block Title
 
 If you are using wcm block title stuffs, you have to replace it:
 
@@ -310,15 +329,15 @@ this.pageRollupStore.actions.navigate.dispatch(pageId, pageUrl);
 /*-----New-----*/
 this.pageRollupStore.actions.navigate.dispatch(pageNavigationNode, pageId, pageUrl);
 
-//you can get the pageNavigationNode from the PageDetailsQueryResult that passing into the view
+//you can get the pageNavigationNode from the PageDetailsQueryResult item that passing into the view
 
 ```
 
 ## Variation Page
 
-If you see errors that getting all variation pages from a default page, you have to change the logic.
+If you see errors that getting all variation pages from a default page, you have to change the logic:
 
-Form now on, the default page will contain all the variation pages, and the page navigation node will always link to the default page.
+Form now on, default page will contain all its variation pages, and page navigation node will always link to the default page.
 
 **Server-side:**
 
@@ -326,7 +345,7 @@ Form now on, the default page will contain all the variation pages, and the page
 
     //check if the page is default variation page
     if(page is DefaultVariationPage defaultVariationPage){
-        //then you can get all related variation pages (not include default page)
+        //then you can get its all related variation pages (default page will not be included)
         defaultVariationPage.VariationPages
     }
 
@@ -337,8 +356,9 @@ Form now on, the default page will contain all the variation pages, and the page
 ```ts
 
     let defaultVariationPage = page as DefaultVariationPage
+    //check if the page is default variation page
     if(defaultVariationPage.variationPages){
-        //then you can get all related variation pages (not include default page)
+        //then you can get its all related variation pages (default page will not be included)
         defaultVariationPage.VariationPages
     }
 
