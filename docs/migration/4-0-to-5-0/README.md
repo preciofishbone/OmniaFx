@@ -23,7 +23,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 
 | Recommended Changes |
 | --- |
-| [Web Component](#web-component)|
+| [Web Component - Vue Component](#web-component---vue-component)|
 
 | Breaking Changes |
 | --- |
@@ -32,7 +32,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | [Server-side HttpClient](#server-side-httpclient)|
 | [Audit Log](#audit-log)|
 | [User](#user )|
-| [Worker Program.cs](#worker-programcs )|
+| [Worker Program.cs](#worker-programcs)|
 
 # WCM Fx
 
@@ -50,11 +50,11 @@ omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
 
 # Recommended Changes
 
-## Web Component
+## Web Component - Vue Component
 
-Follow the instruction below to update existing web components in your extension:
+Follow the instruction below to update existing components in your extension:
 
-1. Remove all comment syntax start with `/*@....` in web component interface. For example:
+1. Remove all documentation comments with the syntax `/*@....*/` in Web Component interface files. For example:
     
     - IComponentA.ts
   
@@ -105,7 +105,7 @@ Follow the instruction below to update existing web components in your extension
 
     ```
 
-2. Web component class must extend `VueComponentBase`. For example:
+2. Component class must extend `VueComponentBase`. For example:
 
     - ComponentA.tsx
 
@@ -113,12 +113,16 @@ Follow the instruction below to update existing web components in your extension
     /*-----Old-----*/
 
     @Component
-    export default class ComponentA extends VueComponentBase implements IComponentA
+    export default class ComponentA extends Vue implements IComponentA
+
+    @Component
+    export default class ComponentA extends tsx.Component implements IComponentA
 
     /*-----New-----*/
 
-    @Component
-    export default class ComponentA extends Vue implements IComponentA
+     @Component
+    export default class ComponentA extends VueComponentBase implements IComponentA
+    
     ```
 
 # Breaking Changes

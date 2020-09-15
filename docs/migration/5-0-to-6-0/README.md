@@ -28,7 +28,7 @@ omnia dev update omniafx -v 6.0.0 -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [User](#user)|
-
+| [Import from Omnia npm](#import-from-omnia-npm)
 
 # WCM Fx
 
@@ -66,7 +66,36 @@ OmniaContext.Identity.UserPrincipalName
 OmniaContext.Identity.Uid
 ```
 
-If you see errors that using `UserIdentity` interface/class, you have to replace it with `IdentityId` interface/class. For example: People Picker (omfx-people-picker) has been updated to use `Array<IdentityId>` as input/output.
+If you see errors that using `UserIdentity` interface/class, you have to replace it with `IdentityId` interface/class. 
+
+For example: People Picker (omfx-people-picker) has been updated to use `Array<IdentityId>` as input/output.
+
+**Even if you do not see errors, you should find all references of using `UserIdentity` in your project and try to replace it with `IdentityId`. Because from now on, `UserIdentity` means a full model of user.**
+
+## Import from Omnia npm
+
+```ts
+
+/*-----Old-----*/
+import { Store } from '@omnia/fx/store';
+/*-----New-----*/
+import { Store } from '@omnia/fx/stores';
+
+
+
+/*-----Old-----*/
+import { ImageSvgTransformer, ItransformerConfigs } from '@omnia/fx/ux';
+/*-----New-----*/
+import { ImageTransformer, ITransformerConfigs } from '@omnia/fx/ux';
+
+
+
+/*-----Old-----*/
+import { JourneyInstance, Blade, BladeSizes } from '@omnia/fx/ux';
+/*-----New-----*/
+import { JourneyInstance, Blade, BladeSizes } from '@omnia/fx-models';
+
+```
 
 ## WCM Block
 
