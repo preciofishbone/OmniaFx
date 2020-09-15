@@ -32,7 +32,7 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | [Server-side HttpClient](#server-side-httpclient)|
 | [Audit Log](#audit-log)|
 | [User](#user )|
-| [Worker Program.cs](#worker-program.cs )|
+| [Worker Program.cs](#worker-programcs )|
 
 # WCM Fx
 
