@@ -217,7 +217,7 @@ Enum `UserPrincipalType` has been renamed to `AzureAdObjectPrincipalTypes`, in b
 
 Client-side model `OmniaUserContext` has been replaced with `UserWithPropertyBag`.
 
-Model `User` has been updated to be generic to support different types of user. The new model `AzureAdUser`, which is a specific of `User`, is equivalent to the old `User`.
+Model `User` has been updated to be generic to support different types of user. The new model `AzureAdUser`, which is inherited from the new `User`, is equivalent to the old `User`.
 
 ## Worker program.cs
 
