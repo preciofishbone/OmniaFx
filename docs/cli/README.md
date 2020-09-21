@@ -321,6 +321,91 @@ omnia dev appsettings get --path C:\myextension\extension.json --tenantid {tenan
 
 ---
 
+## omnia appsettings get
+
+Get any applied overrides of appsettings (or shared appsettings) for a specific tenant
+
+##### Example
+```
+omnia appsettings get --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+    
+
+##### Optional Parameters
+
+| Name      | Description                                               |
+| --------- | --------------------------------------------------------- |
+| --shared  | Target the shared appsettings instead of appsettings     |
+
+---
+
+## omnia appsettings update
+
+Apply overrides of appsettings (or shared appsettings) for a specific tenant
+(Note these will be in effect until removed, i.e. updating with no overrides)
+
+##### Example
+```
+omnia appsettings update --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+    
+
+##### Optional Parameters
+
+| Name      | Description                                               |
+| --------- | --------------------------------------------------------- |
+| --shared  | Target the shared appsettings instead of appsettings     |
+
+---
+
+## omnia ai get
+
+Get any applied overrides of application insights for a specific tenant
+
+##### Example
+```
+omnia ai get --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+    
+
+---
+
+## omnia ai update
+
+Apply overrides of application insights for a specific tenant
+(Note these will be in effect until removed, i.e. updating with no overrides)
+
+##### Example
+```
+omnia ai update --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+
+---
+
 ## Omnia Cloud Commands
 
 ## omnia login
