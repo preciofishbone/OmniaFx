@@ -36,6 +36,14 @@ To install the latest version of the Omnia Cli, run the following cmd:
 ```
 dotnet tool install --global Omnia
 ```
+
+or
+
+```
+dotnet tool install --global Omnia --add-source https://api.nuget.org/v3/index.json --ignore-failed-sources
+
+```
+
 Then restart the cmd or powershell session.
 
 To update the Omnia Cli to the latest version, run the following cmd: 
