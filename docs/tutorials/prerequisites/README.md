@@ -41,7 +41,6 @@ or
 
 ```
 dotnet tool install --global Omnia --add-source https://api.nuget.org/v3/index.json --ignore-failed-sources
-
 ```
 
 Then restart the cmd or powershell session.
