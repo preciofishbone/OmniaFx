@@ -5,7 +5,13 @@ This article explains how to update an existing Omnia extension from 4.0 to 5.0.
 | WARNING: Fx 5.0 is currently in preview! |
 | --- |
 
-# Cli Template
+# Prerequisite
+
+Run the below cmd to update new Omnia cli
+
+```
+dotnet tool update -g omnia
+```
 
 Run the below cmd to update all cli templates:
 
@@ -13,13 +19,38 @@ Run the below cmd to update all cli templates:
 omnia dev new --install 5.0.0 --force
 ```
 
+Run the below cmd to update all fx npm/nuget packages:
+
+>Replace `5.0.x-preview` of each package with the version that running on your tenant. Find those version in Omnia Admin > System > Extensions
+
+- Omnia
+```
+omnia dev update omniafx -v 5.0.x-preview -p C:\your-extension-path
+```
+
+- OmniaWebContentManagement
+```
+omnia dev update wcmfx -v 5.0.x-preview -p C:\your-extension-path
+```
+
+- OmniaWorkplace
+```
+omnia dev update workplacefx -v 5.0.x-preview -p C:\your-extension-path
+```
+
+- OmniaTenantAdministration
+
+```
+omnia dev update adminfx -v 5.0.x-preview -p C:\your-extension-path
+```
+
+- OmniaTeamCollaboration
+
+```
+omnia dev update tcfx -v 5.0.x-preview -p C:\your-extension-path
+```
+
 # Omnia Fx 
-
-Run the below cmd to update all omnia fx npm/nuget:
-
-```
-omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
-```
 
 | Recommended Changes |
 | --- |
@@ -35,12 +66,6 @@ omnia dev update omniafx -v 5.0.0 -p C:\your-extension-path
 | [Worker Program.cs](#worker-programcs)|
 
 # WCM Fx
-
-Run the below cmd to update all wcm fx npm/nuget:
-
-```
-omnia dev update wcmfx -v 5.0.0 -p C:\your-extension-path
-```
 
 | Breaking Changes |
 | --- |

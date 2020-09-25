@@ -5,7 +5,13 @@ This article explains how to update an existing Omnia extension from 5.0 to 6.0.
 | WARNING: Fx 6.0 is currently in development ! |
 | --- |
 
-# Cli Template
+# Prerequisite
+
+Run the below cmd to update new Omnia cli
+
+```
+dotnet tool update -g omnia
+```
 
 Run the below cmd to update all cli templates:
 
@@ -13,13 +19,27 @@ Run the below cmd to update all cli templates:
 omnia dev new --install 6.0.0 --force
 ```
 
+Run the below cmd to update all fx npm/nuget packages:
+
+>Replace `6.0.x-dev` of each package with the version that running on your tenant. Find those version in Omnia Admin > System > Extensions
+
+- Omnia
+```
+omnia dev update omniafx -v 6.0.x-dev -p C:\your-extension-path
+```
+
+- OmniaWebContentManagement
+```
+omnia dev update wcmfx -v 6.0.x-dev -p C:\your-extension-path
+```
+
+- OmniaWorkplace
+```
+omnia dev update workplacefx -v 6.0.x-dev -p C:\your-extension-path
+```
+
+
 # Omnia Fx 
-
-Run the below cmd to update all omnia fx npm/nuget:
-
-```
-omnia dev update omniafx -v 6.0.0 -p C:\your-extension-path
-```
 
 | Recommended Changes |
 | --- |
@@ -31,12 +51,6 @@ omnia dev update omniafx -v 6.0.0 -p C:\your-extension-path
 | [Import from Omnia npm](#import-from-omnia-npm)
 
 # WCM Fx
-
-Run the below cmd to update all wcm fx npm/nuget:
-
-```
-omnia dev update wcmfx -v 6.0.0 -p C:\your-extension-path
-```
 
 | Breaking Changes |
 | --- |
