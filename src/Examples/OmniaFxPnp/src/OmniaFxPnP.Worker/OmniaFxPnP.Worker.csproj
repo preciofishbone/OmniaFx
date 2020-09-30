@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>OmniaFxPnP.Worker</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp3.1\OmniaFxPnP.Worker.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="publish\**" />
+    <Compile Remove="approot\**" />
+    <Compile Remove="node_modules\**" />
+    <EmbeddedResource Remove="approot\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <None Remove="**\*.d.ts" />
+    <None Remove="**\*.js" />
+    <None Remove="publish\**" />
+    <None Remove="approot\**" />
+    <None Remove="node_modules\**" />
+    <None Remove="appsettings.json" />
+    <None Remove="appsettings.local.json" />
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.local.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Content>
+    <None Include="gulpfile.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Omnia.Fx.NetCore.Worker" Version="5.0.0" />
+  </ItemGroup>
+
+  <!--***************************************************************************************-->
+  <!--**** Omnia Build Tasks ****************************************************************-->
+  <!--***************************************************************************************-->
+  <Target Name="OmniaRunAfterBuild" AfterTargets="Build">
+    <ItemGroup>
+      <AppRoot Include="approot\**" />
+    </ItemGroup>
+    <Exec Command="npm run omnia-after-build" ContinueOnError="false"></Exec>
+    <Copy SourceFiles="@(AppRoot)" DestinationFolder="$(OutDir)/approot/%(RecursiveDir)" />
+  </Target>
+  <Target Name="OmniaPublish" AfterTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <DistFiles Include="approot/**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+  <!--***************************************************************************************-->
+</Project>

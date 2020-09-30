@@ -45,10 +45,4 @@ We use typescript all in except for taskrunner
 !/src/tutorials/first-extension/create-omnia-block/HelloOmniaFx.Web/appsettings.local.json
 
 *.dev.manifest.ts
-/src/Omnia.WebContentManagement.Web/wwwroot/Images/*
-/src/Omnia.WebContentManagement.Web/wwwroot/packages/*
 
-/src/Omnia.WebContentManagement.Web/client/packages/wcm
-
-/src/Omnia.WebContentManagement.Web/wwwroot/**/*.jpeg
-/src/Omnia.WebContentManagement.Web/wwwroot/**/*.png

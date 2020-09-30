@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "OmniaFxPnP.Worker": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "OMNIA_EXTENSIONID": "8f3bdbff-8f40-4693-91ee-843a4674adfb"
+      }
+    }
+  }
+}
