@@ -10,7 +10,7 @@ using Omnia.Fx.HostConfiguration;
 using Omnia.Fx.HostConfiguration.Extensions;
 using Omnia.Fx.NetCore.WebApp.Hosting;
 
-namespace OmniaFxPnP.Web
+namespace OmniaFxPlayground.Web
 {
     /// <summary>
     /// Program

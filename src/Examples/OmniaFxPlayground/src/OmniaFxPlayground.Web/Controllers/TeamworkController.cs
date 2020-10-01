@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Omnia.Fx.Apps;
 using Omnia.Fx.Models.EnterpriseProperties;
 
-namespace OmniaFxPnP.Web.Controllers
+namespace OmniaFxPlayground.Web.Controllers
 {
     [Route("api/teamwork")]
     [ApiController]
@@ -62,6 +62,25 @@ namespace OmniaFxPnP.Web.Controllers
                     //Reach the timeout for waiting provisioning.
                     //Note: this does NOT mean the provioning failed.
                 });
+        }
+
+        [HttpGet]
+        [Authorize(Omnia.Fx.Constants.Security.Roles.TenantAdmin)]
+        public async Task GetTeamworkAsync()
+        {
+            var spSiteUrl = ""; // absolute or relative spUrl
+
+            var appInstance = await AppService.WorkWithTeamwork().GetTeamworkAppAsync(spSiteUrl);
+
+
+            //Need to retrieve enterprise properties of this app?
+            var person = appInstance.EnterpriseProperties.GetPerson("internal-name-of-a-person-property");
+            var datetime = appInstance.EnterpriseProperties.GetDateTime("internal-name-of-a-datetime-property");
+            var number = appInstance.EnterpriseProperties.GetNumber("internal-name-of-a-number-property");
+            var text = appInstance.EnterpriseProperties.GetText("internal-name-of-a-text-property");
+            var taxonomy = appInstance.EnterpriseProperties.GetTaxonomy("internal-name-of-a-taxonomy-property");
+
+            //NOTE: if the enterprise property doesn't exist, it will return null value
         }
     }
 }

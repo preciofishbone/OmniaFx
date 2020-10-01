@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using Omnia.Fx.NetCore.Worker;
 using System.Threading.Tasks;
 
-namespace OmniaFxPnP.Worker
+namespace OmniaFxPlayground.Worker
 {
     internal class ExampleWorker : LifetimeEventsHostedService
     {

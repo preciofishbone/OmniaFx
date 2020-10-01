@@ -6,7 +6,7 @@ using Omnia.Fx.HostConfiguration;
 using Omnia.Fx.HostConfiguration.Extensions;
 using Omnia.Fx.NetCore.Worker.Hosting;
 
-namespace OmniaFxPnP.Worker
+namespace OmniaFxPlayground.Worker
 {
     /// <summary>
     /// Program
