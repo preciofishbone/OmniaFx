@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OmniaFxPlayground.Web", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OmniaFxPlayground.Worker", "src\OmniaFxPlayground.Worker\OmniaFxPlayground.Worker.csproj", "{49A30E0A-5331-4FAB-B44B-E97322755F32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalPlayground", "ExternalPlayground\ExternalPlayground.csproj", "{544F3FCE-29A9-47FE-A5A6-622FC1D66C36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BuildWithoutTsc|Any CPU = BuildWithoutTsc|Any CPU
@@ -26,6 +28,12 @@ Global
 		{49A30E0A-5331-4FAB-B44B-E97322755F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49A30E0A-5331-4FAB-B44B-E97322755F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49A30E0A-5331-4FAB-B44B-E97322755F32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{544F3FCE-29A9-47FE-A5A6-622FC1D66C36}.BuildWithoutTsc|Any CPU.ActiveCfg = Debug|Any CPU
+		{544F3FCE-29A9-47FE-A5A6-622FC1D66C36}.BuildWithoutTsc|Any CPU.Build.0 = Debug|Any CPU
+		{544F3FCE-29A9-47FE-A5A6-622FC1D66C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544F3FCE-29A9-47FE-A5A6-622FC1D66C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{544F3FCE-29A9-47FE-A5A6-622FC1D66C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544F3FCE-29A9-47FE-A5A6-622FC1D66C36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
