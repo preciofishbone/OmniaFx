@@ -1,5 +1,5 @@
 {
-  "name": "OmniaFxPnP.Web",
+  "name": "OmniaFxPlayground.Web",
   "version": "0.1.0",
   "scripts": {
     "omnia-watch": "tsc -v && tsc -w",

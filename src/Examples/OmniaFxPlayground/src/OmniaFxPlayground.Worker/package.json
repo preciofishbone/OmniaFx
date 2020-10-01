@@ -1,5 +1,5 @@
 {
-  "name": "OmniaFxPnP.Worker",
+  "name": "OmniaFxPlayground.Worker",
   "version": "0.1.0",
   "scripts": {
     "omnia-before-build": "gulp omnia-before-build",

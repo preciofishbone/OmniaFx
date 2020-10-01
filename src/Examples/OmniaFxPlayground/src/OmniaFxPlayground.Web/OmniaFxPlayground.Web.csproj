@@ -4,15 +4,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
-    <AssemblyName>OmniaFxPnP.Web</AssemblyName>
+    <AssemblyName>OmniaFxPlayground.Web</AssemblyName>
     <Configurations>Debug;Release;BuildWithoutTsc</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp3.1\OmniaFxPnP.Web.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp3.1\OmniaFxPlayground.Web.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BuildWithoutTsc|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp3.1\OmniaFxPnP.Web.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp3.1\OmniaFxPlayground.Web.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="publish\**" />
@@ -37,7 +37,8 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="5.0.0" />
-    <PackageReference Include="Omnia.TeamCollaboration.Fx" Version="5.0.0" />
+    <PackageReference Include="Omnia.Fx.SharePoint" Version="5.0.0" />
+    <PackageReference Include="Omnia.TeamCollaboration.Fx" Version="5.0.1" />
   </ItemGroup>
 
   <!--***************************************************************************************-->

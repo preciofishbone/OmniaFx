@@ -1,11 +1,9 @@
 using System.Threading.Tasks;
-
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 using Omnia.Fx.HostConfiguration;
 using Omnia.Fx.HostConfiguration.Extensions;
 using Omnia.Fx.NetCore.WebApp.Hosting;
@@ -42,9 +40,11 @@ namespace OmniaFxPlayground.Web
                         .AddAppSettingsJsonFile("appsettings.local.json")
                         .AddOmniaFxWebApp();
 
-                    }).ConfigureHost(hostBuilder => {
+                    }).ConfigureHost(hostBuilder =>
+                    {
                         hostBuilder
-                        .ConfigureServices(services => {
+                        .ConfigureServices(services =>
+                        {
                             services.AddRouting();
 
                             // Register the Swagger generator, defining one or more Swagger documents
@@ -53,7 +53,8 @@ namespace OmniaFxPlayground.Web
                                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
                             });
                         })
-                        .ConfigureWebHost(webHostBuilder => {
+                        .ConfigureWebHost(webHostBuilder =>
+                        {
                             webHostBuilder.Configure((ctx, app) =>
                             {
                                 app.UseStaticFiles();
@@ -75,12 +76,14 @@ namespace OmniaFxPlayground.Web
                                 app.UseAuthentication();
                                 app.UseAuthorization();
 
-                                app.UseEndpoints(endpoints => {
+                                app.UseEndpoints(endpoints =>
+                                {
                                     endpoints.MapControllers();
                                 });
                             });
                         });
                     });
         }
+
     }
 }
