@@ -58,7 +58,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 - ## [Call Omnia APIs externally](./call-apis-externally#call-omnia-apis-externally)
 
-    This tutorial shows you how to call Omnia apis externally with client credentials.
+    This tutorial shows you how to call Omnia APIs externally with client credentials.
 
 # WCM Fx
 
