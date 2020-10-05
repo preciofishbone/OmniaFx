@@ -44,7 +44,6 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     A sample source code of adding custom steps in App Provisioning.
 
-
 - ## [Custom fonts](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Ux/CustomFonts)
 
     A sample source code for applying custom font in your tenant.
@@ -57,6 +56,9 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     Want to activate a feature by code?
 
+- ## [Call Omnia APIs externally](./call-apis-externally#call-omnia-apis-externally)
+
+    This tutorial shows you how to call Omnia apis externally with client credentials.
 
 # WCM Fx
 
