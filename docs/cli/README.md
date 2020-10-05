@@ -841,6 +841,23 @@ omnia secrets remove --extensionid {extensionid} --secret {secret}
 | --secret   | The secret value to remove |
 
 
+## omnia secrets list
+
+List all cloud-secrets or tenant-secrets of an extension.
+
+##### Example
+```
+omnia secrets list --tenantid {tenantid} --extensionid {extensionid}
+
+omnia secrets list --extensionid {extensionid}
+```
+
+##### Required Parameters
+
+| Name     | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------ |
+| --tenantid   | Required depending if the secrets are tenant-secrets   |
+| --extensionid   | The extensionid of the extension to list all secrets |
 
 
 
