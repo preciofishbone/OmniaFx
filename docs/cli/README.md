@@ -797,6 +797,51 @@ No optional parameters
 
 ---
 
+## Extension Secret Commands
+
+Its possible to generate several client credentials for an extension. You can put a pair of ClientId (aka extension id) and ClientSecret in http headers to request Omnia API.
+
+## omnia secrets add
+
+Generate a cloud-secret or a tenant-secret for an extension.
+
+##### Example
+```
+omnia secrets add --extensionid {extensionid}  --name {name}
+
+omnia secrets add --tenantid {tenantid} --extensionid {extensionid} --name {name} 
+```
+
+##### Required Parameters
+
+| Name     | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------ |
+| --tenantid   | Required depending if the secret is tenant-secret   |
+| --extensionid   | The extensionid of the extension to generate a secret |
+| --name   | The name of secret |
+
+
+## omnia secrets remove
+
+Remove a cloud-secret or a tenant-secret from an extension.
+
+##### Example
+```
+omnia secrets remove --tenantid {tenantid} --extensionid {extensionid} --secret {secret}
+
+omnia secrets remove --extensionid {extensionid} --secret {secret}
+```
+
+##### Required Parameters
+
+| Name     | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------ |
+| --tenantid   | Required depending if the secret is tenant-secret   |
+| --extensionid   | The extensionid of the extension to remove a secret |
+| --secret   | The secret value to remove |
+
+
+
 
 
 
