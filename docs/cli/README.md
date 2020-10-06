@@ -7,6 +7,167 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
 
 ---
 
+<!-- TOC -->
+
+- [Omnia Cli](#omnia-cli)
+- [Installation](#installation)
+- [Versioning Reference](#versioning-reference)
+- [Omnia Dev Commands](#omnia-dev-commands)
+    - [omnia dev new](#omnia-dev-new)
+                - [Example Install Templates](#example-install-templates)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+                - [Example List Templates](#example-list-templates)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+                - [Example Create Using Template](#example-create-using-template)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia dev publish](#omnia-dev-publish)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia dev restore](#omnia-dev-restore)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia dev pack](#omnia-dev-pack)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia dev add](#omnia-dev-add)
+                - [Example Adding new Omnia Fx](#example-adding-new-omnia-fx)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+                - [Other Examples](#other-examples)
+    - [omnia dev update](#omnia-dev-update)
+                - [Example Updating to new official version](#example-updating-to-new-official-version)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+                - [Example Updating to locally created nuget package version](#example-updating-to-locally-created-nuget-package-version)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia dev appsettings get](#omnia-dev-appsettings-get)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+- [Omnia Cloud Login](#omnia-cloud-login)
+    - [omnia login](#omnia-login)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia logout](#omnia-logout)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+- [Tenant Commands](#tenant-commands)
+    - [omnia tenant list](#omnia-tenant-list)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia tenants redirects enablerror](#omnia-tenants-redirects-enablerror)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia tenants redirects disableerror](#omnia-tenants-redirects-disableerror)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia tenants redirects customerrorpage](#omnia-tenants-redirects-customerrorpage)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia tenants updatekaizala](#omnia-tenants-updatekaizala)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia appsettings get](#omnia-appsettings-get)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia appsettings update](#omnia-appsettings-update)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia ai get](#omnia-ai-get)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+    - [omnia ai update](#omnia-ai-update)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+- [Extension Commands](#extension-commands)
+    - [omnia extensions new](#omnia-extensions-new)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia extensions restart](#omnia-extensions-restart)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia extensions list](#omnia-extensions-list)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia extensions versions](#omnia-extensions-versions)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia extensions push](#omnia-extensions-push)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia extensions deploy](#omnia-extensions-deploy)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+- [Extension Groups Commands](#extension-groups-commands)
+    - [omnia extgroups new](#omnia-extgroups-new)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia extgroups addversion](#omnia-extgroups-addversion)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia extgroups deleteversion](#omnia-extgroups-deleteversion)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia extgroups delete](#omnia-extgroups-delete)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+- [Deployment Groups Commands](#deployment-groups-commands)
+    - [omnia depgroups new](#omnia-depgroups-new)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia depgroups addtarget](#omnia-depgroups-addtarget)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia depgroups deletetarget](#omnia-depgroups-deletetarget)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+    - [omnia depgroups delete](#omnia-depgroups-delete)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+                - [Optional Parameters](#optional-parameters)
+- [Extension Secret Commands](#extension-secret-commands)
+    - [omnia secrets add](#omnia-secrets-add)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+    - [omnia secrets remove](#omnia-secrets-remove)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+    - [omnia secrets list](#omnia-secrets-list)
+                - [Example](#example)
+                - [Required Parameters](#required-parameters)
+
+<!-- /TOC -->
+
+---
 # Versioning Reference
 Omnia Cloud is enforcing the Semantic Versioning pattern for Extension versions and
 when using the Omnia Cli to manage versions such as deployments, listing extension versions or managing extensions groups you can use the following pattern matching
@@ -28,7 +189,7 @@ omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*
 ```
 ---
 
-## Omnia Dev Commands (omnia dev)
+# Omnia Dev Commands
 
 ## omnia dev new
 
@@ -164,17 +325,17 @@ omnia dev pack -p C:\Projects\OmniaFork\Omnia\src\Omnia.Fx.Models -v 1.0.11-mylo
 
 ##### Required Parameters
 
-| Name      | Description                                                    |
-| --------- | -------------------------------------------------------------- |
-| -p --path    | The start path to start scaning for nuspec/csproj           |
-| -v --version | The package version to generate                             |
-| -o --output  | The path in which the resulting packages are created        |
+| Name         | Description                                          |
+| ------------ | ---------------------------------------------------- |
+| -p --path    | The start path to start scaning for nuspec/csproj    |
+| -v --version | The package version to generate                      |
+| -o --output  | The path in which the resulting packages are created |
     
 
 ##### Optional Parameters
 
-| Name         | Description                                                                   |
-| ------------ | ----------------------------------------------------------------------------- |
+| Name               | Description                                                             |
+| ------------------ | ----------------------------------------------------------------------- |
 | -c --configuration | Release or Debug (debug is default, and also generates symbol packages) |
 
 ---
@@ -200,12 +361,12 @@ No required parameters
 
 ##### Optional Parameters
 
-| Name         | Description                                  |
-| ------------ | -------------------------------------------- |
-| -p --path    | Add to all projects from this point down, i.e. recursive|
-| -v --version | The version to add to                     |
-| -t --tag     | Switch between prerelase tags (dev, preview) |
-| -r --restore | Restores the dependencies after adding     |
+| Name         | Description                                              |
+| ------------ | -------------------------------------------------------- |
+| -p --path    | Add to all projects from this point down, i.e. recursive |
+| -v --version | The version to add to                                    |
+| -t --tag     | Switch between prerelase tags (dev, preview)             |
+| -r --restore | Restores the dependencies after adding                   |
 
 
 ##### Other Examples
@@ -268,12 +429,12 @@ No required parameters
 
 ##### Optional Parameters
 
-| Name         | Description                                  |
-| ------------ | -------------------------------------------- |
-| -p --path             | Update all projects from this point down, i.e. recursive                     |
-| -v --version | The version to update to                     |
-| -t --tag     | Switch between prerelase tags (dev, preview) |
-| -r --restore | Restores the dependencies after updating     |
+| Name         | Description                                              |
+| ------------ | -------------------------------------------------------- |
+| -p --path    | Update all projects from this point down, i.e. recursive |
+| -v --version | The version to update to                                 |
+| -t --tag     | Switch between prerelase tags (dev, preview)             |
+| -r --restore | Restores the dependencies after updating                 |
 
 ##### Example Updating to locally created nuget package version
 
@@ -284,12 +445,12 @@ omnia dev update -p C:\Projects\OmniaFork\OmniaWebContentManagement\src -l C:\My
 
 ##### Required Parameters
 
-| Name                  | Description                                                                  |
-| --------------------- | ---------------------------------------------------------------------------- |
-| -p --path             | Update all projects from this point down, i.e. recursive                     |
-| -v --version          | The version to update to, i.e. the versions to use from (-l)                 |
-| -l --localPackage     | Path to the locally generated packages                                       |
-| -r --restore          | Restores the dependencies after updating                                     |
+| Name              | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| -p --path         | Update all projects from this point down, i.e. recursive     |
+| -v --version      | The version to update to, i.e. the versions to use from (-l) |
+| -l --localPackage | Path to the locally generated packages                       |
+| -r --restore      | Restores the dependencies after updating                     |
 
 ##### Optional Parameters
 
@@ -321,92 +482,7 @@ omnia dev appsettings get --path C:\myextension\extension.json --tenantid {tenan
 
 ---
 
-## omnia appsettings get
-
-Get any applied overrides of appsettings (or shared appsettings) for a specific tenant
-
-##### Example
-```
-omnia appsettings get --tenantid {tenantid}
-```
-
-##### Required Parameters
-
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| -t --tenantid | The tenantid of the tenant to generate appsettings for |
-    
-
-##### Optional Parameters
-
-| Name      | Description                                               |
-| --------- | --------------------------------------------------------- |
-| --shared  | Target the shared appsettings instead of appsettings     |
-
----
-
-## omnia appsettings update
-
-Apply overrides of appsettings (or shared appsettings) for a specific tenant
-(Note these will be in effect until removed, i.e. updating with no overrides)
-
-##### Example
-```
-omnia appsettings update --tenantid {tenantid}
-```
-
-##### Required Parameters
-
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| -t --tenantid | The tenantid of the tenant to generate appsettings for |
-    
-
-##### Optional Parameters
-
-| Name      | Description                                               |
-| --------- | --------------------------------------------------------- |
-| --shared  | Target the shared appsettings instead of appsettings     |
-
----
-
-## omnia ai get
-
-Get any applied overrides of application insights for a specific tenant
-
-##### Example
-```
-omnia ai get --tenantid {tenantid}
-```
-
-##### Required Parameters
-
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| -t --tenantid | The tenantid of the tenant to generate appsettings for |
-    
-
----
-
-## omnia ai update
-
-Apply overrides of application insights for a specific tenant
-(Note these will be in effect until removed, i.e. updating with no overrides)
-
-##### Example
-```
-omnia ai update --tenantid {tenantid}
-```
-
-##### Required Parameters
-
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| -t --tenantid | The tenantid of the tenant to generate appsettings for |
-
----
-
-## Omnia Cloud Commands
+# Omnia Cloud Login
 
 ## omnia login
 Logs you in to the Omnia Cloud using azure ad credentials
@@ -446,7 +522,7 @@ No optional parameters
 
 ---
 
-## Tenant Commands
+# Tenant Commands
 
 ## omnia tenant list
 
@@ -467,13 +543,182 @@ No required parameters
 
 ##### Optional Parameters
 
-| Name         | Description                                               |
-| ------------ | --------------------------------------------------------- |
-| -f --filter  | Filters tenants by name                                   |
+| Name        | Description             |
+| ----------- | ----------------------- |
+| -f --filter | Filters tenants by name |
 
 ---
 
-## Extension Commands
+## omnia tenants redirects enablerror
+
+Redirects users accessing the tenant to a "Omnia is down" page. For debugging purposes the tenant can be accessed by adding ?redirect=true or ?debug=true as a querystring parameter in the url
+
+##### Example
+```
+omnia tenants redirects enableerror {tenantid}
+```
+
+##### Required Parameters
+
+No required parameters  
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## omnia tenants redirects disableerror
+
+Stops the redirect applied by the omnia tenants redirects enableerror cmd
+
+##### Example
+```
+omnia tenants redirects disableerror {tenantid}
+```
+
+##### Required Parameters
+
+No required parameters  
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## omnia tenants redirects customerrorpage
+
+Enables to upload a custom error page for the error redirect page
+
+##### Example
+```
+omnia tenants redirects customerrorpage {tenantid} --path c:\html\customerror.html
+```
+
+##### Required Parameters
+
+| Name   | Description                              |
+| ------ | ---------------------------------------- |
+| --path | The path to the html page to be uploaded |
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## omnia tenants updatekaizala
+
+Enables mobile login using kaizala connector
+
+##### Example
+```
+omnia tenants updatekaizala --connectorid {connectorid} --connectorsecret {connectorsecret} 
+--groupname {groupname} --connectortoken {connectortoken}
+```
+
+##### Required Parameters
+
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --connectorid     | The connector id from Kaizala                      |
+| --connectorsecret | The connector secret from Kaizala                  |
+| --groupname       | The Kaizala group name where the allowed users are |
+| --connectortoken  | The connector token from Kaizala                   |
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## omnia appsettings get
+
+Get any applied overrides of appsettings (or shared appsettings) for a specific tenant
+
+##### Example
+```
+omnia appsettings get --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+    
+
+##### Optional Parameters
+
+| Name     | Description                                          |
+| -------- | ---------------------------------------------------- |
+| --shared | Target the shared appsettings instead of appsettings |
+
+---
+
+## omnia appsettings update
+
+Apply overrides of appsettings (or shared appsettings) for a specific tenant
+(Note these will be in effect until removed, i.e. updating with no overrides)
+
+##### Example
+```
+omnia appsettings update --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+    
+
+##### Optional Parameters
+
+| Name     | Description                                          |
+| -------- | ---------------------------------------------------- |
+| --shared | Target the shared appsettings instead of appsettings |
+
+---
+
+## omnia ai get
+
+Get any applied overrides of application insights for a specific tenant
+
+##### Example
+```
+omnia ai get --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+    
+
+---
+
+## omnia ai update
+
+Apply overrides of application insights for a specific tenant
+(Note these will be in effect until removed, i.e. updating with no overrides)
+
+##### Example
+```
+omnia ai update --tenantid {tenantid}
+```
+
+##### Required Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+
+---
+
+# Extension Commands
 
 ## omnia extensions new
 
@@ -496,7 +741,7 @@ omnia extensions new --name "My Extension"
 | ---- | -------------------------------------------------------------- |
 | --id | The unique id of the extension, can be found in extension.json |
 
-
+---
 
 ## omnia extensions restart
 
@@ -522,7 +767,7 @@ omnia extensions restart extension --tenantid --extensionid
 | --------- | ---------------------------------------------------------- |
 | --nomercy | Restarts all services immediatly even scaled out instances |
    
-
+---
 
 ## omnia extensions list
 
@@ -627,7 +872,7 @@ No optional parameters
 
 ---
 
-## Extension Groups Commands
+# Extension Groups Commands
 
 With extension groups its possible to add several extensions to a group and then deploy all extensions in the group to a tenant or a tenant group. The real power of extension groups is when combining the versions to include using pattern matching. [Check the versioning reference](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#versioning-reference)
 
@@ -651,6 +896,7 @@ omnia extgroups new --name "MyExtensionGroup" --intent prod
 
 No optional parameters
 
+---
 
 ## omnia extgroups addversion
 
@@ -671,7 +917,9 @@ omnia extgroups addversion --groupid {mygroupid} --version {extensionid:version}
 ##### Optional Parameters
 
 No optional paramters
-   
+
+---
+
 ## omnia extgroups deleteversion
 
 Deletes a extension version from the extension group
@@ -692,6 +940,7 @@ omnia extgroups deleteversion --groupid {mygroupid} --version {extensionid:versi
 
 No optional paramters
 
+---
 
 ## omnia extgroups delete
 
@@ -712,7 +961,7 @@ No optional parameters
 
 ---
 
-## Deployment Groups Commands
+# Deployment Groups Commands
 
 With deployment groups its possible to add several tenants to a group and then deploy an extension or extensions group to all tenants in the group
 
@@ -736,6 +985,7 @@ omnia depgroups new --name "MyDeploymentGroup" --intent prod
 
 No optional parameters
 
+---
 
 ## omnia depgroups addtarget
 
@@ -756,7 +1006,9 @@ omnia depgroups addtarget --groupid {mygroupid} --targetid {tenantid}
 ##### Optional Parameters
 
 No optional paramters
-   
+
+---   
+
 ## omnia depgroups deletetarget
 
 Deletes a target from the deployment group
@@ -777,6 +1029,7 @@ omnia depgroups deletetarget --groupid {mygroupid} --targetid {tenantid}
 
 No optional paramters
 
+---
 
 ## omnia depgroups delete
 
@@ -797,7 +1050,7 @@ No optional parameters
 
 ---
 
-## Extension Secret Commands
+# Extension Secret Commands
 
 Its possible to generate several client credentials for an extension. You can put a pair of ClientId (aka extension id) and ClientSecret in http headers to request Omnia API.
 
@@ -814,12 +1067,14 @@ omnia secrets add --tenantid {tenantid} --extensionid {extensionid} --name {name
 
 ##### Required Parameters
 
-| Name     | Description                                                                    |
-| -------- | ------------------------------------------------------------------------------ |
-| --tenantid   | Required depending if the secret is tenant-secret   |
-| --extensionid   | The extensionid of the extension to generate a secret |
-| --name   | The name of secret |
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --tenantid    | Required depending if the secret is tenant-secret     |
+| --extensionid | The extensionid of the extension to generate a secret |
+| --name        | The name of secret                                    |
 
+
+---
 
 ## omnia secrets remove
 
@@ -834,12 +1089,14 @@ omnia secrets remove --extensionid {extensionid} --secret {secret}
 
 ##### Required Parameters
 
-| Name     | Description                                                                    |
-| -------- | ------------------------------------------------------------------------------ |
-| --tenantid   | Required depending if the secret is tenant-secret   |
-| --extensionid   | The extensionid of the extension to remove a secret |
-| --secret   | The secret value to remove |
+| Name          | Description                                         |
+| ------------- | --------------------------------------------------- |
+| --tenantid    | Required depending if the secret is tenant-secret   |
+| --extensionid | The extensionid of the extension to remove a secret |
+| --secret      | The secret value to remove                          |
 
+
+---
 
 ## omnia secrets list
 
@@ -854,11 +1111,11 @@ omnia secrets list --extensionid {extensionid}
 
 ##### Required Parameters
 
-| Name     | Description                                                                    |
-| -------- | ------------------------------------------------------------------------------ |
-| --tenantid   | Required depending if the secrets are tenant-secrets   |
-| --extensionid   | The extensionid of the extension to list all secrets |
+| Name          | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| --tenantid    | Required depending if the secrets are tenant-secrets |
+| --extensionid | The extensionid of the extension to list all secrets |
 
-
+---
 
 
