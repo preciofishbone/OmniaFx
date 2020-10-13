@@ -62,8 +62,8 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Optional Parameters](#optional-parameters-11)
 - [Tenant Commands](#tenant-commands)
   - [omnia tenants new](#omnia-tenants-new)
-      - [Example](#example-6)
-      - [Required Parameters](#required-parameters-12)
+        - [Example](#example-6)
+        - [Required Parameters](#required-parameters-12)
         - [Optional Parameters](#optional-parameters-12)
   - [omnia tenants list](#omnia-tenants-list)
         - [Example](#example-7)
@@ -533,12 +533,12 @@ No optional parameters
 
 Registers a new tenant in Omnia Cloud
 
-#### Example
+##### Example
 ```
 omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustomer" --sp-dns-suffix "mycustomer" --azure-ad-id "8c6e9ace-69e9-4272-8225-714d57a3cceb" --region "westeurope"
 ```
 
-#### Required Parameters
+##### Required Parameters
 
 | Name                | Description  |
 | --------------------| ------------- 
