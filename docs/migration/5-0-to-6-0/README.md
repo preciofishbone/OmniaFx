@@ -59,6 +59,7 @@ omnia dev update workplacefx -v 6.0.x-dev -p C:\your-extension-path
 | [WCM Block Title](#wcm-block-title)|
 | [Page Rollup](#page-rollup)|
 | [Variation Page](#variation-page)|
+| [Create page from hardcoded json](#create-page-from-hardcoded-json)|
 
 # Admin Fx
 
@@ -425,6 +426,10 @@ Form now on, default page will contain all its variation pages, and page navigat
     }
 
 ```
+
+## Create page from hardcoded json
+
+If you are using any hardcoded json (constant) to create wcm pages, you should update the json. Try to get the valid json via client-side.
 
 ## Admin Fx npm has been removed
 
