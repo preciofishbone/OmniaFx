@@ -18,7 +18,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
     
     `https://{webapp-service-id-without-dash}-{tenant}.omniaclound.net/swagger` (not extension-id)
 
-    Omnia Developer Console > `swagger --help` (only available in Fx 5.0+)
+    Omnia Developer Console > `swagger --help`
 
 - ## [Looking for some alternatives to Visual Studio?](./other-editors#vs-code-for-omnia-development)
 
@@ -81,3 +81,9 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     Figure out how easy it is to work with Teamwork App. 
 
+# Playground Extension
+
+You can deploy this [Playground](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/OmniaFxPlayground) to your dev tenant to try out different things, including:
+
+- Create a team site with Teamwork Fx.
+- Call Omnia APIs externally.
