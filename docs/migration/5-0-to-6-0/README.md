@@ -48,7 +48,8 @@ omnia dev update workplacefx -v 6.0.x-dev -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [User](#user)|
-| [Import from Omnia npm](#import-from-omnia-npm)
+| [Import from Omnia npm](#import-from-omnia-npm)|
+| [Register admin navigation node](#register-admin-navigation-node)|
 
 # WCM Fx
 
@@ -58,6 +59,24 @@ omnia dev update workplacefx -v 6.0.x-dev -p C:\your-extension-path
 | [WCM Block Title](#wcm-block-title)|
 | [Page Rollup](#page-rollup)|
 | [Variation Page](#variation-page)|
+
+# Admin Fx
+
+| Breaking Changes |
+| --- |
+| [Admin Fx npm has been removed](#admin-fx-npm-has-been-removed)|
+
+# ODM Fx
+
+| Breaking Changes |
+| --- |
+| [ODM Fx npm has been removed](#odm-fx-npm-has-been-removed)|
+
+# Team Collaboration Fx
+
+| Breaking Changes |
+| --- |
+| [Team Collaboration Fx nuget has been removed](#team-collaboration-fx-nuget-has-been-removed)|
 
 
 # Recommended Changes
@@ -108,6 +127,35 @@ import { ImageTransformer, ITransformerConfigs } from '@omnia/fx/ux';
 import { JourneyInstance, Blade, BladeSizes } from '@omnia/fx/ux';
 /*-----New-----*/
 import { JourneyInstance, Blade, BladeSizes } from '@omnia/fx-models';
+
+```
+
+## Register admin navigation node
+
+```ts
+
+/*-----Old-----*/
+Topics.Admin.registerNavigationNode.publish({
+    title: '$Localize:....Admin.NavigationLabel;',
+    category: AdminNavigationBuiltInCategory.Tenant,
+    elementToRender: '...-journey',
+    icon: new FontAwesomeIcon("fal fa-exclamation-triangle"),
+    tooltip: 'NavigationLabel',
+    weight: 800
+})
+
+
+/*-----New-----*/
+import { AdminStore } from '@omnia/fx/ux/admin';
+
+AdminStore.mutations.addNavigationNode.commit({
+    title: '$Localize:....Admin.NavigationLabel;',
+    category: AdminNavigationBuiltInCategory.Tenant,
+    elementToRender: '...-journey',
+    icon: new FontAwesomeIcon("fal fa-exclamation-triangle"),
+    tooltip: 'NavigationLabel',
+    weight: 800
+});
 
 ```
 
@@ -377,3 +425,16 @@ Form now on, default page will contain all its variation pages, and page navigat
     }
 
 ```
+
+## Admin Fx npm has been removed
+
+Replace `@omnia/tenantadmin` to `@omnia/workplace`
+
+## ODM Fx npm has been removed
+
+Replace `@omnia/dm` to `@omnia/managementsystem`
+
+## Team Collaboration Fx nuget has been removed
+
+Replace `Omnia.TeamCollaboration.Fx` to `Omnia.Workplace.Fx`
+
