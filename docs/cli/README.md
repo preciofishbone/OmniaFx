@@ -51,123 +51,157 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-3)
         - [Required Parameters](#required-parameters-9)
         - [Optional Parameters](#optional-parameters-9)
-- [Omnia Cloud Login](#omnia-cloud-login)
-  - [omnia login](#omnia-login)
+- [Omnia Dev Dependencies Commands](#omnia-dev-dependencies-commands)
+  - [omnia dev dependencies list](#omnia-dev-dependencies-list)
         - [Example](#example-4)
         - [Required Parameters](#required-parameters-10)
         - [Optional Parameters](#optional-parameters-10)
-  - [omnia logout](#omnia-logout)
+  - [omnia dev dependencies add](#omnia-dev-dependencies-add)
         - [Example](#example-5)
         - [Required Parameters](#required-parameters-11)
         - [Optional Parameters](#optional-parameters-11)
-- [Tenant Commands](#tenant-commands)
-  - [omnia tenants new](#omnia-tenants-new)
+  - [omnia dev dependencies update](#omnia-dev-dependencies-update)
         - [Example](#example-6)
         - [Required Parameters](#required-parameters-12)
         - [Optional Parameters](#optional-parameters-12)
-  - [omnia tenants list](#omnia-tenants-list)
+  - [omnia dev dependencies remove](#omnia-dev-dependencies-remove)
         - [Example](#example-7)
         - [Required Parameters](#required-parameters-13)
         - [Optional Parameters](#optional-parameters-13)
-  - [omnia tenants redirects enablerror](#omnia-tenants-redirects-enablerror)
+- [Omnia Dev TemplateInfos Commands](#omnia-dev-templateinfos-commands)
+  - [omnia dev templateinfos list](#omnia-dev-templateinfos-list)
         - [Example](#example-8)
         - [Required Parameters](#required-parameters-14)
         - [Optional Parameters](#optional-parameters-14)
-  - [omnia tenants redirects disableerror](#omnia-tenants-redirects-disableerror)
+  - [omnia dev templateinfos add](#omnia-dev-templateinfos-add)
         - [Example](#example-9)
         - [Required Parameters](#required-parameters-15)
         - [Optional Parameters](#optional-parameters-15)
-  - [omnia tenants redirects customerrorpage](#omnia-tenants-redirects-customerrorpage)
+  - [omnia dev templateinfos update](#omnia-dev-templateinfos-update)
         - [Example](#example-10)
         - [Required Parameters](#required-parameters-16)
         - [Optional Parameters](#optional-parameters-16)
-  - [omnia tenants updatekaizala](#omnia-tenants-updatekaizala)
+  - [omnia dev templateinfos remove](#omnia-dev-templateinfos-remove)
         - [Example](#example-11)
         - [Required Parameters](#required-parameters-17)
         - [Optional Parameters](#optional-parameters-17)
-  - [omnia appsettings get](#omnia-appsettings-get)
+- [Omnia Cloud Login](#omnia-cloud-login)
+  - [omnia login](#omnia-login)
         - [Example](#example-12)
         - [Required Parameters](#required-parameters-18)
         - [Optional Parameters](#optional-parameters-18)
-  - [omnia appsettings update](#omnia-appsettings-update)
+  - [omnia logout](#omnia-logout)
         - [Example](#example-13)
         - [Required Parameters](#required-parameters-19)
         - [Optional Parameters](#optional-parameters-19)
-  - [omnia ai get](#omnia-ai-get)
+- [Tenant Commands](#tenant-commands)
+  - [omnia tenants new](#omnia-tenants-new)
         - [Example](#example-14)
         - [Required Parameters](#required-parameters-20)
-  - [omnia ai update](#omnia-ai-update)
+        - [Optional Parameters](#optional-parameters-20)
+  - [omnia tenants list](#omnia-tenants-list)
         - [Example](#example-15)
         - [Required Parameters](#required-parameters-21)
-- [Extension Commands](#extension-commands)
-  - [omnia extensions new](#omnia-extensions-new)
+        - [Optional Parameters](#optional-parameters-21)
+  - [omnia tenants redirects enablerror](#omnia-tenants-redirects-enablerror)
         - [Example](#example-16)
         - [Required Parameters](#required-parameters-22)
-        - [Optional Parameters](#optional-parameters-20)
-  - [omnia extensions restart](#omnia-extensions-restart)
+        - [Optional Parameters](#optional-parameters-22)
+  - [omnia tenants redirects disableerror](#omnia-tenants-redirects-disableerror)
         - [Example](#example-17)
         - [Required Parameters](#required-parameters-23)
-        - [Optional Parameters](#optional-parameters-21)
-  - [omnia extensions list](#omnia-extensions-list)
+        - [Optional Parameters](#optional-parameters-23)
+  - [omnia tenants redirects customerrorpage](#omnia-tenants-redirects-customerrorpage)
         - [Example](#example-18)
         - [Required Parameters](#required-parameters-24)
-        - [Optional Parameters](#optional-parameters-22)
-  - [omnia extensions versions](#omnia-extensions-versions)
+        - [Optional Parameters](#optional-parameters-24)
+  - [omnia tenants updatekaizala](#omnia-tenants-updatekaizala)
         - [Example](#example-19)
         - [Required Parameters](#required-parameters-25)
-        - [Optional Parameters](#optional-parameters-23)
-  - [omnia extensions push](#omnia-extensions-push)
+        - [Optional Parameters](#optional-parameters-25)
+  - [omnia appsettings get](#omnia-appsettings-get)
         - [Example](#example-20)
         - [Required Parameters](#required-parameters-26)
-        - [Optional Parameters](#optional-parameters-24)
-  - [omnia extensions deploy](#omnia-extensions-deploy)
+        - [Optional Parameters](#optional-parameters-26)
+  - [omnia appsettings update](#omnia-appsettings-update)
         - [Example](#example-21)
         - [Required Parameters](#required-parameters-27)
-        - [Optional Parameters](#optional-parameters-25)
-- [Extension Groups Commands](#extension-groups-commands)
-  - [omnia extgroups new](#omnia-extgroups-new)
+        - [Optional Parameters](#optional-parameters-27)
+  - [omnia ai get](#omnia-ai-get)
         - [Example](#example-22)
         - [Required Parameters](#required-parameters-28)
-        - [Optional Parameters](#optional-parameters-26)
-  - [omnia extgroups addversion](#omnia-extgroups-addversion)
+  - [omnia ai update](#omnia-ai-update)
         - [Example](#example-23)
         - [Required Parameters](#required-parameters-29)
-        - [Optional Parameters](#optional-parameters-27)
-  - [omnia extgroups deleteversion](#omnia-extgroups-deleteversion)
+- [Extension Commands](#extension-commands)
+  - [omnia extensions new](#omnia-extensions-new)
         - [Example](#example-24)
         - [Required Parameters](#required-parameters-30)
         - [Optional Parameters](#optional-parameters-28)
-  - [omnia extgroups delete](#omnia-extgroups-delete)
+  - [omnia extensions restart](#omnia-extensions-restart)
         - [Example](#example-25)
         - [Required Parameters](#required-parameters-31)
         - [Optional Parameters](#optional-parameters-29)
-- [Deployment Groups Commands](#deployment-groups-commands)
-  - [omnia depgroups new](#omnia-depgroups-new)
+  - [omnia extensions list](#omnia-extensions-list)
         - [Example](#example-26)
         - [Required Parameters](#required-parameters-32)
         - [Optional Parameters](#optional-parameters-30)
-  - [omnia depgroups addtarget](#omnia-depgroups-addtarget)
+  - [omnia extensions versions](#omnia-extensions-versions)
         - [Example](#example-27)
         - [Required Parameters](#required-parameters-33)
         - [Optional Parameters](#optional-parameters-31)
-  - [omnia depgroups deletetarget](#omnia-depgroups-deletetarget)
+  - [omnia extensions push](#omnia-extensions-push)
         - [Example](#example-28)
         - [Required Parameters](#required-parameters-34)
         - [Optional Parameters](#optional-parameters-32)
-  - [omnia depgroups delete](#omnia-depgroups-delete)
+  - [omnia extensions deploy](#omnia-extensions-deploy)
         - [Example](#example-29)
         - [Required Parameters](#required-parameters-35)
         - [Optional Parameters](#optional-parameters-33)
-- [Extension Secret Commands](#extension-secret-commands)
-  - [omnia secrets add](#omnia-secrets-add)
+- [Extension Groups Commands](#extension-groups-commands)
+  - [omnia extgroups new](#omnia-extgroups-new)
         - [Example](#example-30)
         - [Required Parameters](#required-parameters-36)
-  - [omnia secrets remove](#omnia-secrets-remove)
+        - [Optional Parameters](#optional-parameters-34)
+  - [omnia extgroups addversion](#omnia-extgroups-addversion)
         - [Example](#example-31)
         - [Required Parameters](#required-parameters-37)
-  - [omnia secrets list](#omnia-secrets-list)
+        - [Optional Parameters](#optional-parameters-35)
+  - [omnia extgroups deleteversion](#omnia-extgroups-deleteversion)
         - [Example](#example-32)
         - [Required Parameters](#required-parameters-38)
+        - [Optional Parameters](#optional-parameters-36)
+  - [omnia extgroups delete](#omnia-extgroups-delete)
+        - [Example](#example-33)
+        - [Required Parameters](#required-parameters-39)
+        - [Optional Parameters](#optional-parameters-37)
+- [Deployment Groups Commands](#deployment-groups-commands)
+  - [omnia depgroups new](#omnia-depgroups-new)
+        - [Example](#example-34)
+        - [Required Parameters](#required-parameters-40)
+        - [Optional Parameters](#optional-parameters-38)
+  - [omnia depgroups addtarget](#omnia-depgroups-addtarget)
+        - [Example](#example-35)
+        - [Required Parameters](#required-parameters-41)
+        - [Optional Parameters](#optional-parameters-39)
+  - [omnia depgroups deletetarget](#omnia-depgroups-deletetarget)
+        - [Example](#example-36)
+        - [Required Parameters](#required-parameters-42)
+        - [Optional Parameters](#optional-parameters-40)
+  - [omnia depgroups delete](#omnia-depgroups-delete)
+        - [Example](#example-37)
+        - [Required Parameters](#required-parameters-43)
+        - [Optional Parameters](#optional-parameters-41)
+- [Extension Secret Commands](#extension-secret-commands)
+  - [omnia secrets add](#omnia-secrets-add)
+        - [Example](#example-38)
+        - [Required Parameters](#required-parameters-44)
+  - [omnia secrets remove](#omnia-secrets-remove)
+        - [Example](#example-39)
+        - [Required Parameters](#required-parameters-45)
+  - [omnia secrets list](#omnia-secrets-list)
+        - [Example](#example-40)
+        - [Required Parameters](#required-parameters-46)
 
 <!-- /TOC -->
 
@@ -487,6 +521,206 @@ omnia dev appsettings get --path C:\myextension\extension.json --tenantid {tenan
 
 ---
 
+# Omnia Dev Dependencies Commands
+
+## omnia dev dependencies list
+
+List all development dependencies
+
+##### Example
+```
+omnia dev dependencies list
+```
+
+##### Required Parameters
+
+No required parameters
+
+##### Optional Parameters
+
+No required parameters
+
+---
+
+## omnia dev dependencies add
+
+Add a new development dependency
+
+##### Example
+
+The following command is to add a new dependency for developing on Omnia version >= 6.0.0-dev 
+
+```
+omnia dev dependencies add --omniafx 6.0.0-dev --sdk 3.1.402 --baseimage 5.0 --cli 3.0.0-dev --clitemplate 6.0.0 --vs 16.7.5
+```
+
+##### Required Parameters
+
+| Name          | Description                                                |
+|---------------|------------------------------------------------------------|
+| --omniafx     | The minimum version of Omnia that requires this dependency |
+| --sdk         | .Net Core SDK version                                      |
+| --baseimage   | Omnia docker base image version                            |
+| --cli         | Omnia cli version                                          |
+| --clitemplate | Omnia cli template version                                 |
+| --vs          | Visual Studio version                                      |
+
+
+##### Optional Parameters
+
+| Name      | Description                             |
+|-----------|-----------------------------------------|
+| --message | Additional message to show to developer |
+
+---
+
+## omnia dev dependencies update
+
+Update a development dependency
+
+##### Example
+
+The following command is to update a dependency for developing on Omnia version >= 6.0.0-dev 
+
+```
+omnia dev dependencies update --omniafx 6.0.0-dev --baseimage 5.0 --message "Documentation: https://github.com/preciofishbone/OmniaFx"
+```
+
+##### Required Parameters
+
+| Name          | Description                                                |
+|---------------|------------------------------------------------------------|
+| --omniafx     | The minimum version of Omnia that requires this dependency |
+
+
+##### Optional Parameters
+
+| Name          | Description                             |
+|---------------|-----------------------------------------|
+| --sdk         | .Net Core SDK version                   |
+| --baseimage   | Omnia docker base image version         |
+| --cli         | Omnia cli version                       |
+| --clitemplate | Omnia cli template version              |
+| --vs          | Visual Studio version                   |
+| --message     | Additional message to show to developer |
+
+---
+
+## omnia dev dependencies remove
+
+Remove a development dependency
+
+##### Example
+
+```
+omnia dev dependencies remove --id eecc5c09-9e15-4907-80c8-67a198387b7b
+```
+
+##### Required Parameters
+
+| Name | Description                    |
+|------|--------------------------------|
+| --id | The id of dependency to remove |
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+# Omnia Dev TemplateInfos Commands
+
+## omnia dev templateinfos list
+
+List all template information
+
+##### Example
+```
+omnia dev templateinfos list
+```
+
+##### Required Parameters
+
+No required parameters
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## omnia dev templateinfos add
+
+Add information for Omnia cli template version
+
+##### Example
+
+The following command is to add information for Omnia cli template version 6.0.0 
+
+```
+omnia dev templateinfos add --version 5.0.0
+```
+
+##### Required Parameters
+
+| Name      | Description                                         |
+|-----------|-----------------------------------------------------|
+| --version | The verion of omnia cli template to add information |
+
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## omnia dev templateinfos update
+
+Update template information
+
+##### Example
+
+The following command is to update information for Omnia cli template version 6.0.0 
+
+```
+omnia dev update --version 6.0.0
+```
+
+##### Required Parameters
+
+| Name      | Description                                            |
+|-----------|--------------------------------------------------------|
+| --versopm | The verion of omnia cli template to update information |
+
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
+## omnia dev templateinfos remove
+
+Remove template information
+
+##### Example
+
+```
+omnia dev templateinfos remove --id eecc5c09-9e15-4907-80c8-67a198387b7b
+```
+
+##### Required Parameters
+
+| Name | Description                           |
+|------|---------------------------------------|
+| --id | The id of template information remove |
+
+##### Optional Parameters
+
+No optional parameters
+
+---
+
 # Omnia Cloud Login
 
 ## omnia login
@@ -510,6 +744,7 @@ No optional parameters
 
 ## omnia logout
 Logs you out of the Omnia Cloud
+
 ##### Example
 
 ```
