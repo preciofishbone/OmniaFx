@@ -214,10 +214,10 @@ when using the Omnia Cli to manage versions such as deployments, listing extensi
 | Pattern        | Description                                          |
 | -------------- | ---------------------------------------------------- |
 | latest         | Gets the latest major version                        |
-| 2.0.*          | Gets the latest patch version of the 2.0 release     |
-| 2.*            | Gets the lates minor version of the 2 release        |
-| 2.0.0-preview* | Gets the latest 2.0.0 preview version                |
-| 2.*-preview*   | Gets the latest minor version of the latest preview  |
+| 5.0.*          | Gets the latest patch version of the 5.0 release     |
+| 5.*            | Gets the lates minor version of the 2 release        |
+| 5.0.0-preview* | Gets the latest 5.0.0 preview version                |
+| 5.*-preview*   | Gets the latest minor version of the latest preview  |
 | -preview       | Gets the latest previev version of any major version |
 
 Pattern matching is very powerful together with concepts such as [Deployment](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-extensions-deploy) or [Extension Groups](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#extension-groups-commands) where you can deploy one or many extensions and ensure its using the current latest version
@@ -429,7 +429,7 @@ Add all of Omnia Team Collaboration Fx in latest available version
 omnia dev add tbfx
 
 Add in specific version
-omnia dev add omniafx --version 2.0.0
+omnia dev add omniafx --version 5.0.0
 
 ```
 
@@ -458,7 +458,7 @@ Update Omnia Team Collaboration Fx to latest available version
 omnia dev update tbfx
 
 Update to specific version
-omnia dev update omniafx --version 2.0.0
+omnia dev update omniafx --version 5.0.0
 
 ```
 
@@ -1063,14 +1063,14 @@ Lists versions pushed for extension that can be installed in Tenants
 Lists all versions for Omnia
 omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa
 
-Lists all versions for Omnia starting with 2.
-omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*
+Lists all versions for Omnia starting with 5.
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5*
 
-Lists all preview versions for Omnia 2.0.0 
-omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.0.0-preview*
+Lists all preview versions for Omnia 5.0.0 
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5.0.0-preview*
 
-Lists all preview versions for Omnia starting with 2.*
-omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*-preview*
+Lists all preview versions for Omnia starting with 5.*
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5.*-preview*
 ```
 
 ##### Required Parameters
@@ -1114,14 +1114,14 @@ Deploys extension versions to tenants.
 
 ##### Example
 ```
-Deploys specific version of Omnia version 2.0.0 
-omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:2.0.0 --tenantid {tenantId}
+Deploys specific version of Omnia version 5.0.0 
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.0 --tenantid {tenantId}
 
-Deploys latest patch version of Omnia for 2.0 release
-omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:2.0.* --tenantid {tenantId}
+Deploys latest patch version of Omnia for 5.0 release
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.* --tenantid {tenantId}
 
-Deploys latest minor and patch version of Omnia for the major 2 release
-omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:2.* --tenantid {tenantId}
+Deploys latest minor and patch version of Omnia for the major 5 release
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.* --tenantid {tenantId}
 
 ```
 
