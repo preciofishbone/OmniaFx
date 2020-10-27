@@ -222,9 +222,9 @@ when using the Omnia Cli to manage versions such as deployments, listing extensi
 
 Pattern matching is very powerful together with concepts such as [Deployment](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-extensions-deploy) or [Extension Groups](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#extension-groups-commands) where you can deploy one or many extensions and ensure its using the current latest version
 
-You can play with the pattern matching using the omnia extensions versions cmd. Try the sample below to find all omnia 2.* versions
+You can play with the pattern matching using the omnia extensions versions cmd. Try the sample below to find all omnia 5.* versions
 ```
-omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5.*
 ```
 ---
 
@@ -234,7 +234,7 @@ omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:2.*
 
 ##### Example Install Templates
 ```
-omnia dev new --install 2.0.0
+omnia dev new --install 5.0.0
 ```
 
 ##### Required Parameters
