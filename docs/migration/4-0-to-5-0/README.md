@@ -19,33 +19,33 @@ omnia dev new --install 5.0.0 --force
 
 Run the below cmd to update all fx npm/nuget packages:
 
->Replace `5.0.x-preview` of each package with the version that running on your tenant. Find those version in Omnia Admin > System > Extensions
+>Replace `5.0.x` of each package with the version that running on your tenant. Find those version in Omnia Admin > System > Extensions
 
 - Omnia
 ```
-omnia dev update omniafx -v 5.0.x-preview -p C:\your-extension-path
+omnia dev update omniafx -v 5.0.x -p C:\your-extension-path
 ```
 
 - OmniaWebContentManagement
 ```
-omnia dev update wcmfx -v 5.0.x-preview -p C:\your-extension-path
+omnia dev update wcmfx -v 5.0.x -p C:\your-extension-path
 ```
 
 - OmniaWorkplace
 ```
-omnia dev update workplacefx -v 5.0.x-preview -p C:\your-extension-path
+omnia dev update workplacefx -v 5.0.x -p C:\your-extension-path
 ```
 
 - OmniaTenantAdministration
 
 ```
-omnia dev update adminfx -v 5.0.x-preview -p C:\your-extension-path
+omnia dev update adminfx -v 5.0.x -p C:\your-extension-path
 ```
 
 - OmniaTeamCollaboration
 
 ```
-omnia dev update tcfx -v 5.0.x-preview -p C:\your-extension-path
+omnia dev update tcfx -v 5.0.x -p C:\your-extension-path
 ```
 
 # Omnia Fx 
