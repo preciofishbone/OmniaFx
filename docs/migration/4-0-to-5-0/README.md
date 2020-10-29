@@ -2,8 +2,6 @@
 
 This article explains how to update an existing Omnia extension from 4.0 to 5.0.
 
-| WARNING: Fx 5.0 is currently in preview! |
-| --- |
 
 # Prerequisite
 
