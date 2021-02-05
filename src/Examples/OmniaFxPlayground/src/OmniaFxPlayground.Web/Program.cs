@@ -38,7 +38,8 @@ namespace OmniaFxPlayground.Web
                         omniaConfig
                         .AddAppSettingsJsonFile("appsettings.json")
                         .AddAppSettingsJsonFile("appsettings.local.json")
-                        .AddOmniaFxWebApp();
+                        .AddOmniaFxWebApp()
+                        .AddOmniaFxNetCoreSharePoint();
 
                     }).ConfigureHost(hostBuilder =>
                     {

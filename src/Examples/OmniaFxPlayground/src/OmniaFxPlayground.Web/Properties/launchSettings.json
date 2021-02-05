@@ -16,7 +16,8 @@
         "ASPNETCORE_URLS": "https://localhost:44323",
         "OMNIA_LOGGING": "ON",
         "OMNIA_ENVIRONMENT": "LocalHosting",
-        "OMNIA_EXTENSIONID": "8f3bdbff-8f40-4693-91ee-843a4674adfb"
+        "OMNIA_EXTENSIONID": "8f3bdbff-8f40-4693-91ee-843a4674adfb",
+        "OMNIA_SERVICEID": "30612a0c-52c8-430e-8b03-132c4c66bba5"
       }
     },
     "OmniaFxPlayground.Web": {
@@ -28,7 +29,8 @@
         "ASPNETCORE_URLS": "https://localhost:44323",
         "OMNIA_LOGGING": "ON",
         "OMNIA_ENVIRONMENT": "LocalHosting",
-        "OMNIA_EXTENSIONID": "8f3bdbff-8f40-4693-91ee-843a4674adfb"
+        "OMNIA_EXTENSIONID": "8f3bdbff-8f40-4693-91ee-843a4674adfb",
+        "OMNIA_SERVICEID": "30612a0c-52c8-430e-8b03-132c4c66bba5"
       }
     }
   }
