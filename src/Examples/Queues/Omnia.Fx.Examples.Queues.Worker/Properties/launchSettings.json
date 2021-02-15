@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Omnia.Fx.Examples.Queues.Worker": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "OMNIA_EXTENSIONID": "16c50ec2-7e85-401e-afbd-4fbdd37372e5"
+      }
+    }
+  }
+}

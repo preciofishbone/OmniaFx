@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <AssemblyName>Omnia.Fx.Examples.Queues.Worker</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="publish\**" />
+    <Compile Remove="approot\**" />
+    <Compile Remove="node_modules\**" />
+    <EmbeddedResource Remove="approot\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <None Remove="**\*.d.ts" />
+    <None Remove="**\*.js" />
+    <None Remove="publish\**" />
+    <None Remove="approot\**" />
+    <None Remove="node_modules\**" />
+    <None Remove="appsettings.json" />
+    <None Remove="appsettings.local.json" />
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.local.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Content>
+    <None Include="gulpfile.esm.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Omnia.Fx.NetCore.Worker" Version="6.0.103-preview" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Omnia.Fx.Examples.Queues.Models\Omnia.Fx.Examples.Queues.Models.csproj" />
+  </ItemGroup>
+
+  <!--***************************************************************************************-->
+  <!--**** Omnia Build Tasks ****************************************************************-->
+  <!--***************************************************************************************-->
+  <Target Name="OmniaRunAfterBuild" AfterTargets="Build">
+    <ItemGroup>
+      <AppRoot Include="approot\**" />
+    </ItemGroup>
+    <Exec Command="npm run omnia-after-build" ContinueOnError="false"></Exec>
+    <Copy SourceFiles="@(AppRoot)" DestinationFolder="$(OutDir)/approot/%(RecursiveDir)" />
+  </Target>
+  <Target Name="OmniaPublish" AfterTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <DistFiles Include="approot/**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+  <!--***************************************************************************************-->
+</Project>

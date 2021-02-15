@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <AssemblyName>Omnia.Fx.Examples.Queues.Web</AssemblyName>
+    <Configurations>Debug;Release;BuildWithoutTsc</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="publish\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="**\*.d.ts" />
+    <None Remove="**\*.js" />
+    <None Remove="**\*.jsx" />
+    <None Remove="**\*.map" />
+    <None Remove="publish\**" />
+    <None Include="gulpfile.esm.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="client\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="6.0.103-preview" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Omnia.Fx.Examples.Queues.Models\Omnia.Fx.Examples.Queues.Models.csproj" />
+  </ItemGroup>
+
+  <!--***************************************************************************************-->
+  <!--**** Omnia Build Tasks ****************************************************************-->
+  <!--***************************************************************************************-->
+  <Target Name="OmniaRunAfterBuildRelease" AfterTargets="Build" Condition="'$(Configuration)' == 'Release' ">
+    <Exec Command="npm run omnia-after-build-release" ContinueOnError="false">
+    </Exec>
+  </Target>
+  <Target Name="OmniaRunAfterBuild" AfterTargets="Build" Condition="'$(Configuration)' != 'Release' And '$(Configuration)' != 'BuildWithoutTsc' ">
+    <Exec Command="npm run omnia-after-build" ContinueOnError="false">
+    </Exec>
+  </Target>
+  <Target Name="IncludeOmniaOutput" AfterTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <DistFiles Include="wwwroot\omnia\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+  <!--***************************************************************************************-->
+</Project>
