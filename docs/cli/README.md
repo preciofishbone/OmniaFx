@@ -557,7 +557,7 @@ omnia dev dependencies add --omniafx 6.0.0-dev --sdk 3.1.402 --baseimage 5.0 --c
 ##### Required Parameters
 
 | Name          | Description                                                |
-|---------------|------------------------------------------------------------|
+| ------------- | ---------------------------------------------------------- |
 | --omniafx     | The minimum version of Omnia that requires this dependency |
 | --sdk         | .Net Core SDK version                                      |
 | --baseimage   | Omnia docker base image version                            |
@@ -569,7 +569,7 @@ omnia dev dependencies add --omniafx 6.0.0-dev --sdk 3.1.402 --baseimage 5.0 --c
 ##### Optional Parameters
 
 | Name      | Description                             |
-|-----------|-----------------------------------------|
+| --------- | --------------------------------------- |
 | --message | Additional message to show to developer |
 
 ---
@@ -588,15 +588,15 @@ omnia dev dependencies update --omniafx 6.0.0-dev --baseimage 5.0 --message "Doc
 
 ##### Required Parameters
 
-| Name          | Description                                                |
-|---------------|------------------------------------------------------------|
-| --omniafx     | The minimum version of Omnia that requires this dependency |
+| Name      | Description                                                |
+| --------- | ---------------------------------------------------------- |
+| --omniafx | The minimum version of Omnia that requires this dependency |
 
 
 ##### Optional Parameters
 
 | Name          | Description                             |
-|---------------|-----------------------------------------|
+| ------------- | --------------------------------------- |
 | --sdk         | .Net Core SDK version                   |
 | --baseimage   | Omnia docker base image version         |
 | --cli         | Omnia cli version                       |
@@ -619,7 +619,7 @@ omnia dev dependencies remove --id eecc5c09-9e15-4907-80c8-67a198387b7b
 ##### Required Parameters
 
 | Name | Description                    |
-|------|--------------------------------|
+| ---- | ------------------------------ |
 | --id | The id of dependency to remove |
 
 ##### Optional Parameters
@@ -664,7 +664,7 @@ omnia dev templateinfos add --version 5.0.0
 ##### Required Parameters
 
 | Name      | Description                                         |
-|-----------|-----------------------------------------------------|
+| --------- | --------------------------------------------------- |
 | --version | The verion of omnia cli template to add information |
 
 
@@ -689,7 +689,7 @@ omnia dev update --version 6.0.0
 ##### Required Parameters
 
 | Name      | Description                                            |
-|-----------|--------------------------------------------------------|
+| --------- | ------------------------------------------------------ |
 | --versopm | The verion of omnia cli template to update information |
 
 
@@ -712,7 +712,7 @@ omnia dev templateinfos remove --id eecc5c09-9e15-4907-80c8-67a198387b7b
 ##### Required Parameters
 
 | Name | Description                           |
-|------|---------------------------------------|
+| ---- | ------------------------------------- |
 | --id | The id of template information remove |
 
 ##### Optional Parameters
@@ -775,14 +775,14 @@ omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustom
 
 ##### Required Parameters
 
-| Name                | Description  |
-| --------------------| ------------- 
-| --intent            | The intent of the tenant can be (dev, test, preprod, prod).
-| --name              | A friendly name of the tenant.
-| --omnia-dns-suffix  | Unique dns suffix for the omnia service this is the first part of the full dns name e.g mycustomer
-| --sp-dns-suffix     | Unique dns suffix for the existing SharePoint online service. this is the first part of the full sharepoint dns name. e.g mycustomer
-| --azure-ad-id       | The unique Azure Ad Id for the customers tenant. https://support.office.com/en-us/article/find-your-office-365-tenant-id-6891b561-a52d-4ade-9f39-b492285e2c9b
-| --region            | The region where this tenant should be hosted. Should be located in same region as Office 365
+| Name               | Description                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --intent           | The intent of the tenant can be (dev, test, preprod, prod).                                                                                                   |
+| --name             | A friendly name of the tenant.                                                                                                                                |
+| --omnia-dns-suffix | Unique dns suffix for the omnia service this is the first part of the full dns name e.g mycustomer                                                            |
+| --sp-dns-suffix    | Unique dns suffix for the existing SharePoint online service. this is the first part of the full sharepoint dns name. e.g mycustomer                          |
+| --azure-ad-id      | The unique Azure Ad Id for the customers tenant. https://support.office.com/en-us/article/find-your-office-365-tenant-id-6891b561-a52d-4ade-9f39-b492285e2c9b |
+| --region           | The region where this tenant should be hosted. Should be located in same region as Office 365                                                                 |
 
 ##### Optional Parameters
 
@@ -1134,7 +1134,10 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.* --tenantid {ten
 
 ##### Optional Parameters
 
-No optional parameters
+| Name      | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| --prerun  | The serviceId of a optional service to run before the deployment |
+| --postrun | The serviceId of a optional service to run after the deployment  |
 
 ---
 
