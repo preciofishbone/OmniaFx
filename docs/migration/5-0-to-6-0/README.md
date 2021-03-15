@@ -2,7 +2,7 @@
 
 This article explains how to update an existing Omnia extension from 5.0 to 6.0.
 
-| WARNING: Fx 6.0 is currently in development ! |
+| WARNING: 6.0 contains preview features such as Page API, Layout Engine and Action Button |
 | --- |
 
 # Prerequisite
