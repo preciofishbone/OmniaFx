@@ -47,6 +47,7 @@ omnia dev update workplacefx -v 6.0.x-dev -p C:\your-extension-path
 
 | Breaking Changes |
 | --- |
+| [Tooling](#tooling)|
 | [User](#user)|
 | [Import from Omnia npm](#import-from-omnia-npm)|
 | [Register admin navigation node](#register-admin-navigation-node)|
@@ -87,6 +88,10 @@ omnia dev update workplacefx -v 6.0.x-dev -p C:\your-extension-path
 From now on, enterprise properties could be grouped under categories. If you use `v-autocomplete` or `v-select` to render a list of enterprise properties, you might want to switch to using our new component  `omfx-enterpriseproperty-picker`. 
 
 # Breaking Changes
+
+## Tooling
+
+Rename `Gulpfile.js` file to `Gulpfile.esm.js`
 
 ## User
 
