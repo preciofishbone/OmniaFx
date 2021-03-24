@@ -48,6 +48,7 @@ omnia dev update workplacefx -v 6.0.x -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [Tooling](#tooling)|
+| [Rich Text Editor](#rich-text-editor)|
 | [User](#user)|
 | [Import from Omnia npm](#import-from-omnia-npm)|
 | [Register admin navigation node](#register-admin-navigation-node)|
@@ -92,6 +93,10 @@ From now on, enterprise properties could be grouped under categories. If you use
 ## Tooling
 
 Rename `Gulpfile.js` file to `Gulpfile.esm.js`
+
+## Rich Text Editor
+
+If you see import issues relating to RTE stuffs, try to update the import path to `@omnia/fx/ux/richtexteditor`
 
 ## User
 
