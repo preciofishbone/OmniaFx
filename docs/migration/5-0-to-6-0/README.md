@@ -49,6 +49,7 @@ omnia dev update workplacefx -v 6.0.x -p C:\your-extension-path
 | --- |
 | [Tooling](#tooling)|
 | [Rich Text Editor](#rich-text-editor)|
+| [Button Presets](#button-presets)|
 | [User](#user)|
 | [Import from Omnia npm](#import-from-omnia-npm)|
 | [Register admin navigation node](#register-admin-navigation-node)|
@@ -97,6 +98,40 @@ Rename `Gulpfile.js` file to `Gulpfile.esm.js`
 ## Rich Text Editor
 
 If you see import issues relating to RTE stuffs, try to update the import path to `@omnia/fx/ux/richtexteditor`
+
+## Button Presets
+
+```ts
+/*-----Old-----*/
+import { ButtonPreset } from '@omnia/fx';
+/*-----New-----*/
+import { ButtonPresets } from '@omnia/fx/ux';
+
+
+/*-----Old-----*/
+<omfx-button preset={ButtonPreset.ImageIconButton} ... />
+/*-----New-----*/
+<omfx-button preset={ButtonPresets.base.smallIcon} ... />
+
+
+/*-----Old-----*/
+<omfx-button preset={ButtonPreset.CloseIconButton} ... />
+/*-----New-----*/
+<omfx-button preset={ButtonPresets.icons.close} ... />
+
+
+/*-----Old-----*/
+<omfx-button preset={ButtonPreset.Close} ... />
+/*-----New-----*/
+<omfx-button preset={ButtonPresets.text.close} ... /> 
+
+
+/*-----Old-----*/
+<omfx-button preset={ButtonPreset.Ok} ... />
+/*-----New-----*/
+<omfx-button preset={ButtonPresets.text.ok} ... /> 
+
+```
 
 ## User
 
