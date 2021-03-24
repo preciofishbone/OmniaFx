@@ -21,21 +21,21 @@ omnia dev new --install 6.0.0 --force
 
 Run the below cmd to update all fx npm/nuget packages:
 
->Replace `6.0.x-dev` of each package with the version that running on your tenant. Find those version in Omnia Admin > System > Extensions
+>Replace `6.0.x` of each package with the version that running on your tenant. Find those version in Omnia Admin > System > Extensions
 
 - Omnia
 ```
-omnia dev update omniafx -v 6.0.x-dev -p C:\your-extension-path
+omnia dev update omniafx -v 6.0.x -p C:\your-extension-path
 ```
 
 - OmniaWebContentManagement
 ```
-omnia dev update wcmfx -v 6.0.x-dev -p C:\your-extension-path
+omnia dev update wcmfx -v 6.0.x -p C:\your-extension-path
 ```
 
 - OmniaWorkplace
 ```
-omnia dev update workplacefx -v 6.0.x-dev -p C:\your-extension-path
+omnia dev update workplacefx -v 6.0.x -p C:\your-extension-path
 ```
 
 
