@@ -386,6 +386,35 @@ render(h) {
 
 ## Page Rollup
 
+Fix view registration:
+
+- Manifest file:
+  
+```ts
+Composer.registerManifest("" /** Manifest Id */, ""   /** Manifest Name */)
+.registerResources({
+    resourcePaths: ["./Registration.js"]
+})
+.extendApi(api => api.wcm.pageRollup.registration)
+```
+
+- Registration file:
+
+```ts
+import { extendApi } from "@omnia/fx";
+
+extendApi(api => api.wcm.pageRollup.registration, registerApi => {
+
+    return new Promise<void>((resolve, reject) => {
+
+        registerApi.registerViews(null /** input the Page Rollup Registration View */);
+
+        resolve();
+    })
+})
+```
+
+
 Fix the way to navigate pages in custom view:
 
 ```ts
