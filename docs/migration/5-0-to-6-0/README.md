@@ -151,6 +151,9 @@ For example: People Picker (omfx-people-picker) has been updated to use `Array<I
 
 **Even if you do not see errors, you should find all references of using `UserIdentity` in your project and try to replace it with `Identity`. Because from now on, `UserIdentity` means identity only for user (not include group).**
 
+> Its recommended to go through [this article](https://github.com/preciofishbone/OmniaFx/tree/main/docs/tutorials/omnia-learn/identity#identity-usergroup) to know how Identity is in Omnia System.
+
+
 ## Import from Omnia npm
 
 ```ts
