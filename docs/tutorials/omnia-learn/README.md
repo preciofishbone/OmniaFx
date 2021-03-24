@@ -60,6 +60,10 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     This tutorial shows you how to call Omnia APIs externally with client credentials.
 
+- ## [Identity in Omnia System](./identity)
+  
+    Learn how Identity is in Omnia System
+
 # WCM Fx
 
 - ## [Create a Omnia Block](./create-omnia-block#create-a-omnia-block)

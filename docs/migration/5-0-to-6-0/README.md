@@ -135,7 +135,7 @@ import { ButtonPresets } from '@omnia/fx/ux';
 
 ## User
 
-If you see errors that using `UserPrincipalName` of Identity/User, you have to replace it with `Uid`. For example:
+If you see errors that using `UserPrincipalName` property of Identity/User, you have to replace it with `Uid`. For example:
 
 ```cs
 /*-----Old-----*/
@@ -145,11 +145,11 @@ OmniaContext.Identity.UserPrincipalName
 OmniaContext.Identity.Uid
 ```
 
-If you see errors that using `UserIdentity` interface/class, you have to replace it with `IdentityId` interface/class. 
+If you see errors that using `UserIdentity` interface/class, you have to replace it with `Identity` interface/class. 
 
-For example: People Picker (omfx-people-picker) has been updated to use `Array<IdentityId>` as input/output.
+For example: People Picker (omfx-people-picker) has been updated to use `Array<Identity>` as input/output.
 
-**Even if you do not see errors, you should find all references of using `UserIdentity` in your project and try to replace it with `IdentityId`. Because from now on, `UserIdentity` means a full model of user.**
+**Even if you do not see errors, you should find all references of using `UserIdentity` in your project and try to replace it with `Identity`. Because from now on, `UserIdentity` means identity only for user (not include group).**
 
 ## Import from Omnia npm
 
