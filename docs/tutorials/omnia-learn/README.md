@@ -60,7 +60,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     This tutorial shows you how to call Omnia APIs externally with client credentials.
 
-- ## [Identity in Omnia System](./identity)
+- ## [Identity in Omnia System](./identity#identity-usergroup)
   
     Learn how Identity is in Omnia System
 
