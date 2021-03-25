@@ -49,6 +49,7 @@ omnia dev update workplacefx -v 6.0.x -p C:\your-extension-path
 | --- |
 | [Tooling](#tooling)|
 | [Portable Client Context](#portable-client-context)|
+| [Service Configuration](#service-configuration)|
 | [Rich Text Editor](#rich-text-editor)|
 | [Button Presets](#button-presets)|
 | [Queryable Property](#queryable-property)|
@@ -102,6 +103,19 @@ Rename `Gulpfile.js` file to `Gulpfile.esm.js`
 ## Portable Client Context
 
 We have updated to use OOTB Microsoft.SharePointOnline.CSOM nuget so you need to update the error code regarding that. (E.g. Try to remove the `Portable` part)
+
+## Service Configuration
+
+```cs
+
+/*-----Old-----*/
+services.AddScopedWithSingleton 
+services.AddScopedWithSingelton //wrong spelling in fx code. put her for searching purpose
+
+/*-----New-----*/
+services.AddScoped
+
+```
 
 ## Rich Text Editor
 
@@ -211,9 +225,9 @@ import { ImageTransformer, ITransformerConfigs } from '@omnia/fx/ux';
 
 
 /*-----Old-----*/
-import { JourneyInstance, Blade, BladeSizes } from '@omnia/fx/ux';
+import { JourneyInstance, Blade, BladeSizes, NestedCSSPropertiesExtends } from '@omnia/fx/ux';
 /*-----New-----*/
-import { JourneyInstance, Blade, BladeSizes } from '@omnia/fx-models';
+import { JourneyInstance, Blade, BladeSizes, NestedCSSPropertiesExtends } from '@omnia/fx-models';
 
 ```
 
