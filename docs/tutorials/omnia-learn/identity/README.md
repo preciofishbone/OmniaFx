@@ -29,4 +29,4 @@ if(currentUser is AzureAdUser azureAdUser) {
 
 On server-side, we can use `Omnia.Fx.Users.IUserService` to resolve identity, which can also be done by `import { UserStore } from '@omnia/fx'` on client-side.
 
-If you want more stuff around identity belongs to AzureAd, you can look at `Omnia.Fx.AzureAd.IAzureAdService` or `import { AzureAdStore } from '@omnia/fx'`
+For more about particular AzureAd-Identity, you can look at `Omnia.Fx.AzureAd.IAzureAdService` or `import { AzureAdStore } from '@omnia/fx'`
