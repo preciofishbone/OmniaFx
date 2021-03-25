@@ -51,7 +51,7 @@ omnia dev update workplacefx -v 6.0.x -p C:\your-extension-path
 | [Portable Client Context](#portable-client-context)|
 | [Rich Text Editor](#rich-text-editor)|
 | [Button Presets](#button-presets)|
-| [Enterprise Property](#enterprise-property)|
+| [Queryable Property](#queryable-property)|
 | [User](#user)|
 | [Import from Omnia npm](#import-from-omnia-npm)|
 | [Register admin navigation node](#register-admin-navigation-node)|
@@ -141,7 +141,7 @@ import { ButtonPresets } from '@omnia/fx/ux';
 
 ```
 
-## Enterprise Property
+## Queryable Property
 
 We are removed the Omnia Searchable from Enterprise Property which is `OmniaSearchable` property inside EnterprisePropertyDefinition model/class.
 
