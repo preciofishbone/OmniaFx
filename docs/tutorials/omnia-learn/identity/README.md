@@ -8,7 +8,7 @@ There are 2 base class/model in Omnia system: **Identity** and **ResolvedIdentit
 - **ResolvedIdentity** is a full model that could be resolve from an **Identity**.
  
 
-![image](https://user-images.githubusercontent.com/17378364/112297433-7a694800-8cc8-11eb-947f-74555c8a7ba2.png)
+![image](https://user-images.githubusercontent.com/17378364/112411280-3a00dd00-8d4f-11eb-8dae-8286cfc39d97.png)
 
 
 In server-side code, it is always able to check/cast to a proper derived class from a base. For example
