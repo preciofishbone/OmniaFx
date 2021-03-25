@@ -63,6 +63,7 @@ omnia dev update workplacefx -v 6.0.x -p C:\your-extension-path
 | [Page Rollup](#page-rollup)|
 | [Variation Page](#variation-page)|
 | [Create page from hardcoded json](#create-page-from-hardcoded-json)|
+| [Image Rendering](#image-rendering)|
 
 # Admin Fx
 
@@ -149,7 +150,7 @@ If you see errors that using `UserIdentity` interface/class, you have to replace
 
 For example: People Picker (omfx-people-picker) has been updated to use `Array<Identity>` as input/output.
 
-**Even if you do not see errors, you should find all references of using `UserIdentity` in your project and try to replace it with `Identity`. Because from now on, `UserIdentity` means identity only for user (not include group).**
+**Even if you do not see errors, you should find all references of using `UserIdentity` in your project and try to replace it with `Identity`. Because from now on, `UserIdentity` means identity for user only (not include group).**
 
 > Its recommended to go through [this article](https://github.com/preciofishbone/OmniaFx/tree/main/docs/tutorials/omnia-learn/identity#identity-usergroup) to know how Identity is in Omnia System.
 
@@ -507,6 +508,136 @@ Form now on, default page will contain all its variation pages, and page navigat
 ## Create page from hardcoded json
 
 If you are using any hardcoded json (constant) to create wcm pages, you should update the json. Try to get the valid json via client-side.
+
+## Image Rendering
+
+In 6.0, Media concept/data model has been changed.
+
+The below code is a sample showing how an image (page image property) is rendered inside a custom Page Rollup view.
+
+```tsx
+import { MigrationUtils, Utils } from '@omnia/fx';
+import { ImageSvgTransformer } from '@omnia/fx/ux';
+import { MediaPickerVideo, MediaPickerEnums, MediaPickerVideo, MediaPickerImageRatio, SquareRatio, LandscapeRatio, PortraitRatio, WideRatio } from '@omnia/fx-models';
+
+export class ACustomPageRollupView extends VueComponentBase {
+
+
+    /**
+    *
+    *
+    * DEFINE WHICH RATIO FOR RENDERING IMAGE IN THIS VIEW: hardcoded ratio in 5.0
+    *
+    */
+    oldRatio = { xRatio: 1, yRatio: 1 }
+    uniqueId = Utils.generateGuid();
+
+    /**
+    *
+    *
+    * DEFINE WHICH RATIO FOR RENDERING IMAGE IN THIS VIEW: SquareRatio/LandscapeRatio/PortraitRatio...
+    *
+    */
+    ratioUniqueId = new SquareRatio().uniqueId;
+    imageRatio: MediaPickerImageRatio = null;
+
+    created() {
+        getSelectedImageRatio();
+    }
+
+    getSelectedImageRatio(){
+        this.mediaPickerStore.actions.ensureImageRatios.dispatch().then(() => {
+            this.imageRatio = this.mediaPickerStore.getters.imageRatios().find(item => item.uniqueId == this.radioUniqueId);
+        })
+    }
+
+    getHtmlByThumbnailUrl(videoThumbnailUrl: string) {
+        if (!videoThumbnailUrl)
+            return null;
+        
+        if (videoThumbnailUrl.match(/https:\/\/img\.youtube\.com\/vi\/(.)+\/maxresdefault\.jpg/gm)) {
+            videoThumbnailUrl = videoThumbnailUrl.replace("/maxresdefault.jpg", "/hqdefault.jpg");
+        }
+
+        return `<img src="${videoThumbnailUrl}" />`;
+    }
+
+    /**
+    *
+    *
+    * THIS IS THE RENDER IMAGE FUNCTION
+    *
+    */
+    renderImage(h, page: PageDetailsQueryResult) {
+        if (!this.imageRatio)
+            return null;
+
+        let imagePropertyValue: MediaPickerMedia = page.properties['***which page image property***'];
+        let imageHTML = '';
+        let imageUrl = '';
+        if (imagePropertyValue) {         
+            MigrationUtils.migrateMediaPickerMedia(imagePropertyValue);
+            try {
+                let mediaType = imagePropertyValue.omniaMediaType;
+
+                /**
+                *
+                *
+                * THIS IS THE NEW WAY OF RENDERING IMAGE WITH NEW IMAGE DATA 
+                *
+                */
+                if (mediaType != null) {
+                    if (mediaType == MediaPickerEnums.OmniaMediaTypes.Video) {
+                        imageHTML = this.getHtmlByThumbnailUrl((imagePropertyValue as MediaPickerVideo).thumbnailUrl);
+                    }
+                    else {
+                        imageUrl = this.mediaPickerService.getImageUrl((imagePropertyValue as MediaPickerImage), imageRatio ? imageRatio.id : null);
+                    }
+                }
+                /**
+                *
+                *
+                * THIS IS THE OLD WAY OF RENDERING IMAGE WITH OLD IMAGE DATA (backward compatibility)
+                *
+                */
+                else {
+                    if (imagePropertyValue['thumbnailUrl']) {
+                        imageHTML = this.getHtmlByThumbnailUrl(imagePropertyValue['thumbnailUrl']);
+                    }
+                    else if (imagePropertyValue['src']) {
+                        /**
+                        *
+                        * DEFINE THE OLD RATIO HERE
+                        *
+                        */
+
+                        let ratio = imagePropertyValue['ratios'] ? imagePropertyValue['ratios'].filter(r => r.xRatio == this.oldRatio.xRatio && r.yRatio == this.oldRatio.yRatio)[0] : null;
+                        let transformerConfig = ratio ? { cropArea: ratio.ratioCropArea, cropRatio: { x: ratio.xRatio, y: ratio.yRatio }, elementId: this.uniqueId } : { elementId: this.uniqueId };
+                        imageHTML = new ImageSvgTransformer(imagePropertyValue['src'], transformerConfig).getElementString();
+                    }
+                }
+            }
+            catch (ex) {
+                console.log(`Cannot render image`)
+            }
+        }
+        let retElement = null;
+        if (imageHTML)
+            retElement = <a onClick={(event: MouseEvent) => {  }} href={page.url} domProps-innerHTML={imageHTML}></a>;
+        else {
+            retElement = <a onClick={(event: MouseEvent) => {  }} href={page.url}>
+                {
+                    imageUrl ? <img src={imageUrl} alt={(imagePropertyValue as MediaPickerImage).altText} /> : 
+                    <img src={this.defaultPageImageSrc} />
+                }
+            </a>;
+        }
+        return retElement;
+    }
+}
+
+
+```
 
 ## Admin Fx npm has been removed
 
