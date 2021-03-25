@@ -48,6 +48,7 @@ omnia dev update workplacefx -v 6.0.x -p C:\your-extension-path
 | Breaking Changes |
 | --- |
 | [Tooling](#tooling)|
+| [Portable Client Context](#portable-client-context)|
 | [Rich Text Editor](#rich-text-editor)|
 | [Button Presets](#button-presets)|
 | [User](#user)|
@@ -95,6 +96,10 @@ From now on, enterprise properties could be grouped under categories. If you use
 ## Tooling
 
 Rename `Gulpfile.js` file to `Gulpfile.esm.js`
+
+## Portable Client Context
+
+We have updated to use OOTB Microsoft.SharePointOnline.CSOM nuget so you need to update the error code regarding that. (E.g. Try to remove the `Portable` part)
 
 ## Rich Text Editor
 
