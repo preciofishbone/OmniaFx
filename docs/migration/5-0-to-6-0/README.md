@@ -51,9 +51,11 @@ omnia dev update workplacefx -v 6.0.x -p C:\your-extension-path
 | [Portable Client Context](#portable-client-context)|
 | [Rich Text Editor](#rich-text-editor)|
 | [Button Presets](#button-presets)|
+| [Enterprise Property](#enterprise-property)|
 | [User](#user)|
 | [Import from Omnia npm](#import-from-omnia-npm)|
 | [Register admin navigation node](#register-admin-navigation-node)|
+
 
 # WCM Fx
 
@@ -139,6 +141,35 @@ import { ButtonPresets } from '@omnia/fx/ux';
 
 ```
 
+## Enterprise Property
+
+We are removed the Omnia Searchable from Enterprise Property which is `OmniaSearchable` property inside EnterprisePropertyDefinition model/class.
+
+![image](https://user-images.githubusercontent.com/17378364/112428723-303aa200-8d6e-11eb-8f42-39200ea9053c.png)
+
+Now, each extension will have possibility to configure its own queryable properties on different entity. e.g. WCM has its own configuration about which enterprise property is queryable on Pages
+
+Here are some sample code working with new concept of queryable properties
+
+```ts
+import { WcmService } from '@omnia/wcm/models';
+import { QueryableProperties } from '@omnia/wcm';
+import { EnterprisePropertyStore } from '@omnia/fx/stores';
+
+@Inject(EnterprisePropertyStore) private propertyStore: EnterprisePropertyStore;
+
+//Ensure to load WCM queryable enterprise properties on Page data
+ this.propertyStore.actions.ensureLoadQueryableProperties.dispatch(WcmService.Id, QueryableProperties.TableNames.PageQueryData).then(()=>{
+     //data is loaded 
+
+ })
+
+
+//Get WCM queryable enterprise properties on Page data
+const queryableProperties = this.propertyStore.getters.queryableEnterprisePropertiesByIndexedTypes(WcmService.Id, [PropertyIndexedType.Boolean, PropertyIndexedType.DateTime], QueryableProperties.TableNames.PageQueryData);
+
+```
+
 ## User
 
 If you see errors that using `UserPrincipalName` property of Identity/User, you have to replace it with `Uid`. For example:
@@ -158,6 +189,7 @@ For example: People Picker (omfx-people-picker) has been updated to use `Array<I
 **Even if you do not see errors, you should find all references of using `UserIdentity` in your project and try to replace it with `Identity`. Because from now on, `UserIdentity` means identity for user only (not include group).**
 
 > Its recommended to go through [this article](https://github.com/preciofishbone/OmniaFx/tree/main/docs/tutorials/omnia-learn/identity#identity-usergroup) to know how Identity is in Omnia System.
+
 
 
 ## Import from Omnia npm
