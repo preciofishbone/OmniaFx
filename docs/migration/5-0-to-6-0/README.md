@@ -518,6 +518,7 @@ The below code is a sample showing how an image (page image property) is rendere
 ```tsx
 import { MigrationUtils, Utils } from '@omnia/fx';
 import { ImageSvgTransformer } from '@omnia/fx/ux';
+import { PageDetailsQueryResult } from '@omnia/wcm/models';
 import { MediaPickerVideo, MediaPickerEnums, MediaPickerVideo, MediaPickerImageRatio, SquareRatio, LandscapeRatio, PortraitRatio, WideRatio } from '@omnia/fx-models';
 
 export class ACustomPageRollupView extends VueComponentBase {
