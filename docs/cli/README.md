@@ -538,7 +538,9 @@ No required parameters
 
 ##### Optional Parameters
 
-No required parameters
+| Name      | Description                             |
+| --------- | --------------------------------------- |
+| --json    | Show listing in json format             |
 
 ---
 
