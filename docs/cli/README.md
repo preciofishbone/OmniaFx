@@ -345,6 +345,7 @@ No required parameters
 | Name      | Description                                          |
 | --------- | ---------------------------------------------------- |
 | -p --path | The path to the folder where to start restoring from |
+| -f --force| Delete node_modules and package-lock.json            |
 
 ---
 
