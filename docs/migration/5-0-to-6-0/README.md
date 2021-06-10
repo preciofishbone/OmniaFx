@@ -157,7 +157,7 @@ import { ButtonPresets } from '@omnia/fx/ux';
 
 ## Queryable Property
 
-We are removed the Omnia Searchable from Enterprise Property which is `OmniaSearchable` property inside EnterprisePropertyDefinition model/class.
+We removed the Omnia Searchable from Enterprise Property which is `OmniaSearchable` property inside EnterprisePropertyDefinition model/class.
 
 ![image](https://user-images.githubusercontent.com/17378364/112428723-303aa200-8d6e-11eb-8f42-39200ea9053c.png)
 
@@ -176,11 +176,10 @@ import { EnterprisePropertyStore } from '@omnia/fx/stores';
  this.propertyStore.actions.ensureLoadQueryableProperties.dispatch(WcmService.Id, QueryableProperties.TableNames.PageQueryData).then(()=>{
      //data is loaded 
 
+    
+    //Get WCM queryable enterprise properties on Page data
+    const queryableProperties = this.propertyStore.getters.queryableEnterprisePropertiesByIndexedTypes(WcmService.Id, [PropertyIndexedType.Boolean, PropertyIndexedType.DateTime], QueryableProperties.TableNames.PageQueryData);
  })
-
-
-//Get WCM queryable enterprise properties on Page data
-const queryableProperties = this.propertyStore.getters.queryableEnterprisePropertiesByIndexedTypes(WcmService.Id, [PropertyIndexedType.Boolean, PropertyIndexedType.DateTime], QueryableProperties.TableNames.PageQueryData);
 
 ```
 
