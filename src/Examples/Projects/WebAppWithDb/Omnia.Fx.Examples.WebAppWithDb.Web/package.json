@@ -7,11 +7,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@omnia/fx-models": "3.1.4",
-    "@omnia/fx-sp": "3.1.4",
-    "@omnia/fx-spfx": "3.1.4",
-    "@omnia/tooling-vue": "3.1.4",
-    "@omnia/wcm": "2.1.0"
+    "@omnia/fx": "6.2.4",
+    "@omnia/fx-models": "6.2.4",
+    "@omnia/fx-sp": "6.2.4",
+    "@omnia/fx-spfx": "6.2.4",
+    "@omnia/tooling-vue": "6.2.4",
+    "@omnia/wcm": "6.2.4"
   },
   "devDependencies": {
     "@types/jest": "^22.1.0",

@@ -1,8 +1,8 @@
-import { Store } from '@omnia/fx/store';
 import { Injectable, Inject, OmniaContext, ResolvablePromise } from '@omnia/fx';
-import { InstanceLifetimes, OmniaUserContext } from '@omnia/fx-models';
+import { AzureAdUser, InstanceLifetimes} from '@omnia/fx-models';
 import { BasicBike, BikeType } from '../../models';
 import { BikeService } from '../services/BikeService';
+import { UserStore,Store } from '@omnia/fx/stores';
 
 @Injectable({
     onStartup: (storeType) => { Store.register(storeType, InstanceLifetimes.Scoped) }
@@ -11,8 +11,9 @@ export class BikeStore extends Store {
 
     @Inject(BikeService) private bikeService: BikeService;
     @Inject(OmniaContext) private omniaCtx: OmniaContext;
-
-    private currentUser: OmniaUserContext;
+    @Inject(UserStore) private userStore: UserStore;
+    
+    private currentUser: AzureAdUser;
     private bikesOrdersState = this.state<{ [userId: string]: Array<BasicBike> }>({});
     private availableBikes = this.state<Array<BasicBike>>([]);
     private availableBikesPromise = new ResolvablePromise<null>();
@@ -24,8 +25,11 @@ export class BikeStore extends Store {
     }
 
     async onActivated() {
-        this.currentUser = await this.omniaCtx.user;
-        this.bikesOrdersState.state[this.currentUser.id] = [];
+        this.userStore.current.then(currentUer => {
+            this.currentUser = currentUer as AzureAdUser;
+        })
+
+        this.bikesOrdersState.state[this.currentUser.uid] = [];
     }
 
     onDisposing() {
@@ -40,7 +44,7 @@ export class BikeStore extends Store {
             return this.bikesOrdersState.state[userId];
         },
         getUserOrders: () => {
-            return this.currentUser ? this.bikesOrdersState.state[this.currentUser.id] : [];
+            return this.currentUser ? this.bikesOrdersState.state[this.currentUser.uid] : [];
         },
         getAvailable: () => {
             return this.availableBikes.state;
@@ -75,10 +79,10 @@ export class BikeStore extends Store {
                 let user = await this.omniaCtx.user;
 
                 this.bikesOrdersState.mutate((orders) => {
-                    if (!orders.state[user.id]) {
-                        orders.state[user.id] = [];
+                    if (!orders.state[user.uid]) {
+                        orders.state[user.uid] = [];
                     }
-                    orders.state[user.id].push(orderedBike);
+                    orders.state[user.uid].push(orderedBike);
                 })
 
                 Promise.resolve(null);

@@ -1,5 +1,5 @@
 ﻿import { Inject, HttpClientConstructor, HttpClient, Injectable } from '@omnia/fx';
-import { IHttpApiOperationResult, InstanceLifetimes, GuidValue, Guid, EnterprisePropertyDefinition, User } from '@omnia/fx-models';
+import { IHttpApiOperationResult, InstanceLifetimes, GuidValue, Guid, EnterprisePropertyDefinition, AzureAdUser } from '@omnia/fx-models';
 import { WebAppWithDbService, BasicBike } from '../../models';
 
 @Injectable({ lifetime: InstanceLifetimes.Transient })
@@ -30,10 +30,10 @@ export class BikeService {
         });
     }
 
-    public getUserOrders = (user: User): Promise<Array<BasicBike>> => {
+    public getUserOrders = (user: AzureAdUser): Promise<Array<BasicBike>> => {
         return new Promise<Array<BasicBike>>((resolve, reject) => {
 
-            this.httpClient.get<IHttpApiOperationResult<Array<BasicBike>>>(this.baseUrl + "/orders/" + user.id).then((response) => {
+            this.httpClient.get<IHttpApiOperationResult<Array<BasicBike>>>(this.baseUrl + "/orders/" + user.uid).then((response) => {
 
                 if (response.status == 200) {
                     if (response.data.success) {
