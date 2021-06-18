@@ -27,6 +27,7 @@ We use typescript all in except for taskrunner
 *.jsx
 *.d.ts
 !gulpfile.js
+!gulpfile.esm.js
 !**/packages/wcm/**/*.*
 **/packages/wcm/task.d.ts
 **/packages/wcm/task.js

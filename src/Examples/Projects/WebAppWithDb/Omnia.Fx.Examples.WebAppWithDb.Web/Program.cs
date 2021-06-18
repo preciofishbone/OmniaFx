@@ -1,14 +1,14 @@
 using System.Threading.Tasks;
+
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using Omnia.Fx.HostConfiguration;
 using Omnia.Fx.HostConfiguration.Extensions;
 using Omnia.Fx.NetCore.WebApp.Hosting;
-using Omnia.Fx.Examples.WebAppWithDb.Core.Extensions;
-
 
 namespace Omnia.Fx.Examples.WebAppWithDb.Web
 {
@@ -42,11 +42,9 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Web
                         .AddAppSettingsJsonFile("appsettings.local.json")
                         .AddOmniaFxWebApp();
 
-                    }).ConfigureHost(hostBuilder =>
-                    {
+                    }).ConfigureHost(hostBuilder => {
                         hostBuilder
-                        .ConfigureServices(services =>
-                        {
+                        .ConfigureServices(services => {
                             services.AddRouting();
 
                             // Register the Swagger generator, defining one or more Swagger documents
@@ -54,15 +52,8 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Web
                             {
                                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
                             });
-
-                            //Configure the DB to be used in the core project, i.e. the DB with reference id f8debb44-be08-4ae2-9cf5-c1cebc839123
-                            services.AddWebAppWithDbDB();
-
-                            //Configure the services in core project
-                            services.AddWebAppWithDbServices();
                         })
-                        .ConfigureWebHost(webHostBuilder =>
-                        {
+                        .ConfigureWebHost(webHostBuilder => {
                             webHostBuilder.Configure((ctx, app) =>
                             {
                                 app.UseStaticFiles();
@@ -80,11 +71,11 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Web
                                 });
 
                                 //Use middlwaree
+
                                 app.UseAuthentication();
                                 app.UseAuthorization();
 
-                                app.UseEndpoints(endpoints =>
-                                {
+                                app.UseEndpoints(endpoints => {
                                     endpoints.MapControllers();
                                 });
                             });

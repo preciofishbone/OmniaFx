@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Omnia.Fx.Contexts;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
@@ -13,7 +11,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
     public abstract class DbContextWithAuditing<T> : BaseDbContext where T : DbContextWithAuditing<T>
     {
         private static bool HandleStartUp { get; set; }
-        private static object _lock = new object();
+        private static readonly object _lock = new object();
         private bool IsSystemUpdate { get; }
         protected IOmniaContext OmniaContext { get; }
 
@@ -59,7 +57,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
             var entries = ChangeTracker.Entries()
                 .Where(x => x.Entity is AuditingEntityBase && (x.State == EntityState.Added || x.State == EntityState.Modified));
             var currentTime = DateTimeOffset.UtcNow;
-            var isSystemUpdate = IsSystemUpdate && OmniaContext.Identity.IsExtensionIdentity;
+            var isSystemUpdate = IsSystemUpdate && OmniaContext.Identity.IsExtension();
             foreach (var entry in entries)
             {
                 var entity = (AuditingEntityBase)entry.Entity;
@@ -71,7 +69,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
                     }
                     if (string.IsNullOrWhiteSpace(entity.CreatedBy) || !isSystemUpdate)
                     {
-                        entity.CreatedBy = OmniaContext.Identity.LoginName;
+                        entity.CreatedBy = OmniaContext.Identity.Uid;
                     }
                     if (entity.ModifiedAt == DateTimeOffset.MinValue || !isSystemUpdate)
                     {
@@ -79,7 +77,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
                     }
                     if (string.IsNullOrWhiteSpace(entity.ModifiedBy) || !isSystemUpdate)
                     {
-                        entity.ModifiedBy = OmniaContext.Identity.LoginName;
+                        entity.ModifiedBy = OmniaContext.Identity.Uid;
                     }
                 }
                 else if (entry.State == EntityState.Modified)
@@ -90,7 +88,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
                     }
                     if (string.IsNullOrWhiteSpace(entity.ModifiedBy) || !isSystemUpdate)
                     {
-                        entity.ModifiedBy = OmniaContext.Identity.LoginName;
+                        entity.ModifiedBy = OmniaContext.Identity.Uid;
                     }
                 }
 
@@ -127,9 +125,9 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<EntityExistedResult>().ToView(nameof(EntityExistedQuery)).HasNoKey();
-           }
+        }
 
-       // public DbSet<EntityExistedResult> EntityExistedQuery { get; set; }
+        // public DbSet<EntityExistedResult> EntityExistedQuery { get; set; }
 
     }
 

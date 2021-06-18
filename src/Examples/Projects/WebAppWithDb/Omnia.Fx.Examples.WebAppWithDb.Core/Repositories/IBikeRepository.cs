@@ -1,8 +1,5 @@
 ﻿using Omnia.Fx.Examples.WebAppWithDb.Models;
-using Omnia.Fx.Models.Users;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
@@ -13,10 +10,10 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
     /// </summary>
     internal interface IBikeRepository
     {
-        ValueTask<BasicBike> OrderAsync(BasicBike bike, Guid userId);
+        ValueTask<BasicBike> OrderAsync(BasicBike bike, string userId);
 
-        ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(Guid userId);
+        ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(string userId);
 
-        ValueTask<Dictionary<Guid, IList<BasicBike>>> AllBikesOrderedAsync();
+        ValueTask<Dictionary<string, IList<BasicBike>>> AllBikesOrderedAsync();
     }
 }

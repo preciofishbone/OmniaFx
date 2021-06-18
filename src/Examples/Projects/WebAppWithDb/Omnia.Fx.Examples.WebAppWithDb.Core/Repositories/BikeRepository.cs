@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Omnia.Fx.Examples.WebAppWithDb.Core.Entities;
+using Omnia.Fx.Examples.WebAppWithDb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Omnia.Fx.Examples.WebAppWithDb.Core.Entities;
-using Omnia.Fx.Examples.WebAppWithDb.Models;
-using Omnia.Fx.Models.Users;
 
 namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
 {
@@ -20,13 +19,13 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
             DatabaseContext = dbContext;
         }
 
-        public async ValueTask<Dictionary<Guid, IList<BasicBike>>> AllBikesOrderedAsync()
+        public async ValueTask<Dictionary<string, IList<BasicBike>>> AllBikesOrderedAsync()
         {
-            Dictionary<Guid, IList<BasicBike>> result = new Dictionary<Guid, IList<BasicBike>>();
+            var result = new Dictionary<string, IList<BasicBike>>();
 
             var allOrders = await this.OrderedBikes.ToListAsync();
 
-            foreach(var order in allOrders)
+            foreach (var order in allOrders)
             {
                 if (!result.ContainsKey(order.UserId))
                 {
@@ -39,7 +38,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
             return result;
         }
 
-        public async ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(Guid userId)
+        public async ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(string userId)
         {
 
             IList<BasicBike> result = (await this.OrderedBikes.Where(x => x.UserId == userId).ToListAsync()).Select(x => x.Bike).ToList();
@@ -47,7 +46,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
             return result;
         }
 
-        public async ValueTask<BasicBike> OrderAsync(BasicBike bike, Guid userId)
+        public async ValueTask<BasicBike> OrderAsync(BasicBike bike, string userId)
         {
             var newOrder = new OrderedBikeEntity
             {
@@ -61,12 +60,12 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
             {
                 await DatabaseContext.SaveChangesAsync();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
 
                 throw;
             }
-            
+
 
             return newOrder.Bike;
         }

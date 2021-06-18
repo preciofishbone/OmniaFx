@@ -1,1 +1,1 @@
-{"Id":"2ed2fcbe-d562-40cc-a045-32b5053b0b78","Type":"Extension","Projects":[{"Path":"Omnia.Fx.Examples.WebAppWithDb.Web/Omnia.Fx.Examples.WebAppWithDb.Web.csproj","BaseImage":"preciofishbone/omnia:2.1-webapp"}]}
+{"Id":"2ed2fcbe-d562-40cc-a045-32b5053b0b78","Type":"Extension","Projects":[{"Path":"Omnia.Fx.Examples.WebAppWithDb.Web/Omnia.Fx.Examples.WebAppWithDb.Web.csproj","BaseImage":"preciofishbone/omnia:6.0-webapp"}]}
