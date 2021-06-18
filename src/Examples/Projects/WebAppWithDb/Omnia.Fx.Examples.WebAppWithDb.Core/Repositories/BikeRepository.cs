@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Omnia.Fx.Examples.WebAppWithDb.Core.Entities;
 using Omnia.Fx.Examples.WebAppWithDb.Models;
+using Omnia.Fx.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,9 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
             DatabaseContext = dbContext;
         }
 
-        public async ValueTask<Dictionary<string, IList<BasicBike>>> AllBikesOrderedAsync()
+        public async ValueTask<Dictionary<UserIdentity, IList<BasicBike>>> AllBikesOrderedAsync()
         {
-            var result = new Dictionary<string, IList<BasicBike>>();
+            var result = new Dictionary<UserIdentity, IList<BasicBike>>();
 
             var allOrders = await this.OrderedBikes.ToListAsync();
 
@@ -38,20 +39,20 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Repositories
             return result;
         }
 
-        public async ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(string userId)
+        public async ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(UserIdentity user)
         {
 
-            IList<BasicBike> result = (await this.OrderedBikes.Where(x => x.UserId == userId).ToListAsync()).Select(x => x.Bike).ToList();
+            IList<BasicBike> result = (await this.OrderedBikes.Where(x => x.UserId == user).ToListAsync()).Select(x => x.Bike).ToList();
 
             return result;
         }
 
-        public async ValueTask<BasicBike> OrderAsync(BasicBike bike, string userId)
+        public async ValueTask<BasicBike> OrderAsync(BasicBike bike, UserIdentity user)
         {
             var newOrder = new OrderedBikeEntity
             {
                 Bike = bike,
-                UserId = userId
+                UserId = user
             };
 
             this.OrderedBikes.Add(newOrder);

@@ -16,16 +16,24 @@
     <None Remove="**\*.jsx" />
     <None Remove="**\*.map" />
     <None Remove="publish\**" />
+    <None Remove="client\models\UserOrder.ts" />
     <None Include="gulpfile.esm.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="client\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="6.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Omnia.Fx.Examples.WebAppWithDb.Core\Omnia.Fx.Examples.WebAppWithDb.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="client\models\UserOrder.ts" />
   </ItemGroup>
 
   <!--***************************************************************************************-->

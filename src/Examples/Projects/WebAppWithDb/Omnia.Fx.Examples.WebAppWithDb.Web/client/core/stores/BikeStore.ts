@@ -1,8 +1,9 @@
 import { Injectable, Inject, OmniaContext, ResolvablePromise } from '@omnia/fx';
-import { AzureAdUser, InstanceLifetimes} from '@omnia/fx-models';
+import { AzureAdUser, Identity, InstanceLifetimes} from '@omnia/fx-models';
 import { BasicBike, BikeType } from '../../models';
 import { BikeService } from '../services/BikeService';
 import { UserStore,Store } from '@omnia/fx/stores';
+import { UserOrder } from '../../models/UserOrder';
 
 @Injectable({
     onStartup: (storeType) => { Store.register(storeType, InstanceLifetimes.Scoped) }
@@ -14,7 +15,7 @@ export class BikeStore extends Store {
     @Inject(UserStore) private userStore: UserStore;
     
     private currentUser: AzureAdUser;
-    private bikesOrdersState = this.state<{ [userId: string]: Array<BasicBike> }>({});
+    private bikesOrdersState = this.state<Array<UserOrder>>([]);
     private availableBikes = this.state<Array<BasicBike>>([]);
     private availableBikesPromise = new ResolvablePromise<null>();
 
@@ -29,7 +30,7 @@ export class BikeStore extends Store {
             this.currentUser = currentUer as AzureAdUser;
         })
 
-        this.bikesOrdersState.state[this.currentUser.uid] = [];
+        this.bikesOrdersState.mutate([]);
     }
 
     onDisposing() {
@@ -40,8 +41,10 @@ export class BikeStore extends Store {
     * Implementation of getters
     */
     getters = {
-        getOrdersByUserId: (userId: string) => {
-            return this.bikesOrdersState.state[userId];
+        getOrdersByUserId: (user: Identity) => {
+            let userOrder = this.bikesOrdersState.state.find(x => x.user.type == user.type && x.user.uid == user.uid);
+
+            return userOrder;
         },
         getUserOrders: () => {
             return this.currentUser ? this.bikesOrdersState.state[this.currentUser.uid] : [];
@@ -79,10 +82,15 @@ export class BikeStore extends Store {
                 let user = await this.omniaCtx.user;
 
                 this.bikesOrdersState.mutate((orders) => {
-                    if (!orders.state[user.uid]) {
-                        orders.state[user.uid] = [];
+
+                    let userOrder = orders.state.find(x => x.user.type == user.type && x.user.uid == user.uid);
+                    
+                    if (!userOrder) {
+                        userOrder = { orderedBikes: [], user: user };
+                        orders.state.push(userOrder);
                     }
-                    orders.state[user.uid].push(orderedBike);
+
+                    userOrder.orderedBikes.push(orderedBike);
                 })
 
                 Promise.resolve(null);

@@ -1,4 +1,5 @@
 ﻿using Omnia.Fx.Examples.WebAppWithDb.Models;
+using Omnia.Fx.Models.Users;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,13 +9,13 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Services
     {
         ValueTask<BasicBike> OrderAsync(BasicBike bike);
 
-        ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(string userId);
+        ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(UserIdentity userId);
 
         /// <summary>
         /// Get orders for all users
         /// </summary>
-        /// <returns>Dictionary of UserId and Orders</returns>
-        ValueTask<Dictionary<string, IList<BasicBike>>> AllBikesOrderedAsync();
+        /// <returns>Dictionary of <see cref="UserIdentity"/> and Orders</returns>
+        ValueTask<Dictionary<UserIdentity, IList<BasicBike>>> AllBikesOrderedAsync();
 
         ValueTask<List<BasicBike>> GetAvailableBikes();
     }

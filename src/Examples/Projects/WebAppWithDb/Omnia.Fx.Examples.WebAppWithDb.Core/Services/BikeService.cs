@@ -1,6 +1,7 @@
 ﻿using Omnia.Fx.Contexts;
 using Omnia.Fx.Examples.WebAppWithDb.Core.Repositories;
 using Omnia.Fx.Examples.WebAppWithDb.Models;
+using Omnia.Fx.Models.Users;
 using Omnia.Fx.Users;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Services
             BikeRepository = bikeRepository;
         }
 
-        public async ValueTask<Dictionary<string, IList<BasicBike>>> AllBikesOrderedAsync()
+        public async ValueTask<Dictionary<UserIdentity, IList<BasicBike>>> AllBikesOrderedAsync()
         {
 
             var result = await this.BikeRepository.AllBikesOrderedAsync();
@@ -30,14 +31,14 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Core.Services
             return result;
         }
 
-        public ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(string userId)
+        public ValueTask<IList<BasicBike>> BikesOrderedByUserAsync(UserIdentity user)
         {
-            return this.BikeRepository.BikesOrderedByUserAsync(userId);
+            return this.BikeRepository.BikesOrderedByUserAsync(user);
         }
 
         public ValueTask<BasicBike> OrderAsync(BasicBike bike)
         {
-            return this.BikeRepository.OrderAsync(bike, this.OmniaContext.Identity.Uid);
+            return this.BikeRepository.OrderAsync(bike, this.OmniaContext.Identity);
         }
 
         public ValueTask<List<BasicBike>> GetAvailableBikes()
