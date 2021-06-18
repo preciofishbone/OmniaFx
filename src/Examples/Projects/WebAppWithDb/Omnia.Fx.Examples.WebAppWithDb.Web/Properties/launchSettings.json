@@ -16,7 +16,7 @@
         "ASPNETCORE_URLS": "https://localhost:44310",
         "OMNIA_LOGGING": "ON",
         "OMNIA_ENVIRONMENT": "LocalHosting",
-        "OMNIA_EXTENSIONID": "4a5127b0-8192-4806-95e1-2f320b22c593"
+        "OMNIA_EXTENSIONID": "2ed2fcbe-d562-40cc-a045-32b5053b0b78"
       }
     },
     "Omnia.Fx.Examples.WebAppWithDb.Web": {
@@ -28,7 +28,7 @@
         "ASPNETCORE_URLS": "https://localhost:44310",
         "OMNIA_LOGGING": "ON",
         "OMNIA_ENVIRONMENT": "LocalHosting",
-        "OMNIA_EXTENSIONID": "4a5127b0-8192-4806-95e1-2f320b22c593"
+        "OMNIA_EXTENSIONID": "2ed2fcbe-d562-40cc-a045-32b5053b0b78"
       }
     }
   }
