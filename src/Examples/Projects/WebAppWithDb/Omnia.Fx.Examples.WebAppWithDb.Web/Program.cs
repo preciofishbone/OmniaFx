@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Omnia.Fx.HostConfiguration;
 using Omnia.Fx.HostConfiguration.Extensions;
 using Omnia.Fx.NetCore.WebApp.Hosting;
+using Omnia.Fx.Examples.WebAppWithDb.Core.Extensions;
 
 namespace Omnia.Fx.Examples.WebAppWithDb.Web
 {
@@ -52,6 +53,12 @@ namespace Omnia.Fx.Examples.WebAppWithDb.Web
                             {
                                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
                             });
+
+                                 //Configure the DB to be used in the core project, i.e. the DB with reference id f8debb44-be08-4ae2-9cf5-c1cebc839123
+                            services.AddWebAppWithDbDB();
+
+                            //Configure the services in core project
+                            services.AddWebAppWithDbServices();
                         })
                         .ConfigureWebHost(webHostBuilder => {
                             webHostBuilder.Configure((ctx, app) =>
