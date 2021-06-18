@@ -1,18 +1,20 @@
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Omnia.Fx.Examples.BasicSharePointFeature.Features;
 using Omnia.Fx.HostConfiguration;
 using Omnia.Fx.HostConfiguration.Extensions;
+using Omnia.Fx.Models.AppSettings;
 using Omnia.Fx.NetCore.Worker.Hosting;
 using System.IO;
 using System.Threading.Tasks;
 
 namespace Omnia.Fx.Examples.BasicSharePointFeature
 {
-    /// <summary>
-    /// Program
-    /// </summary>
     public class Program
     {
+
         /// <summary>
         /// Main entry point
         /// </summary>
@@ -31,30 +33,24 @@ namespace Omnia.Fx.Examples.BasicSharePointFeature
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             return new OmniaHostBuilder(args)
-                .ConfigureOmniaFx((omniaConfig, logger) =>
-                {
-
-                    var currentDir = Directory.GetCurrentDirectory();
-                    if (currentDir.Contains("\\bin\\Debug\\"))
-                    {
-                        currentDir = currentDir.Substring(0, currentDir.IndexOf("\\bin\\Debug\\"));
-                    }
+                .ConfigureOmniaFx((omniaConfig, logger) => {
 
                     omniaConfig.AddAppSettingsJsonFile("appsettings.json");
-                    omniaConfig.AddAppSettingsJsonFile("appsettings.local.json", currentDir);
-                    omniaConfig.AddOmniaFxWorker((options) =>
+                    omniaConfig.AddAppSettingsJsonFile("appsettings.local.json", Directory.GetCurrentDirectory());
+                    omniaConfig.AddOmniaFxNetCore((configBuilder) =>
                     {
-                        options.AddFeatureHandlers((featureProvider) =>
+                        //Configure apphandlers etc
+                        configBuilder.AddFeatureHandlers((featureProviderOptions) =>
                         {
-                            featureProvider.AddFeatureProvider<ChangeSiteTitle>();
+                            featureProviderOptions.AddFeatureProvider<ChangeSiteTitle>();
                         });
-                    });
+                    })
+                    .AddOmniaFxNetCoreSharePoint();
 
-                }).ConfigureHost(hostbuilder =>
-                {
-                    hostbuilder.ConfigureServices(serviceCollection =>
-                    {
+                }).ConfigureHost(hostbuilder => {
+                    hostbuilder.ConfigureServices(serviceCollection => {
                         //Configure services here
+                        
                     });
                 });
         }

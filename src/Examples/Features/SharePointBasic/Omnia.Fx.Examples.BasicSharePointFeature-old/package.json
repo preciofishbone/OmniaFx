@@ -3,13 +3,10 @@
   "version": "0.1.0",
   "scripts": {
     "omnia-before-build": "gulp omnia-before-build",
-    "omnia-after-build": "tsc -v && tsc && gulp omnia-after-build"
+    "omnia-after-build": "gulp omnia-after-build"
   },
   "dependencies": {
-    "@omnia/tooling-composers": "6.2.4"
-  },
-  "devDependencies": {
-    "gulp": "4.0.2"
+    "@omnia/tooling-composers": "3.4.4"
   },
   "engines": {
     "node": ">=10.0.0"

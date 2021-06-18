@@ -1,11 +1,18 @@
 ﻿using Microsoft.Extensions.Logging;
-using Microsoft.SharePoint.Client;
 using Omnia.Fx.Apps;
+using Omnia.Fx.Http;
 using Omnia.Fx.NetCore.Features.Attributes;
 using Omnia.Fx.NetCore.Features.FeatureProviders;
-using Omnia.Fx.SharePoint.Client;
+using Omnia.Fx.Utilities;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
+using Omnia.Fx.SharePoint.Client;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using Microsoft.SharePoint.Client;
+using System.Linq;
+using Omnia.Fx.SharePoint.Services.Contexts;
 
 namespace Omnia.Fx.Examples.BasicSharePointFeature.Features
 {
@@ -29,7 +36,7 @@ namespace Omnia.Fx.Examples.BasicSharePointFeature.Features
 
         protected override async Task ActivateAsync()
         {
-            await SetTitle();
+           await SetTitle();
         }
 
         private async Task SetTitle()
