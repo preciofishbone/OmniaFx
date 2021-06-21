@@ -15,7 +15,7 @@ In this part of the tutorial, you will create a simple extension that consists o
 ## Install the latest templates
 
 ```
-omnia dev new --install 4.0.0
+omnia dev new --install 6.0.0
 ```
 
 >Tip: You only need to run this command once in your development environment as long as you want to develop for this version. If you need to use another version, you need to run the command for that specific version.
