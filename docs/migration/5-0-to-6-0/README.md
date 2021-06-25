@@ -157,11 +157,11 @@ import { ButtonPresets } from '@omnia/fx/ux';
 
 ## Queryable Property
 
-We removed the Omnia Searchable from Enterprise Property which is `OmniaSearchable` property inside EnterprisePropertyDefinition model/class.
+We removed the Omnia Searchable from Enterprise Property which was `OmniaSearchable` property inside EnterprisePropertyDefinition model/class before.
 
 ![image](https://user-images.githubusercontent.com/17378364/112428723-303aa200-8d6e-11eb-8f42-39200ea9053c.png)
 
-Now, each extension will have possibility to configure its own queryable properties on different entity. e.g. WCM has its own configuration about which enterprise property is queryable on Pages
+Now, each extension will have possibility to configure its own queryable properties on different entities. e.g. WCM has its own configuration about which enterprise property is queryable on Pages.
 
 Here are some sample code working with new concept of queryable properties
 
