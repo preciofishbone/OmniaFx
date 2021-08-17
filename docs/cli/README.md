@@ -203,7 +203,7 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-40)
         - [Required Parameters](#required-parameters-46)
 - [Permission Commands](#permissions-commands)
-  - [Omnia Cli Permission Roles] (#all-permission-roles-available-in-omnia-cli)
+  - [Omnia Cli Permission Roles](#all-permission-roles-available-in-omnia-cli)
   - [omnia permissions add](#omnia-permissions-add)
         - [Example](#example-41)
         - [Required Parameters](#required-parameters-47)
