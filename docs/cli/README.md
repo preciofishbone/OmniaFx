@@ -202,6 +202,19 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia secrets list](#omnia-secrets-list)
         - [Example](#example-40)
         - [Required Parameters](#required-parameters-46)
+- [Permission Commands](#extension-secret-commands)
+  - [omnia permissions add](#omnia-secrets-add)
+        - [Example](#example-41)
+        - [Required Parameters](#required-parameters-47)
+        - [Optional Parameters](#optional-parameters-42)
+  - [omnia permissions remove](#omnia-secrets-remove)
+        - [Example](#example-42)
+        - [Required Parameters](#required-parameters-48)
+        - [Optional Parameters](#optional-parameters-43)
+  - [omnia permissions list](#omnia-secrets-list)
+        - [Example](#example-43)
+        - [Required Parameters](#required-parameters-49)
+        - [Required Parameters](#required-parameters-44)
 
 <!-- /TOC -->
 
@@ -1390,4 +1403,134 @@ omnia secrets list --extensionid {extensionid}
 
 ---
 
+# Permissions Commands
+
+With permissions, its possible to grant permission for any users to do actions in Omnia Cli
+
+## All permission roles available in Omnia Cli:
+
+| Id                                    | Name          | Parent Role | Description |
+| ------------------------------------- | ------------- | ----------- | ----------- |
+| 11e1f111-c773-4f8d-8d40-8767d707f071  | Omnia.Cloud.Admin |         | Global admin can do everything | 
+| 0c33d62a-cc9b-4880-9506-8c60ddfccdcf  | Omnia.Clusters.Admin | Omnia.Cloud.Admin | Can Create/Delete/Scale cluster | 
+| 842a4da4-b482-4d61-a417-2426a4a752bc  | Omnia.Cluster.Manager |  Omnia.Clusters.Admin | Can restart node/cluster and scale extension in tenant |
+| 4a16f679-deec-40cb-a11d-805e7b4f82ab  | Omnia.License.Admin | Omnia.Cloud.Admin | Have the same permission as License owner |
+| c79fd690-18b8-42a1-b540-9ae77193f432  | Omnia.Release.Admin | Omnia.Cloud.Admin | Can deploy any extensions |
+| f023316e-25d5-4139-a31b-7e07a7d73ce7  | Omnia.Extension.Admin | Omnia.Cloud.Admin | Have the same permission as Extension owner |
+| 8146c17e-ddf5-4020-b96c-298818f9180f  | Omnia.ServicePackageGroup.Admin | Omnia.Cloud.Admin | Have the same permission as Extension Group owner |
+| 585f098e-ecf4-490f-a13c-9cbd662fc377  | Omnia.DeploymentGroup.Admin | Omnia.Cloud.Admin | Have the same permission as Deployment Group owner |
+| 9af39436-e073-40c6-bf01-7ab6cae8a93c  | Omnia.Tenants.Creator | Omnia.Cloud.Admin | Can create a new tenant
+| 6b96e280-e092-4b8f-a721-c4623d4ef14c  | Omnia.Tenant.Admin | Omnia.Cloud.Admin | Have the same permission as Tenant owner |
+| 731cd4d6-50aa-4463-bad4-b21d9aceadb2  | Omnia.Tenant.FirstLineSupport | Omnia.Tenant.Admin | List tenants and restart extensions/services |
+
+
+## omnia permissions add
+
+Grant permission for a specific role to one or more users
+
+##### Example
+```
+Add global admin
+omnia permissions add 11e1f111-c773-4f8d-8d40-8767d707f071 --principals {userName1},{userName2} 
+
+Add release admin
+omnia permissions add c79fd690-18b8-42a1-b540-9ae77193f432 --principals {userName1},{userName2}
+
+Add cluster roles
+omnia permissions add {clusterRoleId} --resource clusterId:{clusterId} --principals {userName1},{userName2}
+
+Add license roles
+omnia permissions add {licenseRoleId} --resource licenseId:{licenseId} --principals {userName1},{userName2}
+
+Add extension roles
+omnia permissions add {extensionRoleId} --resource servicePackageId:{extensionId} --principals {userName1},{userName2}
+
+Add extension group roles
+omnia permissions add {extensionGroupRoleId} --resource servicePackageGroupId:{extensionGroupId} --principals {userName1},{userName2}
+
+Add deployment group roles
+omnia permissions add {deploymentGroupRoleId} --resource deploymentGroupId:{deploymentGroupId} --principals {userName1},{userName2}
+
+Add tenant roles
+omnia permissions add {tenantRoleId} --resource tenantId:{tenantId} --principals {userName1},{userName2}
+```
+
+##### Required Parameters
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --principals    | The username of users to be added                   |
+
+##### Optional Parameters
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --resource    | The resource string related to the roleId to be added |
+
+---
+
+## omnia permission remove
+
+Remove permission of a specific role for one or more users
+
+##### Example
+```
+Remove global admin
+omnia permissions remove 11e1f111-c773-4f8d-8d40-8767d707f071 --principals {userName1},{userName2} 
+
+Remove release admin
+omnia permissions remove c79fd690-18b8-42a1-b540-9ae77193f432 --principals {userName1},{userName2}
+
+Remove cluster roles
+omnia permissions remove {clusterRoleId} --resource clusterId:{clusterId} --principals {userName1},{userName2}
+
+Remove license roles
+omnia permissions remove {licenseRoleId} --resource licenseId:{licenseId} --principals {userName1},{userName2}
+
+Remove extension roles
+omnia permissions remove {extensionRoleId} --resource servicePackageId:{extensionId} --principals {userName1},{userName2}
+
+Remove extension group roles
+omnia permissions remove {extensionGroupRoleId} --resource servicePackageGroupId:{extensionGroupId} --principals {userName1},{userName2}
+
+Remove deployment group roles
+omnia permissions remove {deploymentGroupRoleId} --resource deploymentGroupId:{deploymentGroupId} --principals {userName1},{userName2}
+
+Remove tenant roles
+omnia permissions remove {tenantRoleId} --resource tenantId:{tenantId} --principals {userName1},{userName2}
+```
+
+##### Required Parameters
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --principals  | The username of users to be removed                   |
+
+##### Optional Parameters
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| --resource    | The resource string related to the roleId to be remove |
+
+
+---
+
+## omnia permissions list
+
+List all permission bindings of a role.
+
+##### Example
+```
+
+omnia permissions list {roleId}
+
+```
+
+##### Required Parameters
+No required parameters
+
+##### Optional Parameters
+No optional parameters
+
+---
 
