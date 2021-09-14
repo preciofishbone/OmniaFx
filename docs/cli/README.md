@@ -119,103 +119,107 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-19)
         - [Required Parameters](#required-parameters-25)
         - [Optional Parameters](#optional-parameters-25)
+  - [omnia tenants update depsecurity](#omnia-tenants-update-depsecurity)
+        - [Example](#example-update-depsecurity)
+        - [Required Parameters](#required-parameters-update-depsecurity)
+        - [Optional Parameters](#optional-parameters-update-depsecurity)
   - [omnia appsettings get](#omnia-appsettings-get)
-        - [Example](#example-20)
-        - [Required Parameters](#required-parameters-26)
-        - [Optional Parameters](#optional-parameters-26)
+        - [Example](#example-appsettings-get)
+        - [Required Parameters](#required-parameters-appsettings-get)
+        - [Optional Parameters](#optional-parameters-appsettings-get)
   - [omnia appsettings update](#omnia-appsettings-update)
-        - [Example](#example-21)
-        - [Required Parameters](#required-parameters-27)
-        - [Optional Parameters](#optional-parameters-27)
+        - [Example](#example-appsettings-update)
+        - [Required Parameters](#required-parameters-appsettings-update)
+        - [Optional Parameters](#optional-parameters-appsettings-update)
   - [omnia ai get](#omnia-ai-get)
-        - [Example](#example-22)
-        - [Required Parameters](#required-parameters-28)
+        - [Example](#example-ai-get)
+        - [Required Parameters](#required-parameters-ai-get)
   - [omnia ai update](#omnia-ai-update)
-        - [Example](#example-23)
-        - [Required Parameters](#required-parameters-29)
+        - [Example](#example-ai-update)
+        - [Required Parameters](#required-parameters-ai-update)
 - [Extension Commands](#extension-commands)
   - [omnia extensions new](#omnia-extensions-new)
-        - [Example](#example-24)
-        - [Required Parameters](#required-parameters-30)
-        - [Optional Parameters](#optional-parameters-28)
+        - [Example](#example-extensions-new)
+        - [Required Parameters](#required-parameters-extensions-new)
+        - [Optional Parameters](#optional-parameters-extensions-new)
   - [omnia extensions restart](#omnia-extensions-restart)
-        - [Example](#example-25)
-        - [Required Parameters](#required-parameters-31)
-        - [Optional Parameters](#optional-parameters-29)
+        - [Example](#example-extensions-restart)
+        - [Required Parameters](#required-parameters-extensions-restart)
+        - [Optional Parameters](#optional-parameters-extensions-restart)
   - [omnia extensions list](#omnia-extensions-list)
-        - [Example](#example-26)
-        - [Required Parameters](#required-parameters-32)
-        - [Optional Parameters](#optional-parameters-30)
+        - [Example](#example-extensions-list)
+        - [Required Parameters](#required-parameters-extensions-list)
+        - [Optional Parameters](#optional-parameters-extensions-list)
   - [omnia extensions versions](#omnia-extensions-versions)
-        - [Example](#example-27)
-        - [Required Parameters](#required-parameters-33)
-        - [Optional Parameters](#optional-parameters-31)
+        - [Example](#example-extensions-versions)
+        - [Required Parameters](#required-parameters-extensions-versions)
+        - [Optional Parameters](#optional-parameters-extensions-versions)
   - [omnia extensions push](#omnia-extensions-push)
-        - [Example](#example-28)
-        - [Required Parameters](#required-parameters-34)
-        - [Optional Parameters](#optional-parameters-32)
+        - [Example](#example-extensions-push)
+        - [Required Parameters](#required-parameters-extensions-push)
+        - [Optional Parameters](#optional-parameters-extensions-push)
   - [omnia extensions deploy](#omnia-extensions-deploy)
-        - [Example](#example-29)
-        - [Required Parameters](#required-parameters-35)
-        - [Optional Parameters](#optional-parameters-33)
+        - [Example](#example-extensions-deploy)
+        - [Required Parameters](#required-parameters-extensions-deploy)
+        - [Optional Parameters](#optional-parameters-extensions-deploy)
 - [Extension Groups Commands](#extension-groups-commands)
   - [omnia extgroups new](#omnia-extgroups-new)
-        - [Example](#example-30)
-        - [Required Parameters](#required-parameters-36)
-        - [Optional Parameters](#optional-parameters-34)
+        - [Example](#example-extgroups-new)
+        - [Required Parameters](#required-parameters-extgroups-new)
+        - [Optional Parameters](#optional-parameters-extgroups-new)
   - [omnia extgroups addversion](#omnia-extgroups-addversion)
-        - [Example](#example-31)
-        - [Required Parameters](#required-parameters-37)
-        - [Optional Parameters](#optional-parameters-35)
+        - [Example](#example-extgroups-addversion)
+        - [Required Parameters](#required-parameters-extgroups-addversion)
+        - [Optional Parameters](#optional-parameters-extgroups-addversion)
   - [omnia extgroups deleteversion](#omnia-extgroups-deleteversion)
-        - [Example](#example-32)
-        - [Required Parameters](#required-parameters-38)
-        - [Optional Parameters](#optional-parameters-36)
+        - [Example](#example-extgroups-deleteversion)
+        - [Required Parameters](#required-parameters-extgroups-deleteversion)
+        - [Optional Parameters](#optional-parameters-extgroups-deleteversion)
   - [omnia extgroups delete](#omnia-extgroups-delete)
-        - [Example](#example-33)
-        - [Required Parameters](#required-parameters-39)
-        - [Optional Parameters](#optional-parameters-37)
+        - [Example](#example-extgroups-delete)
+        - [Required Parameters](#required-parameters-extgroups-delete)
+        - [Optional Parameters](#optional-parameters-extgroups-delete)
 - [Deployment Groups Commands](#deployment-groups-commands)
   - [omnia depgroups new](#omnia-depgroups-new)
-        - [Example](#example-34)
-        - [Required Parameters](#required-parameters-40)
-        - [Optional Parameters](#optional-parameters-38)
+        - [Example](#example-depgroups-new)
+        - [Required Parameters](#required-parameters-depgroups-new)
+        - [Optional Parameters](#optional-parameters-depgroups-new)
   - [omnia depgroups addtarget](#omnia-depgroups-addtarget)
-        - [Example](#example-35)
-        - [Required Parameters](#required-parameters-41)
-        - [Optional Parameters](#optional-parameters-39)
+        - [Example](#example-depgroups-addtarget)
+        - [Required Parameters](#required-parameters-depgroups-addtarget)
+        - [Optional Parameters](#optional-parameters-depgroups-addtarget)
   - [omnia depgroups deletetarget](#omnia-depgroups-deletetarget)
-        - [Example](#example-36)
-        - [Required Parameters](#required-parameters-42)
-        - [Optional Parameters](#optional-parameters-40)
+        - [Example](#example-depgroups-deletetarget)
+        - [Required Parameters](#required-parameters-depgroups-deletetarget)
+        - [Optional Parameters](#optional-parameters-depgroups-deletetarget)
   - [omnia depgroups delete](#omnia-depgroups-delete)
-        - [Example](#example-37)
-        - [Required Parameters](#required-parameters-43)
-        - [Optional Parameters](#optional-parameters-41)
+        - [Example](#example-depgroups-delete)
+        - [Required Parameters](#required-parameters-depgroups-delete)
+        - [Optional Parameters](#optional-parameters-depgroups-delete)
 - [Extension Secret Commands](#extension-secret-commands)
   - [omnia secrets add](#omnia-secrets-add)
-        - [Example](#example-38)
-        - [Required Parameters](#required-parameters-44)
+        - [Example](#example-secrets-add)
+        - [Required Parameters](#required-parameters-secrets-add)
   - [omnia secrets remove](#omnia-secrets-remove)
-        - [Example](#example-39)
-        - [Required Parameters](#required-parameters-45)
+        - [Example](#example-secrets-remove)
+        - [Required Parameters](#required-parameters-secrets-remove)
   - [omnia secrets list](#omnia-secrets-list)
-        - [Example](#example-40)
-        - [Required Parameters](#required-parameters-46)
+        - [Example](#example-secrets-list)
+        - [Required Parameters](#required-parameters-secrets-list)
 - [Permission Commands](#permissions-commands)
   - [Omnia Cli Permission Roles](#all-permission-roles-available-in-omnia-cli)
   - [omnia permissions add](#omnia-permissions-add)
-        - [Example](#example-41)
-        - [Required Parameters](#required-parameters-47)
-        - [Optional Parameters](#optional-parameters-42)
+        - [Example](#example-permissions-add)
+        - [Required Parameters](#required-parameters-permissions-add)
+        - [Optional Parameters](#optional-parameters-permissions-add)
   - [omnia permissions remove](#omnia-permission-remove)
-        - [Example](#example-42)
-        - [Required Parameters](#required-parameters-48)
-        - [Optional Parameters](#optional-parameters-43)
+        - [Example](#example-permission-remove)
+        - [Required Parameters](#required-parameters-permission-remove)
+        - [Optional Parameters](#optional-parameters-permission-remove)
   - [omnia permissions list](#omnia-permissions-list)
-        - [Example](#example-43)
-        - [Required Parameters](#required-parameters-49)
-        - [Required Parameters](#required-parameters-44)
+        - [Example](#example-permissions-list)
+        - [Required Parameters](#required-parameters-permissions-list)
+        - [Required Parameters](#required-parameters-permissions-list)
 
 <!-- /TOC -->
 
@@ -916,23 +920,46 @@ No optional parameters
 
 ---
 
+## omnia tenants update depsecurity
+
+Updates level of Deployment Security. A high level of Deployment Security will not allow you to deploy extensions without --code parameter.
+
+##### Example<a id="example-update-depsecurity"></a>
+```
+omnia tenants update depsecurity {tenantid} --level {level}
+```
+
+##### Required Parameters<a id="required-parameters-update-depsecurity"></a>
+
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --tenantid        | Tenant id of the tenant to be update
+| --level           | The new level of Deployment Security (0: Default; 1: High)                   |
+
+
+##### Optional Parameters<a id="optional-parameters-update-depsecurity"></a>
+
+No optional parameters
+
+---
+
 ## omnia appsettings get
 
 Get any applied overrides of appsettings (or shared appsettings) for a specific tenant
 
-##### Example
+##### Example<a id="example-appsettings-get"></a>
 ```
 omnia appsettings get --tenantid {tenantid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-appsettings-get"></a>
 
 | Name          | Description                                            |
 | ------------- | ------------------------------------------------------ |
 | -t --tenantid | The tenantid of the tenant to generate appsettings for |
     
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-appsettings-get"></a>
 
 | Name     | Description                                          |
 | -------- | ---------------------------------------------------- |
@@ -945,19 +972,19 @@ omnia appsettings get --tenantid {tenantid}
 Apply overrides of appsettings (or shared appsettings) for a specific tenant
 (Note these will be in effect until removed, i.e. updating with no overrides)
 
-##### Example
+##### Example<a id="example-appsettings-update"></a>
 ```
 omnia appsettings update --tenantid {tenantid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-appsettings-update"></a>
 
 | Name          | Description                                            |
 | ------------- | ------------------------------------------------------ |
 | -t --tenantid | The tenantid of the tenant to generate appsettings for |
     
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-appsettings-update"></a>
 
 | Name     | Description                                          |
 | -------- | ---------------------------------------------------- |
@@ -969,12 +996,12 @@ omnia appsettings update --tenantid {tenantid}
 
 Get any applied overrides of application insights for a specific tenant
 
-##### Example
+##### Example<a id="example-ai-get"></a>
 ```
 omnia ai get --tenantid {tenantid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-ai-get"></a>
 
 | Name          | Description                                            |
 | ------------- | ------------------------------------------------------ |
@@ -988,12 +1015,12 @@ omnia ai get --tenantid {tenantid}
 Apply overrides of application insights for a specific tenant
 (Note these will be in effect until removed, i.e. updating with no overrides)
 
-##### Example
+##### Example<a id="example-ai-update"></a>
 ```
 omnia ai update --tenantid {tenantid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-ai-update"></a>
 
 | Name          | Description                                            |
 | ------------- | ------------------------------------------------------ |
@@ -1007,18 +1034,18 @@ omnia ai update --tenantid {tenantid}
 
 Registers a new extension in Omnia Cloud
 
-##### Example
+##### Example<a id="example-extensions-new"></a>
 ```
 omnia extensions new --name "My Extension" 
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extensions-new"></a>
 
 | Name   | Description                       |
 | ------ | --------------------------------- |
 | --name | A friendly name of the extension. |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extensions-new"></a>
 
 | Name | Description                                                    |
 | ---- | -------------------------------------------------------------- |
@@ -1030,21 +1057,21 @@ omnia extensions new --name "My Extension"
 
 Restart services in Omnia Cloud for a specific tenant
 
-##### Example
+##### Example<a id="example-extensions-restart"></a>
 ```
 omnia extensions restart all --tenantid
 omnia extensions restart service --tenantid --serviceid
 omnia extensions restart extension --tenantid --extensionid
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extensions-restart"></a>
 
 | Name                      | Description                                                  |
 | ------------------------- | ------------------------------------------------------------ |
 | --tenantid                | The tenant to restart services on                            |
 | --serviceid --extensionid | required depending if restart target is service or extension |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extensions-restart"></a>
 
 | Name      | Description                                                |
 | --------- | ---------------------------------------------------------- |
@@ -1056,16 +1083,16 @@ omnia extensions restart extension --tenantid --extensionid
 
 List extensions where i am a owner or public extensions that i can install in Tenant
 
-##### Example
+##### Example<a id="example-extensions-list"></a>
 ```
 omnia extensions list
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extensions-list"></a>
 
 No required parameters  
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extensions-list"></a>
 
 No optional parameters
 
@@ -1075,7 +1102,7 @@ No optional parameters
 
 Lists versions pushed for extension that can be installed in Tenants
 
-##### Example
+##### Example<a id="example-extensions-versions"></a>
 ```
 Lists all versions for Omnia
 omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa
@@ -1090,12 +1117,12 @@ Lists all preview versions for Omnia starting with 5.*
 omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5.*-preview*
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extensions-versions"></a>
 
 No required parameters  
     
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extensions-versions"></a>
 
 | Name     | Description                                    |
 | -------- | ---------------------------------------------- |
@@ -1107,19 +1134,19 @@ No required parameters
 
 Pushes a new version of an extension and makes it available to be installed. The intent controls on which tenants this version can be installed. For example if a tenant has been provisioned with intent dev, only versions with intent dev can be installed onto that tenant.
 
-##### Example
+##### Example<a id="example-extensions-push"></a>
 ```
 omnia extensions push {extensionid}:{version} --intent dev
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extensions-push"></a>
 
 | Name     | Description                                |
 | -------- | ------------------------------------------ |
 | --intent | The intent of the push can be (dev, prod). |
     
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extensions-push"></a>
 
 No optional parameters
 
@@ -1129,7 +1156,7 @@ No optional parameters
 
 Deploys extension versions to tenants. 
 
-##### Example
+##### Example<a id="example-extensions-deploy"></a>
 ```
 Deploys specific version of Omnia version 5.0.0 
 omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.0 --tenantid {tenantId}
@@ -1140,21 +1167,25 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.* --tenantid {t
 Deploys latest minor and patch version of Omnia for the major 5 release
 omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.* --tenantid {tenantId}
 
+Deploys specific version of Omnia version 5.0.0 to the tenant that has a high-level of Deployment Security
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.0 --tenantid {tenantId} --code {yy-dd-MM-m}
+
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extensions-deploy"></a>
 
 | Name       | Description               |
 | ---------- | ------------------------- |
 | --tenantid | The tenantid to deploy to |
     
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extensions-deploy"></a>
 
 | Name      | Description                                                  |
 | --------- | ------------------------------------------------------------ |
 | --prerun  | The serviceId of a optional service to run before the deployment |
 | --postrun | The serviceId of a optional service to run after the deployment  |
+| --code    | The code needs to be entered when deploy to a high-level Deployment Security tenant (format: yy-dd-MM-m) |
 
 ---
 
@@ -1166,19 +1197,19 @@ With extension groups its possible to add several extensions to a group and then
 
 Registers a new extension group in Omnia Cloud
 
-##### Example
+##### Example<a id="example-extgroups-new"></a>
 ```
 omnia extgroups new --name "MyExtensionGroup" --intent prod
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extgroups-new"></a>
 
 | Name     | Description                   |
 | -------- | ----------------------------- |
 | --name   | A friendly name of the group. |
 | --intent | The intent of the group.      |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extgroups-new"></a>
 
 No optional parameters
 
@@ -1188,19 +1219,19 @@ No optional parameters
 
 Adds a extension version to the extension group
 
-##### Example
+##### Example<a id="example-extgroups-addversion"></a>
 ```
 omnia extgroups addversion --groupid {mygroupid} --version {extensionid:version}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extgroups-addversion"></a>
 
 | Name      | Description                                  |
 | --------- | -------------------------------------------- |
 | --groupid | The extension group id to add the version to |
 | --version | The version to add                           |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extgroups-addversion"></a>
 
 No optional paramters
 
@@ -1210,19 +1241,19 @@ No optional paramters
 
 Deletes a extension version from the extension group
 
-##### Example
+##### Example<a id="example-extgroups-deleteversion"></a>
 ```
 omnia extgroups deleteversion --groupid {mygroupid} --version {extensionid:version}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extgroups-deleteversion"></a>
 
 | Name      | Description                                       |
 | --------- | ------------------------------------------------- |
 | --groupid | The extension group id to delete the version from |
 | --version | The version to delete                             |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extgroups-deleteversion"></a>
 
 No optional paramters
 
@@ -1232,16 +1263,16 @@ No optional paramters
 
 Deletes an extension group from Omnia Cloud
 
-##### Example
+##### Example<a id="example-extgroups-delete"></a>
 ```
 omnia extgroups delete {groupid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-extgroups-delete"></a>
 
 No required parameters
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-extgroups-delete"></a>
 
 No optional parameters
 
@@ -1255,19 +1286,19 @@ With deployment groups its possible to add several tenants to a group and then d
 
 Registers a new deployment group in Omnia Cloud
 
-##### Example
+##### Example<a id="example-depgroups-new"></a>
 ```
 omnia depgroups new --name "MyDeploymentGroup" --intent prod
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-depgroups-new"></a>
 
 | Name     | Description                                                                    |
 | -------- | ------------------------------------------------------------------------------ |
 | --name   | A friendly name of the group.                                                  |
 | --intent | The intent of the group. Only targets of same intent can be added to the group |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-depgroups-new"></a>
 
 No optional parameters
 
@@ -1277,19 +1308,19 @@ No optional parameters
 
 Adds a target to the deployment group
 
-##### Example
+##### Example<a id="example-depgroups-addtarget"></a>
 ```
 omnia depgroups addtarget --groupid {mygroupid} --targetid {tenantid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-depgroups-addtarget"></a>
 
 | Name       | Description                                  |
 | ---------- | -------------------------------------------- |
 | --groupid  | The deployment group id to add the target to |
 | --targetid | The target to add, e.g. tenant id            |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-depgroups-addtarget"></a>
 
 No optional paramters
 
@@ -1299,19 +1330,19 @@ No optional paramters
 
 Deletes a target from the deployment group
 
-##### Example
+##### Example<a id="example-depgroups-deletetarget"></a>
 ```
 omnia depgroups deletetarget --groupid {mygroupid} --targetid {tenantid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-depgroups-deletetarget"></a>
 
 | Name       | Description                                       |
 | ---------- | ------------------------------------------------- |
 | --groupid  | The deployment group id to delete the target from |
 | --targetid | The target to delete, e.g. tenant id              |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-depgroups-deletetarget"></a>
 
 No optional paramters
 
@@ -1321,16 +1352,16 @@ No optional paramters
 
 Deletes a deployment group from Omnia Cloud
 
-##### Example
+##### Example<a id="example-depgroups-delete"></a>
 ```
 omnia depgroups delete {groupid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-depgroups-delete"></a>
 
 No required parameters
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-depgroups-delete"></a>
 
 No optional parameters
 
@@ -1344,14 +1375,14 @@ Its possible to generate several client credentials for an extension. You can pu
 
 Generate a cloud-secret or a tenant-secret for an extension.
 
-##### Example
+##### Example<a id="example-secrets-add"></a>
 ```
 omnia secrets add --extensionid {extensionid}  --name {name}
 
 omnia secrets add --tenantid {tenantid} --extensionid {extensionid} --name {name} 
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-secrets-add"></a>
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
@@ -1366,14 +1397,14 @@ omnia secrets add --tenantid {tenantid} --extensionid {extensionid} --name {name
 
 Remove a cloud-secret or a tenant-secret from an extension.
 
-##### Example
+##### Example<a id="example-secrets-remove"></a>
 ```
 omnia secrets remove --tenantid {tenantid} --extensionid {extensionid} --secret {secret}
 
 omnia secrets remove --extensionid {extensionid} --secret {secret}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-secrets-remove"></a>
 
 | Name          | Description                                         |
 | ------------- | --------------------------------------------------- |
@@ -1388,14 +1419,14 @@ omnia secrets remove --extensionid {extensionid} --secret {secret}
 
 List all cloud-secrets or tenant-secrets of an extension.
 
-##### Example
+##### Example<a id="example-secrets-list"></a>
 ```
 omnia secrets list --tenantid {tenantid} --extensionid {extensionid}
 
 omnia secrets list --extensionid {extensionid}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-secrets-list"></a>
 
 | Name          | Description                                          |
 | ------------- | ---------------------------------------------------- |
@@ -1429,7 +1460,7 @@ With permissions, its possible to grant permission for any users to do actions i
 
 Grant permission for a specific role to one or more users
 
-##### Example
+##### Example<a id="example-permissions-add"></a>
 ```
 Add global admin
 omnia permissions add 11e1f111-c773-4f8d-8d40-8767d707f071 --principals {userName1},{userName2} 
@@ -1456,13 +1487,13 @@ Add tenant roles
 omnia permissions add {tenantRoleId} --resource tenantId:{tenantId} --principals {userName1},{userName2}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-permissions-add"></a>
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --principals    | The username of users to be added                   |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-permissions-add"></a>
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
@@ -1474,7 +1505,7 @@ omnia permissions add {tenantRoleId} --resource tenantId:{tenantId} --principals
 
 Remove permission of a specific role for one or more users
 
-##### Example
+##### Example<a id="example-permission-remove"></a>
 ```
 Remove global admin
 omnia permissions remove 11e1f111-c773-4f8d-8d40-8767d707f071 --principals {userName1},{userName2} 
@@ -1501,13 +1532,13 @@ Remove tenant roles
 omnia permissions remove {tenantRoleId} --resource tenantId:{tenantId} --principals {userName1},{userName2}
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-permission-remove"></a>
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --principals  | The username of users to be removed                   |
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-permission-remove"></a>
 
 | Name          | Description                                            |
 | ------------- | ------------------------------------------------------ |
@@ -1520,17 +1551,17 @@ omnia permissions remove {tenantRoleId} --resource tenantId:{tenantId} --princip
 
 List all permission bindings of a role.
 
-##### Example
+##### Example<a id="example-permissions-list"></a>
 ```
 
 omnia permissions list {roleId}
 
 ```
 
-##### Required Parameters
+##### Required Parameters<a id="required-parameters-permissions-list"></a>
 No required parameters
 
-##### Optional Parameters
+##### Optional Parameters<a id="optional-parameters-permissions-list"></a>
 No optional parameters
 
 ---
