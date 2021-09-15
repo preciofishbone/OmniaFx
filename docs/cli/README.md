@@ -103,40 +103,44 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-15)
         - [Required Parameters](#required-parameters-21)
         - [Optional Parameters](#optional-parameters-21)
-  - [omnia tenants redirects enablerror](#omnia-tenants-redirects-enablerror)
+  - [omnia tenants update enablerror](#omnia-tenants-update-enablerror)
         - [Example](#example-16)
         - [Required Parameters](#required-parameters-22)
         - [Optional Parameters](#optional-parameters-22)
-  - [omnia tenants redirects disableerror](#omnia-tenants-redirects-disableerror)
+  - [omnia tenants update disableerror](#omnia-tenants-update-disableerror)
         - [Example](#example-17)
         - [Required Parameters](#required-parameters-23)
         - [Optional Parameters](#optional-parameters-23)
-  - [omnia tenants redirects customerrorpage](#omnia-tenants-redirects-customerrorpage)
+  - [omnia tenants update customerrorpage](#omnia-tenants-update-customerrorpage)
         - [Example](#example-18)
         - [Required Parameters](#required-parameters-24)
         - [Optional Parameters](#optional-parameters-24)
-  - [omnia tenants updatekaizala](#omnia-tenants-updatekaizala)
+  - [omnia tenants update kaizala](#omnia-tenants-update-kaizala)
         - [Example](#example-19)
         - [Required Parameters](#required-parameters-25)
         - [Optional Parameters](#optional-parameters-25)
+  - [omnia tenants update dns](#omnia-tenants-update-dns)
+        - [Example](#example-update-dns)
+        - [Required Parameters](#required-parameters-update-dns)
+        - [Optional Parameters](#optional-parameters-update-dns)
   - [omnia tenants update depsecurity](#omnia-tenants-update-depsecurity)
         - [Example](#example-update-depsecurity)
         - [Required Parameters](#required-parameters-update-depsecurity)
         - [Optional Parameters](#optional-parameters-update-depsecurity)
-  - [omnia appsettings get](#omnia-appsettings-get)
-        - [Example](#example-appsettings-get)
-        - [Required Parameters](#required-parameters-appsettings-get)
-        - [Optional Parameters](#optional-parameters-appsettings-get)
-  - [omnia appsettings update](#omnia-appsettings-update)
+  - [omnia tenants update appsettings](#omnia-tenants-update-appsettings)
         - [Example](#example-appsettings-update)
-        - [Required Parameters](#required-parameters-appsettings-update)
-        - [Optional Parameters](#optional-parameters-appsettings-update)
-  - [omnia ai get](#omnia-ai-get)
-        - [Example](#example-ai-get)
-        - [Required Parameters](#required-parameters-ai-get)
-  - [omnia ai update](#omnia-ai-update)
-        - [Example](#example-ai-update)
-        - [Required Parameters](#required-parameters-ai-update)
+        - [Required Parameters](#required-parameters-update-appsettings)
+        - [Optional Parameters](#optional-parameters-update-appsettings)
+  - [omnia tenants update ai](#omnia-tenants-update-ai)
+        - [Example](#example-update-ai)
+        - [Required Parameters](#required-parameters-update-ai)
+  - [omnia tenants get appsettings](#omnia-tenants-get-appsettings)
+        - [Example](#example-appsettings-get)
+        - [Required Parameters](#required-parameters-get-appsettings)
+        - [Optional Parameters](#optional-parameters-get-appsettings)  
+  - [omnia tenants get ai](#omnia-tenants-get-ai)
+        - [Example](#example-get-ai)
+        - [Required Parameters](#required-parameters-get-ai) 
 - [Extension Commands](#extension-commands)
   - [omnia extensions new](#omnia-extensions-new)
         - [Example](#example-extensions-new)
@@ -836,13 +840,13 @@ No required parameters
 
 ---
 
-## omnia tenants redirects enablerror
+## omnia tenants update enablerror
 
 Redirects users accessing the tenant to a "Omnia is down" page. For debugging purposes the tenant can be accessed by adding ?redirect=true or ?debug=true as a querystring parameter in the url
 
 ##### Example
 ```
-omnia tenants redirects enableerror {tenantid}
+omnia tenants update enableerror {tenantid}
 ```
 
 ##### Required Parameters
@@ -855,13 +859,13 @@ No optional parameters
 
 ---
 
-## omnia tenants redirects disableerror
+## omnia tenants update disableerror
 
-Stops the redirect applied by the omnia tenants redirects enableerror cmd
+Stops the redirect applied by the omnia tenants update enableerror cmd
 
 ##### Example
 ```
-omnia tenants redirects disableerror {tenantid}
+omnia tenants update disableerror {tenantid}
 ```
 
 ##### Required Parameters
@@ -874,13 +878,13 @@ No optional parameters
 
 ---
 
-## omnia tenants redirects customerrorpage
+## omnia tenants update customerrorpage
 
 Enables to upload a custom error page for the error redirect page
 
 ##### Example
 ```
-omnia tenants redirects customerrorpage {tenantid} --path c:\html\customerror.html
+omnia tenants update customerrorpage {tenantid} --path c:\html\customerror.html
 ```
 
 ##### Required Parameters
@@ -895,13 +899,13 @@ No optional parameters
 
 ---
 
-## omnia tenants updatekaizala
+## omnia tenants update kaizala
 
 Enables mobile login using kaizala connector
 
 ##### Example
 ```
-omnia tenants updatekaizala --connectorid {connectorid} --connectorsecret {connectorsecret} 
+omnia tenants update kaizala {tenantid} --connectorid {connectorid} --connectorsecret {connectorsecret} 
 --groupname {groupname} --connectortoken {connectortoken}
 ```
 
@@ -920,6 +924,28 @@ No optional parameters
 
 ---
 
+## omnia tenants update dns
+
+Updates the omnia tenant dns prefix.
+
+##### Example<a id="example-update-dns"></a>
+```
+omnia tenants update dns {tenantid} --omnia-dns-suffix {omnia-dns-suffix}
+```
+
+##### Required Parameters<a id="required-parameters-update-dns"></a>
+
+| Name                | Description                                        |
+| -----------------   | -------------------------------------------------- |
+| --omnia-dns-suffix  | The new dns suffix to update to                    |
+
+
+##### Optional Parameters<a id="optional-parameters-update-dns"></a>
+
+No optional parameters
+
+---
+
 ## omnia tenants update depsecurity
 
 Updates level of Deployment Security. A high level of Deployment Security will not allow you to deploy extensions without --code parameter.
@@ -933,7 +959,6 @@ omnia tenants update depsecurity {tenantid} --level {level}
 
 | Name              | Description                                        |
 | ----------------- | -------------------------------------------------- |
-| --tenantid        | Tenant id of the tenant to be update
 | --level           | The new level of Deployment Security (0: Default; 1: High)                   |
 
 
@@ -943,48 +968,25 @@ No optional parameters
 
 ---
 
-## omnia appsettings get
-
-Get any applied overrides of appsettings (or shared appsettings) for a specific tenant
-
-##### Example<a id="example-appsettings-get"></a>
-```
-omnia appsettings get --tenantid {tenantid}
-```
-
-##### Required Parameters<a id="required-parameters-appsettings-get"></a>
-
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| -t --tenantid | The tenantid of the tenant to generate appsettings for |
-    
-
-##### Optional Parameters<a id="optional-parameters-appsettings-get"></a>
-
-| Name     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| --shared | Target the shared appsettings instead of appsettings |
-
----
-
-## omnia appsettings update
+## omnia tenants update appsettings
 
 Apply overrides of appsettings (or shared appsettings) for a specific tenant
 (Note these will be in effect until removed, i.e. updating with no overrides)
 
-##### Example<a id="example-appsettings-update"></a>
+##### Example<a id="example-update-appsettings"></a>
 ```
-omnia appsettings update --tenantid {tenantid}
+omnia tenants update appsettings --tenantid {tenantid} --serviceid {serviceid}
 ```
 
-##### Required Parameters<a id="required-parameters-appsettings-update"></a>
+##### Required Parameters<a id="required-parameters-update-appsettings"></a>
 
 | Name          | Description                                            |
 | ------------- | ------------------------------------------------------ |
-| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+| --tenantid | The tenantid of the tenant to generate appsettings for |
+| --serviceid| Id of the service owning the appsettings               |
     
 
-##### Optional Parameters<a id="optional-parameters-appsettings-update"></a>
+##### Optional Parameters<a id="optional-parameters-update-appsettings"></a>
 
 | Name     | Description                                          |
 | -------- | ---------------------------------------------------- |
@@ -992,40 +994,60 @@ omnia appsettings update --tenantid {tenantid}
 
 ---
 
-## omnia ai get
-
-Get any applied overrides of application insights for a specific tenant
-
-##### Example<a id="example-ai-get"></a>
-```
-omnia ai get --tenantid {tenantid}
-```
-
-##### Required Parameters<a id="required-parameters-ai-get"></a>
-
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| -t --tenantid | The tenantid of the tenant to generate appsettings for |
-    
-
----
-
-## omnia ai update
+## omnia tenants update ai 
 
 Apply overrides of application insights for a specific tenant
 (Note these will be in effect until removed, i.e. updating with no overrides)
 
-##### Example<a id="example-ai-update"></a>
+##### Example<a id="example-update-ai"></a>
 ```
-omnia ai update --tenantid {tenantid}
+omnia tenants update ai {tenantid}
 ```
 
-##### Required Parameters<a id="required-parameters-ai-update"></a>
+##### Required Parameters<a id="required-parameters-update-ai"></a>
+
+No required parameters
+
+---
+
+## omnia tenants get appsettings
+
+Get any applied overrides of appsettings (or shared appsettings) for a specific tenant
+
+##### Example<a id="example-get-appsettings"></a>
+```
+omnia tenants get appsettings --tenantid {tenantid} --serviceid {serviceid}
+```
+
+##### Required Parameters<a id="required-parameters-get-appsettings"></a>
 
 | Name          | Description                                            |
 | ------------- | ------------------------------------------------------ |
-| -t --tenantid | The tenantid of the tenant to generate appsettings for |
+| --tenantid | The tenantid of the tenant to generate appsettings for |
+| --serviceid   | Id of the service owning the appsettings               |
 
+
+##### Optional Parameters<a id="optional-parameters-get-appsettings"></a>
+
+| Name     | Description                                          |
+| -------- | ---------------------------------------------------- |
+| --shared | Target the shared appsettings instead of appsettings |
+
+---
+
+## omnia tenants get ai
+
+Get any applied overrides of application insights for a specific tenant
+
+##### Example<a id="example-get-ai"></a>
+```
+omnia tenants get ai {tenantid}
+```
+
+##### Required Parameters<a id="required-parameters-get-ai"></a>
+
+No required parameters
+    
 ---
 
 # Extension Commands
