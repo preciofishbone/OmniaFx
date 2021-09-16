@@ -236,10 +236,10 @@ when using the Omnia Cli to manage versions such as deployments, listing extensi
 | Pattern        | Description                                          |
 | -------------- | ---------------------------------------------------- |
 | latest         | Gets the latest major version                        |
-| 5.0.*          | Gets the latest patch version of the 5.0 release     |
-| 5.*            | Gets the lates minor version of the 2 release        |
-| 5.0.0-preview* | Gets the latest 5.0.0 preview version                |
-| 5.*-preview*   | Gets the latest minor version of the latest preview  |
+| 6.0.*          | Gets the latest patch version of the 5.0 release     |
+| 6.*            | Gets the lates minor version of the 2 release        |
+| 6.0.0-preview* | Gets the latest 6.0.0 preview version                |
+| 6.*-preview*   | Gets the latest minor version of the latest preview  |
 | -preview       | Gets the latest previev version of any major version |
 
 Pattern matching is very powerful together with concepts such as [Deployment](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-extensions-deploy) or [Extension Groups](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#extension-groups-commands) where you can deploy one or many extensions and ensure its using the current latest version
@@ -256,7 +256,7 @@ omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5.*
 
 ##### Example Install Templates
 ```
-omnia dev new --install 5.0.0
+omnia dev new --install 6.0.0
 ```
 
 ##### Required Parameters
@@ -442,17 +442,11 @@ omnia dev add omniafx
 Add all of Omnia Wcm Fx in latest available version 
 omnia dev add wcmfx
 
-Add all of Omnia Tenant Admin Fx in latest available version 
-omnia dev add adminfx
-
 Add all of Omnia Workplace Fx in latest available version 
 omnia dev add workplacefx
 
-Add all of Omnia Team Collaboration Fx in latest available version 
-omnia dev add tbfx
-
 Add in specific version
-omnia dev add omniafx --version 5.0.0
+omnia dev add omniafx --version 6.0.0
 
 ```
 
@@ -471,17 +465,11 @@ omnia dev update omniafx
 Update Omnia Wcm Fx to latest available version
 omnia dev update wcmfx
 
-Update Omnia Tenant Admin Fx to latest available version
-omnia dev update adminfx
-
 Update Omnia Workplace Fx to latest available version
 omnia dev update workplacefx
 
-Update Omnia Team Collaboration Fx to latest available version
-omnia dev update tbfx
-
 Update to specific version
-omnia dev update omniafx --version 5.0.0
+omnia dev update omniafx --version 6.0.0
 
 ```
 
@@ -683,7 +671,7 @@ Add information for Omnia cli template version
 The following command is to add information for Omnia cli template version 6.0.0 
 
 ```
-omnia dev templateinfos add --version 5.0.0
+omnia dev templateinfos add --version 6.0.0
 ```
 
 ##### Required Parameters
@@ -1129,14 +1117,14 @@ Lists versions pushed for extension that can be installed in Tenants
 Lists all versions for Omnia
 omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa
 
-Lists all versions for Omnia starting with 5.
-omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5*
+Lists all versions for Omnia starting with 6.
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:6*
 
-Lists all preview versions for Omnia 5.0.0 
-omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5.0.0-preview*
+Lists all preview versions for Omnia 6.0.0 
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:6.0.0-preview*
 
-Lists all preview versions for Omnia starting with 5.*
-omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5.*-preview*
+Lists all preview versions for Omnia starting with 6.*
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:6.*-preview*
 ```
 
 ##### Required Parameters<a id="required-parameters-extensions-versions"></a>
@@ -1180,8 +1168,8 @@ Deploys extension versions to tenants.
 
 ##### Example<a id="example-extensions-deploy"></a>
 ```
-Deploys specific version of Omnia version 5.0.0 
-omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.0 --tenantid {tenantId}
+Deploys specific version of Omnia version 6.0.0 
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {tenantId}
 
 Deploys latest patch version of Omnia for 5.0 release
 omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.* --tenantid {tenantId}
@@ -1189,8 +1177,8 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.* --tenantid {t
 Deploys latest minor and patch version of Omnia for the major 5 release
 omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.* --tenantid {tenantId}
 
-Deploys specific version of Omnia version 5.0.0 to the tenant that has a high-level of Deployment Security
-omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.0 --tenantid {tenantId} --code {yy-dd-MM-m}
+Deploys specific version of Omnia version 6.0.0 to the tenant that has a high-level of Deployment Security
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {tenantId} --code {yy-dd-MM-m}
 
 ```
 
