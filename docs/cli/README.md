@@ -236,7 +236,7 @@ when using the Omnia Cli to manage versions such as deployments, listing extensi
 | Pattern        | Description                                          |
 | -------------- | ---------------------------------------------------- |
 | latest         | Gets the latest major version                        |
-| 6.0.*          | Gets the latest patch version of the 5.0 release     |
+| 6.0.*          | Gets the latest patch version of the 6.0 release     |
 | 6.*            | Gets the lates minor version of the 2 release        |
 | 6.0.0-preview* | Gets the latest 6.0.0 preview version                |
 | 6.*-preview*   | Gets the latest minor version of the latest preview  |
@@ -244,9 +244,9 @@ when using the Omnia Cli to manage versions such as deployments, listing extensi
 
 Pattern matching is very powerful together with concepts such as [Deployment](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#omnia-extensions-deploy) or [Extension Groups](https://github.com/preciofishbone/OmniaFx/tree/master/docs/cli#extension-groups-commands) where you can deploy one or many extensions and ensure its using the current latest version
 
-You can play with the pattern matching using the omnia extensions versions cmd. Try the sample below to find all omnia 5.* versions
+You can play with the pattern matching using the omnia extensions versions cmd. Try the sample below to find all omnia 6.* versions
 ```
-omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:5.*
+omnia extensions versions aa000000-0000-aaaa-0000-0000000000aa:6.*
 ```
 ---
 
@@ -564,7 +564,7 @@ Add a new development dependency
 The following command is to add a new dependency for developing on Omnia version >= 6.0.0-dev 
 
 ```
-omnia dev dependencies add --omniafx 6.0.0-dev --sdk 3.1.402 --baseimage 5.0 --cli 3.0.0-dev --clitemplate 6.0.0 --vs 16.7.5
+omnia dev dependencies add --omniafx 6.0.0-dev --sdk 3.1.402 --baseimage 6.0 --cli 3.0.0-dev --clitemplate 6.0.0 --vs 16.7.5
 ```
 
 ##### Required Parameters
@@ -596,7 +596,7 @@ Update a development dependency
 The following command is to update a dependency for developing on Omnia version >= 6.0.0-dev 
 
 ```
-omnia dev dependencies update --omniafx 6.0.0-dev --baseimage 5.0 --message "Documentation: https://github.com/preciofishbone/OmniaFx"
+omnia dev dependencies update --omniafx 6.0.0-dev --baseimage 6.0 --message "Documentation: https://github.com/preciofishbone/OmniaFx"
 ```
 
 ##### Required Parameters
@@ -1171,11 +1171,11 @@ Deploys extension versions to tenants.
 Deploys specific version of Omnia version 6.0.0 
 omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {tenantId}
 
-Deploys latest patch version of Omnia for 5.0 release
-omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.0.* --tenantid {tenantId}
+Deploys latest patch version of Omnia for 6.0 release
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.* --tenantid {tenantId}
 
-Deploys latest minor and patch version of Omnia for the major 5 release
-omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:5.* --tenantid {tenantId}
+Deploys latest minor and patch version of Omnia for the major 6 release
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.* --tenantid {tenantId}
 
 Deploys specific version of Omnia version 6.0.0 to the tenant that has a high-level of Deployment Security
 omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {tenantId} --code {yy-dd-MM-m}
