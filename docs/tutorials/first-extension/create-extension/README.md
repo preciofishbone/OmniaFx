@@ -89,10 +89,10 @@ Open a browser and browse to your Omnia Developing tenant.
 When the site is loaded, press `Shift + O` then `Shift + C` to open the `Omnia Developer Console`, then run the following cmd to serve your extension locally:
 
 ```
-serve https://localhost:44315
+serve https://localhost:44351
 ```
 
->Tip: The default port for the project created by the template is 44315. Feel free to change the port to a new unique value on your machine if needed.
+>Tip: The default port for the project created by the template is 44351. Feel free to change the port to a new unique value on your machine if needed.
 
 The browser will be reloaded after serving successfully.
 
