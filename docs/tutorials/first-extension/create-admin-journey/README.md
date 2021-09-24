@@ -20,7 +20,7 @@ omnia dev new adminjourney --name HelloOmniaFxAdminJourney --tokens element=hell
 
 Build and start the project.
 
-Press `Shift + O` then `Shift + C` to open the `Omnia Admin`. 
+Press `Shift + O` then `Shift + A` to open the `Omnia Admin`. 
 
 Enjoy!
 
