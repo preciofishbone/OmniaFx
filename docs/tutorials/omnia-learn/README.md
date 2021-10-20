@@ -6,7 +6,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 ## Learning Resources:
 
-# Omnia Fx
+# Omnia.Fx
 
 - ## [Build your first extension](../first-extension#build-your-first-extension-like-a-boss)
 
@@ -64,7 +64,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
   
     Learn how Identity is in Omnia System
 
-# WCM Fx
+# Omnia.WebContentManagement.Fx
 
 - ## [Create a Omnia Block](./create-omnia-block#create-a-omnia-block)
 
@@ -79,7 +79,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
     Use StyleFlow to override the style of the left navigation on wcm page.
 
 
-# TeamCollaboration Fx
+# Omnia.Workplace.Fx
 
 - ## [Teamwork app](./teamwork-app#teamwork-app)
 
