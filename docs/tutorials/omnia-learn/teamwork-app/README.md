@@ -1,9 +1,9 @@
 # Teamwork App
 
-Install `Omnia.TeamCollaboration.Fx` nuget.
+Install `Omnia.Workplace.Fx` nuget.
 
 ```cs
-using Omnia.TeamCollaboration.Fx;
+using Omnia.Workplace.Fx;
 
 //Inject IAppService (Omnia.Fx.Apps.IAppService)
 IAppService AppService;
@@ -32,7 +32,7 @@ AppService.WorkWithTeamwork().CreateSharePointCommunicationSiteAsync
 //To create a new Teamwork with its default enterprise properties, you can initialize the properties with EnterprisePropertyDictionary. For example:
 var enterpriseProperties = new EnterprisePropertyDictionary();
 enterpriseProperties
-    .AddOrUpdatePerson(personProperty, new IdentityId {Uid = "user1@tenant.com" } , new IdentityId {Uid = "user2@tenant.com" })
+    .AddOrUpdatePerson(personProperty, "user1@tenant.com" , "user2@tenant.com")
     .AddOrUpdateBoolean(booleanProperty, true)
     .AddOrUpdateDateTime(dateTimeProperty, DateTime.UtcNow)
     .AddOrUpdateEnterpriseKeywords(keyWordProperty, Guid.NewGuid())
@@ -43,7 +43,7 @@ enterpriseProperties
     .AddOrUpdateRichText(richTextProperty, "<p>Lorem ipsum dolor sit amet</p>");
 
     //Or use the property internal name directly
-    .AddOrUpdatePerson("personPropertyInternalName", new IdentityId {Uid = "user1@tenant.com" } , new IdentityId {Uid = "user2@tenant.com" })
+    .AddOrUpdatePerson("personPropertyInternalName", "user1@tenant.com", "user2@tenant.com")
     .AddOrUpdateBoolean("booleanPropertyInternalName", true)
     .AddOrUpdateDateTime("dateTimePropertyInternalName", DateTime.UtcNow)
     .AddOrUpdateEnterpriseKeywords("keywordPropertyInternalName", Guid.NewGuid())
