@@ -16,7 +16,7 @@ The 'publish' folder must be excluded from the project.
 
 Exclude the 'publish' folder from the project.
 
-> The fixed has been included in the latest Omnia cli templates.
+> The fix has been included in the latest Omnia cli templates.
 
 ---
 
@@ -26,7 +26,7 @@ Any unknown errors from npm packages.
 
 **Reason**
 
-Some npm packages were not installed properly on your extension.
+Some npm packages is not installed properly on your extension.
 
 **Solution**
 
@@ -52,7 +52,7 @@ The appsettings.local.json is missing or out-of-date.
 
 **Solution**
 
-Run the below cmd to generate latest settings:
+Run the below cmd to generate the latest settings:
 
     omnia dev appsettings get --path C:\your-extension-path\extension.json --tenantid {tenant-id}
 
@@ -76,7 +76,7 @@ omniaConfig
     .AddAppSettingsJsonFile("appsettings.local.json", currentDir)
 ```
 
-> The fixed has been included in the latest Omnia cli templates.
+> The fix has been included in the latest Omnia cli templates.
 
 ---
 
@@ -136,7 +136,7 @@ Missing environment variable OMNIA_EXTENSIONID in launchSettings.json
 
 **Error**
 
-Presented multi-factor authentication has expired due to policies configured by your administrator, you must refresh your multi-factor authentication to access
+Presented multi-factor authentication has expired due to policies configured by your administrator, you must refresh your multi-factor authentication to access.
 
 **Solution**
 
@@ -158,7 +158,7 @@ Omnia script omnia-watch is missing the  in package.json
 
 > Find the details in [migration 3.0 - 4.0](../migration/3-0-to-4-0#build-configuration).
 
-> The fixed has been included in the latest Omnia cli templates.
+> The fix has been included in the latest Omnia cli templates.
 
 ---
 
