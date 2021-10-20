@@ -64,6 +64,12 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
   
     Learn how Identity is in Omnia System
 
+# Omnia.Workplace.Fx
+
+- ## [Teamwork app](./teamwork-app#teamwork-app)
+
+    Figure out how easy it is to work with Teamwork App. 
+
 # Omnia.WebContentManagement.Fx
 
 - ## [Create a Omnia Block](./create-omnia-block#create-a-omnia-block)
@@ -77,13 +83,6 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 - ## [Override the style of Current Navigation block](./override-style-of-current-navigation#override-the-style-of-current-navigation-block)
 
     Use StyleFlow to override the style of the left navigation on wcm page.
-
-
-# Omnia.Workplace.Fx
-
-- ## [Teamwork app](./teamwork-app#teamwork-app)
-
-    Figure out how easy it is to work with Teamwork App. 
 
 # Playground Extension
 
