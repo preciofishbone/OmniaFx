@@ -132,6 +132,18 @@ Missing environment variable OMNIA_EXTENSIONID in launchSettings.json
 
 # Omnia Cli issues
 
+## Authentication
+
+**Error**
+
+Presented multi-factor authentication has expired due to policies configured by your administrator, you must refresh your multi-factor authentication to access
+
+**Solution**
+
+> Try to login again: `omnia logout` then `omnia login`
+
+---
+
 ## omnia dev run
 
 **Error**
