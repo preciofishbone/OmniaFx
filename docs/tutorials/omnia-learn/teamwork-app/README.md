@@ -3,9 +3,9 @@
 Install `Omnia.Workplace.Fx` nuget.
 
 ```cs
-using Omnia.Workplace.Fx;
+using Omnia.Fx.Apps;
 
-//Inject IAppService (Omnia.Fx.Apps.IAppService)
+//Inject IAppService 
 IAppService AppService;
 
 //Then it is able to

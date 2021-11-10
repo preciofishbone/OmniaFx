@@ -16,7 +16,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     `https://{localhost:port}/swagger` 
     
-    `https://{webapp-service-id-without-dash}-{tenant}.omniaclound.net/swagger` (not extension-id)
+    `https://{webapp-service-id-without-dash}-{tenant}.omniaclound.net/swagger`
 
     Omnia Developer Console > `swagger --help`
 
@@ -32,19 +32,23 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     Some common scenarios in which you may need to use manifest load rule.
 
+- ## [Create Omnia Block](./create-omnia-block#create-a-omnia-block)
+
+    Learn how to create a new Omnia Block for using in layout.
+
 - ## [Load a resource manifest with load rule](./manifest-load-rule#manifest-custom-load-rule)
 
     Some common scenarios in which you may need to use manifest load rule.
 
-- ## [WebApp with database](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Projects/WebAppWithDb)
+- ## [WebApp with database](https://github.com/preciofishbone/OmniaFx/tree/main/src/Examples/Projects/WebAppWithDb)
 
     A sample source code of setting up a database in WebApp.
 
-- ## [Add custom steps in App Provisioning](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/AppProvisioning/CustomSteps)
+- ## [Add custom steps in App Provisioning](https://github.com/preciofishbone/OmniaFx/tree/main/src/Examples/AppProvisioning/CustomSteps)
 
     A sample source code of adding custom steps in App Provisioning.
 
-- ## [Custom fonts](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/Ux/CustomFonts)
+- ## [Custom fonts](https://github.com/preciofishbone/OmniaFx/tree/main/src/Examples/Ux/CustomFonts)
 
     A sample source code for applying custom font in your tenant.
 
@@ -72,10 +76,6 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 # Omnia.WebContentManagement.Fx
 
-- ## [Create a Omnia Block](./create-omnia-block#create-a-omnia-block)
-
-    Learn how to create a new Omnia Block for WCM page.
-
 - ## [Create a Page Rollup View](./create-page-rollup-view#create-a-page-rollup-view)
 
     Learn how to create a new view for Page Rollup.
@@ -86,7 +86,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 # Playground Extension
 
-You can deploy this [Playground](https://github.com/preciofishbone/OmniaFx/tree/master/src/Examples/OmniaFxPlayground) to your dev tenant to try out different things, including:
+You can deploy this [Playground](https://github.com/preciofishbone/OmniaFx/tree/main/src/Examples/OmniaFxPlayground) to your dev tenant to try out different things, including:
 
 - Create a team site with Teamwork Fx.
 - Call Omnia APIs externally.

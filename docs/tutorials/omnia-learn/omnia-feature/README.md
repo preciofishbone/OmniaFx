@@ -4,9 +4,9 @@
 
 There are 3 main Feature scopes: Tenant, Business Profile and App Instance. You could find more information about it below.
 
-## Feature with C# (Feature with handler)
+## Feature with server-side handler
 
-This type of feature will interact with a `feature handler` (aka a queue job) in Worker. When you activate/upgrade/deactive the feature, it will send a queue message to `feature handler` and wait for the handler job to complete. For example: 
+This type of feature will interact with a `feature handler` (aka a queue job) in Worker. When you activate/upgrade/deactive the feature, it will send a queue message to `feature handler`. For example: 
 
 - TestFeature.manifest.ts
 
@@ -46,7 +46,7 @@ This type of feature will interact with a `feature handler` (aka a queue job) in
             hasProviderHandling: true,
 
             //Define that this feature is hidden from UI, it is still able to activate through Swagger/Postman. 
-            hidden: true
+            hidden: false
         });
     ```
 
@@ -114,6 +114,9 @@ This type of feature will interact with a `feature handler` (aka a queue job) in
             //...then get the associated sp url
             var spUrl = AppInstance.Properties.ContextParams.EnsureContextParamStringValue(Fx.SharePoint.Constants.Parameters.SPUrl);
 
+            //...or app instance id
+            var appInstanceId = AppInstance.Id
+
             return Task.CompletedTask;
         }
     }
@@ -121,7 +124,7 @@ This type of feature will interact with a `feature handler` (aka a queue job) in
 
     ```
 
-## Feature without C# (Feature without handler)
+## Feature without server-side handler
 
 This type of feature is just an On/Off-switch and usually be used together with [manifest load rule](https://github.com/preciofishbone/OmniaFx/tree/master/docs/tutorials/omnia-learn/manifest-load-rule#manifest-custom-load-rule). For example: 
 
@@ -134,29 +137,24 @@ This type of feature is just an On/Off-switch and usually be used together with 
         ({
             ...
 
-            //Define that this feature DOES NOT have feature handler (C#) 
+            //Define that this feature DOES NOT have feature handler (C# file) 
             hasProviderHandling: false
 
             ...
         });
     ```
 
-- TestFeature.cs 
-  
-  This file is not needed
-
-
 ## Where to create a feature in source code
 
 - Feature with C#
 
-    It is mandatory to put feature-with-C# in Worker project. Because feature-handler.cs (queue job) have to be registered in the Worker. 
+    It is recommended to put feature-with-C# in Worker project.
 
 - Feature without C#
 
-    It is recommended to put feature-without-C# in Web project. So that you can easily control the feature and manifest load rule in the same place.
+    It is recommended to put feature-without-C# in Web project. So that you can easily control the feature and manifest load rules in the same place.
 
-> Note: After deploying, features will be stuck with a service (Web or Worker) that contains it. You should not move the features to other services.
+> Note: After deploying, features will be stuck with the orignal service (Web or Worker) that contains it. You should not move the features to other services or other extensions.
 
 ## How to create a feature
 

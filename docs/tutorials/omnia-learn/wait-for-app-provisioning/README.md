@@ -1,6 +1,6 @@
 # Wait for App provisioning
 
-After creating an app instance, there may be some provisioning tasks that are still running in background. You might want to follow the sample code below to wait for provisioning state:
+After creating an app instance, there may be some provisioning tasks that are still running in background. You might want to follow the sample code below to wait for app provisioning state:
 
 ```cs
 

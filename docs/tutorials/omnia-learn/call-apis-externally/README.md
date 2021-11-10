@@ -40,4 +40,4 @@
     | ClientId | extension id |
     | ClientSecret | a secret of the extension |
 
-    > You should first call your own Omnia extension APIs, then it can call to other extensions with their fx. This way, you can easily maintain the fx changes.
+    > You should first call to your own Omnia extension APIs, then using other fx nuget. So that you can maintain the fx changes.

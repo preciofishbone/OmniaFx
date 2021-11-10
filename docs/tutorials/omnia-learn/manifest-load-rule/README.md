@@ -1,11 +1,11 @@
 # Manifest custom load rule
 
-Manifest custom load rule defines when to load a manifest automatically.
+Manifest custom load rule defines when the manifest must be loaded in some special conditions.
 
 **There are 2 system load rules, as described below, will not be affected by any custom load rules.**
 
-- web-component manifest loads when the component element exists in the DOM.
-- resource manifest loads when any manifest loads in which it is imported.
+- A web-component manifest will be loaded as soon as its element exists in the DOM.
+- A resource manifest will be loaded when it is imported in another manifest that's being loaded.
 
 **It's IMPOSSIBLE to unload loaded manifests.**
 
@@ -31,18 +31,18 @@ Composer
     //Load If a feature is activated
     .loadIfFeatureActivated({ featureId: feature-id })
 
-    //Load If a manifest is loaded (i.e. Load in SharePoint)
+    //Load If a manifest is loaded (e.g. Load in SharePoint)
     .loadIfManifestLoaded({
          resourceId: OmniaResourceManifests.SpfxCustomizer.toString(), 
          omniaServiceId: OmniaService.Id.toString()
      })
 
-    //Load If a DOM matching (i.e. Load in Omnia)
+    //Load If a DOM matching (e.g. Load in Omnia)
     .loadByDomMatching({
         cssSelector: 'div[id="omnia-app"]'
     })
 
-    //Load if a query string exists is url (i.e. load when https://....?load=true)
+    //Load if a query string exists is url (e.g. load when https://....?load=true)
     .loadByUrlMatching({
         regEx: ".*?(load=true)"
     })
@@ -52,10 +52,10 @@ Composer
         startsWith: "/"
     })
 
-    //Load by user matching (i.e. load for AzureAd user)
-    .loadByUserMatching("type", UserTypes.AzureAd)
+    //Load by user matching (e.g. load for AzureAd user)
+    .loadByUserMatching("type", UserTypes.AzureAdInternalUser)
 
-    //It is possible to combine rules (i.e. load when 2 feature is activated)
+    //It is possible to combine rules (e.g. load when 2 feature is activated)
     .loadIfFeatureActivated().and().loadIfFeatureActivated()
     .loadIfFeatureActivated().or().loadIfFeatureActivated()
 

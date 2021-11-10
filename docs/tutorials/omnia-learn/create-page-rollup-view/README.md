@@ -1,19 +1,25 @@
 # Create a Page Rollup view
 
-Page Rollup is an out-of-the-box Omnia block that is used to query and render pages.
+Page Rollup is an out-of-the-box Omnia block that query and render pages.
 
-In this part of tutorial, you will create a new Page Rollup view where you have full control of how to render pages.
+In this part of tutorial, you will create a custom Page Rollup view to render pages.
 
 # Step 1. Install WCM npm
 
 You need to install WCM npm to integrate with Page Rollup.
 
-Add a dependency in the `package.json` file in your project
+Run the following cmd: 
+```
+omnia dev add wcmfx -v 6.6.0
+omnia dev restore -f
+```
+
+Or manually add a dependency in the `package.json` file in your project and restore npm
 
 ```json
 "dependencies": {  
 
-    "@omnia/wcm": "4.0.0",
+    "@omnia/wcm": "6.6.0",
   
 }
 ```
