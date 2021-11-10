@@ -36,6 +36,10 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
     Learn how to create a new Omnia Block for using in layout.
 
+- ## [Create Action](./create-action#create-a-new-action)
+
+    Try to create a custom action.
+
 - ## [Load a resource manifest with load rule](./manifest-load-rule#manifest-custom-load-rule)
 
     Some common scenarios in which you may need to use manifest load rule.
