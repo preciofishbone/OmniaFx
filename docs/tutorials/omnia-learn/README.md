@@ -72,6 +72,10 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
   
     Learn how Identity is in Omnia System
 
+- ## [Persistent Disk](./persistent-disk#persistent-disk)
+
+    You need a file storage?
+
 # Omnia.Workplace.Fx
 
 - ## [Teamwork app](./teamwork-app#teamwork-app)
