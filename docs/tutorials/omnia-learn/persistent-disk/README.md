@@ -46,15 +46,15 @@ var persistentDiskPath = OmniaAppSettings.CurrentValue.PersistentDiskResources["
 //********************************************
 
 //E.g. 
-var featureAPersistentDiskPath = Path.Combine(persistentDiskPath, "featureA");
+var featureA_PersistentDiskPath = Path.Combine(persistentDiskPath, "featureA");
 
-await File.WriteAllBytesAsync(featureAPersistentDiskPath + "doc1.txt", null);
-await File.WriteAllBytesAsync(featureAPersistentDiskPath + "doc2.txt", null);
+await File.WriteAllBytesAsync(featureA_PersistentDiskPath + "doc1.txt", null);
+await File.WriteAllBytesAsync(featureA_PersistentDiskPath + "doc2.txt", null);
 
-var featureBPersistentDiskPath = Path.Combine(persistentDiskPath, "featureB");
+var featureB_PersistentDiskPath = Path.Combine(persistentDiskPath, "featureB");
 
-await File.WriteAllTextAsync(featureBPersistentDiskPath + "img1.png", null);
-await File.WriteAllTextAsync(featureBPersistentDiskPath + "img2.png", null);
+await File.WriteAllBytesAsync(featureB_PersistentDiskPath + "img1.png", null);
+await File.WriteAllBytesAsync(featureB_PersistentDiskPath + "img2.png", null);
 
 
 ```
