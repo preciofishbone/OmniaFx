@@ -1445,6 +1445,107 @@ omnia secrets list --extensionid {extensionid}
 
 ---
 
+# Localization Commands
+
+Makes it possible to add/remove localization files that should be used when deploying an omnia service in an extension. You work on localization files in json format with the same naming convetion that is used if specifying files deployed as part of the "checked in" code. E.g. an omnia service with id:d60fa82a-129a-41a9-93ce-d784dcb217b0 and danish localizations should have format: d60fa82a-129a-41a9-93ce-d784dcb217b0_localized.loc.da-dk.json. The version add with a localization files is important, as only version with the same preRealse part will be used, and only versions <= to the version being deployed.
+
+## omnia loc upload
+
+Uploads a specific localization file to be used by a service, i.e. the service with the id matching the guid prefixing the file name.
+Also specifiying which version these localizations correlates to i.e. in relation to which version of the extension/omnia service is being deployed.
+E.g. Will pick up latest version <= in relation to version deployed with the exact same sematic version preRelase part.
+
+##### Example<a id="example-loc-upload"></a>
+```
+omnia loc upload --src {localizationFilePath}  --v {semanticVersioning}
+```
+
+##### Required Parameters<a id="required-parameters-loc-upload"></a>
+
+| Name          | Description                                             |
+| ------------- | --------------------------------------------------------|
+| --src         | Path to localization file with filename described above |
+| --v           | Sematic version, prerelease part is important           |
+
+---
+
+## omnia loc delete
+
+Delete a specific localization file that has been added for a omnia service.
+I.e. deletes a specific language with the specific version for a specific omnia service.
+(See list command to see the current files)
+
+##### Example<a id="example-secrets-remove"></a>
+```
+omnia loc delete --serviceId {serviceId} --lang {languageTag} --v {semanticVersion}
+```
+
+##### Required Parameters<a id="required-parameters-loc-delete"></a>
+
+| Name          | Description                                         |
+| ------------- | --------------------------------------------------- |
+| --serviceId   | The id of the omnia service for which to delete     |
+| --lang        | The language of the file that should be deleted     |
+| --v           | The version to delete                               |
+
+
+---
+
+## omnia loc list
+
+List all localization files that have been deployed, supports some filter options. I.e. For a spcific omnia service, only a specific language etc.
+This command also has som additional options, you can enable a simple diff between the versions listed. Or add an option to see which versions would be used if deploying a specific omnia service with a specific version.
+
+##### Example<a id="example-loc-list"></a>
+```
+omnia loc list
+
+omnia loc list --serviceId {serviceId}
+
+omnia loc list --serviceId {serviceId} --lang {languageTag}
+
+omnia loc list --lang {languageTag}
+
+omnia loc list --serviceId {serviceId} --lang {languageTag} --diff
+
+omnia loc list  --diff
+
+omnia loc list  --match {semeanticVersion}
+
+omnia loc list --serviceId {serviceId} --match {semeanticVersion}
+
+```
+##### Optional Parameters<<a id="required-parameters-loc-list"></a>
+
+| Name          | Description                                                                                                                    |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------|
+| --serviceId   | The id of the omnia service                                                                                                    |
+| --lang        | A specific language tag e.g. en-us                                                                                             |
+| --diff        | An option to enable selection of what to diff, for the versins listed. Can't be combined with --match                          |
+| --match       | An option to see which localization files would (currently) deploy if deploying a specific version, Can't combine with --match |
+
+---
+
+## omnia loc download
+
+Downloads a specific localization file. Downloaded file gets post-fix .semanticversion.
+
+##### Example<a id="example-loc-download"></a>
+```
+omnia loc download --dest {downloadFolderPath} --serviceId {serviceId} --lang {languageTag} --v {semanticVersion}
+```
+
+##### Required Parameters<a id="required-parameters-loc-download"></a>
+
+| Name          | Description                                         |
+| ------------- | --------------------------------------------------- |
+| --dest        | The path of the destination folder                  |
+| --serviceId   | The id of the omnia service for which to delete     |
+| --lang        | The language of the file that should be deleted     |
+| --v           | The version to download                             |
+
+---
+
 # Permissions Commands
 
 With permissions, its possible to grant permission for any users to do actions in Omnia Cli
