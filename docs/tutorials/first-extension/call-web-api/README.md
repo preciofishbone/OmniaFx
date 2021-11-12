@@ -44,7 +44,7 @@ Inject a HttpClient instance
 
 ```tsx
 @Component
-export default class HelloOmniaFxComponent extends Vue implements IWebComponentInstance, IHelloOmniaFxComponent {
+export default class HelloOmniaFxComponent extends VueComponentBase implements IWebComponentInstance, IHelloOmniaFxComponent {
 
     //Inject HttpClient
     @Inject<HttpClientConstructor>(HttpClient, {

@@ -10,7 +10,7 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 
 - ## [Build your first extension](../first-extension#build-your-first-extension-like-a-boss)
 
-    In this tutorial, we will take you through the steps of building an Omnia G2 extension from scratch. You will also play around with serveral general things, such as Admin Journey, Timer Job, SharePoint Feature and localization.
+    In this tutorial, we will take you through the steps of building an Omnia G2 extension from scratch. You will also play around with serveral general things, such as Admin Journey, Timer Job, SharePoint Feature and Localization.
 
 - ## Swagger
 
@@ -31,6 +31,10 @@ As a Microsoft Partner, we want our Omnia developers to be encouraged to improve
 - ## [Omnia Feature](./omnia-feature#omnia-feature)
 
     Some common scenarios in which you may need to use manifest load rule.
+
+- ## [Omnia Localization](https://github.com/preciofishbone/OmniaFx/tree/main/docs/tutorials/first-extension/apply-localization#apply-localization)
+
+    Create appealing ux for diversified target customers with localization. 
 
 - ## [Create Omnia Block](./create-omnia-block#create-a-omnia-block)
 

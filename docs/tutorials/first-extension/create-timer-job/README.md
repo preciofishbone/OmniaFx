@@ -17,8 +17,6 @@ Generate appsettings.local.json:
 omnia dev appsettings get --path C:\your-hello-omnia-fx-path\extension.json --tenantid {tenant-id}
 ```
 
-Manually copy the appsettings.local.json to bin folder `..\HelloOmniaFx.Worker\bin\Debug\netcoreapp3.1\appsettings.local.json`.
-
 # Step 2. Create a Timer Job in worker
 
 Create a new folder called `TimerJobs` under `..\HelloOmniaFx.Worker\`.

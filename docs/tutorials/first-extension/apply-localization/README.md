@@ -4,7 +4,7 @@ In this last part of the tutorial, you will learn how to apply localization into
 
 ## Create localization files
 
-Create a new folder called `loc` under `..\HelloOmniaFx.Web\`.
+Create a new folder called `loc` under `..\client\`.
 
 Inside the newly created folder, run the following cmd:
 
@@ -16,11 +16,13 @@ omnia dev new localization --name HelloOmniaFxLocalization
 - `localize.manifest.ts` - Define the default value in English.
 - `localize.sv-se.manifest.ts` - Define the translation value in Swedish.
 
->Tip: It is possible to export a whole localization .json file in Omnia Admin to send to translator, then manually add the content back into manifest files.
+>Tip: You can notice that the generated `localize.sv-se.manifest.ts` does not constraint on interface so when any Swedish label is missing it will just fallback to English without causing build error. 
+
+>Tip: It is possible to export a whole localization as .json file in Omnia Admin for doing translation work, then manually add all the translated json back into the correct manifest files.
 
 ## Usage
 
-- in Component:
+- E.g. in Component:
 
     ```tsx
 
@@ -30,10 +32,10 @@ omnia dev new localization --name HelloOmniaFxLocalization
     //Omnia has provided common localization so try to reuse it as much as possible.
     @Localize(OmniaUxLocalizationNamespace) private omniaLoc: OmniaUxLocalization;
 
-    //Inject this localization service if you want to transorm localization key
+    //Inject this localization service if you want to transform localization key
     @Inject(LocalizationService) private localizationService: LocalizationService;
 
-    //Render it
+    
     render(h){
         //two way to get the value:
 
@@ -49,7 +51,7 @@ omnia dev new localization --name HelloOmniaFxLocalization
     
     ```
 
-- in Feature definition:
+- E.g. in Feature definition:
 
     ```ts
     .registerFeature({
@@ -59,20 +61,30 @@ omnia dev new localization --name HelloOmniaFxLocalization
     
     ```
     
-- in Admin Journey left nav:
+- E.g. in Admin Journey left nav:
 
     ```ts
-    Topics.Admin.registerNavigationNode.publish({
-        ...
-
-        title: '$Localize:HelloOmniaFxLocalization.Labels.Label1;'
+    .registerNavigationNode([
+        {
+            ...
+            title: '$Localize:HelloOmniaFxLocalization.Features.Feature1;' 
+        
     ```
 
+- E.g. in Server-side code:
 
-- in any other definitions that is supporting localization:
-  
-    Apply syntax `$Localization:Namespace.Something.Something;`
+    ```cs
+        //Inject the service
+        Omnia.Fx.Localization.ILocalizationProvider localizationProvider;
+        var localizedValue = await localizationProvider.GetLocalizedValueAsync("'$Localize:HelloOmniaFxLocalization.Features.Feature1;");
+    ```
+    
+## Issue
 
-- in Server-side code:
+ - When you see strange issues with localization, you should first check whether your localization value is correct or not in the global variable `omnia.localization` by browser console.  
 
-    Inject `Omnia.Fx.Localization.ILocalizationProvider`
+ - When your localization seems only work with local serve and does not work after deploying. It could be some caching issues so you could try to **empty browser cache**, or even try to **re-deploy** the extension.
+
+ - Be careful that you might be using a duplicate namespace of other existing localization. The namespace should be unique. 
+ 
+ - Also, be careful with the translated localization files that don't constraint on interface so they could have conflict json structure that unexpectedly overrides the final localization. 
