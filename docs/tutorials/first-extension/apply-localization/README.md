@@ -1,6 +1,6 @@
 # Apply localization
 
-In this last part of the tutorial, you will learn how to apply localization into the extension.
+In this last part of [Build your first extension](https://github.com/preciofishbone/OmniaFx/tree/main/docs/tutorials/first-extension#build-your-first-extension-like-a-boss) tutorial, you will learn how to apply localization into the extension.
 
 ## Create localization files
 
