@@ -12,14 +12,12 @@ To register a persistent disk for your service, add the below code into the `omn
 
 ```
 
-To use this persistent disk for local developing, add the below settings into your appsettings.local.json
+To use this persistent disk for local developing, add the below settings under `OmniaAppSettings` inside your appsettings.local.json file
 
 ```json
 
-//inside OmniaAppSettings node, add
 "PersistentDiskResources": {
-    //put the same unique guid here
-    "...": {
+    "put-the-same-unique-guid-here": {
         "Path": "C:\\Whatever\\Path\\Local"
     }
 }
@@ -42,7 +40,9 @@ var persistentDiskPath = OmniaAppSettings.CurrentValue.PersistentDiskResources["
 
 
 //********************************************
-// You should share a single persistent disk to different features within a service by creating a root folder for each feature instead of registering multiple persistent disks.
+// You should share a single persistent disk to different features within a service 
+// by creating a root folder for each feature 
+// instead of registering multiple persistent disks.
 //********************************************
 
 //E.g. 
