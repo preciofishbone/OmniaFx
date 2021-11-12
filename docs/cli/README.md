@@ -1522,7 +1522,7 @@ omnia loc list --serviceId {serviceId} --match {semeanticVersion}
 | --serviceId   | The id of the omnia service                                                                                                    |
 | --lang        | A specific language tag e.g. en-us                                                                                             |
 | --diff        | An option to enable selection of what to diff, for the versins listed. Can't be combined with --match                          |
-| --match       | An option to see which localization files would (currently) deploy if deploying a specific version, Can't combine with --match |
+| --match       | An option to see which localization files would (currently) deploy if deploying a specific version, Can't combine with --diff  |
 
 ---
 
