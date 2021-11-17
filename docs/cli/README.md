@@ -224,6 +224,23 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-permissions-list)
         - [Required Parameters](#required-parameters-permissions-list)
         - [Required Parameters](#required-parameters-permissions-list)
+- [Alert Rules Commands](#alert-rules-commands)
+   - [omnia alertrules new](#omnia-alertrules-new)
+         - [Example](#example-alertrules-new)
+         - [Required Parameters](#required-parameters-alertrules-new)
+         - [Optional Parameters](#optional-parameters-alertrules-new)
+   - [omnia alertrules update](#omnia-alertrules-update)
+         - [Example](#example-alertrules-update)
+         - [Required Parameters](#required-parameters-alertrules-update)
+         - [Optional Parameters](#optional-parameters-alertrules-update)
+   - [omnia alertrules list](#omnia-alertrules-list)
+         - [Example](#example-alertrules-list)
+         - [Required Parameters](#required-parameters-alertrules-list)
+         - [Optional Parameters](#optional-parameters-alertrules-list)
+   - [omnia alertrules delete](#omnia-alertrules-delete)
+         - [Example](#example-alertrules-delete)
+         - [Required Parameters](#required-parameters-alertrules-delete)
+         - [Optional Parameters](#optional-parameters-alertrules-delete)
 
 <!-- /TOC -->
 
@@ -1677,3 +1694,90 @@ No optional parameters
 
 ---
 
+# Alert Rules Commands
+
+With alert rules, it's possible to map a service id to one or many alert rules and then deploy an extension that has the service id to a tenant. This makes the Application Insight of this tenant has appropriate alert rules.
+## omnia alertrules new
+
+Create a new alert rule for a service id in an extension.
+
+##### Example<a id="example-alertrules-new"></a>
+```
+omnia alertrules new --serviceid {serviceid} --name {name} --template SlowResponseTimes
+
+```
+##### Required Parameters<a id="required-parameters-alertrules-new"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --serviceid   | The service id that needs to be attached alert rule.   |
+| --name        | The name of the alert rule. It should be unique because the AI rules based on name.  |
+| --template    | The template of alert rule (SlowResponseTimes).                                 |
+
+The query of the alert rule should be input in the text editor.
+
+##### Optional Parameters<a id="optional-parameters-alertrules-new"></a>
+No optional parameters
+
+## omnia alertrules update
+
+Update an alert rule.
+
+##### Example<a id="example-alertrules-update"></a>
+```
+omnia alertrules update {alertRuleId} --name {name}
+
+```
+##### Required Parameters<a id="required-parameters-alertrules-update"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --alertRuleId | The alert rule id that needs to be update.             |
+| --name        | The name of the alert rule. It should be unique because the AI rules based on name.  |
+
+##### Optional Parameters<a id="optional-parameters-alertrules-update"></a>
+No optional parameters
+
+## omnia alertrules list
+
+List all alert rules.
+
+##### Example<a id="example-alertrules-list"></a>
+```
+omnia alertrules list {alertRuleId}
+
+```
+##### Required Parameters<a id="required-parameters-alertrules-list"></a>
+
+No required parameters
+
+##### Optional Parameters<a id="optional-parameters-alertrules-list"></a>
+
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --alertRuleId |  The alert rule id needs to view detail.              |
+
+
+## omnia alertrules delete
+
+Delete an alert rule.
+
+##### Example<a id="example-alertrules-delete"></a>
+```
+omnia alertrules delete {alertRuleId}
+
+```
+##### Required Parameters<a id="required-parameters-alertrules-delete"></a>
+
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --alertRuleId | The alert rule id needs to be deleted.                |
+
+
+##### Optional Parameters<a id="optional-parameters-alertrules-delete"></a>
+
+No required parameters
+
+---
