@@ -1,12 +1,11 @@
-﻿import Vue from 'vue';
-import { Prop, Emit } from 'vue-property-decorator';
+﻿import { Prop, Emit } from 'vue-property-decorator';
 import Component from 'vue-class-component';
 import { WebComponentBootstrapper, Inject, vueCustomElement, Localize, Utils } from '@omnia/fx';
 import { IntroductionStepStyles } from './IntroductionStep.css';
 import { OmniaTheming, OmniaUxLocalization, VueComponentBase, FormValidator, FieldValueValidation } from "@omnia/fx/ux";
 import { IIntroductionStep } from './IIntroductionStep';
 import { AppProvisioningStepContext } from '@omnia/fx/models';
-import { MultilingualStore } from '@omnia/fx/store';
+import { MultilingualStore } from '@omnia/fx/stores';
 
 @Component
 export class IntroductionStep extends VueComponentBase<IIntroductionStep> {

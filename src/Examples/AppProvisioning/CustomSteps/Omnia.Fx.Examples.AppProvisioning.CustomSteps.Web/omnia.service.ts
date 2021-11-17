@@ -2,7 +2,7 @@ import { Composer, DevelopmentEnvironment } from "@omnia/tooling/composers";
 import { Guid } from '@omnia/fx/models';
 
 Composer
-    .registerManifest(new Guid("c5ffc721-d84a-432e-a14f-9df4295c0f1d"), "Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web")
+    .registerManifest(new Guid("9273a64c-d1c7-4135-b9b9-e8cc99dfa828"), "Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web")
     .registerService({ description: "Description of Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web" })
     .AsWebApp()
     .withBuildOptions({
@@ -12,7 +12,7 @@ Composer
         },
         bundleOptions: {
             commonsChunk: {
-                name: new Guid("62302d52-7f95-4441-89be-ce5618f7746b"),
+                name: new Guid("ac606ae1-65c9-48bc-8642-5801375c8055"),
                 minChunks: 2
             }
         }

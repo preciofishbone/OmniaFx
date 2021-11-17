@@ -1,14 +1,24 @@
-﻿import { Topics } from "@omnia/tenantadmin";
-import { Guid } from '@omnia/fx-models';
+﻿import { extendApi } from '@omnia/fx';
+import { TeamCollaborationAppDefinitionInfo } from '@omnia/workplace/models';
 
-Topics.registerAppTemplates.publish(
-{
-    info: {
-        id: new Guid("3dcbd651-3d01-4574-b7b9-50ed39e0f5a4"),
-        title: "Omnia Fx Demos Custom Step",
-        elementToRender: "omfx-examples-approvisioning-step-introduction",
-        appDefinitionId: "",
-        isFeature: false
-    },
-    weight: 90
+extendApi(api => api.fx.ux.customStep.stepRegistration, api => {
+    return new Promise((resolve, _) => {
+        api.registerAppProvisioningStepInfo({
+            info: {
+                id: "3dcbd651-3d01-4574-b7b9-50ed39e0f5a4",
+                appDefinitionId: TeamCollaborationAppDefinitionInfo.id,
+                title: "Omnia Fx Demos Custom Step",
+                isFeature: false,
+                elementToRender: "omfx-examples-approvisioning-step-introduction",
+                isDefaultStep: false,
+                shouldRender: (appTemplate) => {
+                    return true;
+                }
+            },
+            weight: 90
+
+        })
+
+        resolve();
+    })
 })

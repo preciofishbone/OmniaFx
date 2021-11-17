@@ -1,5 +1,5 @@
 ﻿import { Composer } from '@omnia/tooling/composers';
-import { WebComponentManifests, ServiceDefinition } from "@omnia/tenantadmin/models";
+import { ServiceDefinition, WebComponentManifests } from '@omnia/workplace/models';
 
 Composer.registerManifest("14207cfb-f2ea-4569-9041-40fa63ba1f25", 
         "omnia.fx.examples.appprovisioning.steps.introduction")
@@ -15,6 +15,15 @@ Composer
     .withLoadRules()
     .loadIfManifestLoaded({
         omniaServiceId: ServiceDefinition.Id.toString(),
-        resourceId: WebComponentManifests.AppTemplatesJourney.toString()
+        resourceId: WebComponentManifests.TeamCollaborationAppJourney.toString()
+    })
+    .or()
+    .loadIfManifestLoaded({
+        omniaServiceId: ServiceDefinition.Id.toString(),
+        resourceId: WebComponentManifests.CreateTeamworkBlock.toString()
+    })
+    .or()
+    .loadIfManifestLoaded({
+        omniaServiceId: ServiceDefinition.Id.toString(),
+        resourceId: WebComponentManifests.CreateTeamworkComponent.toString()
     });
-    
