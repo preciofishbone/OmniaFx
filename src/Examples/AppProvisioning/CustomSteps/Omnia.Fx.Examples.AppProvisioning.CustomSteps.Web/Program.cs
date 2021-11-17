@@ -12,9 +12,11 @@ using Omnia.Fx.NetCore.WebApp.Hosting;
 
 namespace Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web
 {
+    /// <summary>
+    /// Program
+    /// </summary>
     public class Program
     {
-
         /// <summary>
         /// Main entry point
         /// </summary>
@@ -40,11 +42,9 @@ namespace Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web
                         .AddAppSettingsJsonFile("appsettings.local.json")
                         .AddOmniaFxWebApp();
 
-                    }).ConfigureHost(hostBuilder =>
-                    {
+                    }).ConfigureHost(hostBuilder => {
                         hostBuilder
-                        .ConfigureServices(services =>
-                        {
+                        .ConfigureServices(services => {
                             services.AddRouting();
 
                             // Register the Swagger generator, defining one or more Swagger documents
@@ -53,8 +53,7 @@ namespace Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web
                                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
                             });
                         })
-                        .ConfigureWebHost(webHostBuilder =>
-                        {
+                        .ConfigureWebHost(webHostBuilder => {
                             webHostBuilder.Configure((ctx, app) =>
                             {
                                 app.UseStaticFiles();
@@ -76,8 +75,7 @@ namespace Omnia.Fx.Examples.AppProvisioning.CustomSteps.Web
                                 app.UseAuthentication();
                                 app.UseAuthorization();
 
-                                app.UseEndpoints(endpoints =>
-                                {
+                                app.UseEndpoints(endpoints => {
                                     endpoints.MapControllers();
                                 });
                             });
