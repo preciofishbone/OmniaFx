@@ -1,1 +1,1 @@
-{"Id":"134f00f2-9df7-4cca-a50e-a45fb5947a22","Type":"Extension","Projects":[{"Path":"Omnia.Fx.Examples.BasicSharePointFeature/Omnia.Fx.Examples.BasicSharePointFeature.csproj","BaseImage":"preciofishbone/omnia:3.0-worker"}]}
+{"Id":"134f00f2-9df7-4cca-a50e-a45fb5947a22","Type":"Extension","Projects":[{"Path":"Omnia.Fx.Examples.BasicSharePointFeature/Omnia.Fx.Examples.BasicSharePointFeature.csproj","BaseImage":"preciofishbone/omnia:6.0-worker"}]}

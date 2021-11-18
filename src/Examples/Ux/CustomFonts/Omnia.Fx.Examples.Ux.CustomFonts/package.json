@@ -2,21 +2,24 @@
   "name": "Omnia.Fx.Examples.Ux.CustomFonts",
   "version": "0.1.0",
   "scripts": {
+    "omnia-watch": "tsc -v && tsc -w",
     "omnia-before-build": "gulp omnia-before-build",
-    "omnia-after-build": "gulp omnia-after-build",
+    "omnia-after-build": "tsc -v && tsc && gulp omnia-after-build",
+    "omnia-after-build-release": "npm run omnia-after-build -- --docs",
     "test": "jest"
   },
   "dependencies": {
-    "@omnia/fx-models": "3.4.4",
-    "@omnia/fx-sp": "3.4.4",
-    "@omnia/fx-spfx": "3.4.4",
-    "@omnia/tooling-vue": "3.4.4"
+    "@omnia/fx-models": "6.6.1",
+    "@omnia/fx-sp": "6.6.1",
+    "@omnia/fx-spfx": "6.6.1",
+    "@omnia/tooling-vue": "6.6.1"
   },
   "devDependencies": {
     "@types/jest": "^22.1.0",
     "jest": "^22.1.4",
     "jest-cli": "^22.1.4",
-    "ts-jest": "^22.0.1"
+    "ts-jest": "^22.0.1",
+    "gulp": "4.0.2"
   },
   "engines": {
     "node": ">=10.0.0"

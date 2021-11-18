@@ -18,20 +18,20 @@ export default class Card extends VueComponentBase<CardProps> {
 
         return (
             <div>
-                <v-card class={this.theming.content.bg.css}>
+                <v-card class={this.theming.body.bg.css}>
                     <v-card-title
-                        class={[this.theming.header.bg.css, this.theming.header.text.css]}>
+                        class={[this.theming.chrome.bg.css, this.theming.chrome.text.css]}>
                         <div class={["headline mb-0 ml-1"]}>Card Header</div>
                     </v-card-title>
                     <v-card-text
-                        light={!this.theming.content.bg.dark}
-                        dark={this.theming.content.bg.dark}
+                        light={!this.theming.body.bg.dark}
+                        dark={this.theming.body.bg.dark}
                     >
                     </v-card-text>
                     <v-card-actions class="mb-3 mr-3 ml-3">
                         <v-btn
-                            dark={this.theming.content.fg.dark}
-                            color={this.theming.content.fg.color.base}
+                            dark={this.theming.body.fg.dark}
+                            color={this.theming.body.fg.color.base}
                             text
                             onClick={() => { }}>
                             <v-icon left>arrow_back</v-icon>
@@ -39,8 +39,8 @@ export default class Card extends VueComponentBase<CardProps> {
                         </v-btn>
                         <v-spacer></v-spacer>
                         <v-btn
-                            dark={this.theming.content.fg.dark}
-                            color={this.theming.content.fg.color.base}
+                            dark={this.theming.body.fg.dark}
+                            color={this.theming.body.fg.color.base}
                             text
                             onClick={() => { }}>
                             Close

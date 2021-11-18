@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Omnia.Fx.Apps;
 using Omnia.Fx.Models.EnterpriseProperties;
+using Omnia.Fx.Models.Users;
 
 namespace OmniaFxPlayground.Web.Controllers
 {
@@ -18,7 +19,7 @@ namespace OmniaFxPlayground.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize(Omnia.Fx.Constants.Security.Roles.TenantAdmin)]
+        [Authorize(Omnia.Fx.Models.SharedConstants.RoleIds.TenantAdmin)]
         public async Task CreateTeamworkAsync()
         {
             var appTemplateId = Guid.Empty;
@@ -31,7 +32,7 @@ namespace OmniaFxPlayground.Web.Controllers
             int timeZoneId = 4; //Find the full timezone list here : https://blog.jussipalo.com/2013/10/list-of-sharepoint-timezoneid-values.html
             var enterpriseProperties = new EnterprisePropertyDictionary();
 
-            enterpriseProperties.AddOrUpdatePerson("internal-name-of-a-person-property", new Omnia.Fx.Models.Users.UserIdentity { Uid = "admin@tenant.com" });
+            enterpriseProperties.AddOrUpdatePerson("internal-name-of-a-person-property", UserIdentityTypes.AzureAdInternalUser.CreateUserIdentity("admin@tenant.com"));
             enterpriseProperties.AddOrUpdateDateTime("internal-name-of-a-datetime-property", DateTimeOffset.Now);
             enterpriseProperties.AddOrUpdateNumber("internal-name-of-a-number-property", 1);
             enterpriseProperties.AddOrUpdateText("internal-name-of-a-text-property", "test");
@@ -62,7 +63,7 @@ namespace OmniaFxPlayground.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize(Omnia.Fx.Constants.Security.Roles.TenantAdmin)]
+        [Authorize(Omnia.Fx.Models.SharedConstants.RoleIds.TenantAdmin)]
         public async Task GetTeamworkAsync()
         {
             var spSiteUrl = ""; // absolute or relative spUrl

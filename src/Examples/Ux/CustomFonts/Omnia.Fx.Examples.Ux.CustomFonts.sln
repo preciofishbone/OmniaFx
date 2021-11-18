@@ -1,25 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29326.143
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Omnia.Fx.Examples.Ux.CustomFonts", "Omnia.Fx.Examples.Ux.CustomFonts\Omnia.Fx.Examples.Ux.CustomFonts.csproj", "{A04D1BA8-672A-43A3-890E-4758BDB7588F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Omnia.Fx.Examples.Ux.CustomFonts", "Omnia.Fx.Examples.Ux.CustomFonts\Omnia.Fx.Examples.Ux.CustomFonts.csproj", "{227A5B27-89A5-4D8F-BD37-8CBA8F4444EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		BuildWithoutTsc|Any CPU = BuildWithoutTsc|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A04D1BA8-672A-43A3-890E-4758BDB7588F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A04D1BA8-672A-43A3-890E-4758BDB7588F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A04D1BA8-672A-43A3-890E-4758BDB7588F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A04D1BA8-672A-43A3-890E-4758BDB7588F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{227A5B27-89A5-4D8F-BD37-8CBA8F4444EA}.BuildWithoutTsc|Any CPU.ActiveCfg = BuildWithoutTsc|Any CPU
+		{227A5B27-89A5-4D8F-BD37-8CBA8F4444EA}.BuildWithoutTsc|Any CPU.Build.0 = BuildWithoutTsc|Any CPU
+		{227A5B27-89A5-4D8F-BD37-8CBA8F4444EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{227A5B27-89A5-4D8F-BD37-8CBA8F4444EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{227A5B27-89A5-4D8F-BD37-8CBA8F4444EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{227A5B27-89A5-4D8F-BD37-8CBA8F4444EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {ADB0E6AF-F327-43A9-9074-AA183E95DB06}
+		SolutionGuid = {A78064A2-555B-4C39-AD1A-FC74AB7FDE99}
 	EndGlobalSection
 EndGlobal

@@ -18,13 +18,13 @@ export default class Tabs extends VueComponentBase<TabProps> {
         return (
             <div>
                 <v-tabs
-                    dark={this.theming.header.bg.dark}
-                    slider-color={this.theming.header.components.color.base}
-                    background-color={this.theming.header.bg.color.base}
+                    dark={this.theming.body.bg.dark}
+                    slider-color={this.theming.body.components.color.base}
+                    background-color={this.theming.body.bg.color.base}
                 >
                     <v-tab>
                         <v-icon
-                            dark={this.theming.header.bg.dark}>fal fa-copy</v-icon>
+                            dark={this.theming.body.bg.dark}>fal fa-copy</v-icon>
                         tab 1
                     </v-tab>
                     <v-tab>

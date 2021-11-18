@@ -2,7 +2,7 @@ import { Composer, DevelopmentEnvironment } from "@omnia/tooling/composers";
 import { Guid } from '@omnia/fx/models';
 
 Composer
-    .registerManifest(new Guid("6b4e0fb8-1c57-470a-8b5a-b867f3496ed8"), "Omnia.Fx.Examples.Ux.CustomFonts")
+    .registerManifest(new Guid("1a1ac0ac-771f-449c-873c-3d57756f36ee"), "Omnia.Fx.Examples.Ux.CustomFonts")
     .registerService({ description: "Description of Omnia.Fx.Examples.Ux.CustomFonts" })
     .AsWebApp()
     .withBuildOptions({
@@ -12,7 +12,7 @@ Composer
         },
         bundleOptions: {
             commonsChunk: {
-                name: new Guid("2bc5637e-f11a-44b1-bba0-0142047f7be5"),
+                name: new Guid("51746343-e8d7-44d7-8816-ec6cd37272b3"),
                 minChunks: 2
             }
         }

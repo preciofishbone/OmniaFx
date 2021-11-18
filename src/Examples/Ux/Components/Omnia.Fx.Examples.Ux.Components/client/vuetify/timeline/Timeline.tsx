@@ -19,7 +19,7 @@ export default class Timeline extends VueComponentBase<TimelineProps> {
                 <div>Timeline Component</div>
                 <v-timeline
                     dense
-                    dark={this.theming.content.bg.dark}
+                    dark={this.theming.body.bg.dark}
                     clipped>
                     <v-timeline-item
                         fill-dot

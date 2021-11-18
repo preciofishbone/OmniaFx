@@ -18,7 +18,7 @@ export default class Switch extends VueComponentBase<SwitchProps> {
             <div>
                 <v-switch
                     label="try me"
-                    color={this.theming.content.components.color.base}>
+                    color={this.theming.body.components.color.base}>
                 </v-switch>
             </div >
         )
