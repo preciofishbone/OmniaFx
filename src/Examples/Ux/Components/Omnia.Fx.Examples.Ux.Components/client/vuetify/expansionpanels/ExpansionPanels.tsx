@@ -17,7 +17,7 @@ export default class ExpansionPanels extends VueComponentBase<ExpansionPanelProp
     public render(h) {
 
         return (
-            <v-expansion-panels class={this.theming.content.components.expansionPanel.css}>
+            <v-expansion-panels class={this.theming.body.components.expansionPanel.css}>
                 <v-expansion-panel>
                     <v-expansion-panel-header>
                         <h4 class="subtitle-1">

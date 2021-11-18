@@ -1,1 +1,1 @@
-{"Id":"db132185-2467-46e3-83ce-94f8ef8916ed","Type":"Extension","Projects":[{"Path":"Omnia.Fx.Examples.Ux.CustomFonts/Omnia.Fx.Examples.Ux.CustomFonts.csproj","BaseImage":"preciofishbone/omnia:3.0-webapp"}]}
+{"Id":"db132185-2467-46e3-83ce-94f8ef8916ed","Type":"Extension","Projects":[{"Path":"Omnia.Fx.Examples.Ux.CustomFonts/Omnia.Fx.Examples.Ux.CustomFonts.csproj","BaseImage":"preciofishbone/omnia:6.0-webapp"}]}

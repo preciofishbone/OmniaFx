@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Omnia.Fx.NetCore" Version="6.2.4" />
+    <PackageReference Include="Omnia.Fx.NetCore" Version="6.6.1" />
   </ItemGroup>
 
   <ItemGroup>

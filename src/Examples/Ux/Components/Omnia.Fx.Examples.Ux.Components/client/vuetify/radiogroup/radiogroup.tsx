@@ -20,10 +20,10 @@ export default class RadioGroup extends VueComponentBase<RadioGroupProps> {
 
         return (
             <div>
-                <v-radio-group onChange={(newVal) => {  }} value={this.value}>
-                    <v-radio color={this.theming.content.components.color.base}
+                <v-radio-group onChange={(newVal) => { }} value={this.value}>
+                    <v-radio color={this.theming.body.components.color.base}
                         label="Option 1" value={1}></v-radio>
-                    <v-radio color={this.theming.content.components.color.base}
+                    <v-radio color={this.theming.body.components.color.base}
                         label="Option 2" value={2}></v-radio>
                 </v-radio-group>
             </div >

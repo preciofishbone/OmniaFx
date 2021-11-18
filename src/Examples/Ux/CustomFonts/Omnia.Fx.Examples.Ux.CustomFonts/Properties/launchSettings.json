@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:30722/",
-      "sslPort": 44351
+      "applicationUrl": "http://localhost:30794",
+      "sslPort": 44394
     }
   },
   "profiles": {
@@ -12,16 +12,24 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:44394",
+        "OMNIA_LOGGING": "ON",
+        "OMNIA_ENVIRONMENT": "LocalHosting",
+        "OMNIA_EXTENSIONID": "db132185-2467-46e3-83ce-94f8ef8916ed"
       }
     },
     "Omnia.Fx.Examples.Ux.CustomFonts": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:44394",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:5001"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:44394",
+        "OMNIA_LOGGING": "ON",
+        "OMNIA_ENVIRONMENT": "LocalHosting",
+        "OMNIA_EXTENSIONID": "db132185-2467-46e3-83ce-94f8ef8916ed"
+      }
     }
   }
 }

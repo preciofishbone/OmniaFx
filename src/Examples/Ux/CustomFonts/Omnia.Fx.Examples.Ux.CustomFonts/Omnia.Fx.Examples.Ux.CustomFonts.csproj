@@ -1,41 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <AssemblyName>Omnia.Fx.Examples.Ux.CustomFonts</AssemblyName>
+    <Configurations>Debug;Release;BuildWithoutTsc</Configurations>
   </PropertyGroup>
 
-
   <ItemGroup>
+    <Content Remove="publish\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
     <None Remove="**\*.d.ts" />
     <None Remove="**\*.js" />
     <None Remove="**\*.jsx" />
     <None Remove="**\*.map" />
-    <None Remove="wwwroot\omnia\**" />
-    <Content Remove="compilerconfig.json" />
-    <TypeScriptCompile Remove="client\styles\styleoverides.manifest.ts" />
-    <TypeScriptCompile Remove="client\styles\styleoverrides.ts" />
-    <None Include="compilerconfig.json" />
-    <None Include="gulpfile.js" />
+    <None Remove="publish\**" />
+    <None Include="gulpfile.esm.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.TypeScript.Compiler" Version="3.1.5">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.3.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="3.4.4" />
+    <Folder Include="client\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="6.6.1" />
   </ItemGroup>
 
   <!--***************************************************************************************-->
   <!--**** Omnia Build Tasks ****************************************************************-->
   <!--***************************************************************************************-->
-  <Target Name="OmniaRunAfterBuild" AfterTargets="Build">
+  <Target Name="OmniaRunAfterBuildRelease" AfterTargets="Build" Condition="'$(Configuration)' == 'Release' ">
+    <Exec Command="npm run omnia-after-build-release" ContinueOnError="false">
+    </Exec>
+  </Target>
+  <Target Name="OmniaRunAfterBuild" AfterTargets="Build" Condition="'$(Configuration)' != 'Release' And '$(Configuration)' != 'BuildWithoutTsc' ">
     <Exec Command="npm run omnia-after-build" ContinueOnError="false">
     </Exec>
   </Target>

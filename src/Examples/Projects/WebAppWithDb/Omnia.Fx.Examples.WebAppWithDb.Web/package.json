@@ -9,10 +9,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@omnia/fx-models": "6.2.4",
-    "@omnia/fx-sp": "6.2.4",
-    "@omnia/fx-spfx": "6.2.4",
-    "@omnia/tooling-vue": "6.2.4"
+    "@omnia/fx-models": "6.6.1",
+    "@omnia/fx-sp": "6.6.1",
+    "@omnia/fx-spfx": "6.6.1",
+    "@omnia/tooling-vue": "6.6.1"
   },
   "devDependencies": {
     "@types/jest": "^22.1.0",

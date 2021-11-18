@@ -12,9 +12,11 @@ using Omnia.Fx.NetCore.WebApp.Hosting;
 
 namespace Omnia.Fx.Examples.Ux.CustomFonts
 {
+    /// <summary>
+    /// Program
+    /// </summary>
     public class Program
     {
-
         /// <summary>
         /// Main entry point
         /// </summary>

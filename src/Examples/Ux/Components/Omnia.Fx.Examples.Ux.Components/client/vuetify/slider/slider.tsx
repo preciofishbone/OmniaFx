@@ -22,8 +22,8 @@ export default class Slider extends VueComponentBase<SliderProps> {
                     label="testing"
                     min="0"
                     max="300"
-                    color={this.theming.content.components.color.base}
-                    track-color={this.theming.content.components.color.lighten3}
+                    color={this.theming.body.components.color.base}
+                    track-color={this.theming.body.components.color.lighten3}
                 >
                 </v-slider>
             </div>
