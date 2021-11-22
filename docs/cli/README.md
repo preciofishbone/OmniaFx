@@ -1582,6 +1582,7 @@ With permissions, its possible to grant permission for any users to do actions i
 | 9af39436-e073-40c6-bf01-7ab6cae8a93c  | Omnia.Tenants.Creator | Omnia.Cloud.Admin | Can create a new tenant
 | 6b96e280-e092-4b8f-a721-c4623d4ef14c  | Omnia.Tenant.Admin | Omnia.Cloud.Admin | Have the same permission as Tenant owner |
 | 731cd4d6-50aa-4463-bad4-b21d9aceadb2  | Omnia.Tenant.FirstLineSupport | Omnia.Tenant.Admin | List tenants and restart extensions/services |
+| 4bb73e4f-c283-4af8-afac-4fa422943975  | Omnia.Tenant.LocalizationAdmin | Omnia.Extension.Admin | Can administrate all localization files |
 
 
 ## omnia permissions add
