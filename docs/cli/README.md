@@ -1545,18 +1545,18 @@ omnia loc list --serviceId {serviceId} --match {semeanticVersion}
 
 ## omnia loc download
 
-Downloads a specific localization file. Downloaded file gets post-fix .semanticversion.
+Downloads a specific localization file. Downloaded file gets post-fix .semanticversion.json
 
 ##### Example<a id="example-loc-download"></a>
 ```
-omnia loc download --dest {downloadFolderPath} --serviceId {serviceId} --lang {languageTag} --v {semanticVersion}
+omnia loc download --output {downloadFolderPath} --serviceId {serviceId} --lang {languageTag} --v {semanticVersion}
 ```
 
 ##### Required Parameters<a id="required-parameters-loc-download"></a>
 
 | Name          | Description                                         |
 | ------------- | --------------------------------------------------- |
-| --dest        | The path of the destination folder                  |
+| -o --output      | The path of the destination folder                  |
 | --serviceId   | The id of the omnia service for which to delete     |
 | --lang        | The language of the file that should be deleted     |
 | --v           | The version to download                             |
