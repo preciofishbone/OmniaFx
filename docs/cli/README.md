@@ -800,7 +800,7 @@ Registers a new tenant in Omnia Cloud
 
 ##### Example
 ```
-omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustomer" --sp-dns-suffix "mycustomer" --azure-ad-id "8c6e9ace-69e9-4272-8225-714d57a3cceb" --region "westeurope"
+omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustomer" --sp-dns-suffix "mycustomer" --azure-ad-id "8c6e9ace-69e9-4272-8225-714d57a3cceb" --region "westeurope" --clusterid "f1ae97cc-2bc3-49b1-adff-33f9b7b5beae"
 ```
 
 ##### Required Parameters
@@ -816,7 +816,9 @@ omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustom
 
 ##### Optional Parameters
 
-No optional parameters
+| Name               | Description                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --clusterid        | The Cluster Id where the tenant will belong to. Otherwise, the cluster is selected by the system.                                                        |
 
 ---
 
