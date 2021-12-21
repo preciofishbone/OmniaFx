@@ -1583,8 +1583,10 @@ With permissions, its possible to grant permission for any users to do actions i
 | 585f098e-ecf4-490f-a13c-9cbd662fc377  | Omnia.DeploymentGroup.Admin | Omnia.Cloud.Admin | Have the same permission as Deployment Group owner |
 | 9af39436-e073-40c6-bf01-7ab6cae8a93c  | Omnia.Tenants.Creator | Omnia.Cloud.Admin | Can create a new tenant
 | 6b96e280-e092-4b8f-a721-c4623d4ef14c  | Omnia.Tenant.Admin | Omnia.Cloud.Admin | Have the same permission as Tenant owner |
-| 731cd4d6-50aa-4463-bad4-b21d9aceadb2  | Omnia.Tenant.FirstLineSupport | Omnia.Tenant.Admin | List tenants and restart extensions/services |
+| 731cd4d6-50aa-4463-bad4-b21d9aceadb2  | Omnia.Cloud.FirstLineSupport | Omnia.Cloud.Admin | List all tenants, enanble/disable redirect error page, and restart extensions/services |
+| 6b99566f-f787-42dd-a216-10ed9e8a8f90  | Omnia.Tenant.FirstLineSupport | Omnia.Tenant.Admin | List authorized tenants, enanble/disable redirect error page, and restart extensions/services |
 | 4bb73e4f-c283-4af8-afac-4fa422943975  | Omnia.Localization.Admin | Omnia.Extension.Admin | Can administrate all localization files |
+
 
 
 ## omnia permissions add
@@ -1598,6 +1600,9 @@ omnia permissions add 11e1f111-c773-4f8d-8d40-8767d707f071 --principals {userNam
 
 Add release admin
 omnia permissions add c79fd690-18b8-42a1-b540-9ae77193f432 --principals {userName1},{userName2}
+
+Add cloud first line support
+omnia permissions add 731cd4d6-50aa-4463-bad4-b21d9aceadb2 --principals {userName1},{userName2}
 
 Add cluster roles
 omnia permissions add {clusterRoleId} --resource clusterId:{clusterId} --principals {userName1},{userName2}
