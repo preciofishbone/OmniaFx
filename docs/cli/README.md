@@ -800,7 +800,7 @@ Registers a new tenant in Omnia Cloud
 
 ##### Example
 ```
-omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustomer" --sp-dns-suffix "mycustomer" --azure-ad-id "8c6e9ace-69e9-4272-8225-714d57a3cceb" --region "westeurope" --clusterid "f1ae97cc-2bc3-49b1-adff-33f9b7b5beae"
+omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustomer" --sp-dns-suffix "mycustomer" --azure-ad-id "8c6e9ace-69e9-4272-8225-714d57a3cceb" --region "westeurope" --depgroupid "e871fe5f-3200-4417-8baa-0305fb74fbbf" --clusterid "f1ae97cc-2bc3-49b1-adff-33f9b7b5beae"
 ```
 
 ##### Required Parameters
@@ -813,6 +813,7 @@ omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustom
 | --sp-dns-suffix    | Unique dns suffix for the existing SharePoint online service. this is the first part of the full sharepoint dns name. e.g mycustomer                          |
 | --azure-ad-id      | The unique Azure Ad Id for the customers tenant. https://support.office.com/en-us/article/find-your-office-365-tenant-id-6891b561-a52d-4ade-9f39-b492285e2c9b |
 | --region           | The region where this tenant should be hosted. Should be located in same region as Office 365                                                                 |
+| --depgroupid       | The deployment group id where this tenant will belong to. Should has the same intent                                                              |
 
 ##### Optional Parameters
 
@@ -833,6 +834,11 @@ omnia tenants list
 omnia tenants list {tenantid}
 
 omnia tenants list --filter name
+
+omnia tenants list --filter name -mwide
+ 
+omnia tenants list --filter name -wide
+
 ```
 
 ##### Required Parameters
@@ -843,7 +849,11 @@ No required parameters
 
 | Name        | Description             |
 | ----------- | ----------------------- |
+| -a --all    | Get all tenants         |
 | -f --filter | Filters tenants by name |
+| -m --mwide  | Show more infomation in the list    |
+| -w --wide   | Show all information in the list   |
+
 
 ---
 
