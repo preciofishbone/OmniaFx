@@ -1224,6 +1224,8 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {t
 | --------- | ------------------------------------------------------------ |
 | --prerun  | The serviceId of a optional service to run before the deployment |
 | --postrun | The serviceId of a optional service to run after the deployment  |
+| -o --onlyupdate | Only deploy the new version when the tenant has already installed the extension    |
+| -s --skipifsameversion | Skip the deployment when the tenant has already installed the same version  |
 | --code    | The code needs to be entered when deploy to a high-level Deployment Security tenant (format: yy-dd-MM-m) |
 
 ---
