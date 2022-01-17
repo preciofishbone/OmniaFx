@@ -241,6 +241,33 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
          - [Example](#example-alertrules-delete)
          - [Required Parameters](#required-parameters-alertrules-delete)
          - [Optional Parameters](#optional-parameters-alertrules-delete)
+- [Resourcep Poviders Commands](#resourceproviders-commands)
+   - [omnia resourceproviders list](#omnia-resourceproviders-list)
+         - [Example](#example-resourceproviders-list)
+         - [Required Parameters](#required-parameters-resourceproviders-list)
+         - [Optional Parameters](#optional-parameters-resourceproviders-list)
+- [Elastic Pools Commands](#elasticpools-commands)
+   - [omnia elasticpools new](#omnia-elasticpools-new)
+         - [Example](#example-elasticpools-new)
+         - [Required Parameters](#required-parameters-elasticpools-new)
+         - [Optional Parameters](#optional-parameters-elasticpools-new)
+   - [omnia elasticpools update](#omnia-elasticpools-update)
+         - [Example](#example-elasticpools-update)
+         - [Required Parameters](#required-parameters-elasticpools-update)
+         - [Optional Parameters](#optional-parameters-elasticpools-update)
+   - [omnia elasticpools list](#omnia-elasticpools-list)
+         - [Example](#example-elasticpools-list)
+         - [Required Parameters](#required-parameters-elasticpools-list)
+         - [Optional Parameters](#optional-parameters-elasticpools-list)
+   - [omnia elasticpools delete](#omnia-elasticpools-delete)
+         - [Example](#example-elasticpools-delete)
+         - [Required Parameters](#required-parameters-elasticpools-delete)
+         - [Optional Parameters](#optional-parameters-elasticpools-delete)
+   - [omnia elasticpools delete](#omnia-elasticpools-delete)
+         - [Example](#example-elasticpools-delete)
+         - [Required Parameters](#required-parameters-elasticpools-ensure)
+         - [Optional Parameters](#optional-parameters-elasticpools-ensure)     
+
 
 <!-- /TOC -->
 
@@ -1797,6 +1824,140 @@ omnia alertrules delete {alertRuleId}
 
 
 ##### Optional Parameters<a id="optional-parameters-alertrules-delete"></a>
+
+No required parameters
+
+---
+# Resource Providers Commands
+
+With Resource Providers, it's possible to display all the resource providers ( SqlDatabase, SqlElasticPoolDatabase, StorageAccount).
+
+## omnia resourceproviders list
+
+List all Resource Providers.
+
+##### Example<a id="example-resourceproviders-list"></a>
+```
+omnia resourceproviders list {providerid}
+
+```
+##### Required Parameters<a id="required-parameters-resourceproviders-list"></a>
+
+No required parameters
+
+##### Optional Parameters<a id="optional-parameters-resourceproviders-list"></a>
+
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --providerid |  The Resource Providers id needs to view detail.              |
+
+---
+
+# Elastic Pools Commands
+
+With elastic pools, it's possible to manage the list of active elastic pools. This helps the database deployment can pick the correct elastic pool for a new database.  If there are more than one active pools, the most empty space pool should be picked up.
+## omnia elasticpools new
+
+Create a new elastic pool in the Azure.
+
+##### Example<a id="example-elasticpools-new"></a>
+```
+omnia elasticpools new --providerid {providerid} --elasticpoolid {elasticpoolid}
+
+```
+##### Required Parameters<a id="required-parameters-elasticpools-new"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --providerid   | The resource provider id that the new elastic pool should belong to.|
+| --elasticpoolid        | The Azure elastic pool Id.  |
+
+
+##### Optional Parameters<a id="optional-parameters-elasticpools-new"></a>
+No optional parameters
+
+## omnia elasticpools update
+
+Update an elastic pool.
+
+##### Example<a id="example-elasticpools-update"></a>
+```
+omnia elasticpools update {elasticPoolId} --status {status}
+
+```
+##### Required Parameters<a id="required-parameters-elasticpools-update"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --elasticPoolId | The elastic pool id that needs to be update.             |
+| --status        | The new status of the elastic pool (Available = 1, Full = 2).  |
+
+##### Optional Parameters<a id="optional-parameters-elasticpools-update"></a>
+No optional parameters
+
+## omnia elasticpools list
+
+List all elastic pools.
+
+##### Example<a id="example-elasticpools-list"></a>
+```
+omnia elasticpools list {elasticPoolId}
+
+```
+##### Required Parameters<a id="required-parameters-elasticpools-list"></a>
+
+No required parameters
+
+##### Optional Parameters<a id="optional-parameters-elasticpools-list"></a>
+
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --elasticPoolId |  The elastic pool id needs to view detail.              |
+
+
+## omnia elasticpools delete
+
+Delete an elastic pool in the Cosmos.
+
+##### Example<a id="example-elasticpools-delete"></a>
+```
+omnia elasticpools ensure {elasticPoolId} --status {status}
+
+```
+##### Required Parameters<a id="required-parameters-elasticpools-delete"></a>
+
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --elasticPoolId | The elastic pool id needs to be deleted.                |
+
+
+##### Optional Parameters<a id="optional-parameters-elasticpools-delete"></a>
+
+No required parameters
+
+## omnia elasticpools ensure
+
+Ensure an elastic pool in the Cosmos.
+
+##### Example<a id="example-elasticpools-ensure"></a>
+```
+omnia elasticpools ensure --providerid {providerid} --name {name} --status {name}
+
+```
+##### Required Parameters<a id="required-parameters-elasticpools-ensure"></a>
+
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --providerid   | The resource provider id that the new elastic pool should belong to.|
+| --name        | The Azure elastic pool name.  |
+| --status        | The status of the elastic pool (Available = 1, Full = 2).  |
+
+
+##### Optional Parameters<a id="optional-parameters-elasticpools-ensure"></a>
 
 No required parameters
 
