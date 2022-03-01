@@ -8,7 +8,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     lang: 'en-US',
     title: 'OmniaFx Docs',
     description: 'Just playing around',
-    head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
+    head: [['link', { rel: 'icon', href: '/OmniaFx/images/favicon.png' }]],
     // theme and its config
     theme: '@vuepress/theme-default',
     themeConfig: {
