@@ -15,7 +15,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         logo: '/images/omnialogo-black.svg',
         logoDark: '/images/omnialogo-white.svg',
     },
-    base: "/",
+    base: "/OmniaFx/",
     //open: true,
     // config tool
     bundler: '@vuepress/bundler-vite',
