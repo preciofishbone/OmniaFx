@@ -25,7 +25,6 @@ jobs:
 
       # cache node_modules
       - name: Cache dependencies
-        working-directory: ./src/documentations
         uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -49,13 +48,12 @@ jobs:
       # please check out the docs of the workflow for more details
       # @see https://github.com/crazy-max/ghaction-github-pages
       - name: Deploy to GitHub Pages
-        working-directory: ./src/documentations
         uses: crazy-max/ghaction-github-pages@v2
         with:
           # deploy to gh-pages branch
           target_branch: gh-pages
           # deploy the default output dir of VuePress
-          build_dir: docs/.vuepress/dist
+          build_dir: src/documentations/docs/.vuepress/dist
         env:
           # @see https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
