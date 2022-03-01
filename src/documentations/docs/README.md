@@ -5,7 +5,6 @@ title: Introduction
 <script setup>
 import Header from '../../components/Header.tsx'
 </script>
-![VuePress Logo](/images/omnialogo-black.svg)
 # Hello Omnia
 ```ts{1,6-8}
 import type { UserConfig } from '@vuepress/cli'
