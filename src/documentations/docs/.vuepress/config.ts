@@ -6,7 +6,7 @@ import type { ViteBundlerOptions } from '@vuepress/bundler-vite'
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     // site config
     lang: 'en-US',
-    title: 'OmniaFx Docs',
+    title: 'OmniaFx',
     description: 'Just playing around',
     head: [['link', { rel: 'icon', href: '/OmniaFx/images/favicon.png' }]],
     // theme and its config
@@ -15,7 +15,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         logo: '/images/omnialogo-black.svg',
         logoDark: '/images/omnialogo-white.svg',
     },
-    base: "/OmniaFx/",
+    base: "/",
     //open: true,
     // config tool
     bundler: '@vuepress/bundler-vite',
