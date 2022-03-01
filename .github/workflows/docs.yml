@@ -23,12 +23,9 @@ jobs:
           # choose node.js version to use
           node-version: '14'
 
-      # working dir
-      - name: Set working dir
-        run: cd src/documentations
-
       # cache node_modules
       - name: Cache dependencies
+        working-directory: ./src/documentations
         uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -40,16 +37,19 @@ jobs:
 
       # install dependencies if the cache did not hit
       - name: Install dependencies
+        working-directory: ./src/documentations
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
 
       # run build script
       - name: Build VuePress site
+        working-directory: ./src/documentations
         run: yarn docs:build
 
       # please check out the docs of the workflow for more details
       # @see https://github.com/crazy-max/ghaction-github-pages
       - name: Deploy to GitHub Pages
+        working-directory: ./src/documentations
         uses: crazy-max/ghaction-github-pages@v2
         with:
           # deploy to gh-pages branch
