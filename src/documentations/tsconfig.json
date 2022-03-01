@@ -15,7 +15,7 @@
     ]
   },
   "include": [
-    "docs/**/*"
+    "docs/.vuepress/**/*"
   ],
   "exclude": [
     "node_modules"
