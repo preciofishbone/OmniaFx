@@ -18,4 +18,5 @@ export const config: UserConfig = {
 }
 ```
 This is default theme built-in `<Badge />` component <Badge text="demo" />
-This is default theme built-in `<Header />` component <Header text="demo" />
+<br />
+This is default theme built-in `<Header />` component <Header />
