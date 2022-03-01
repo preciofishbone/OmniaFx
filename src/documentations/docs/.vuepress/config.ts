@@ -25,5 +25,24 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                 vueJsx()
             ]
         }
-    }
+    },
+    plugins: [
+        [
+            '@vuepress/docsearch',
+            {
+                apiKey: '<API_KEY>',
+                indexName: '<INDEX_NAME>',
+                locales: {
+                    '/': {
+                        placeholder: 'Search',
+                        translations: {
+                            button: {
+                                buttonText: 'Search',
+                            },
+                        },
+                    },
+                },
+            },
+        ],
+    ]
 })
