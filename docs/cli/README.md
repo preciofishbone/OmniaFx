@@ -740,7 +740,7 @@ Update template information
 The following command is to update information for Omnia cli template version 6.0.0 
 
 ```
-omnia dev update --version 6.0.0
+omnia dev templateinfos update --version 6.0.0
 ```
 
 ##### Required Parameters
