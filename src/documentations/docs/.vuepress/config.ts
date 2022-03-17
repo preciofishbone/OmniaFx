@@ -96,7 +96,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                 }
 
             ]
-        }
+        },
+        sidebarDepth: 0
     },
     base: "/",
     //open: true,
