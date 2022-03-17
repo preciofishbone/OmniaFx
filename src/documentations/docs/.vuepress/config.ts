@@ -36,7 +36,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                     ]
                 },
                 {
-                    text: "Extra Topics",
+                    text: "Omnia Fx",
                     children: [
                         { text: "Swagger", link: '/guide/omnia-learn/swagger' },
                         { text: "Alternatives to Visual Studio", link: '/guide/omnia-learn/other-editors' },
@@ -49,6 +49,19 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                         { text: "Wait for App provisioning", link: '/guide/omnia-learn/wait-for-app-provisioning'},
                         { text: "Call Omnia APIs externally", link: '/guide/omnia-learn/call-apis-externally' },
                         { text: "Persistent Disk", link: '/guide/omnia-learn/persistent-disk' }
+                    ]
+                },
+                {
+                    text: "Workplace Fx",
+                    children: [
+                        { text: "Teamwork app", link: '/guide/omnia-learn/teamwork-app' }
+                    ]
+                },
+                {
+                    text: "Web Content Management Fx",
+                    children: [
+                        { text: "Create a Page Rollup View", link: '/guide/omnia-learn/create-page-rollup-view' },
+                        { text: "Current Nav style overriding", link: '/guide/omnia-learn/override-style-of-current-navigation' }
                     ]
                 }
             ],
