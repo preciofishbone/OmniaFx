@@ -34,6 +34,22 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                         { text: "Quick Start", link: '/guide/quick-start' },
                         { text: "Build your first Extension", link: '/guide/build-your-first-extension' }
                     ]
+                },
+                {
+                    text: "Extra Topics",
+                    children: [
+                        { text: "Swagger", link: '/guide/omnia-learn/swagger' },
+                        { text: "Alternatives to Visual Studio", link: '/guide/omnia-learn/other-editors' },
+                        { text: "Omnia Fx components" },
+                        { text: "Omnia Feature", link: '/guide/omnia-learn/omnia-feature' },
+                        { text: "Omnia Localization", link: '/guide/apply-localization' },
+                        { text: "Omnia Block", link: '/guide/omnia-learn/create-omnia-block' },
+                        { text: "Create Action", link: '/guide/omnia-learn/create-action' },
+                        { text: "Manifest load rule", link: '/guide/omnia-learn/manifest-load-rule' },
+                        { text: "Wait for App provisioning", link: '/guide/omnia-learn/wait-for-app-provisioning'},
+                        { text: "Call Omnia APIs externally", link: '/guide/omnia-learn/call-apis-externally' },
+                        { text: "Persistent Disk", link: '/guide/omnia-learn/persistent-disk' }
+                    ]
                 }
             ],
             '/migration-7/': [
@@ -52,14 +68,14 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                         {
                             text: "Workplace Fx",
                             children: [
-                                
+
                             ]
 
                         },
                         {
                             text: "WCM Fx",
                             children: [
-                                
+
                             ]
 
                         }
