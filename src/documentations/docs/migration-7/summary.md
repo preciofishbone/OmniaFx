@@ -2,7 +2,7 @@
 
 This article explains how to update an existing Omnia extension from version 6 to 7
 
-| WARNING: 6.0 contains preview features such as ... |
+| WARNING: 7.0 contains preview features such as ... |
 | --- |
 
 # Prerequisite
