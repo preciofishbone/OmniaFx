@@ -20,7 +20,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                 text: 'Docs',
                 activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
                 children: [
-                    { text: 'Guide', link: '/guide/introduction' }
+                    { text: 'Guide', link: '/guide/introduction' },
+                    { text: 'Omnia 7 migration', link: '/migration-7/summary' }
                 ]
             }
         ],
@@ -29,11 +30,42 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                 {
                     text: "Getting Started",
                     children: [
-                        {text: "Introduction", link: '/guide/introduction'},
-                        {text: "Quick Start", link: '/guide/quick-start'},
-                        {text: "Build your first Extension", link: '/guide/build-your-first-extension'}
+                        { text: "Introduction", link: '/guide/introduction' },
+                        { text: "Quick Start", link: '/guide/quick-start' },
+                        { text: "Build your first Extension", link: '/guide/build-your-first-extension' }
                     ]
                 }
+            ],
+            '/migration-7/': [
+                {
+                    text: "Migration Omnia 7",
+                    link: '/migration-7/summary',
+                    children: [
+                        {
+                            text: "Omnia Fx",
+                            children: [
+                                { text: "Components", link: '/migration-7/omnia-fx-components' },
+                                { text: "Somethings", link: '' }
+                            ]
+
+                        },
+                        {
+                            text: "Workplace Fx",
+                            children: [
+                                
+                            ]
+
+                        },
+                        {
+                            text: "WCM Fx",
+                            children: [
+                                
+                            ]
+
+                        }
+                    ]
+                }
+
             ]
         }
     },
@@ -49,6 +81,6 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         }
     },
     plugins: [
-       
+
     ]
 })
