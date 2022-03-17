@@ -1,4 +1,4 @@
-# Migrate from Fx 5.0 to 6.0
+# Omnia 7 Migration
 
 This article explains how to update an existing Omnia extension from version 6 to 7
 

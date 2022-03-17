@@ -67,7 +67,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
             ],
             '/migration-7/': [
                 {
-                    text: "Migration Omnia 7",
+                    text: "Omnia 7 Migration",
                     link: '/migration-7/summary',
                     children: [
                         {
