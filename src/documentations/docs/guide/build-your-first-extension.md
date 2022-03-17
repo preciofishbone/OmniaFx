@@ -6,7 +6,7 @@ In this tutorial, we will take you through the steps of building an Omnia G2 ext
 
 ## Prerequisites
 
-Please make sure you have installed all [prerequisites](/guide/introduction.html).
+Please make sure you have installed all [prerequisites](/guide/quick-start.html).
 
 ## Basic
 
