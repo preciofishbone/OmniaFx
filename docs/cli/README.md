@@ -1602,7 +1602,7 @@ omnia certs update --id {certificateid} --cert "C:\Certs\wildcard_preciofishbone
 
 ## omnia domain update
 
-Delete a certificate. The certificate can only be deleted when it has expired.
+Map a domain with added certificate. 
 
 ##### Example<a id="example-domain-update"></a>
 ```
