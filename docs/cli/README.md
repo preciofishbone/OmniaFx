@@ -210,6 +210,25 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia secrets list](#omnia-secrets-list)
         - [Example](#example-secrets-list)
         - [Required Parameters](#required-parameters-secrets-list)
+- [Tenant Certificate Commands](#tenant-certificate-commands)
+  - [omnia certs export](#omnia-certs-export)
+        - [Example](#example-certs-export)
+        - [Required Parameters](#required-parameters-certs-export)
+  - [omnia certs add](#omnia-certs-add)
+        - [Example](#example-certs-add)
+        - [Required Parameters](#required-parameters-certs-add)
+  - [omnia certs list](#omnia-certs-list)
+        - [Example](#example-certs-list)
+        - [Required Parameters](#required-parameters-certs-list)  
+  - [omnia certs update](#omnia-certs-update)
+        - [Example](#example-certs-update)
+        - [Required Parameters](#required-parameters-certs-update)  
+  - [omnia domain update](#omnia-domain-update)
+        - [Example](#example-domain-update)
+        - [Required Parameters](#required-parameters-domain-update)
+  - [omnia certs delete](#omnia-certs-delete)
+        - [Example](#example-certs-delete)
+        - [Required Parameters](#required-parameters-certs-delete)
 - [Permission Commands](#permissions-commands)
   - [Omnia Cli Permission Roles](#all-permission-roles-available-in-omnia-cli)
   - [omnia permissions add](#omnia-permissions-add)
@@ -1251,8 +1270,11 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {t
 | --------- | ------------------------------------------------------------ |
 | --prerun  | The serviceId of a optional service to run before the deployment |
 | --postrun | The serviceId of a optional service to run after the deployment  |
+| --groupid | A group id to use a deployment group |
 | -o --onlyupdate | Only deploy the new version when the tenant has already installed the extension    |
-| -s --skipifsameversion | Skip the deployment when the tenant has already installed the same version  |
+| -s --skipifsameorhigher | Skip the deployment when the tenant has already installed the same or higher version  |
+| -w --wait| Waiting times between those extensions in seconds. In case using the extension group  |
+| -r --restart| Auto restart the tenant after deploying  |
 | --code    | The code needs to be entered when deploy to a high-level Deployment Security tenant (format: yy-dd-MM-m) |
 
 ---
@@ -1502,6 +1524,119 @@ omnia secrets list --extensionid {extensionid}
 | --extensionid | The extensionid of the extension to list all secrets |
 
 ---
+
+# Tenant Certificate Commands
+
+It's possible to manage certificates for tenants.
+
+
+## omnia certs export
+
+Export a .cer file of the .pfx.
+
+##### Example<a id="example-certs-export"></a>
+```
+omnia certs export --path {{pathToPfx}} --password {{password}}
+
+```
+##### Required Parameters<a id="required-parameters-certs-export"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --path    | The location of certificate (.pfx) file     |
+| --password | The password to generate the certs |
+
+---
+
+## omnia certs add
+
+Add a new certificate for a tenant.
+
+##### Example<a id="example-certs-add"></a>
+```
+omnia certs add --cert "C:\Certs\wildcard_preciofishbone_se.cer" --key "C:\Certs\wildcard_preciofishbone_se.key" --tenantid {tenantid}
+```
+##### Required Parameters<a id="required-parameters-certs-add"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --cert | The location for certificate (.cer) file |
+| --key        | The location for certificate (.key) file               |                    |
+| --tenantid    | The Id of tenant that needs a new certificate      |
+
+---
+
+## omnia certs list
+
+List all certificates of a tenant.
+
+##### Example<a id="example-certs-list"></a>
+```
+omnia certs list --tenantid {tenantid}
+```
+##### Required Parameters<a id="required-parameters-certs-list"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --tenantid    | The Id of tenant     |
+
+---
+
+## omnia certs update
+
+Update a certificate of a tenant.
+
+##### Example<a id="example-certs-update"></a>
+```
+omnia certs update --id {certificateid} --cert "C:\Certs\wildcard_preciofishbone_se.cer" --key "C:\Certs\wildcard_preciofishbone_se.key"
+```
+##### Required Parameters<a id="required-parameters-certs-update"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --id    | The Id of certificate needs to update     |
+| --cert | The location for certificate (.cer) file |
+| --key        | The location for certificate (.key) file       |                            |
+
+---
+
+## omnia domain update
+
+Delete a certificate. The certificate can only be deleted when it has expired.
+
+##### Example<a id="example-domain-update"></a>
+```
+omnia domain update --name customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}```
+```
+
+##### Required Parameters<a id="required-parameters-domain-update"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --name    | The domain name needs to add certificate     |
+| --certid    | The Id of certificate added     |
+| --keyid    | The Id of key added|
+| --tenantid | The Id of tenant that certificate associated |
+
+---
+
+## omnia certs delete
+
+Delete a certificate. The certificate can only be deleted when it has expired.
+
+##### Example<a id="example-certs-delete"></a>
+```
+omnia certs delete {certificateid} --tenantid {tenantid}
+```
+##### Required Parameters<a id="required-parameters-certs-delete"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| certificateid    | The Id of certificate needs to delete     |
+| --tenantid | The Id of tenant that certificate associated |
+
+---
+
 
 # Localization Commands
 
@@ -1923,7 +2058,7 @@ Delete an elastic pool in the Cosmos.
 
 ##### Example<a id="example-elasticpools-delete"></a>
 ```
-omnia elasticpools ensure {elasticPoolId} --status {status}
+omnia elasticpools delete {elasticPoolId}
 
 ```
 ##### Required Parameters<a id="required-parameters-elasticpools-delete"></a>
