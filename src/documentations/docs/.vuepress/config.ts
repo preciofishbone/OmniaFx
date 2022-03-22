@@ -7,8 +7,8 @@ import type { ViteBundlerOptions } from '@vuepress/bundler-vite'
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     // site config
     lang: 'en-US',
-    title: 'OmniaFx',
-    description: 'Just playing around',
+    title: '',
+    description: '',
     head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
     // theme and its config
     theme: '@vuepress/theme-default',
@@ -46,7 +46,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                         { text: "Omnia Block", link: '/guide/omnia-learn/create-omnia-block' },
                         { text: "Create Action", link: '/guide/omnia-learn/create-action' },
                         { text: "Manifest load rule", link: '/guide/omnia-learn/manifest-load-rule' },
-                        { text: "Wait for App provisioning", link: '/guide/omnia-learn/wait-for-app-provisioning'},
+                        { text: "Wait for App provisioning", link: '/guide/omnia-learn/wait-for-app-provisioning' },
                         { text: "Call Omnia APIs externally", link: '/guide/omnia-learn/call-apis-externally' },
                         { text: "Persistent Disk", link: '/guide/omnia-learn/persistent-disk' }
                     ]
