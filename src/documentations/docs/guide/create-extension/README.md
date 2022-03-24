@@ -112,7 +112,7 @@ Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules:
 ```tsx
 .registerWebComponent({
     elementName: "hello-omnia-fx-component",
-    entryPoint: "./HelloOmniaFxComponent.jsx"
+    entryPoint: "./HelloOmniaFxComponent.tsx"
 })
 //load rule to load this manifest after page load
 .withLoadRules()

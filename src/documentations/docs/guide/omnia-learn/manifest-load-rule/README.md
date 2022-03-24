@@ -25,7 +25,7 @@ import { OmniaResourceManifests, OmniaService } from '@omnia/fx-models';
 
 Composer
     .registerManifest(new Guid(guid-id), "resourcemanifest")
-    .registerResources({ resourcePaths: ["./script.js"] })
+    .registerResources({ resourcePaths: ["./script.ts"] })
     .withLoadRules()
 
     //Load If a feature is activated

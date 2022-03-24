@@ -35,7 +35,7 @@ import { WcmService, WcmWebComponentManifests } from '@omnia/wcm/models';
 Composer
     .registerManifest(new Guid(a-guid-id), "CustomCurrentNav")
     .registerResources({
-        resourcePaths: ['./Style.css.js']
+        resourcePaths: ['./Style.css.ts']
     })
     .withLoadRules().loadIfManifestLoaded({
         omniaServiceId: WcmService.Id.toString(),
