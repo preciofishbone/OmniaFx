@@ -86,7 +86,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
 
                         },
                         {
-                            text: "WCM Fx",
+                            text: "Web Content Management Fx",
                             children: [
 
                             ]
