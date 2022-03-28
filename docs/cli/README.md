@@ -141,6 +141,15 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia tenants get ai](#omnia-tenants-get-ai)
         - [Example](#example-get-ai)
         - [Required Parameters](#required-parameters-get-ai) 
+  - [omnia tenants move](#omnia-tenants-move)
+        - [Example](#example-tenants-move)
+        - [Required Parameters](#required-parameters-tenants-move)
+  - [omnia tenants moveall](#omnia-tenants-moveall)
+        - [Example](#example-tenants-moveall)
+        - [Required Parameters](#required-parameters-tenants-moveall)
+  - [omnia tenants cleanup](#omnia-tenants-cleanup)
+        - [Example](#example-tenants-cleanup)
+        - [Required Parameters](#required-parameters-tenants-cleanup)
 - [Extension Commands](#extension-commands)
   - [omnia extensions new](#omnia-extensions-new)
         - [Example](#example-extensions-new)
@@ -1113,6 +1122,65 @@ No required parameters
     
 ---
 
+## omnia tenants move
+
+In order to move a tenant to a new cluster.
+
+##### Example<a id="example-tenants-move"></a>
+```
+omnia tenants move {tenantid} --clusterid {clusterid}
+
+```
+
+##### Required Parameters<a id="required-parameters-tenants-move"></a>
+
+| Name   | Description                       |
+| ------ | --------------------------------- |
+| tenantid | Id of the tenant being moved. |
+| --clusterid | Id of the new cluster. |
+
+    
+---
+
+## omnia tenants moveall
+
+In order to move all tenants to a new cluster.
+
+##### Example<a id="example-tenants-moveall"></a>
+```
+omnia tenants moveall --fromclusterid {clusterid} --toclusterid {clusterid}
+
+```
+
+##### Required Parameters<a id="required-parameters-tenants-moveall"></a>
+
+| Name   | Description                       |
+| ------ | --------------------------------- |
+| --fromclusterid | Id of the old cluster. |
+| --toclusterid | Id of the new cluster. |
+
+    
+---
+## omnia tenants cleanup
+
+In order to clean up the queue, topics, and namespace in the old cluster after moving the tenant to a new cluster. Should wait for 1 hour after the moving.
+
+##### Example<a id="example-tenants-cleanup"></a>
+```
+omnia tenants cleanup {tenantid} --oldclusterid {clusterid}
+
+```
+
+##### Required Parameters<a id="required-parameters-tenants-cleanup"></a>
+
+| Name   | Description                       |
+| ------ | --------------------------------- |
+| tenantid | Id of the old cluster. |
+| --oldclusterid | Id of the old cluster. |
+
+    
+---
+
 # Extension Commands
 
 ## omnia extensions new
@@ -1606,7 +1674,7 @@ Map a domain with added certificate.
 
 ##### Example<a id="example-domain-update"></a>
 ```
-omnia domain update --name customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}```
+omnia domain update --name customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}
 ```
 
 ##### Required Parameters<a id="required-parameters-domain-update"></a>
