@@ -1175,7 +1175,7 @@ omnia tenants cleanup {tenantid} --oldclusterid {clusterid}
 
 | Name   | Description                       |
 | ------ | --------------------------------- |
-| tenantid | Id of the old cluster. |
+| tenantid | Id of the tenant being cleaned up. |
 | --oldclusterid | Id of the old cluster. |
 
     
