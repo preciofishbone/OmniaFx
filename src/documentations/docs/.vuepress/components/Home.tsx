@@ -17,6 +17,8 @@ export default defineComponent({
 
                 <p className="center getting-started-section">
                     <a className="button-main" href="/guide/introduction.html">Getting Started</a>
+                    <a className="button-secondary ml-8" href="/guide/introduction.html">Docs</a>
+                    <a className="button-secondary ml-8" href="/guide/introduction.html">Omnia Cli</a>
                 </p>
 
                 <div className="center editors">

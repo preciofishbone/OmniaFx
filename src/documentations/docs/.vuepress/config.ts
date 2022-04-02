@@ -7,7 +7,7 @@ import type { ViteBundlerOptions } from '@vuepress/bundler-vite'
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     // site config
     lang: 'en-US',
-    title: '',
+    title: 'OmniaFx',
     description: '',
     head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
     // theme and its config

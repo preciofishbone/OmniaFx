@@ -18,7 +18,7 @@ Download and install Visual Studio 2022 from your MSDN subscription or company r
 - To develop on Omnia 6.7
 Download and install .NET Core SDK 5.0.100 from  [https://dotnet.microsoft.com/download/dotnet/5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
 
-- To develop on Omnia 6.8
+- To develop on Omnia 7.0
 Download and install .NET Core SDK 6.0.201 from [https://dotnet.microsoft.com/download/dotnet/6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
 
 

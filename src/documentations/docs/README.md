@@ -1,6 +1,6 @@
 ---
 page: true
-title: Omnia G2
+title: OmniaFx
 ---
 <script setup>
 import Home from '../../components/Home.tsx'
