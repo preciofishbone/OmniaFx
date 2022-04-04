@@ -238,6 +238,20 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia certs delete](#omnia-certs-delete)
         - [Example](#example-certs-delete)
         - [Required Parameters](#required-parameters-certs-delete)
+- [Localization Commands](#Localization-commands)  
+  - [omnia loc upload](#omnia-loc-upload)
+        - [Example](#example-loc-upload)
+        - [Required Parameters](#required-parameters-loc-upload)
+  - [omnia loc delete](#omnia-loc-delete)
+        - [Example](#example-loc-delete)
+        - [Required Parameters](#required-parameters-loc-delete)
+  - [omnia loc list](#omnia-loc-list)
+        - [Example](#example-loc-list)
+        - [Optional Parameters](#optional-parameters-loc-list)
+  - [omnia loc download](#omnia-loc-download)
+        - [Example](#example-loc-download)
+        - [Required Parameters](#required-parameters-loc-download)
+        - [Optional Parameters](#optional-parameters-loc-download)
 - [Permission Commands](#permissions-commands)
   - [Omnia Cli Permission Roles](#all-permission-roles-available-in-omnia-cli)
   - [omnia permissions add](#omnia-permissions-add)
@@ -1736,7 +1750,7 @@ Delete a specific localization file that has been added for a omnia service.
 I.e. deletes a specific language with the specific version for a specific omnia service.
 (See list command to see the current files)
 
-##### Example<a id="example-secrets-remove"></a>
+##### Example<a id="example-loc-delete"></a>
 ```
 omnia loc delete --serviceId {serviceId} --lang {languageTag} --v {semanticVersion}
 ```
@@ -1776,7 +1790,7 @@ omnia loc list  --match {semeanticVersion}
 omnia loc list --serviceId {serviceId} --match {semeanticVersion}
 
 ```
-##### Optional Parameters<<a id="required-parameters-loc-list"></a>
+##### Optional Parameters<a id="optional-parameters-loc-list"></a>
 
 | Name          | Description                                                                                                                    |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------|
@@ -1801,6 +1815,11 @@ omnia loc download --output {downloadFolderPath} --serviceId {serviceId} --lang 
 | Name          | Description                                         |
 | ------------- | --------------------------------------------------- |
 | -o --output      | The path of the destination folder                  |
+
+##### Optional Parameters<a id="optional-parameters-loc-download"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
 | --serviceId   | The id of the omnia service for which to delete     |
 | --lang        | The language of the file that should be deleted     |
 | --v           | The version to download                             |
