@@ -213,12 +213,14 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia secrets add](#omnia-secrets-add)
         - [Example](#example-secrets-add)
         - [Required Parameters](#required-parameters-secrets-add)
+        - [Optional Parameters](#optional-parameters-secrets-add)
   - [omnia secrets remove](#omnia-secrets-remove)
         - [Example](#example-secrets-remove)
         - [Required Parameters](#required-parameters-secrets-remove)
   - [omnia secrets list](#omnia-secrets-list)
         - [Example](#example-secrets-list)
         - [Required Parameters](#required-parameters-secrets-list)
+        - [Optional Parameters](#optional-parameters-secrets-list)
 - [Tenant Certificate Commands](#tenant-certificate-commands)
   - [omnia certs export](#omnia-certs-export)
         - [Example](#example-certs-export)
@@ -228,7 +230,8 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Required Parameters](#required-parameters-certs-add)
   - [omnia certs list](#omnia-certs-list)
         - [Example](#example-certs-list)
-        - [Required Parameters](#required-parameters-certs-list)  
+        - [Required Parameters](#required-parameters-certs-list) 
+        - [Optional Parameters](#optional-parameters-certs-list)
   - [omnia certs update](#omnia-certs-update)
         - [Example](#example-certs-update)
         - [Required Parameters](#required-parameters-certs-update)  
@@ -265,7 +268,7 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia permissions list](#omnia-permissions-list)
         - [Example](#example-permissions-list)
         - [Required Parameters](#required-parameters-permissions-list)
-        - [Required Parameters](#required-parameters-permissions-list)
+        - [Optional Parameters](#optional-parameters-permissions-list)
 - [Alert Rules Commands](#alert-rules-commands)
    - [omnia alertrules new](#omnia-alertrules-new)
          - [Example](#example-alertrules-new)
@@ -922,7 +925,7 @@ No required parameters
 | -f --filter | Filters tenants by name |
 | -m --mwide  | Show more infomation in the list    |
 | -w --wide   | Show all information in the list   |
-
+| --output json | Return data as json   |
 
 ---
 
@@ -1405,7 +1408,9 @@ omnia extgroups addversion --groupid {mygroupid} --version {extensionid:version}
 
 ##### Optional Parameters<a id="optional-parameters-extgroups-addversion"></a>
 
-No optional paramters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1427,7 +1432,9 @@ omnia extgroups deleteversion --groupid {mygroupid} --version {extensionid:versi
 
 ##### Optional Parameters<a id="optional-parameters-extgroups-deleteversion"></a>
 
-No optional paramters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1446,7 +1453,9 @@ No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-extgroups-delete"></a>
 
-No optional parameters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1494,7 +1503,9 @@ omnia depgroups addtarget --groupid {mygroupid} --targetid {tenantid}
 
 ##### Optional Parameters<a id="optional-parameters-depgroups-addtarget"></a>
 
-No optional paramters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---   
 
@@ -1516,7 +1527,9 @@ omnia depgroups deletetarget --groupid {mygroupid} --targetid {tenantid}
 
 ##### Optional Parameters<a id="optional-parameters-depgroups-deletetarget"></a>
 
-No optional paramters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1535,7 +1548,9 @@ No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-depgroups-delete"></a>
 
-No optional parameters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1562,6 +1577,10 @@ omnia secrets add --tenantid {tenantid} --extensionid {extensionid} --name {name
 | --extensionid | The extensionid of the extension to generate a secret |
 | --name        | The name of secret                                    |
 
+##### Optional Parameters<a id="optional-parameters-secrets-add"></a>
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1584,7 +1603,6 @@ omnia secrets remove --extensionid {extensionid} --secret {secret}
 | --extensionid | The extensionid of the extension to remove a secret |
 | --secret      | The secret value to remove                          |
 
-
 ---
 
 ## omnia secrets list
@@ -1604,6 +1622,12 @@ omnia secrets list --extensionid {extensionid}
 | ------------- | ---------------------------------------------------- |
 | --tenantid    | Required depending if the secrets are tenant-secrets |
 | --extensionid | The extensionid of the extension to list all secrets |
+
+##### Optional Parameters<a id="optional-parameters-secrets-list"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1627,6 +1651,12 @@ omnia certs export --path {{pathToPfx}} --password {{password}}
 | ------------- | ----------------------------------------------------- |
 | --path    | The location of certificate (.pfx) file     |
 | --password | The password to generate the certs |
+
+##### Optional Parameters<a id="optional-parameters-certs-list"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1661,6 +1691,12 @@ omnia certs list --tenantid {tenantid}
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --tenantid    | The Id of tenant     |
+
+##### Optional Parameters<a id="optional-parameters-certs-list"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1798,6 +1834,7 @@ omnia loc list --serviceId {serviceId} --match {semeanticVersion}
 | --lang        | A specific language tag e.g. en-us                                                                                             |
 | --diff        | An option to enable selection of what to diff, for the versins listed. Can't be combined with --match                          |
 | --match       | An option to see which localization files would (currently) deploy if deploying a specific version, Can't combine with --diff  |
+| --output json | Return data as json   |
 
 ---
 
@@ -1959,7 +1996,9 @@ omnia permissions list {roleId}
 No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-permissions-list"></a>
-No optional parameters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ---
 
@@ -1986,7 +2025,9 @@ omnia alertrules new --serviceid {serviceid} --name {name} --template SlowRespon
 The query of the alert rule should be input in the text editor.
 
 ##### Optional Parameters<a id="optional-parameters-alertrules-new"></a>
-No optional parameters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ## omnia alertrules update
 
@@ -2005,7 +2046,9 @@ omnia alertrules update {alertRuleId} --name {name}
 | --name        | The name of the alert rule. It should be unique because the AI rules based on name.  |
 
 ##### Optional Parameters<a id="optional-parameters-alertrules-update"></a>
-No optional parameters
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --output json | Return data as json   |
 
 ## omnia alertrules list
 
@@ -2021,12 +2064,10 @@ omnia alertrules list {alertRuleId}
 No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-alertrules-list"></a>
-
-
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --alertRuleId |  The alert rule id needs to view detail.              |
-
+| --output json | Return data as json   |
 
 ## omnia alertrules delete
 
@@ -2073,6 +2114,7 @@ No required parameters
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --providerid |  The Resource Providers id needs to view detail.              |
+| --output json | Return data as json   |
 
 ---
 
