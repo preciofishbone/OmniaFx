@@ -5,13 +5,30 @@
     "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
     "lib": [
       "esnext",
       "dom"
+    ],
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "declaration": false,
+    "noEmit": true,
+    "sourceMap": false,
+    "inlineSourceMap": false,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "importHelpers": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "jsxFactory": "VueTsxSupport",
+    "typeRoots": [
+      "./node_modules/@omnia/types",
+      "./node_modules/@types"
     ]
   },
   "include": [
