@@ -75,6 +75,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                             children: [
                                 { text: "Components", link: '/migration-7/omnia-fx-components' },
                                 { text: "Somethings", link: '' },
+                                { text: "Tsx", link: '/migration-7/tsx' },
                                 { text: "Utils", link: '/migration-7/utils' },
                                 { text: "App Instance", link: '/migration-7/app-instance' },
                                 { text: "Journey", link: '/migration-7/journey' },
