@@ -46,5 +46,6 @@ We use typescript all in except for taskrunner
 !/src/tutorials/first-extension/create-omnia-block/HelloOmniaFx.Web/appsettings.local.json
 /src/documentations/docs/.vuepress/.temp
 /src/documentations/docs/.vuepress/.cache
+/src/documentations/wwwroot
 *.dev.manifest.ts
 

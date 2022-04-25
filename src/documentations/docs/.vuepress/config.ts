@@ -12,6 +12,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
     // theme and its config
     theme: '@vuepress/theme-default',
+    templateBuild: "templates/index.build.html",
+    templateDev: "templates/index.dev.html",
     themeConfig: {
         logo: '/images/omnialogo-black.svg',
         logoDark: '/images/omnialogo-white.svg',
@@ -40,7 +42,12 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                     children: [
                         { text: "Swagger", link: '/guide/omnia-learn/swagger' },
                         { text: "Alternatives to Visual Studio", link: '/guide/omnia-learn/other-editors' },
-                        { text: "Omnia Fx components" },
+                        {
+                            text: "Omnia Fx components",
+                            children: [
+                                { text: "Button", link: '/guide/fx-components/button' }
+                            ]
+                        },
                         { text: "Omnia Feature", link: '/guide/omnia-learn/omnia-feature' },
                         { text: "Omnia Localization", link: '/guide/apply-localization' },
                         { text: "Omnia Block", link: '/guide/omnia-learn/create-omnia-block' },
@@ -109,8 +116,9 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     bundler: '@vuepress/bundler-vite',
     bundlerConfig: {
         viteOptions: {
+            // publicDir: "docs/.vuepress/dist",
             plugins: [
-                vueJsx()
+                vueJsx() as any
             ]
         }
     },
