@@ -12,7 +12,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
     // theme and its config
     theme: '@vuepress/theme-default',
-    templateBuild: "templates/index.build.html",
+    // templateBuild: "templates/index.build.html",
     templateDev: "templates/index.dev.html",
     themeConfig: {
         lastUpdated: false,
