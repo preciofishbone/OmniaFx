@@ -86,7 +86,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                                 { text: "Utils", link: '/migration-7/utils' },
                                 { text: "App Instance", link: '/migration-7/app-instance' },
                                 { text: "Journey", link: '/migration-7/journey' },
-                                { text: "Layout", link: '/migration-7/layout' }
+                                { text: "Layout", link: '/migration-7/layout' },
+                                { text: "Ux", link: '/migration-7/ux' }
                             ]
 
                         },
