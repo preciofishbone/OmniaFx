@@ -15,6 +15,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     templateBuild: "templates/index.build.html",
     templateDev: "templates/index.dev.html",
     themeConfig: {
+        lastUpdated: false,
+        contributors: false,
         logo: '/images/omnialogo-black.svg',
         logoDark: '/images/omnialogo-white.svg',
         navbar: [
