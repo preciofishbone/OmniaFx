@@ -3,7 +3,7 @@
 Function **registerScrollPaging** is removed from this release. An alternative function is provided to control scrolling behaviour.
 
 ```ts
-import { ScrollPagingUtils } from '@omnia/fx';
+import { ScrollPagingUtils } from "@omnia/fx";
 
 // no longer available from 7.0
 ScrollPagingUtils.registerScrollPaging(/*parameters*/)
