@@ -4,4 +4,4 @@
 import Button from '../../../../../components/Button.tsx'
 </script>
 
-<Button />
+@[code](../../../.vuepress/components/Button.tsx)
