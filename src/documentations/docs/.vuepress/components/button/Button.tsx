@@ -1,13 +1,11 @@
-import { defineVueWebComponent, useTheme } from "@omnia/fx/ux";
+import { defineVueWebComponent, useTheme, useCurrentVueInstance } from "@omnia/fx/ux";
 import { ButtonModes, FontAwesomeIcon } from "@omnia/fx-models";
 
 
 export default defineVueWebComponent({
     setup(props) {
-        // const userMode = localStorage?.getItem('vuepress-color-scheme');
-        // const dark = userMode === "dark";
         const { theming } = useTheme();
-
+        console.log(theming, 123, useCurrentVueInstance())
         return () => (
             <div>
                 <omfx-button
