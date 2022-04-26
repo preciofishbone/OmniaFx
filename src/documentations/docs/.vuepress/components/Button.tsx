@@ -3,7 +3,8 @@ import { ButtonModes, FontAwesomeIcon, ButtonIconPosition } from "@omnia/fx-mode
 
 export default defineComponent({
     setup(props) {
-        const dark = document.getElementsByTagName("html")[0].className === "dark";
+        const userMode = localStorage.getItem('vuepress-color-scheme');
+        const dark = userMode === "dark";
         return () => (
             <div>
                 <omfx-button
