@@ -21,7 +21,7 @@ Composer
     .AsWebApp()
     .withBuildOptions({
         outDir: "docs/.vuepress/public",
-        include: ["docs/.vuepress"],
+        include: ["docs/.vuepress", "configurations"],
         moduleOptions: {
             enableTransformResourcePath: true
         }

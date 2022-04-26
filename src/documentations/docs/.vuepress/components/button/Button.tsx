@@ -5,7 +5,7 @@ import { ButtonModes, FontAwesomeIcon } from "@omnia/fx-models";
 export default defineVueWebComponent({
     setup(props) {
         const { theming } = useTheme();
-        console.log(theming, 123, useCurrentVueInstance())
+
         return () => (
             <div>
                 <omfx-button
@@ -18,13 +18,13 @@ export default defineVueWebComponent({
                     dark={theming.body.bg.dark}
                     text="Raised"
                     mode={ButtonModes.raised}
-                    class={"mt-7 mr-2"} >
+                    class={"mt-7 mr-2"}>
                 </omfx-button>
                 <omfx-button
                     dark={theming.body.bg.dark}
                     text="Depressed"
                     mode={ButtonModes.depressed}
-                    class={"mt-7 mr-2"} >
+                    class={"mt-7 mr-2"}>
                 </omfx-button>
                 <omfx-button
                     dark={theming.body.bg.dark}
@@ -32,9 +32,9 @@ export default defineVueWebComponent({
                     mode={ButtonModes.icon}
                     icon={{
                         iconType: new FontAwesomeIcon("delete")
-                    }} >
+                    }}>
                 </omfx-button>
             </div>
         );
     }
-} as any);
+});

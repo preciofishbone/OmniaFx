@@ -30,6 +30,8 @@
     ]
   },
   "include": [
+    "omnia.service.ts",
+    "configurations/**/*",
     "docs/.vuepress/**/*"
   ],
   "exclude": [
