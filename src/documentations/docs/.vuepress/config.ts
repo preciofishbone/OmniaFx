@@ -109,6 +109,12 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                                 { text: "Utils", link: '/migration-7/wcm/utils' },
                                 { text: "Page", link: '/migration-7/wcm/page' }
                             ]
+                        },
+                        {
+                            text: "Management System Fx",
+                            children: [
+                                { text: "Utils", link: '/migration-7/oms/utils' },
+                            ]
                         }
                     ]
                 }
