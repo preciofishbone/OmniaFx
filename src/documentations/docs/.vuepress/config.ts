@@ -82,21 +82,19 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                         {
                             text: "Omnia Fx",
                             children: [
-                                { text: "Components", link: '/migration-7/omnia-fx-components' },
-                                { text: "Somethings", link: '' },
-                                { text: "Tsx", link: '/migration-7/tsx' },
-                                { text: "Utils", link: '/migration-7/utils' },
-                                { text: "App Instance", link: '/migration-7/app-instance' },
-                                { text: "Journey", link: '/migration-7/journey' },
-                                { text: "Layout", link: '/migration-7/layout' },
-                                { text: "Ux", link: '/migration-7/ux' }
+                                { text: "Components", link: '/migration-7/omnia/omnia-fx-components' },
+                                { text: "Tsx", link: '/migration-7/omnia/tsx' },
+                                { text: "Utils", link: '/migration-7/omnia/utils' },
+                                { text: "App Instance", link: '/migration-7/omnia/app-instance' },
+                                { text: "Journey", link: '/migration-7/omnia/journey' },
+                                { text: "Layout", link: '/migration-7/omnia/layout' },
+                                { text: "Ux", link: '/migration-7/omnia/ux' }
                             ]
-
                         },
                         {
                             text: "Workplace Fx",
                             children: [
-
+                                { text: "Apps", link: '/migration-7/workplace/apps' }
                             ]
 
                         },

@@ -84,7 +84,7 @@ renderUnknownComponent() {
 
 With **h** and **$createElement** being removed in Omnia 7.0, there will be two approaches for this case
 
-Import **h** variable directly from **@vue/composition-api** module
+Import **h** variable directly from **"@vue/composition-api"** module
 ```tsx
 import { h } from "@vue/composition-api";
 
@@ -97,7 +97,7 @@ renderUnknownComponent() {
 }
 ```
 
-Import **useCreateElementByName** variable directly from **@omnia/fx/ux** module. This variable is a wrapper for **h** in **@vue/composition-api** so the result is the same
+Import **useCreateElementByName** variable directly from **"@omnia/fx/ux"** module. This variable is a wrapper for **h** in **"@vue/composition-api"** so the result is the same
 ```tsx
 import { useCreateElementByName } from "@omnia/fx/ux";
 
