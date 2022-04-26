@@ -106,9 +106,9 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                         {
                             text: "Web Content Management Fx",
                             children: [
-
+                                { text: "Utils", link: '/migration-7/wcm/utils' },
+                                { text: "Page", link: '/migration-7/wcm/page' }
                             ]
-
                         }
                     ]
                 }
