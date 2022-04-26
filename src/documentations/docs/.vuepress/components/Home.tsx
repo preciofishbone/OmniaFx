@@ -1,4 +1,3 @@
-
 import { defineComponent } from 'vue';
 
 
@@ -8,22 +7,22 @@ export default defineComponent({
         return () => (
             <div>
                 <section>
-                    <div className="hero-container">
-                        <div className="environment"></div>
-                        <div className="hero glitch layers" data-text="近設計"><span className="glitch-text">OmniaFx</span></div>
+                    <div class="hero-container">
+                        <div class="environment"></div>
+                        <div class="hero glitch layers" data-text="近設計"><span class="glitch-text">OmniaFx</span></div>
                     </div>
-                    <div className="center sub-hero">Supercharge your Omnia intranet with custom features</div>
+                    <div class="center sub-hero">Supercharge your Omnia intranet with custom features</div>
                 </section>
 
-                <p className="center getting-started-section">
-                    <a className="button-main" href="/guide/introduction.html">Getting Started</a>
-                    <a className="button-secondary ml-8" href="/guide/introduction.html">Docs</a>
-                    <a className="button-secondary ml-8" href="/guide/introduction.html">Omnia Cli</a>
+                <p class="center getting-started-section">
+                    <a class="button-main" href="/guide/introduction.html">Getting Started</a>
+                    <a class="button-secondary ml-8" href="/guide/introduction.html">Docs</a>
+                    <a class="button-secondary ml-8" href="/guide/introduction.html">Omnia Cli</a>
                 </p>
 
-                <div className="center editors">
+                <div class="center editors">
                     <hr></hr>
-                    <div className="vsflaviour">OmniaFx loves your preferred Visual Studio editor</div>
+                    <div class="vsflaviour">OmniaFx loves your preferred Visual Studio editor</div>
                     <img src="/images/vs.png" />
                 </div>
             </div >
