@@ -5,14 +5,17 @@ import type { ViteBundlerOptions } from '@vuepress/bundler-vite'
 
 
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
+    debug: true,
     // site config
     lang: 'en-US',
     title: 'OmniaFx',
     description: '',
-    head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
+    head: [
+        ['link', { rel: 'icon', href: '/images/favicon.png' }],
+    ],
     // theme and its config
     theme: '@vuepress/theme-default',
-    //templateBuild: "templates/index.build.html",
+    templateBuild: "templates/index.build.html",
     templateDev: "templates/index.dev.html",
     themeConfig: {
         lastUpdated: false,

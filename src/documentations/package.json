@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "docs:dev": "omniafx build && node omniafx.doc.js && vuepress dev docs",
-    "docs:build": "omniafx build && node omniafx.doc.js && vuepress build docs --debug"
+    "docs:build": "omniafx build && node omniafx.doc.js && vuepress build docs"
   },
   "dependencies": {
     "vue": "3.2.33"
