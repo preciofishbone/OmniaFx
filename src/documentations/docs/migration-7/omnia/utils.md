@@ -1,5 +1,6 @@
 # Utils
 
+## registerScrollPaging
 Function **registerScrollPaging** is removed from this release. An alternative function is provided to control scrolling behaviour.
 
 ```ts

@@ -1,5 +1,6 @@
 # Layout
 
+## LayoutItem
 Properties **allowChildOverride** and **isParentOverride** in **LayoutItem** are removed from Omnia 7.0. No alternative properties will be provided.
 
 ```ts
@@ -9,6 +10,7 @@ interface LayoutItem {
 }
 ```
 
+## Block settings reader
 **BlockSettingsReaderOptions** will no longer have **editElement** property to identify block setting web components.
 Instead of relying on element selector, the model will now require **editElementManifestId** which is block setting manifest id.
 

@@ -1,5 +1,6 @@
 # Apps
 
+## OfficeNamingPolicyValidationResult
 Remove **OfficeNamingPolicyValidationResult**, **AliasValidationResult** and **SiteNameValidationResult** models from **"@omnia/workplace/models"** module
 
 ```ts
@@ -26,6 +27,7 @@ interface SiteNameValidationResult {
 }
 ```
 
+## TeamCollaborationAppTemplate
 Remove **ProvisionEnterpriseProperties** model from **"@omnia/workplace/models"** module. Property **permissionIdentities** in **TeamCollaborationAppTemplate** model is removed also.
 
 ```ts
@@ -42,6 +44,7 @@ interface TeamCollaborationAppTemplate extends AppTemplate {
 }
 ```
 
+## App route prefix
 Remove **appRoutePrefix** constant variable in **WorkspaceApp** namespace from **"@omnia/workplace/models"** module.
 Replace it by **WorkplaceAppRoutePrefix** const variable with **workspace** property.
 

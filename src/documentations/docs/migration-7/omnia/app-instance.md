@@ -1,4 +1,6 @@
 # App Instance
+
+## App route
 Property **appInstanceId** is removed from **AppRoute** and **IAppRoute** models. You should use property **appInstance** instead in the same model.
 ```ts
 interface AppRoute {
@@ -16,6 +18,7 @@ interface AppInstance {
 }
 ```
 
+## App instance properties
 Property **properties** typing in **AppInstanceProperties** model is changed from **any** to **AppInstancePropertiesStorage**
 
 ```ts

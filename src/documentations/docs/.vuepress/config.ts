@@ -94,7 +94,9 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                         {
                             text: "Workplace Fx",
                             children: [
-                                { text: "Apps", link: '/migration-7/workplace/apps' }
+                                { text: "Utils", link: '/migration-7/workplace/utils' },
+                                { text: "Apps", link: '/migration-7/workplace/apps' },
+                                { text: "Search", link: '/migration-7/workplace/search' }
                             ]
 
                         },
