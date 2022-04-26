@@ -1,10 +1,15 @@
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import { ButtonModes, FontAwesomeIcon, ButtonIconPosition } from "@omnia/fx-models";
 
 export default defineComponent({
     setup(props) {
-        const userMode = localStorage.getItem('vuepress-color-scheme');
-        const dark = userMode === "dark";
+        let dark = true;
+
+        onMounted(() => {
+            const userMode = localStorage?.getItem('vuepress-color-scheme');
+            dark = userMode === "dark";
+        });
+
         return () => (
             <div>
                 <omfx-button
