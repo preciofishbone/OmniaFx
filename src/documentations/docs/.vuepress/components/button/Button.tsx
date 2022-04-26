@@ -1,14 +1,11 @@
-import { defineComponent, onMounted } from 'vue';
+import { defineVueWebComponent, useTheme } from "@omnia/fx/ux";
 import { ButtonModes, FontAwesomeIcon, ButtonIconPosition } from "@omnia/fx-models";
 
-export default defineComponent({
-    setup(props) {
-        let dark = true;
 
-        onMounted(() => {
-            const userMode = localStorage?.getItem('vuepress-color-scheme');
-            dark = userMode === "dark";
-        });
+export default defineVueWebComponent({
+    setup(props) {
+        const userMode = localStorage?.getItem('vuepress-color-scheme');
+        const dark = userMode === "dark";
 
         return () => (
             <div>
@@ -39,6 +36,6 @@ export default defineComponent({
                     }} >
                 </omfx-button>
             </div>
-        )
+        );
     }
-})
+} as any);

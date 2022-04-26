@@ -1,9 +1,9 @@
 # Button Component
 
 <script setup>
-import Button from '../../../../../components/Button.tsx'
+import Button from '../../../../../components/button/Button.doc.tsx'
 </script>
 
 <Button></Button>
 
-@[code](../../../.vuepress/components/Button.tsx)
+@[code](../../../.vuepress/components/button/Button.tsx)

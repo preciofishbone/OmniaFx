@@ -29,7 +29,7 @@
   <body>
     <div id="app"><!--vuepress-ssr-app--></div>
     <!--vuepress-ssr-scripts-->
-	  <script type="text/javascript">
+  <script type="text/javascript">
     window.omnia = window.omnia || {};
     window.omnia.user = { "properties": [{ "uniqueModelName": "useraccessibility", "omniaServiceId": "bb000000-0000-bbbb-0000-0000000000bb", "useContrastTheme": true, "useAccessibilityFeature": false }, { "uniqueModelName": "followedsitesUpdatedAt", "omniaServiceId": "bb000000-0000-bbbb-0000-0000000000bb", "followedsitesUpdatedAt": 637589788833781590 }], "type": 2, "objectId": "3f52f6af-71f3-4b00-8af4-132e42367069", "givenName": "Robert", "surname": "Johnson", "department": "Marketing", "jobTitle": "CIO", "country": null, "mailboxSettings": { "timeZone": "SE Asia Standard Time" }, "preferredLanguage": "en-us", "displayName": "Robert Johnson", "mail": "admin@omniatestcloud.net", "uid": "admin@omniatestcloud.net" }
     window.omnia.enviroment = { isOmniaApp: true, clientRuntime: 'omniaapp', backendRuntime: 'sponline' };
@@ -52,7 +52,7 @@
     window.omnia.configure = {
       loadableManifestProvider: {
         getBundleUrl: function (manifest, bundleType, allowLocalHosting) {
-          let fileName = bundleType === 'js' ? `${manifest.resourceId}.min.${bundleType}` : `${manifest.resourceId}.${bundleType}`;
+          let fileName = `${manifest.resourceId}.${bundleType}`;
           if (manifest.resourceName) {
             fileName = `${manifest.resourceName}_${fileName}`;
           }
@@ -101,34 +101,32 @@
   <script type="module" src="/omnia/dist/localizations/localization.js?v=7.0.162-dev" crossorigin="use-credentials"
     defer>
     </script>
-  <script type="module" src="/omnia/dist/bundles/omnia.vendor_6270b632-1f44-4146-bace-137131c0471b.min.js?v=7.0.162-dev"
+  <script type="module" src="/omnia/dist/bundles/omnia.vendor_6270b632-1f44-4146-bace-137131c0471b.js?v=7.0.162-dev"
+    crossorigin="use-credentials" defer>
+    </script>
+  <script type="module" src="/omnia/dist/bundles/omnia.fx.shared_6972ceca-544d-49c0-b575-67b1a5294812.js?v=7.0.162-dev"
+    crossorigin="use-credentials" defer>
+    </script>
+  <script type="module" src="/omnia/dist/bundles/omnia.fx.core_a2892051-fd9f-4056-ae8d-30d16d48417d.js?v=7.0.162-dev"
     crossorigin="use-credentials" defer>
     </script>
   <script type="module"
-    src="/omnia/dist/bundles/omnia.fx.shared_6972ceca-544d-49c0-b575-67b1a5294812.min.js?v=7.0.162-dev"
+    src="/omnia/dist/bundles/omnia.fx.contexts_a1602121-3070-4304-b4d8-0859e50c482b.js?v=7.0.162-dev"
     crossorigin="use-credentials" defer>
     </script>
   <script type="module"
-    src="/omnia/dist/bundles/omnia.fx.core_a2892051-fd9f-4056-ae8d-30d16d48417d.min.js?v=7.0.162-dev"
+    src="/omnia/dist/bundles/omnia.fx.groupmanifest_33f508ea-9b3c-4d64-b7d9-5a1d6ac4ab01.js?v=7.0.162-dev"
+    crossorigin="use-credentials" defer>
+    </script>
+  <script type="module" src="/omnia/dist/bundles/omnia.fx.ux_dee030cc-4ab3-4158-bb06-8049f5c67542.js?v=7.0.162-dev"
     crossorigin="use-credentials" defer>
     </script>
   <script type="module"
-    src="/omnia/dist/bundles/omnia.fx.contexts_a1602121-3070-4304-b4d8-0859e50c482b.min.js?v=7.0.162-dev"
+    src="/omnia/dist/bundles/omnia.fx.ux.vuetify.common_798d6494-70cc-47eb-9054-30b047beab19.js?v=7.0.162-dev"
     crossorigin="use-credentials" defer>
     </script>
   <script type="module"
-    src="/omnia/dist/bundles/omnia.fx.groupmanifest_33f508ea-9b3c-4d64-b7d9-5a1d6ac4ab01.min.js?v=7.0.162-dev"
-    crossorigin="use-credentials" defer>
-    </script>
-  <script type="module" src="/omnia/dist/bundles/omnia.fx.ux_dee030cc-4ab3-4158-bb06-8049f5c67542.min.js?v=7.0.162-dev"
-    crossorigin="use-credentials" defer>
-    </script>
-  <script type="module"
-    src="/omnia/dist/bundles/omnia.fx.ux.vuetify.common_798d6494-70cc-47eb-9054-30b047beab19.min.js?v=7.0.162-dev"
-    crossorigin="use-credentials" defer>
-    </script>
-  <script type="module"
-    src="/omnia/dist/bundles/omnia.fx.core.boot_a34595e2-e782-4c56-90da-4c080680d8a5.min.js?v=7.0.162-dev"
+    src="/omnia/dist/bundles/omnia.fx.core.boot_a34595e2-e782-4c56-90da-4c080680d8a5.js?v=7.0.162-dev"
     crossorigin="use-credentials" defer>
     </script>
   </body>
