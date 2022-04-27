@@ -1,5 +1,5 @@
-import { Composer, OmniaFxConfigurator } from "@omnia/tooling/composers";
-import { OmniaService, OmniaWebComponentManifests, OmniaResourceManifests, Guid } from "@omnia/fx-models";
+import { Composer, OmniaFxConfigurator, DevelopmentEnvironment } from "@omnia/tooling/composers";
+import { OmniaService, OmniaWebComponentManifests, OmniaResourceManifests, OmniaGroupManifests, Guid } from "@omnia/fx-models";
 
 Composer
     .importManifests("node_modules/@omnia/runtime/dist")
@@ -13,6 +13,7 @@ Composer
     .externalManifest(OmniaService.Id.toString(), OmniaWebComponentManifests.Welcome.toString())
     .externalManifest(OmniaService.Id.toString(), OmniaWebComponentManifests.FxUxErrorMessage.toString())
     .externalManifest(OmniaService.Id.toString(), OmniaWebComponentManifests.Header.toString())
+    .externalManifest(OmniaService.Id.toString(), OmniaGroupManifests.Header.toString())
     .externalManifest(OmniaService.Id.toString(), OmniaWebComponentManifests.AuthenticationChecker.toString())
 
 Composer
@@ -26,3 +27,10 @@ Composer
             enableTransformResourcePath: true
         }
     })
+
+DevelopmentEnvironment
+    .hosting
+    .use({
+        port: 44388
+    })
+

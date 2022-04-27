@@ -15,8 +15,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     ],
     // theme and its config
     theme: '@vuepress/theme-default',
-    templateBuild: "templates/index.build.html",
-    templateDev: "templates/index.dev.html",
+    templateBuild: "docs/.vuepress/public/omnia/templates/index.build.html",
+    templateDev: "docs/.vuepress/public/omnia/templates/index.dev.html",
     themeConfig: {
         lastUpdated: false,
         contributors: false,
