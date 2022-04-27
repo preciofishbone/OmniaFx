@@ -99,7 +99,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                             children: [
                                 { text: "Utils", link: '/migration-7/workplace/utils' },
                                 { text: "Apps", link: '/migration-7/workplace/apps' },
-                                { text: "Search", link: '/migration-7/workplace/search' }
+                                { text: "Search", link: '/migration-7/workplace/search' },
+                                { text: "Enterprise Glossary", link: '/migration-7/workplace/enterprise-glossary' }
                             ]
 
                         },

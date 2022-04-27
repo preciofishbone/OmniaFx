@@ -1,9 +1,9 @@
 # Tsx
 
 ## Render
-A significant change from omnia web component and Vue component is that the property **$createElement** is not available in Vue component instead.
-It is suggested that the **h** parameter in **render** function need to be removed as well.
-Starting from Omnia 7.0, all components written in tsx format will be automatically transform to javascript object "virtual node" injected with **h**.
+A significant change from omnia web component and Vue component is that the property **$createElement** is no longer available in Vue component.
+It is recommended that the **h** parameter in **render** function need to be removed as well.
+Starting from Omnia 7.0, all components written in tsx format will be automatically injected with **h**.
 This means that you do not have to worry about forgetting inject **h** manually.
 
 Below are few example of old render coding style and how to convert them to new render.
