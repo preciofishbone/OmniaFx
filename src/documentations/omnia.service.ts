@@ -31,6 +31,10 @@ Composer
 DevelopmentEnvironment
     .hosting
     .use({
-        port: 44388
+        port: 44388,
+        https: false
+        // userConfig: {
+
+        // }
     })
 

@@ -2,7 +2,35 @@ import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import type { ViteBundlerOptions } from '@vuepress/bundler-vite'
+import type { InlineConfig } from 'vite';
+import path from 'path';
+import fs from 'fs';
+import getAppDataPath from "appdata-path";
+import minimist from 'minimist'
 
+const argv = minimist(process.argv.slice(2));
+const command = argv._[0];
+
+const viteOptions = {
+    plugins: [
+        vueJsx() as any
+    ]
+} as InlineConfig
+
+if (command === "dev") {
+    const appPath = getAppDataPath();
+    const certFolderPath = path.join(appPath, "omnia", "https");
+    const certName = "devcert";
+    const certFilePath = path.join(certFolderPath, `${certName}.pem`);
+    const keyFilePath = path.join(certFolderPath, `${certName}.key`);
+
+    viteOptions.server = {
+        https: {
+            cert: fs.readFileSync(certFilePath),
+            key: fs.readFileSync(keyFilePath)
+        }
+    };
+}
 
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     debug: true,
@@ -129,12 +157,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     // config tool
     bundler: '@vuepress/bundler-vite',
     bundlerConfig: {
-        viteOptions: {
-            // publicDir: "docs/.vuepress/dist",
-            plugins: [
-                vueJsx() as any
-            ]
-        }
+        viteOptions: viteOptions as any
     },
     plugins: [
 

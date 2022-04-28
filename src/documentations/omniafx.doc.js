@@ -3,6 +3,38 @@ const fsExtra = require('fs-extra');
 const deepExtend = require('deep-extend');
 const { utils } = require("@omnia/tooling");
 const md5File = require('md5-file');
+const minimist = require('minimist');
+const path = require("path");
+const fs = require("fs");
+const getAppDataPath = require("appdata-path");
+
+const argv = minimist(process.argv.slice(2));
+const command = argv._[0];
+
+if (command === "dev") {
+    let appPath = getAppDataPath();
+    let certFolderPath = path.join(appPath, "omnia", "https");
+    const certName = "devcert";
+    const certFilePath = path.join(certFolderPath, `${certName}.pem`);
+    const keyFilePath = path.join(certFolderPath, `${certName}.key`);
+
+    if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
+        const spawn = require('child_process').spawn;
+
+        spawn('dotnet', [
+            'dev-certs',
+            'https',
+            '--export-path',
+            certFilePath,
+            '--format',
+            'Pem',
+            '--no-password',
+        ], { stdio: 'inherit', })
+            .on('exit', (code) => {
+            });
+    }
+}
+
 utils.log('Generating docs stuffs');
 
 const cssFiles = globby.sync([

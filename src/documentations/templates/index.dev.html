@@ -27,10 +27,19 @@
         })
       }
     }
-
+    var __omnia_hosting = null;
+	if(localStorage.getItem('omnia.fx.localhostinginfo')){
+		__omnia_hosting = JSON.parse(localStorage.getItem('omnia.fx.localhostinginfo'))
+	}
     window.omnia.configure = {
       loadableManifestProvider: {
         getBundleUrl: function (manifest, bundleType, allowLocalHosting) {
+		  
+		  if(__omnia_hosting && __omnia_hosting[manifest.omniaServiceId]){
+			  let baseUrl = __omnia_hosting[manifest.omniaServiceId].resourceUrl.replace(/\/$|$/, '/');			  
+			  return `${baseUrl}omnia/bundles/${manifest.resourceId}/${bundleType}?${manifest.resourceName || ''}v=${manifest.version[bundleType]}`;
+		  }
+		  
           let fileName = `${manifest.resourceId}.${bundleType}`;
           if (manifest.resourceName) {
             fileName = `${manifest.resourceName}_${fileName}`;
@@ -84,6 +93,9 @@
     crossorigin="use-credentials" defer>
     </script>
   <script type="module" src="/omnia/dist/bundles/omnia.fx.shared_6972ceca-544d-49c0-b575-67b1a5294812.js?v={{omnia_runtime_version}}"
+    crossorigin="use-credentials" defer>
+    </script>
+  <script type="module" src="/omnia/dist/bundles/omnia.hmr_c45a049c-adb7-46ed-8435-83dbe2ab4256.js?v={{omnia_runtime_version}}"
     crossorigin="use-credentials" defer>
     </script>
   <script type="module" src="/omnia/dist/bundles/omnia.fx.core_a2892051-fd9f-4056-ae8d-30d16d48417d.js?v={{omnia_runtime_version}}"
