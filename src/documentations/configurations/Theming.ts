@@ -5,7 +5,7 @@ omniaWebpackJsonp['bb000000-0000-bbbb-0000-0000000000bb']["a2892051-fd9f-4056-ae
     .InternalTopics.omniaUXConfigurationCompleted.subscribe(() => {
         // const isDarkMode = useDarkMode();
         const updateTheming = () => {
-            const userMode = localStorage?.getItem('vuepress-color-scheme');
+            const userMode = document.getElementsByTagName('html')[0].className //localStorage?.getItem('vuepress-color-scheme');
             const dark = userMode === "dark";
             const vueRoot = document.body["__omwcroot__"];
             vueRoot.$theming.body.bg.dark = dark;
