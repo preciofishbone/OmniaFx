@@ -79,7 +79,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                             text: "Omnia Fx components",
                             children: [
                                 { text: "Button", link: '/guide/fx-components/button' },
-                                { text: "Tooltip", link: '/guide/fx-components/tooltip' }
+                                { text: "Tooltip", link: '/guide/fx-components/tooltip' },
+                                { text: "People Picker", link: '/guide/fx-components/people-picker' }
                             ]
                         },
                         { text: "Omnia Feature", link: '/guide/omnia-learn/omnia-feature' },
