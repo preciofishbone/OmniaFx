@@ -78,7 +78,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                         {
                             text: "Omnia Fx components",
                             children: [
-                                { text: "Button", link: '/guide/fx-components/button' }
+                                { text: "Button", link: '/guide/fx-components/button' },
+                                { text: "Tooltip", link: '/guide/fx-components/tooltip' }
                             ]
                         },
                         { text: "Omnia Feature", link: '/guide/omnia-learn/omnia-feature' },
@@ -160,6 +161,22 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         viteOptions: viteOptions as any
     },
     plugins: [
-
+        [
+            '@vuepress/docsearch',
+            {
+                apiKey: '<API_KEY>',
+                indexName: '<INDEX_NAME>',
+                locales: {
+                    '/': {
+                        placeholder: 'Search',
+                        translations: {
+                            button: {
+                                buttonText: 'Search',
+                            },
+                        },
+                    },
+                },
+            },
+        ],
     ]
 })

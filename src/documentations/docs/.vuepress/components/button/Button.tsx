@@ -1,6 +1,5 @@
-import { defineVueWebComponent, useTheme, useCurrentVueInstance } from "@omnia/fx/ux";
+import { defineVueWebComponent, useTheme } from "@omnia/fx/ux";
 import { ButtonModes, FontAwesomeIcon } from "@omnia/fx-models";
-
 
 export default defineVueWebComponent({
     setup(props) {
