@@ -121,7 +121,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                                 { text: "App Instance", link: '/migration-7/omnia/app-instance' },
                                 { text: "Journey", link: '/migration-7/omnia/journey' },
                                 { text: "Layout", link: '/migration-7/omnia/layout' },
-                                { text: "Ux", link: '/migration-7/omnia/ux' }
+                                { text: "Ux", link: '/migration-7/omnia/ux' },
+                                { text: "Moment.js", link: '/migration-7/omnia/momentjs' }
                             ]
                         },
                         {
