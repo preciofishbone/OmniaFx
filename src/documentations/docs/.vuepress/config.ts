@@ -123,7 +123,9 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                                 { text: "Layout", link: '/migration-7/omnia/layout' },
                                 { text: "Ux", link: '/migration-7/omnia/ux' },
                                 { text: "Moment.js", link: '/migration-7/omnia/momentjs' },
-                                { text: "Topics", link: '/migration-7/omnia/topics' }
+                                { text: "Topics", link: '/migration-7/omnia/topics' },
+                                { text: "Permission", link: '/migration-7/omnia/permission' },
+                                { text: "Store", link: '/migration-7/omnia/store' }
                             ]
                         },
                         {
