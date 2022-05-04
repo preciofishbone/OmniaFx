@@ -7,10 +7,45 @@ const minimist = require('minimist');
 const path = require("path");
 const fs = require("fs");
 const getAppDataPath = require("appdata-path");
-
+const { minify } = require("terser");
 const argv = minimist(process.argv.slice(2));
 const command = argv._[0];
+const minifyJsFiles = globby.sync([
+    "docs/.vuepress/public/omnia/dist/bundles/omniafx.doc*.js"
+]);
+const cssFiles = globby.sync([
+    "docs/.vuepress/public/omnia/dist/bundles/*.css"
+]);
 
+function minifyBundle() {
+    return new Promise((resolve, reject) => {
+        if (process.argv.length > 0 && process.argv.find(argv => argv === "--minify") !== undefined) {
+            utils.log('Minify bundles running...');
+            const promises = []
+            const startTime = new Date().getTime();
+            minifyJsFiles.forEach(filePath => {
+                promises.push(new Promise(async (resolve, reject) => {
+                    content = fsExtra.readFileSync(filePath, 'utf8');
+                    let minified = await minify(content, {
+                        sourceMap: false,
+                        ecma: 5 // will remove es5 when not support IE 11
+                    });
+
+                    await fsExtra.writeFile(`${filePath}`, minified.code, 'utf8');
+                    utils.log(`Minify Js Done -> ${filePath}`);
+                    resolve();
+                }))
+            });
+
+            Promise.all(promises).then(() => {
+                utils.logTime('Done - Minify Js bundles', startTime);
+                resolve();
+            })
+        } else {
+            resolve();
+        }
+    })
+}
 if (command === "dev") {
     let appPath = getAppDataPath();
     let certFolderPath = path.join(appPath, "omnia", "https");
@@ -37,10 +72,6 @@ if (command === "dev") {
 
 utils.log('Generating docs stuffs');
 
-const cssFiles = globby.sync([
-    "docs/.vuepress/public/omnia/dist/bundles/*.css"
-]);
-
 cssFiles.forEach(filePath => {
     content = fsExtra.readFileSync(filePath, 'utf8');
     fsExtra.outputFileSync(filePath,
@@ -48,6 +79,7 @@ cssFiles.forEach(filePath => {
             .replace(new RegExp('omnia/fonts', 'g'), 'omnia/dist/fonts'),
         'utf8')
 });
+
 
 const manifestsPath = globby.sync([
     "docs/.vuepress/public/omnia/dist/manifests/*_manifests.json"
@@ -115,4 +147,6 @@ buildTemplateContent = buildTemplateContent
 fsExtra.outputFileSync(outputDevTemplate, devTemplateContent, 'utf8');
 fsExtra.outputFileSync(outputBuildTemplate, buildTemplateContent, 'utf8');
 
-utils.log('Done Generated docs stuffs');
+minifyBundle().then(() => {
+    utils.log('Done Generated docs stuffs');
+})

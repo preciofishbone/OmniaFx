@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "serve": "start npm run serve:omnia && start npm run serve:vuepress",
-    "build": "omniafx build && node omniafx.doc.js && vuepress build docs",
-    "serve:vuepress": "omniafx build  --manifestOnly && node omniafx.doc.js dev && vuepress dev docs",
+    "build": "omniafx build && node omniafx.doc.js --minify && vuepress build docs",
+    "serve:vuepress": "omniafx build && node omniafx.doc.js dev && vuepress dev docs",
     "serve:omnia": "omniafx serve --no-import"
   },
   "dependencies": {
