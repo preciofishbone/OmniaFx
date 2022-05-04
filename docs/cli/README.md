@@ -175,6 +175,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-extensions-deploy)
         - [Required Parameters](#required-parameters-extensions-deploy)
         - [Optional Parameters](#optional-parameters-extensions-deploy)
+  - [omnia extensions retract](#omnia-extensions-retract)
+        - [Example](#example-extensions-retract)
+        - [Required Parameters](#required-parameters-extensions-retract)
+        - [Optional Parameters](#optional-parameters-extensions-retract)
 - [Extension Groups Commands](#extension-groups-commands)
   - [omnia extgroups new](#omnia-extgroups-new)
         - [Example](#example-extgroups-new)
@@ -1361,6 +1365,34 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {t
 | -w --wait| Waiting times between those extensions in seconds. In case using the extension group  |
 | -r --restart| Auto restart the tenant after deploying  |
 | --code    | The code needs to be entered when deploy to a high-level Deployment Security tenant (format: yy-dd-MM-m) |
+
+---
+
+## omnia extensions retract
+
+Retracts extension in a tenant or cluster. 
+
+##### Example<a id="example-extensions-retract"></a>
+```
+omnia extensions retract {extensionId} --tenantid  {tenantId}
+
+```
+
+##### Required Parameters<a id="required-parameters-extensions-retract"></a>
+
+| Name       | Description               |
+| ---------- | ------------------------- |
+| extensionId | The extensionId to retract from |
+| --tenantId or --clusterid |The deployment source Id of the extension |
+
+    
+
+##### Optional Parameters<a id="optional-parameters-extensions-retract"></a>
+
+| Name      | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| --tenantId  | Tenant id that the extension being retract |
+| --clusterid | Cluster id that the extension being retract  |
 
 ---
 
