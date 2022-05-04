@@ -122,7 +122,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                                 { text: "Journey", link: '/migration-7/omnia/journey' },
                                 { text: "Layout", link: '/migration-7/omnia/layout' },
                                 { text: "Ux", link: '/migration-7/omnia/ux' },
-                                { text: "Moment.js", link: '/migration-7/omnia/momentjs' }
+                                { text: "Moment.js", link: '/migration-7/omnia/momentjs' },
+                                { text: "Topics", link: '/migration-7/omnia/topics' }
                             ]
                         },
                         {
@@ -131,7 +132,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                                 { text: "Utils", link: '/migration-7/workplace/utils' },
                                 { text: "Apps", link: '/migration-7/workplace/apps' },
                                 { text: "Search", link: '/migration-7/workplace/search' },
-                                { text: "Enterprise Glossary", link: '/migration-7/workplace/enterprise-glossary' }
+                                { text: "Enterprise Glossary", link: '/migration-7/workplace/enterprise-glossary' },
+                                { text: "Topics", link: '/migration-7/workplace/topics' }
                             ]
 
                         },

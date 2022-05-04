@@ -1,11 +1,11 @@
 # Topics were removed as below and use api hub instead.
 
-## Removed Topics.registerAppProvisioningSteps
+## Removed Topics.registerSearchAdminSettings
 
 Before
 ```ts
 // example in your Registration.ts
-Topics.registerAppProvisioningSteps.publish({ /* */});
+Topics.registerSearchAdminSettings.publish({ /* */});
 
 // example in your resource mnaifest
 Composer
@@ -20,15 +20,15 @@ After changed
 // in Registration.ts
 import { extendApi } from "@omnia/fx";
 
-extendApi(api => omniaApi.fx.ux.appTemplates.steps.registrations, api => {
-    api.registerAppProvisioningStepInfo({/* your node */});
+extendApi(api => api.fx.ux.admin.registration.navigationMenuNode, api => {
+    api.registerNavigationMenuNode({/* your node */});
 });
 
 // in resource manifest remove rule loadIfManifestLoaded if have, use extendApi instead.
 Composer
     .registerManifest(/* guid id */)
     .registerResources({ resourcePaths: ["./Registration.ts"] })
-    .extendApi(api => api.fx.ux.appTemplates.steps.registrations);
+    .extendApi(api => api.fx.ux.admin.registration.navigationMenuNode);
 ```
 
 
