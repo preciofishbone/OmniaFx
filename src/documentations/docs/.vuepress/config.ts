@@ -33,7 +33,7 @@ if (command === "dev") {
 }
 
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
-    debug: true,
+    // debug: true,
     // site config
     lang: 'en-US',
     title: 'OmniaFx',
