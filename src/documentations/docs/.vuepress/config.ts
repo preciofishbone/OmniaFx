@@ -135,7 +135,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
                                 { text: "Apps", link: '/migration-7/workplace/apps' },
                                 { text: "Search", link: '/migration-7/workplace/search' },
                                 { text: "Enterprise Glossary", link: '/migration-7/workplace/enterprise-glossary' },
-                                { text: "Topics", link: '/migration-7/workplace/topics' }
+                                { text: "Topics", link: '/migration-7/workplace/topics' },
+                                { text: "Notification Panel", link: '/migration-7/workplace/notification-panel' }
                             ]
 
                         },
@@ -170,8 +171,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         [
             '@vuepress/docsearch',
             {
-                apiKey: '<API_KEY>',
-                indexName: '<INDEX_NAME>',
+                apiKey: '3f4de78feb5db4cfe4e2d2e3ca0fa91a',
+                indexName: 'dev_omniafx',
                 locales: {
                     '/': {
                         placeholder: 'Search',

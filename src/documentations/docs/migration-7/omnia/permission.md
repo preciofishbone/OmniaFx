@@ -1,4 +1,4 @@
-# Permission was changed as below.
+# Permission
 
 ## InternalUsersOnly changed to InternalUsersExceptRestricted.
 

@@ -1,4 +1,4 @@
-# Topics were removed as below and use api hub instead.
+# Topics
 
 ## Removed Topics.registerSearchAdminSettings
 

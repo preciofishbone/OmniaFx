@@ -1,4 +1,4 @@
-# Store was changed as below.
+# Store
 
 ## Removed require id value in constructor.
 
