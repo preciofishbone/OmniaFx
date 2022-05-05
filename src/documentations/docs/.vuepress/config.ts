@@ -171,6 +171,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         [
             '@vuepress/docsearch',
             {
+                appId: 'HLKACTCVTU',
                 apiKey: '3f4de78feb5db4cfe4e2d2e3ca0fa91a',
                 indexName: 'dev_omniafx',
                 locales: {
