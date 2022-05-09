@@ -1912,10 +1912,10 @@ With permissions, its possible to grant permission for any users to do actions i
 | 8146c17e-ddf5-4020-b96c-298818f9180f  | Omnia.ServicePackageGroup.Admin | Omnia.Cloud.Admin | Have the same permission as Extension Group owner |
 | 585f098e-ecf4-490f-a13c-9cbd662fc377  | Omnia.DeploymentGroup.Admin | Omnia.Cloud.Admin | Have the same permission as Deployment Group owner |
 | 9af39436-e073-40c6-bf01-7ab6cae8a93c  | Omnia.Tenants.Creator | Omnia.Cloud.Admin | Can create a new tenant
-| 6b96e280-e092-4b8f-a721-c4623d4ef14c  | Omnia.Tenant.Admin | Omnia.Cloud.Admin | Have the same permission as Tenant owner |
+| 6b96e280-e092-4b8f-a721-c4623d4ef14c  | Omnia.Tenant.Admin | Omnia.Cloud.Admin | Have the same permission as Tenant owner. Deploy and retract public extensions |
 | 731cd4d6-50aa-4463-bad4-b21d9aceadb2  | Omnia.Cloud.FirstLineSupport | Omnia.Cloud.Admin | List all tenants, enanble/disable redirect error page, and restart extensions/services |
 | 6b99566f-f787-42dd-a216-10ed9e8a8f90  | Omnia.Tenant.FirstLineSupport | Omnia.Tenant.Admin | List authorized tenants, enanble/disable redirect error page, and restart extensions/services |
-| deb1fbb9-ee05-4d45-becd-95643ccb6db2  | Omnia.Tenant.Developer | Omnia.Tenant.Admin | List authorized tenants, Deploy and retract custom extensions |
+| deb1fbb9-ee05-4d45-becd-95643ccb6db2  | Omnia.Tenant.Developer | Omnia.Tenant.Admin | List authorized tenants, Deploy and retract custom extensions that the user is the owner of|
 | 4bb73e4f-c283-4af8-afac-4fa422943975  | Omnia.Localization.Admin | Omnia.Extension.Admin | Can administrate all localization files |
 
 
