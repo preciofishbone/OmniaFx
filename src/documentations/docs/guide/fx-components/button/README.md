@@ -1,9 +1,5 @@
 # Button Component
 
-<script setup>
-import Button from '../../../../../components/button/Button.doc.tsx'
-</script>
-
-<Button></Button>
+<omfx-doc-button></omfx-doc-button>
 
 @[code](../../../.vuepress/components/button/Button.tsx)
