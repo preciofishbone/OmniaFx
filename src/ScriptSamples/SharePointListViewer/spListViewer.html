@@ -1,0 +1,63 @@
+<div id="myListContainer">
+    <v-container fluid>
+        <v-data-iterator :items="items" :sort-by="sortBy" :sort-desc="sortDesc">
+            <div>
+                <v-toolbar dark elevation="10" prominent
+                    src="https://adventrixgroup.sharepoint.com/global-image-bank/PublishingImages/Collaboration-1.jpeg">
+                </v-toolbar>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                        </th>
+                        <th v-for="th in fields" :key="th.id" v-if="th.hidden != true" @click="sort(th.id, th.type)">
+                            {{ th.display }}
+
+                            <v-icon v-if="sortBy == th.id && sortDesc == true" smaller color="darken-2" class="center">
+                                keyboard_arrow_up
+                            </v-icon>
+                            <v-icon v-if="sortBy == th.id && sortDesc == false" smaller color="darken-2" class="center">
+                                keyboard_arrow_down
+                            </v-icon>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in items" :key="item.id">
+                        <td>
+                            <v-icon large color="darken-2" class="float-right">
+                                {{
+                                    (item.contentType.name) == "Document" ? "description" : item.contentType.name.toLowerCase()
+                                }}
+                            </v-icon>
+                        </td>
+                        <td v-for="field in fields" v-if="field.hidden != true" :key="field.id"
+                            :set="c = field.id.split('.')">
+                            <v-list-item-content class="align-end" v-if="field.type == 'link'"
+                                :set="myUrl = c.length <= 1 ? item[c[0]] : c.length == 2 ? item[c[0]][c[1]] : item[c[0]][c[1]][c[2]]">
+                                <v-btn :href="myUrl" depressed elevation="1" small class="multi-line-link-button">
+                                    {{ item.fields.LinkFilename }}
+                                </v-btn>
+                            </v-list-item-content>
+                            <v-list-item-content class="align-end" v-if="field.type == 'datetime'">
+                                {{
+                                    c.length <= 1 ? new Date(item[c[0]]).toDateString() : c.length==2 ? new Date(item[c[0]][c[1]]).toDateString() : new Date(item[c[0]][c[1]][c[2]]).toDateString() 
+                                }} 
+                            </v-list-item-content>
+                            <v-list-item-content class="align-end"
+                                v-if="field.type == 'string' || field.type == 'number'">
+                                {{
+                                    c.length <= 1 ? item[c[0]] : c.length==2 ? item[c[0]][c[1]] : item[c[0]][c[1]][c[2]] 
+                                }}
+                            </v-list-item-content>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mt-2" align="center" justify="center" prominent>
+                <v-spacer></v-spacer>
+            </div>
+        </v-data-iterator>
+    </v-container>
+</div>
