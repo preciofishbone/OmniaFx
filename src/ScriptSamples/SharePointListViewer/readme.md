@@ -4,6 +4,9 @@ A simple SharePoint list viewer script sample using Vue's data-iterator. Any col
 
 Doesn't use data-table which might've been more straightforward, as passing $vuetify context for the constructor is NOT straightforward.
 
+Sample picture below:
+![image](https://user-images.githubusercontent.com/4086860/167875524-c8840ef3-f6ed-46e4-8c7f-7353ea9af99f.png)
+
 ## Installation
 
 1. Create a script block in Omnia
@@ -19,6 +22,8 @@ And you're done!
 - Should work with any list and site as long you have access to it and don't try to fetch columns (fields) that are not supported
 - Sort based on multi-level object values (field name with multiple dots - like createdBy.user.email)
 - Supports display up to 3rd level (like, well - createdBy.user.email)
+- Header photo in the toolbar section - change it in the HTML area
+- "link" -type columns work as download/link buttons
 
 Feel free to tweak as you see fit, this is just a starting point :)
 
