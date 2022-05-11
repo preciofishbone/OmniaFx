@@ -1,0 +1,33 @@
+#myListContainer>* {
+    border-radius: 20px;
+    box-shadow: dimgrey 0px 0px 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+div>a.multi-line-link-button>span.v-btn__content {
+    /* overflow: hidden !important; */
+    width: 50% !important;
+    white-space: normal !important;
+    line-break: auto !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+}
+
+div>a.multi-line-link-button,
+div>a.multi-line-link-button>span.v-btn__content {
+    display: flex !important;
+    justify-content: center;
+    align-content: center;
+    height: 100% !important;
+}
+
+#myListContainer table tr>td {
+    padding: 0.25em !important;
+}
