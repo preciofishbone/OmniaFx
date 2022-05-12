@@ -4,6 +4,7 @@ This sample shows a simple implementation for fetching your events for today usi
 
 Sample picture below:
 
+![MicrosoftTeams-image](https://user-images.githubusercontent.com/4086860/168038932-42947e4d-5358-422f-875f-7e8908524722.png)
 
 ## Installation
 
