@@ -1,0 +1,42 @@
+<div id="myCalendar">
+    <v-container>
+        <v-row justify="space-around">
+            <v-card width="400" dark color="rgba(0,0,0,0.20)">
+                <v-app-bar flat color="rgba(0, 0, 0, 0)">
+                    <v-app-bar-nav-icon color="white"></v-app-bar-nav-icon>
+                    <v-toolbar-title class="text-h6 white--text pl-0">
+                        Messages
+                    </v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-btn color="white" icon>
+                        <v-icon>mdi-dots-vertical</v-icon>
+                    </v-btn>
+                </v-app-bar>
+                <v-card-title class="white--text mt-8">
+                    <v-avatar size="56">
+                        <img alt="user"
+                            src="https://alamedagroup.omniacloud.net/api/users/profilephoto?id=58487133-2218-4157-9e50-a62c51d16f9b">
+                    </v-avatar>
+                    <p class="ml-4" style="color:white; margin-left:10px">
+                        {{user.displayName}}
+                    </p>
+                </v-card-title>
+                <v-card-text>
+                    <div class="font-weight-bold ml-8 mb-2">
+                        Calendar for today
+                    </div>
+                    <v-timeline align-top dense>
+                        <v-timeline-item v-for="ev in events" :key="ev.id" color="white" dark>
+                            <div>
+                                <div class="font-weight-normal">
+                                    <strong>{{ ev.subject }}</strong>
+                                </div>
+                                <div>Start: {{ ev.start.dateTime.substring(16,12) }} </div>
+                            </div>
+                        </v-timeline-item>
+                    </v-timeline>
+                </v-card-text>
+            </v-card>
+        </v-row>
+    </v-container>
+</div>
