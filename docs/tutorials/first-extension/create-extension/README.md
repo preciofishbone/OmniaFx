@@ -30,11 +30,13 @@ omnia dev new extension --name web=HelloOmniaFx.Web
 
 >Tip: The project will be created at the current path running the cmd.
 
+This will create a project, but it won't create .sln file. You can create the solution yourself.
+
 # Step 2. Generate appsettings.local.json file
 
 The appsettings.local.json file contains all information you need to run your extension locally and test the code in a specific tenant.
 
->Note: You need to login to the Omnia Cloud with a valid account. Make sure the tenant you want to generate an app settings file for have dev intent.
+>Note: You need to login to the Omnia Cloud with a valid account. Make sure the tenant you want to generate an app settings file for has **dev intent**.
 
 Get your `tenant-id`
 
@@ -42,7 +44,7 @@ Get your `tenant-id`
 omnia tenants list
 ```
 
-Generate appsettings.local.json
+Generate your appsettings.local.json
 
 ```
 omnia dev appsettings get --path C:\your-hello-omnia-fx-path\extension.json --tenantid {tenant-id}
@@ -54,9 +56,13 @@ Or
 omnia dev appsettings get --path extension.json --tenantid {tenant-id}
 ```
 
+>Note: If you have injectedsettings.json in your root omnia folder, it will override your newly created appsettings file! Rename the file to something other than injectedsettings.json, and you should be good.
+
 # Step 3. Create a new Vue-based Web Component
 
 Create a new folder called `components` under `..\HelloOmniaFx.Web\client\`.
+
+This is important, as only files under the client -folder in your project are bundled, and hence available in the browser.
 
 Inside the newly created folder, run the following cmd:
 
@@ -64,7 +70,7 @@ Inside the newly created folder, run the following cmd:
 omnia dev new vuewebcomponent --name HelloOmniaFxComponent --tokens element=hello-omnia-fx-component
 ```
 
-# Step 4. Open your project in visual studio 2019
+# Step 4. Open your project in visual studio 2019/2022
 
 Open `HelloOmniaFxComponent.tsx` and modify the `render` function 
 
@@ -102,10 +108,13 @@ You can verify the serve status by running the following cmd in the `Omnia Devel
 serve --list
 ```
 
+If you want to see that your manifest is properly loaded after running `serve`, verify that your Local Storage has an entry with name "omnia.fx.localhostinginfo", and a value that contains resourceUrl/apiUrl pointing to your localhost with the same port you ran the `serve` with.
+
 # Step 6. Test the component
 
-## For testing purpose only, you will make the component automatically render itself as full screen on the browser.
+Now it's time to verify your component can be shown properly.
 
+For testing purpose only, you will make the component automatically render itself as full screen on the browser.
 
 Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules:
 
