@@ -150,6 +150,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia tenants cleanup](#omnia-tenants-cleanup)
         - [Example](#example-tenants-cleanup)
         - [Required Parameters](#required-parameters-tenants-cleanup)
+- [Tenant Resources Commands](#tenant-resources-commands)
+  - [omnia tenants resources sqlupdate](#omnia-tenants-resources-sqlupdate)
+        - [Example](#example-tenants-resources-sqlupdate)
+        - [Required Parameters](#required-parameters-tenants-resources-sqlupdate)        
 - [Extension Commands](#extension-commands)
   - [omnia extensions new](#omnia-extensions-new)
         - [Example](#example-extensions-new)
@@ -1202,6 +1206,26 @@ omnia tenants cleanup {tenantid} --oldclusterid {clusterid}
     
 ---
 
+# Tenant Resources Commands
+
+## omnia tenants resources sqlupdate
+
+Update SQL resource config. Need to redeploy and restart the service to make it affects.
+
+##### Example<a id="example-tenants-resources-sqlupdate"></a>
+```
+omnia tenants resources sqlupdate {serviceId} --tenantid {tenantid} --poolsize {poolsize}
+```
+
+##### Required Parameters<a id="required-parameters-tenants-resources-sqlupdate"></a>
+
+| Name               | Description                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| serviceId           | The id of service to update the pool size|
+| -t --tenantid             | The id of the tenant.                                                                                                                                |
+| -p --poolsize |  The new value of pool size .|
+
+---
 # Extension Commands
 
 ## omnia extensions new
