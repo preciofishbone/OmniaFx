@@ -52,7 +52,7 @@
 	if(localStorage.getItem('omnia.fx.localhostinginfo')){
 		__omnia_hosting = JSON.parse(localStorage.getItem('omnia.fx.localhostinginfo'))
 	}
-    window.omnia.configure = {
+    window.omnia.runtime = {
       loadableManifestProvider: {
         getBundleUrl: function (manifest, bundleType, allowLocalHosting) {
 		  
