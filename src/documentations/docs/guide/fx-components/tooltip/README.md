@@ -1,5 +1,8 @@
 # Tooltip Component
+<script setup>
+import Tooltip from '../../../../../components/tooltip/Tooltip.doc.tsx'
+</script>
 
-<omfx-doc-tooltip></omfx-doc-tooltip>
+<Tooltip></Tooltip>
 
 @[code](../../../.vuepress/components/tooltip/Tooltip.tsx)
