@@ -1,0 +1,1 @@
+const t={key:"v-2dd758b3",path:"/guide/fx-components/button/",title:"Button Component",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/fx-components/button/README.md"};export{t as data};

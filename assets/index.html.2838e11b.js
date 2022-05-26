@@ -1,0 +1,1 @@
+const e={key:"v-42d9d426",path:"/guide/fx-components/people-picker/",title:"People Picker Component",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/fx-components/people-picker/README.md"};export{e as data};

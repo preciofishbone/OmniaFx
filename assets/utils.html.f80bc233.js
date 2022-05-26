@@ -1,0 +1,1 @@
+const t={key:"v-435d567f",path:"/migration-7/omnia/utils.html",title:"Utils",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"registerScrollPaging",slug:"registerscrollpaging",children:[]}],filePathRelative:"migration-7/omnia/utils.md"};export{t as data};

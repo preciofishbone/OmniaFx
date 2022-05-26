@@ -1,0 +1,1 @@
+const e={key:"v-101e0f44",path:"/guide/omnia-learn/create-action/",title:"Create a new Action",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/omnia-learn/create-action/README.md"};export{e as data};

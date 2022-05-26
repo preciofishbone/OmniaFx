@@ -1,0 +1,1 @@
+const e={key:"v-169758b2",path:"/guide/create-admin-journey/",title:"Create an Admin Journey",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/create-admin-journey/README.md"};export{e as data};

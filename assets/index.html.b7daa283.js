@@ -1,0 +1,1 @@
+const e={key:"v-22b1c39c",path:"/guide/omnia-learn/create-omnia-block/",title:"Create an Omnia block",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/omnia-learn/create-omnia-block/README.md"};export{e as data};

@@ -1,0 +1,1 @@
+const e={key:"v-8168785e",path:"/guide/omnia-learn/teamwork-app/",title:"Teamwork App",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"App Context issues",slug:"app-context-issues",children:[]}],filePathRelative:"guide/omnia-learn/teamwork-app/README.md"};export{e as data};

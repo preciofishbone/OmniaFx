@@ -1,0 +1,24 @@
+import{_ as n,g as s}from"./app.a39ec552.js";const a={},p=s(`<h1 id="app-instance" tabindex="-1"><a class="header-anchor" href="#app-instance" aria-hidden="true">#</a> App Instance</h1><h2 id="app-route" tabindex="-1"><a class="header-anchor" href="#app-route" aria-hidden="true">#</a> App route</h2><p>Property <strong>appInstanceId</strong> is removed from <strong>AppRoute</strong> and <strong>IAppRoute</strong> models. You should use property <strong>appInstance</strong> instead in the same model.</p><div class="language-typescript ext-ts line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">interface</span> <span class="token class-name">AppRoute</span> <span class="token punctuation">{</span>
+    appInstanceId<span class="token operator">:</span> Guid<span class="token punctuation">;</span> <span class="token comment">// Removed from 7.0</span>
+    appInstance<span class="token operator">:</span> AppInstance<span class="token punctuation">;</span> <span class="token comment">// Use this instead</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">IAppRoute</span> <span class="token punctuation">{</span>
+    appInstanceId<span class="token operator">:</span> Guid<span class="token punctuation">;</span> <span class="token comment">// Removed from 7.0</span>
+    appInstance<span class="token operator">:</span> AppInstance<span class="token punctuation">;</span> <span class="token comment">// Use this instead</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">AppInstance</span> <span class="token punctuation">{</span>
+    id<span class="token operator">:</span> GuidValue<span class="token punctuation">;</span> <span class="token comment">// Same value as appInstanceId</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="app-instance-properties" tabindex="-1"><a class="header-anchor" href="#app-instance-properties" aria-hidden="true">#</a> App instance properties</h2><p>Property <strong>properties</strong> typing in <strong>AppInstanceProperties</strong> model is changed from <strong>any</strong> to <strong>AppInstancePropertiesStorage</strong></p><div class="language-typescript ext-ts line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">interface</span> <span class="token class-name">AppInstanceProperties</span> <span class="token punctuation">{</span>
+    properties<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">;</span> <span class="token comment">// Type any removed from 7.0</span>
+    properties<span class="token operator">:</span> AppInstancePropertiesStorage<span class="token punctuation">;</span> <span class="token comment">// Updated type</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">AppInstancePropertiesStorage</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span>name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">unknown</span><span class="token punctuation">;</span>
+    omniaPath<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    omniaRoutePrefix<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div>`,7);function e(t,o){return p}var c=n(a,[["render",e],["__file","app-instance.html.vue"]]);export{c as default};

@@ -1,0 +1,1 @@
+const t={key:"v-d6e67454",path:"/guide/fx-components/tooltip/",title:"Tooltip Component",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/fx-components/tooltip/README.md"};export{t as data};

@@ -1,0 +1,1 @@
+const t={key:"v-6243a891",path:"/migration-7/workplace/utils.html",title:"Utils",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"truncate",slug:"truncate",children:[]}],filePathRelative:"migration-7/workplace/utils.md"};export{t as data};

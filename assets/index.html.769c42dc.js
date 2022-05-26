@@ -1,0 +1,1 @@
+const e={key:"v-04d4b482",path:"/guide/omnia-learn/omnia-fx-components/",title:"Omnia Fx components",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/omnia-learn/omnia-fx-components/README.md"};export{e as data};

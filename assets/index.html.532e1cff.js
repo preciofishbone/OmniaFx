@@ -1,0 +1,1 @@
+const e={key:"v-3d2f473e",path:"/guide/omnia-learn/create-page-rollup-view/",title:"Create a Page Rollup view",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/omnia-learn/create-page-rollup-view/README.md"};export{e as data};

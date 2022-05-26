@@ -1,0 +1,1 @@
+const e={key:"v-6984bfd2",path:"/migration-7/omnia/tsx.html",title:"Tsx",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Render",slug:"render",children:[]},{level:2,title:"Dynamic Render",slug:"dynamic-render",children:[]}],filePathRelative:"migration-7/omnia/tsx.md"};export{e as data};

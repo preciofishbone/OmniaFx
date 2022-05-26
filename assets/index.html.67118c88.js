@@ -1,0 +1,1 @@
+const e={key:"v-06b98b41",path:"/guide/omnia-learn/swagger/",title:"Swagger",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/omnia-learn/swagger/README.md"};export{e as data};

@@ -1,0 +1,1 @@
+const e={key:"v-15851c16",path:"/guide/omnia-learn/call-apis-externally/",title:"Call Omnia APIs externally",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/omnia-learn/call-apis-externally/README.md"};export{e as data};

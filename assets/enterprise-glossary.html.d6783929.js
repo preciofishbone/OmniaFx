@@ -1,0 +1,1 @@
+const e={key:"v-3c069e18",path:"/migration-7/workplace/enterprise-glossary.html",title:"Enterprise Glossary",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"EnterpriseGlossaryBlade",slug:"enterpriseglossaryblade",children:[]}],filePathRelative:"migration-7/workplace/enterprise-glossary.md"};export{e as data};

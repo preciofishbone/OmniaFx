@@ -1,0 +1,1 @@
+const e={key:"v-625e4d72",path:"/guide/omnia-learn/override-style-of-current-navigation/",title:"Override the style of Current Navigation block",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/omnia-learn/override-style-of-current-navigation/README.md"};export{e as data};

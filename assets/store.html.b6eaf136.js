@@ -1,0 +1,1 @@
+const e={key:"v-20d9e762",path:"/migration-7/omnia/store.html",title:"Store",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Removed require id value in constructor.",slug:"removed-require-id-value-in-constructor",children:[]}],filePathRelative:"migration-7/omnia/store.md"};export{e as data};

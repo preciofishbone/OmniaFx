@@ -1,0 +1,1 @@
+const t={key:"v-24c34718",path:"/migration-7/omnia/layout.html",title:"Layout",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"LayoutItem",slug:"layoutitem",children:[]},{level:2,title:"Block settings reader",slug:"block-settings-reader",children:[]}],filePathRelative:"migration-7/omnia/layout.md"};export{t as data};

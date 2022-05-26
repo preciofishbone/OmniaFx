@@ -1,0 +1,1 @@
+const e={key:"v-d8dada50",path:"/guide/omnia-learn/persistent-disk/",title:"Persistent Disk",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Registration",slug:"registration",children:[]},{level:2,title:"Usage",slug:"usage",children:[]}],filePathRelative:"guide/omnia-learn/persistent-disk/README.md"};export{e as data};

@@ -1,0 +1,1 @@
+const e={key:"v-5e19d18c",path:"/migration-7/wcm/page.html",title:"Page",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"PageWithNavigationCreationRequest",slug:"pagewithnavigationcreationrequest",children:[]}],filePathRelative:"migration-7/wcm/page.md"};export{e as data};

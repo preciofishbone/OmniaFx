@@ -1,0 +1,1 @@
+const e={key:"v-f385f4e8",path:"/migration-7/workplace/topics.html",title:"Topics",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Removed Topics.registerSearchAdminSettings",slug:"removed-topics-registersearchadminsettings",children:[]}],filePathRelative:"migration-7/workplace/topics.md"};export{e as data};

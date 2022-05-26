@@ -1,0 +1,1 @@
+const t={key:"v-50935572",path:"/migration-7/oms/utils.html",title:"Utils",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"navigateToNewState",slug:"navigatetonewstate",children:[]}],filePathRelative:"migration-7/oms/utils.md"};export{t as data};

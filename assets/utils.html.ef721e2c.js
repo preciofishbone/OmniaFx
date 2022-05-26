@@ -1,0 +1,1 @@
+const t={key:"v-3f8cfdb4",path:"/migration-7/wcm/utils.html",title:"Utils",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"ScrollingUtils",slug:"scrollingutils",children:[]}],filePathRelative:"migration-7/wcm/utils.md"};export{t as data};

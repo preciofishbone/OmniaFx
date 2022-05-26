@@ -1,0 +1,1 @@
+const t={key:"v-6d6212f8",path:"/migration-7/omnia/omnia-fx-components.html",title:"Omnia Fx Components",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"migration-7/omnia/omnia-fx-components.md"};export{t as data};

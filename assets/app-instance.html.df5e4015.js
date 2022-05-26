@@ -1,0 +1,1 @@
+const e={key:"v-351d99be",path:"/migration-7/omnia/app-instance.html",title:"App Instance",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"App route",slug:"app-route",children:[]},{level:2,title:"App instance properties",slug:"app-instance-properties",children:[]}],filePathRelative:"migration-7/omnia/app-instance.md"};export{e as data};

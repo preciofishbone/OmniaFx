@@ -1,0 +1,40 @@
+import{_ as n,g as s}from"./app.a39ec552.js";const a={},e=s(`<h1 id="persistent-disk" tabindex="-1"><a class="header-anchor" href="#persistent-disk" aria-hidden="true">#</a> Persistent Disk</h1><h2 id="registration" tabindex="-1"><a class="header-anchor" href="#registration" aria-hidden="true">#</a> Registration</h2><p>To register a persistent disk for your service, add the below code into the <code>omnia.service.ts</code> file</p><div class="language-typescript ext-ts line-numbers-mode"><pre class="language-typescript"><code>
+<span class="token punctuation">.</span><span class="token function">requestPersistentDisk</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    uniqueId<span class="token operator">:</span> <span class="token string">&#39;...&#39;</span> <span class="token comment">//generate a unique guid here</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>To use this persistent disk for local developing, add the below settings under <code>OmniaAppSettings</code> inside your appsettings.local.json file</p><div class="language-json ext-json line-numbers-mode"><pre class="language-json"><code>
+<span class="token property">&quot;PersistentDiskResources&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;put-the-same-unique-guid-here&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;Path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;C:\\\\Whatever\\\\Path\\\\Local&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><blockquote><p>You might want to update .gitignore or use a external path outside your git repo so the local files won&#39;t be commited to the source code.</p></blockquote><h2 id="usage" tabindex="-1"><a class="header-anchor" href="#usage" aria-hidden="true">#</a> Usage</h2><div class="language-csharp ext-cs line-numbers-mode"><pre class="language-csharp"><code>
+<span class="token comment">//inject the settings</span>
+<span class="token class-name">IOptionsMonitor<span class="token punctuation">&lt;</span>OmniaAppSettings<span class="token punctuation">&gt;</span></span> OmniaAppSettings<span class="token punctuation">;</span>
+
+
+<span class="token comment">//then get the persistent disk path</span>
+<span class="token class-name"><span class="token keyword">var</span></span> persistentDiskPath <span class="token operator">=</span> OmniaAppSettings<span class="token punctuation">.</span>CurrentValue<span class="token punctuation">.</span>PersistentDiskResources<span class="token punctuation">[</span><span class="token string">&quot;guid id&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span>Path<span class="token punctuation">;</span>
+
+
+<span class="token comment">//********************************************</span>
+<span class="token comment">// You should share a single persistent disk to different features within a service </span>
+<span class="token comment">// by creating a root folder for each feature </span>
+<span class="token comment">// instead of registering multiple persistent disks.</span>
+<span class="token comment">//********************************************</span>
+
+<span class="token comment">//E.g. </span>
+<span class="token class-name"><span class="token keyword">var</span></span> featureA_PersistentDiskPath <span class="token operator">=</span> Path<span class="token punctuation">.</span><span class="token function">Combine</span><span class="token punctuation">(</span>persistentDiskPath<span class="token punctuation">,</span> <span class="token string">&quot;featureA&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">await</span> File<span class="token punctuation">.</span><span class="token function">WriteAllBytesAsync</span><span class="token punctuation">(</span>featureA_PersistentDiskPath <span class="token operator">+</span> <span class="token string">&quot;doc1.txt&quot;</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">await</span> File<span class="token punctuation">.</span><span class="token function">WriteAllBytesAsync</span><span class="token punctuation">(</span>featureA_PersistentDiskPath <span class="token operator">+</span> <span class="token string">&quot;doc2.txt&quot;</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> featureB_PersistentDiskPath <span class="token operator">=</span> Path<span class="token punctuation">.</span><span class="token function">Combine</span><span class="token punctuation">(</span>persistentDiskPath<span class="token punctuation">,</span> <span class="token string">&quot;featureB&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">await</span> File<span class="token punctuation">.</span><span class="token function">WriteAllBytesAsync</span><span class="token punctuation">(</span>featureB_PersistentDiskPath <span class="token operator">+</span> <span class="token string">&quot;img1.png&quot;</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">await</span> File<span class="token punctuation">.</span><span class="token function">WriteAllBytesAsync</span><span class="token punctuation">(</span>featureB_PersistentDiskPath <span class="token operator">+</span> <span class="token string">&quot;img2.png&quot;</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div>`,9);function t(p,o){return e}var i=n(a,[["render",t],["__file","index.html.vue"]]);export{i as default};

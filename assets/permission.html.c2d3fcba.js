@@ -1,0 +1,1 @@
+const e={key:"v-9756c1da",path:"/migration-7/omnia/permission.html",title:"Permission",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"InternalUsersOnly changed to InternalUsersExceptRestricted.",slug:"internalusersonly-changed-to-internalusersexceptrestricted",children:[]}],filePathRelative:"migration-7/omnia/permission.md"};export{e as data};

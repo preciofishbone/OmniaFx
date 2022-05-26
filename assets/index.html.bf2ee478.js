@@ -1,0 +1,1 @@
+const e={key:"v-60945ae4",path:"/guide/omnia-learn/manifest-load-rule/",title:"Manifest custom load rule",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/omnia-learn/manifest-load-rule/README.md"};export{e as data};

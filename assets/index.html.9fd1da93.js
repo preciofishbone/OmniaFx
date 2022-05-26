@@ -1,0 +1,1 @@
+const e={key:"v-0f0887b7",path:"/guide/omnia-learn/activate-feature/",title:"Activate a Feature",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Ensure proper context in feature action",slug:"ensure-proper-context-in-feature-action",children:[]}],filePathRelative:"guide/omnia-learn/activate-feature/README.md"};export{e as data};

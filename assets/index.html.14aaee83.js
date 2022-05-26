@@ -1,0 +1,1 @@
+const e={key:"v-8b46e8c2",path:"/guide/create-timer-job/",title:"Create a Timer Job",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"guide/create-timer-job/README.md"};export{e as data};

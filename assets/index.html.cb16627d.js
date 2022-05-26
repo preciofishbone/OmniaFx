@@ -1,0 +1,1 @@
+const e={key:"v-30591f55",path:"/guide/omnia-learn/identity/",title:"Identity (User/Group)",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Class/Model",slug:"class-model",children:[]},{level:2,title:"Services",slug:"services",children:[]}],filePathRelative:"guide/omnia-learn/identity/README.md"};export{e as data};
