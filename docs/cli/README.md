@@ -127,6 +127,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-update-depsecurity)
         - [Required Parameters](#required-parameters-update-depsecurity)
         - [Optional Parameters](#optional-parameters-update-depsecurity)
+  - [omnia tenants update status](#omnia-tenants-update-status)
+        - [Example](#example-update-status)
+        - [Required Parameters](#required-parameters-update-status)
+        - [Optional Parameters](#optional-parameters-update-status)
   - [omnia tenants update appsettings](#omnia-tenants-update-appsettings)
         - [Example](#example-appsettings-update)
         - [Required Parameters](#required-parameters-update-appsettings)
@@ -915,9 +919,9 @@ omnia tenants list {tenantid}
 
 omnia tenants list --filter name
 
-omnia tenants list --filter name -mwide
+omnia tenants list --filter dns -mwide
  
-omnia tenants list --filter name -wide
+omnia tenants list --filter contactname -wide
 
 ```
 
@@ -930,7 +934,7 @@ No required parameters
 | Name        | Description             |
 | ----------- | ----------------------- |
 | -a --all    | Get all tenants         |
-| -f --filter | Filters tenants by name |
+| -f --filter | Filters tenants by all displayed column |
 | -m --mwide  | Show more infomation in the list    |
 | -w --wide   | Show all information in the list   |
 | --output json | Return data as json   |
@@ -1060,6 +1064,27 @@ omnia tenants update depsecurity {tenantid} --level {level}
 
 
 ##### Optional Parameters<a id="optional-parameters-update-depsecurity"></a>
+
+No optional parameters
+
+---
+
+## omnia tenants update status
+
+Updates status for a tenant. With suspended status, all services of the tenants scale down to 0. By contrast, scaling up to 1 if the tenant re-active
+##### Example<a id="example-update-status"></a>
+```
+omnia tenants update status {tenantid} --value {status}
+```
+
+##### Required Parameters<a id="required-parameters-update-status"></a>
+
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --status           | The new status of tenant (Active, Suspended)                   |
+
+
+##### Optional Parameters<a id="optional-parameters-update-status"></a>
 
 No optional parameters
 
