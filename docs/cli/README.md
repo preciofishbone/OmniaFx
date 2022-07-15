@@ -324,8 +324,20 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
          - [Example](#example-elasticpools-delete)
          - [Required Parameters](#required-parameters-elasticpools-ensure)
          - [Optional Parameters](#optional-parameters-elasticpools-ensure)     
-
-
+- [Reporting Commands](#reporting-commands)
+   - [omnia reports new](#omnia-reports-new)
+         - [Example](#example-reports-new)
+         - [Required Parameters](#required-parameters-reports-new)
+         - [Optional Parameters](#optional-parameters-reports-new)  
+   - [omnia reports list](#omnia-elasticpools-list)
+         - [Example](#example-reports-list)
+         - [Required Parameters](#required-parameters-reports-list)
+         - [Optional Parameters](#optional-parameters-reports-list)
+   - [omnia reports delete](#omnia-reports-delete)
+         - [Example](#example-reports-delete)
+         - [Required Parameters](#required-parameters-reports-delete)
+         - [Optional Parameters](#optional-parameters-reports-delete)
+ 
 <!-- /TOC -->
 
 ---
@@ -2304,6 +2316,75 @@ omnia elasticpools ensure --providerid {providerid} --name {name} --status {name
 
 
 ##### Optional Parameters<a id="optional-parameters-elasticpools-ensure"></a>
+
+No required parameters
+
+---
+
+# Reporting Commands
+
+With elastic pools, it's possible to manage the list of active elastic pools. This helps the database deployment can pick the correct elastic pool for a new database.  If there are more than one active pools, the most empty space pool should be picked up.
+## omnia reports new
+
+Schedule a new report.
+
+##### Example<a id="example-reports-new"></a>
+```
+omnia reports new --targetId {TenantId} --start {StartDate} --end "{EndDate}" --type {ReportType}
+
+```
+##### Required Parameters<a id="required-parameters-reports-new"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --targetId   | The tenatn id that report should target to.|
+| --start        | The start time of filter in the report.  |
+| --end        | The end time of filter in the report.  |
+| --type        | The report type (UserTenantAccess).  |
+
+
+##### Optional Parameters<a id="optional-parameters-reports-new"></a>
+No optional parameters
+
+## omnia reports list
+
+List all reports.
+
+##### Example<a id="example-reports-list"></a>
+```
+omnia reports list {reportId}
+
+```
+##### Required Parameters<a id="required-parameters-reports-list"></a>
+
+No required parameters
+
+##### Optional Parameters<a id="optional-parameters-reports-list"></a>
+
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --reportsId |  The report id needs to view detail.              |
+
+
+## omnia reports delete
+
+Delete an report in the Cosmos.
+
+##### Example<a id="example-reports-delete"></a>
+```
+omnia reports delete {reportId}
+
+```
+##### Required Parameters<a id="required-parameters-reports-delete"></a>
+
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --reportId | The report id needs to be deleted.                |
+
+
+##### Optional Parameters<a id="optional-parameters-reports-delete"></a>
 
 No required parameters
 
