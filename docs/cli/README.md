@@ -2323,21 +2323,20 @@ No required parameters
 
 # Reporting Commands
 
-With elastic pools, it's possible to manage the list of active elastic pools. This helps the database deployment can pick the correct elastic pool for a new database.  If there are more than one active pools, the most empty space pool should be picked up.
-## omnia reports new
+With reporting, it's possible to manage the list of reports. This helps register a new report for a tenant. A daily timer job will pick up all pending reports and generate new report files.## omnia reports new
 
 Schedule a new report.
 
 ##### Example<a id="example-reports-new"></a>
 ```
-omnia reports new --targetId {TenantId} --start {StartDate} --end "{EndDate}" --type {ReportType}
+omnia reports new --targetId {TenantId} --start {StartDate} --end {EndDate} --type {ReportType}
 
 ```
 ##### Required Parameters<a id="required-parameters-reports-new"></a>
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
-| --targetId   | The tenatn id that report should target to.|
+| --targetId   | The tenant id that report should target to.|
 | --start        | The start time of filter in the report.  |
 | --end        | The end time of filter in the report.  |
 | --type        | The report type (UserTenantAccess).  |
