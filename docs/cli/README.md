@@ -2323,7 +2323,8 @@ No required parameters
 
 # Reporting Commands
 
-With reporting, it's possible to manage the list of reports. This helps register a new report for a tenant. A daily timer job will pick up all pending reports and generate new report files.## omnia reports new
+With reporting, it's possible to manage the list of reports. This helps register a new report for a tenant. A daily timer job will pick up all pending reports and generate new report files.
+## omnia reports new
 
 Schedule a new report.
 
