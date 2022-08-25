@@ -2337,10 +2337,10 @@ omnia reports new --targetId {TenantId} --start {StartDate} --end {EndDate} --ty
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
-| --targetId   | The tenant id that report should target to.|
+| --targetId   | The tenant/cluster id that report should target to. It's not required for UserTenantAccessByCloud|
 | --start        | The start time of filter in the report.  |
 | --end        | The end time of filter in the report.  |
-| --type        | The report type (UserTenantAccess).  |
+| --type        | The report type (UserTenantAccess, UserTenantAccessByCluster, UserTenantAccessByCloud).  |
 
 
 ##### Optional Parameters<a id="optional-parameters-reports-new"></a>
