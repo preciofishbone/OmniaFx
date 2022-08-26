@@ -1731,7 +1731,7 @@ It's possible to manage certificates for tenants.
 
 ## omnia certs export
 
-Export a .cer file of the .pfx.
+Export .cer and .key files from a .pfx or .cer file with a private key.
 
 ##### Example<a id="example-certs-export"></a>
 ```
@@ -1742,8 +1742,8 @@ omnia certs export --path {{pathToPfx}} --password {{password}}
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
-| --path    | The location of certificate (.pfx) file     |
-| --password | The password to generate the certs |
+| --path    | The location of certificate (.pfx or .cer) file     |
+| --password | The password for the certificate file |
 
 ##### Optional Parameters<a id="optional-parameters-certs-list"></a>
 
@@ -1755,7 +1755,7 @@ omnia certs export --path {{pathToPfx}} --password {{password}}
 
 ## omnia certs add
 
-Add a new certificate for a tenant.
+Add a new certificate for a tenant (used for Custom Domain functionality).
 
 ##### Example<a id="example-certs-add"></a>
 ```
@@ -1765,7 +1765,7 @@ omnia certs add --cert "C:\Certs\wildcard_preciofishbone_se.cer" --key "C:\Certs
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
-| --cert | The location for certificate (.cer) file |
+| --cert | The location for certificate (.cer or .crt) file |
 | --key        | The location for certificate (.key) file               |                    |
 | --tenantid    | The Id of tenant that needs a new certificate      |
 
@@ -1795,7 +1795,7 @@ omnia certs list --tenantid {tenantid}
 
 ## omnia certs update
 
-Update a certificate of a tenant.
+Update a Omnia Cloud certificate.
 
 ##### Example<a id="example-certs-update"></a>
 ```
@@ -1811,9 +1811,17 @@ omnia certs update --id {certificateid} --cert "C:\Certs\wildcard_preciofishbone
 
 ---
 
+## omnia certs cloudupdate
+
+This seems to do pretty much exactly the same thing as omnia certs update.
+
+---
+
 ## omnia domain update
 
-Map a domain with added certificate. 
+Map a domain with added certificate. The domain you use must already be uploaded with omnia certs add, the private key (.key) needs to be cleartext RSA key with no UTF-8 BOM encoding, and the certificate file (.cer or .crt) has to actually be PEM-compatible (base64 translation of the x509 ASN.1 keys).
+
+It's a bit confusing that you can, in fact, upload incompatible certificates by using omnia certs add. But you'll get some errors about missing PEM details from AKS if the certificate is not valid.
 
 ##### Example<a id="example-domain-update"></a>
 ```
@@ -1828,6 +1836,25 @@ omnia domain update --name customer.com --certid {certificateid} --keyid {keyid}
 | --certid    | The Id of certificate added     |
 | --keyid    | The Id of key added|
 | --tenantid | The Id of tenant that certificate associated |
+
+---
+
+## omnia domain dnspreview
+
+Generate DNS entries for the custom domain (should output a bunch of CNAME rows you or the customer can copy-paste to their DNS config).
+
+##### Example<a if="example-domain-dnspreview"></a>
+
+```
+omnia domain dnspreview -d intranet.contoso.com -t {tenantid}
+```
+
+##### Required Parameters<a id="required-parameters-domain-dnspreview"></a>
+
+| Name      | Description      |
+| --------- | ---------------- |
+| -d|--domain | The custom domain, like intranet.contoso.com |
+| -t|--tenantid | The id (Guid) of the tenant you're generating the values for |
 
 ---
 
