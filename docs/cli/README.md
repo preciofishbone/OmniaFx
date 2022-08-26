@@ -247,9 +247,13 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia certs update](#omnia-certs-update)
         - [Example](#example-certs-update)
         - [Required Parameters](#required-parameters-certs-update)  
+  - [omnia certs cloudupdate](#omnia-certs-cloudupdate)
   - [omnia domain update](#omnia-domain-update)
         - [Example](#example-domain-update)
         - [Required Parameters](#required-parameters-domain-update)
+  - [omnia domain dnspreview](#omnia-domain-dnspreview)
+        - [Example](#example-domain-dnspreview)
+        - [Required Parameters](#required-parameters-domain-dnspreview)
   - [omnia certs delete](#omnia-certs-delete)
         - [Example](#example-certs-delete)
         - [Required Parameters](#required-parameters-certs-delete)
@@ -1824,6 +1828,7 @@ Map a domain with added certificate. The domain you use must already be uploaded
 It's a bit confusing that you can, in fact, upload incompatible certificates by using omnia certs add. But you'll get some errors about missing PEM details from AKS if the certificate is not valid.
 
 ##### Example<a id="example-domain-update"></a>
+
 ```
 omnia domain update --name customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}
 ```
