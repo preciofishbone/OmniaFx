@@ -248,6 +248,8 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-certs-update)
         - [Required Parameters](#required-parameters-certs-update)  
   - [omnia certs cloudupdate](#omnia-certs-cloudupdate)
+        - [Example](#example-certs-cloudupdate)
+        - [Required Parameters](#required-parameters-certs-cloudupdate)   
   - [omnia domain update](#omnia-domain-update)
         - [Example](#example-domain-update)
         - [Required Parameters](#required-parameters-domain-update)
@@ -1799,7 +1801,7 @@ omnia certs list --tenantid {tenantid}
 
 ## omnia certs update
 
-Update a Omnia Cloud certificate.
+Update a Omnia Cloud certificate. This looks to be the same as omnia certs cloudupdate, but without the part where Orchestrator tells all AKS clusters to update their certificates.
 
 ##### Example<a id="example-certs-update"></a>
 ```
@@ -1817,7 +1819,24 @@ omnia certs update --id {certificateid} --cert "C:\Certs\wildcard_preciofishbone
 
 ## omnia certs cloudupdate
 
-This seems to do pretty much exactly the same thing as omnia certs update.
+Update certificates used by Omnia and AKS in AKV and AKS based on a .cer and .key file. Doesn't care about actual certificate name or key - accepts 2 hardcoded values for name, either OmniaCloudNetCert or OmniaAzureAdCert.
+
+##### Example<a id="example-certs-cloudupdate"></a>
+```
+omnia certs cloudupdate "OmniaCloudNetCert" --path "C:\projects\omniacloud.net.cer" --password "ZKh4GgjQnBVVIGfXJ7kz1DalEe0Lmnqr5ib84CT2936WFvHtNc" --key "C:\projects\omniacloud.net.key"  --code "22-05-10-44"
+```
+##### Required Parameters<a id="required-parameters-certs-cloudupdate"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --id    | The Id of certificate needs to update     |
+| --cert | The location for certificate (.cer) file |
+| --key        | The location for certificate (.key) file       |  
+| -- code    | You know. |
+
+#### Notes
+
+This'll first update the values in Azure Key Vault, and then instruct Orchestrator to make all AKS clusters update their Secret called OmniaCloud with a new value from the Key Vault.
 
 ---
 
