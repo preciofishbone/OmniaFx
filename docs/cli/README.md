@@ -145,6 +145,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia tenants get ai](#omnia-tenants-get-ai)
         - [Example](#example-get-ai)
         - [Required Parameters](#required-parameters-get-ai) 
+  - [omnia tenants get history](#omnia-tenants-get-history)
+        - [Example](#example-get-history)
+        - [Required Parameters](#required-parameters-get-history) 
+        - [Optional Parameters](#optional-parameters-get-history)
   - [omnia tenants move](#omnia-tenants-move)
         - [Example](#example-tenants-move)
         - [Required Parameters](#required-parameters-tenants-move)
@@ -1188,6 +1192,30 @@ omnia tenants get ai {tenantid}
 
 No required parameters
     
+---
+
+## omnia tenants get history
+
+Get deployemnt versions history of a tenant in a period of time
+
+##### Example<a id="example-get-history"></a>
+```
+omnia tenants get history --tenantid {tenantid} --startDate {startDate} --endDate {endDate}
+```
+
+##### Required Parameters<a id="required-parameters-get-history"></a>
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| --tenantid | The tenantid of the tenant to get history |
+        
+##### Optional Parameters<a id="optional-parameters-get-appsettings"></a>
+
+| Name     | Description                                          |
+| -------- | ---------------------------------------------------- |
+| --startDate| the start date of deployemnt versions. (in past 3 months by default) |
+| --endDate| the start end of deployemnt versions. (the current date by default) |
+
 ---
 
 ## omnia tenants move
