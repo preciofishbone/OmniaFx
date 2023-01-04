@@ -28,7 +28,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <DependentUpon>appsettings.json</DependentUpon>
     </Content>
-    <None Include="gulpfile.esm.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,7 +45,7 @@
     <ItemGroup>
       <AppRoot Include="approot\**" />
     </ItemGroup>
-    <Exec Command="npm run omnia-after-build" ContinueOnError="false"></Exec>
+    <Exec Command="npm run build" ContinueOnError="false"></Exec>
     <Copy SourceFiles="@(AppRoot)" DestinationFolder="$(OutDir)/approot/%(RecursiveDir)" />
   </Target>
   <Target Name="OmniaPublish" AfterTargets="ComputeFilesToPublish">
