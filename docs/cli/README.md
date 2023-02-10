@@ -191,6 +191,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-extensions-retract)
         - [Required Parameters](#required-parameters-extensions-retract)
         - [Optional Parameters](#optional-parameters-extensions-retract)
+  - [omnia extensions revert](#omnia-extensions-revert)
+        - [Example](#example-extensions-revert)
+        - [Required Parameters](#required-parameters-extensions-revert)
+        - [Optional Parameters](#optional-parameters-extensions-revert)
 - [Extension Groups Commands](#extension-groups-commands)
   - [omnia extgroups new](#omnia-extgroups-new)
         - [Example](#example-extgroups-new)
@@ -1490,6 +1494,39 @@ omnia extensions retract {extensionId} --tenantid  {tenantId}
 | --clusterid | Cluster id that the extension being retract  |
 
 ---
+
+
+## omnia extensions revert
+
+Revert extension versions and <b>databases</b> in a tenant. It only supports reverting to one previous version within 7 days since it had been installed.
+
+##### Example<a id="example-extensions-revert"></a>
+```
+omnia extensions revert {extensionId:extensionVersion} --tenantid  {tenantId} --code yy-dd-MM-m
+
+```
+
+##### Required Parameters<a id="required-parameters-extensions-retract"></a>
+
+| Name       | Description               |
+| ---------- | ------------------------- |
+| extensionId | The extensionId to revert |
+| extensionVersion | The version of extension |
+| --tenantId |The tenant Id of the extension |
+| --code    | The code needs to be entered (format: yy-dd-MM-m) |
+    
+
+##### Optional Parameters<a id="optional-parameters-extensions-retract"></a>
+
+| Name      | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| extensionGroupId  | The extension group Id to revert |
+| -w --wait| Waiting times between those extensions in seconds. In case using the extension group  |
+| -r --restart| Auto restart the tenant after deploying (true is default) |
+
+
+---
+
 
 # Extension Groups Commands
 
