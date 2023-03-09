@@ -138,6 +138,12 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia tenants update ai](#omnia-tenants-update-ai)
         - [Example](#example-update-ai)
         - [Required Parameters](#required-parameters-update-ai)
+  - [omnia tenants update envVar set](#omnia-tenants-update-envVar-set)
+        - [Example](#example-update-envVar-set)
+        - [Required Parameters](#required-parameters-update-envVar-set)
+  - [omnia tenants update envVar remove](#omnia-tenants-update-envVar-remove)
+        - [Example](#example-update-envVar-remove)
+        - [Required Parameters](#required-parameters-update-envVar-remove)
   - [omnia tenants get appsettings](#omnia-tenants-get-appsettings)
         - [Example](#example-appsettings-get)
         - [Required Parameters](#required-parameters-get-appsettings)
@@ -1155,6 +1161,46 @@ omnia tenants update ai {tenantid}
 ##### Required Parameters<a id="required-parameters-update-ai"></a>
 
 No required parameters
+
+---
+
+## omnia tenants update envVar set
+
+Set an environment variable in a specific service for a specific tenant
+(Note It is necessary to redeploy the extension consisting of the service to make it applied. And it will be kept until executing "omnia tenants update envVar remove")
+
+##### Example<a id="example-update-envVar-set"></a>
+```
+omnia tenants update envVar set --tenantid {tenantid} --serviceid {serviceid} --name {name} --value {value}
+```
+
+##### Required Parameters<a id="required-parameters-update-envVar-set"></a>
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| --tenantid | The tenantid of the tenant to set environment variable |
+| --serviceid| Id of the service owning the environment variable      |
+| --name| the environment variable name     |
+| --value| the environment variable value     |
+
+---
+
+## omnia tenants update envVar remove
+
+Remove an environment variable from a specific service for a specific tenant
+
+##### Example<a id="example-update-envVar-remove"></a>
+```
+omnia tenants update envVar remove --tenantid {tenantid} --serviceid {serviceid} --name {name}
+```
+
+##### Required Parameters<a id="required-parameters-update-envVar-remove"></a>
+
+| Name          | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| --tenantid | The tenantid of the tenant to set environment variable |
+| --serviceid| Id of the service owning the environment variable      |
+| --name| the environment variable name     |
 
 ---
 
