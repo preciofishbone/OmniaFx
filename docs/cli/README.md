@@ -254,6 +254,9 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia certs add](#omnia-certs-add)
         - [Example](#example-certs-add)
         - [Required Parameters](#required-parameters-certs-add)
+  - [omnia certs adddigicert](#omnia-certs-add)
+        - [Example](#example-certs-adddigicert)
+        - [Required Parameters](#required-parameters-certs-adddigicert)
   - [omnia certs list](#omnia-certs-list)
         - [Example](#example-certs-list)
         - [Required Parameters](#required-parameters-certs-list) 
@@ -264,6 +267,9 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia certs cloudupdate](#omnia-certs-cloudupdate)
         - [Example](#example-certs-cloudupdate)
         - [Required Parameters](#required-parameters-certs-cloudupdate)   
+  - [omnia certs cloudupdatedigicert](#omnia-certs-cloudupdatedigicert)
+        - [Example](#example-certs-cloudupdatedigicert)
+        - [Required Parameters](#required-parameters-certs-cloudupdatedigicert)   
   - [omnia domain update](#omnia-domain-update)
         - [Example](#example-domain-update)
         - [Required Parameters](#required-parameters-domain-update)
@@ -1103,17 +1109,18 @@ No optional parameters
 
 ## omnia tenants update status
 
-Updates status for a tenant. With suspended status, all services of the tenants scale down to 0. By contrast, scaling up to 1 if the tenant re-active
+Updates status for a tenant. With suspended status, all services of the tenants scale down to 0. By contrast, scaling up to 1 if the tenant re-active. 
 ##### Example<a id="example-update-status"></a>
 ```
-omnia tenants update status {tenantid} --value {status}
+omnia tenants update status {tenantid} --value {status} --code {yy-dd-MM-m}
 ```
 
 ##### Required Parameters<a id="required-parameters-update-status"></a>
 
 | Name              | Description                                        |
 | ----------------- | -------------------------------------------------- |
-| --status           | The new status of tenant (Active, Suspended)                   |
+| --status           | The new status of tenant (Active, Suspended, ReadOnly)   |
+| --code    | You know. |
 
 
 ##### Optional Parameters<a id="optional-parameters-update-status"></a>
@@ -1888,6 +1895,29 @@ omnia certs add --cert "C:\Certs\wildcard_preciofishbone_se.cer" --key "C:\Certs
 
 ---
 
+
+## omnia certs adddigicert
+
+Add a new certificate for a tenant from DigiCert (used for Custom Domain functionality).
+
+##### Example<a id="example-certs-adddigicert"></a>
+```
+omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --digicertid {digicertid} --renewbefore 30 --apikey {apikey} --tenantid {tenantid}
+```
+##### Required Parameters<a id="required-parameters-certs-adddigicert"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --accountid | The Account id in Degicert |
+| --orgid        | The Organization  id in Degicert     |  
+| --digicertid        | The Certificate id in Degicert (does not required if you input Order Id)    |  
+| --orderid        | The Order id of the certificate in Degicert (does not required if you input DigiCert Id)     |  
+| --renewbefore     | A Rule for renewing  at number of days before expiry     |  
+| --apikey        | The Api key for a request to Digicert api   |                    |
+| --tenantid    | The Id of tenant that needs a new certificate      |
+
+---
+
 ## omnia certs list
 
 List all certificates of a tenant.
@@ -1951,6 +1981,33 @@ This'll first update the values in Azure Key Vault, and then instruct Orchestrat
 
 ---
 
+## omnia certs cloudupdatedigicert
+
+Update certificates used by Omnia and AKS in AKV and AKS based on a Digital Trust knowns as Digicert.com. This only support to update OmniaCloudNetCert.
+
+##### Example<a id="example-certs-cloudupdatedigicert"></a>
+```
+omnia certs cloudupdatedigicert --name {name} --accountid {accountid} --orgid {orgid} --digicertid {digicertid} --renewbefore 30 --apikey {apikey} --code "23-03-23-44"
+```
+##### Required Parameters<a id="required-parameters-certs-cloudupdatedigicert"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --name    | The Name of certificate and issuer     |
+| --accountid | The Account id in Degicert |
+| --orgid        | The Organization  id in Degicert     |  
+| --digicertid        | The Certificate id in Degicert (does not required if you input Order Id)    |  
+| --orderid        | The Order id of the certificate in Degicert (does not required if you input DigiCert Id)     |  
+| --renewbefore     | A Rule for renewing  at number of days before expiry     |  
+| --apikey        | The Api key for a request to Digicert api   |  
+| --code    | You know. |
+
+#### Notes
+
+This'll first import the pfx to Azure Key Vault, and then export it to .cer and .key which are being used to instruct Orchestrator to make all AKS clusters update their Secret called OmniaCloud with a new value from the Key Vault.
+
+---
+
 ## omnia domain update
 
 Map a domain with added certificate. The domain you use must already be uploaded with omnia certs add, the private key (.key) needs to be cleartext RSA key with no UTF-8 BOM encoding, and the certificate file (.cer or .crt) has to actually be PEM-compatible (base64 translation of the x509 ASN.1 keys).
@@ -1969,7 +2026,7 @@ omnia domain update --name customer.com --certid {certificateid} --keyid {keyid}
 | ------------- | ----------------------------------------------------- |
 | --name    | The domain name needs to add certificate     |
 | --certid    | The Id of certificate added     |
-| --keyid    | The Id of key added|
+| --keyid    | The Id of key added (does not require if using DigiCert)  |
 | --tenantid | The Id of tenant that certificate associated |
 
 ---
