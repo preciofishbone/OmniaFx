@@ -258,8 +258,7 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-certs-adddigicert)
         - [Required Parameters](#required-parameters-certs-adddigicert)
   - [omnia certs list](#omnia-certs-list)
-        - [Example](#example-certs-list)
-        - [Required Parameters](#required-parameters-certs-list) 
+        - [Example](#example-certs-list)        
         - [Optional Parameters](#optional-parameters-certs-list)
   - [omnia certs update](#omnia-certs-update)
         - [Example](#example-certs-update)
@@ -267,9 +266,9 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia certs cloudupdate](#omnia-certs-cloudupdate)
         - [Example](#example-certs-cloudupdate)
         - [Required Parameters](#required-parameters-certs-cloudupdate)   
-  - [omnia certs cloudupdatedigicert](#omnia-certs-cloudupdatedigicert)
-        - [Example](#example-certs-cloudupdatedigicert)
-        - [Required Parameters](#required-parameters-certs-cloudupdatedigicert)   
+  - [omnia certs deploy](#omnia-certs-deploy)
+        - [Example](#example-certs-deploy)
+        - [Required Parameters](#required-parameters-certs-deploy)   
   - [omnia domain update](#omnia-domain-update)
         - [Example](#example-domain-update)
         - [Required Parameters](#required-parameters-domain-update)
@@ -279,6 +278,7 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia certs delete](#omnia-certs-delete)
         - [Example](#example-certs-delete)
         - [Required Parameters](#required-parameters-certs-delete)
+        - [Optional Parameters](#optional-parameters-certs-delete)
 - [Localization Commands](#Localization-commands)  
   - [omnia loc upload](#omnia-loc-upload)
         - [Example](#example-loc-upload)
@@ -1898,7 +1898,7 @@ omnia certs add --cert "C:\Certs\wildcard_preciofishbone_se.cer" --key "C:\Certs
 
 ## omnia certs adddigicert
 
-Add a new certificate for a tenant from DigiCert (used for Custom Domain functionality).
+Add a new certificate for a tenant/ Cloud from DigiCert (used for Custom Domain functionality).
 
 ##### Example<a id="example-certs-adddigicert"></a>
 ```
@@ -1908,34 +1908,35 @@ omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
+| --name | Name of certificate |
 | --accountid | The Account id in Degicert |
 | --orgid        | The Organization  id in Degicert     |  
 | --digicertid        | The Certificate id in Degicert (does not required if you input Order Id)    |  
 | --orderid        | The Order id of the certificate in Degicert (does not required if you input DigiCert Id)     |  
 | --renewbefore     | A Rule for renewing  at number of days before expiry     |  
-| --apikey        | The Api key for a request to Digicert api   |                    |
-| --tenantid    | The Id of tenant that needs a new certificate      |
+| --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault |                    |
+| --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
+
+#### Notes
+
+This'll first import the pfx to Azure Key Vault, and then export it to .cer and .key which are being used to instruct Orchestrator to make all AKS clusters update their Secret called OmniaCloud with a new value from the Key Vault.
 
 ---
 
 ## omnia certs list
 
-List all certificates of a tenant.
+List all certificates of a tenant/ Cloud.
 
 ##### Example<a id="example-certs-list"></a>
 ```
 omnia certs list --tenantid {tenantid}
 ```
-##### Required Parameters<a id="required-parameters-certs-list"></a>
-
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --tenantid    | The Id of tenant     |
 
 ##### Optional Parameters<a id="optional-parameters-certs-list"></a>
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
+| --tenantid    | The Id of tenant     |
 | --output json | Return data as json   |
 
 ---
@@ -1958,7 +1959,7 @@ omnia certs update --id {certificateid} --cert "C:\Certs\wildcard_preciofishbone
 
 ---
 
-## omnia certs cloudupdate
+## omnia certs cloudupdate (deprecated, the new ways is "omnia certs deploy" instead)
 
 Update certificates used by Omnia and AKS in AKV and AKS based on a .cer and .key file. Doesn't care about actual certificate name or key - accepts 2 hardcoded values for name, either OmniaCloudNetCert or OmniaAzureAdCert.
 
@@ -1981,30 +1982,27 @@ This'll first update the values in Azure Key Vault, and then instruct Orchestrat
 
 ---
 
-## omnia certs cloudupdatedigicert
+## omnia certs deploy
 
-Update certificates used by Omnia and AKS in AKV and AKS based on a Digital Trust knowns as Digicert.com. This only support to update OmniaCloudNetCert.
+Roll out certificates used by Omnia and AKS in AKV and AKS based on a Digital Trust knowns as Digicert.com or files.
 
-##### Example<a id="example-certs-cloudupdatedigicert"></a>
+##### Example<a id="example-certs-deploy"></a>
 ```
-omnia certs cloudupdatedigicert --name {name} --accountid {accountid} --orgid {orgid} --digicertid {digicertid} --renewbefore 30 --apikey {apikey} --code "23-03-23-44"
+omnia certs deploy --certid {certid} --type {type} --cert {cert} --key {key} --code "23-03-23-44"
 ```
-##### Required Parameters<a id="required-parameters-certs-cloudupdatedigicert"></a>
+##### Required Parameters<a id="required-parameters-certs-deploy"></a>
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
-| --name    | The Name of certificate and issuer     |
-| --accountid | The Account id in Degicert |
-| --orgid        | The Organization  id in Degicert     |  
-| --digicertid        | The Certificate id in Degicert (does not required if you input Order Id)    |  
-| --orderid        | The Order id of the certificate in Degicert (does not required if you input DigiCert Id)     |  
-| --renewbefore     | A Rule for renewing  at number of days before expiry     |  
-| --apikey        | The Api key for a request to Digicert api   |  
+| --certid | Cloud certificate id. Only when using DigiCert  |
+| --type        | The certificate (AzureAd,OmniaCloud )     |  
+| --cert | The location for certificate (.cer) file  |
+| --key        | The location for certificate (.key) file       |  
 | --code    | You know. |
 
 #### Notes
 
-This'll first import the pfx to Azure Key Vault, and then export it to .cer and .key which are being used to instruct Orchestrator to make all AKS clusters update their Secret called OmniaCloud with a new value from the Key Vault.
+There are two ways to deploy a certificate. Deploy from a DigiCert that has already been added or from .cer and .key files. 
 
 ---
 
@@ -2063,7 +2061,12 @@ omnia certs delete {certificateid} --tenantid {tenantid}
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | certificateid    | The Id of certificate needs to delete     |
-| --tenantid | The Id of tenant that certificate associated |
+
+##### Optional Parameters<a id="optional-parameters-certs-delete"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --tenantid | The Id of tenant that certificate associated. Unset when deleting a cloud certificate |
 
 ---
 
