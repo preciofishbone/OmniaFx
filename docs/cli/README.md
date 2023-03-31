@@ -2323,7 +2323,7 @@ No required parameters
 With alert rules, it's possible to map a service id to one or many alert rules and then deploy an extension that has the service id to a tenant. This makes the Application Insight of this tenant has appropriate alert rules.
 ## omnia alertrules new
 
-Create a new alert rule for a service id in an extension.
+Create a new alert rule for a service id in an extension. With the WebTest template, you can setup a ping test for all tenants.
 
 ##### Example<a id="example-alertrules-new"></a>
 ```
@@ -2336,7 +2336,7 @@ omnia alertrules new --serviceid {serviceid} --name {name} --template SlowRespon
 | ------------- | ----------------------------------------------------- |
 | --serviceid   | The service id that needs to be attached alert rule.   |
 | --name        | The name of the alert rule. It should be unique because the AI rules based on name.  |
-| --template    | The template of alert rule (SlowResponseTimes).                                 |
+| --template    | The template of alert rule (SlowResponseTimes, WebTest).                                 |
 
 The query of the alert rule should be input in the text editor.
 
