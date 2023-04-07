@@ -257,18 +257,25 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia certs adddigicert](#omnia-certs-add)
         - [Example](#example-certs-adddigicert)
         - [Required Parameters](#required-parameters-certs-adddigicert)
+        - [Optional Parameters](#optional-parameters-certs-adddigicert)
   - [omnia certs list](#omnia-certs-list)
-        - [Example](#example-certs-list)        
+        - [Example](#example-certs-list)
         - [Optional Parameters](#optional-parameters-certs-list)
   - [omnia certs update](#omnia-certs-update)
         - [Example](#example-certs-update)
         - [Required Parameters](#required-parameters-certs-update)  
   - [omnia certs cloudupdate](#omnia-certs-cloudupdate)
         - [Example](#example-certs-cloudupdate)
+        - [Required Parameters](#required-parameters-certs-cloudupdate)
         - [Required Parameters](#required-parameters-certs-cloudupdate)   
+  - [omnia certs import](#omnia-certs-import)
+        - [Example](#example-certs-import)
+        - [Required Parameters](#required-parameters-certs-import)
+        - [Optional Parameters](#optional-parameters-certs-import)
   - [omnia certs deploy](#omnia-certs-deploy)
         - [Example](#example-certs-deploy)
-        - [Required Parameters](#required-parameters-certs-deploy)   
+        - [Required Parameters](#required-parameters-certs-deploy)
+        - [Optional Parameters](#optional-parameters-certs-deploy)
   - [omnia domain update](#omnia-domain-update)
         - [Example](#example-domain-update)
         - [Required Parameters](#required-parameters-domain-update)
@@ -1895,10 +1902,9 @@ omnia certs add --cert "C:\Certs\wildcard_preciofishbone_se.cer" --key "C:\Certs
 
 ---
 
-
 ## omnia certs adddigicert
 
-Add a new certificate for a tenant/ Cloud from DigiCert (used for Custom Domain functionality).
+Add a new certificate for a tenant(used for Custom Domain functionality) and Omnia Cloud from DigiCert.
 
 ##### Example<a id="example-certs-adddigicert"></a>
 ```
@@ -1911,11 +1917,19 @@ omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --
 | --name | Name of certificate |
 | --accountid | The Account id in Degicert |
 | --orgid        | The Organization  id in Degicert     |  
-| --digicertid        | The Certificate id in Degicert (does not required if you input Order Id)    |  
-| --orderid        | The Order id of the certificate in Degicert (does not required if you input DigiCert Id)     |  
-| --renewbefore     | A Rule for renewing  at number of days before expiry     |  
-| --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault |                    |
+| --orderid        | The Order id of the certificate in Degicert |  
+| --renewbefore     | A Rule for renewing at number of days before expiry   |  
+
+##### Optional Parameters<a id="optional-parameters-certs-adddigicert"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --name | Name of certificate |
+| --validindays     | Certificate validity in days     |  
+| --validinyears     | Certificate validity in years (default:1)    |  
+| --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
 | --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
+
 
 #### Notes
 
@@ -1982,6 +1996,26 @@ This'll first update the values in Azure Key Vault, and then instruct Orchestrat
 
 ---
 
+## omnia certs import
+
+Import a certificate from Digicert.com
+
+##### Example<a id="example-certs-import"></a>
+```
+omnia certs import {certid}
+```
+##### Required Parameters<a id="required-parameters-certs-import"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| certid | Cloud certificate id. Only when using DigiCert  |
+
+##### Optional Parameters<a id="optional-parameters-certs-import"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --tenantid | The tenant id that has custom domain and use the Digicert |
+
 ## omnia certs deploy
 
 Roll out certificates used by Omnia and AKS in AKV and AKS based on a Digital Trust knowns as Digicert.com or files.
@@ -1996,9 +2030,16 @@ omnia certs deploy --certid {certid} --type {type} --cert {cert} --key {key} --c
 | ------------- | ----------------------------------------------------- |
 | --certid | Cloud certificate id. Only when using DigiCert  |
 | --type        | The certificate (AzureAd,OmniaCloud )     |  
-| --cert | The location for certificate (.cer) file  |
-| --key        | The location for certificate (.key) file       |  
 | --code    | You know. |
+
+##### Optional Parameters<a id="optional-parameters-certs-deploy"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --path | The location for certificate (.cer) file. Not required for DigiCert |
+| --key        | The location for certificate (.key) file. Not required for DigiCert      |  
+| --password        | The password of the certificate. Not required for DigiCert      |  
+
 
 #### Notes
 
