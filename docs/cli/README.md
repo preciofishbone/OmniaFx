@@ -1933,7 +1933,7 @@ omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --
 
 #### Notes
 
-This'll first import the pfx to Azure Key Vault, and then export it to .cer and .key which are being used to instruct Orchestrator to make all AKS clusters update their Secret called OmniaCloud with a new value from the Key Vault.
+This'll first generate key and CSR that uses for reissue a new certificate.
 
 ---
 
@@ -1998,7 +1998,7 @@ This'll first update the values in Azure Key Vault, and then instruct Orchestrat
 
 ## omnia certs import
 
-Import a certificate from Digicert.com
+Import a certificate from Digicert.com to Azure Key Vault, and then export it to .cer and .key which are being used to instruct Orchestrator to make all AKS clusters update their Secret called OmniaCloud with a new value from the Key Vault.
 
 ##### Example<a id="example-certs-import"></a>
 ```
