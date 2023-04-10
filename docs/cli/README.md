@@ -268,6 +268,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-certs-cloudupdate)
         - [Required Parameters](#required-parameters-certs-cloudupdate)
         - [Required Parameters](#required-parameters-certs-cloudupdate)   
+  - [omnia certs reissue](#omnia-certs-reissue)
+        - [Example](#example-certs-reissue)
+        - [Required Parameters](#required-parameters-certs-reissue)
+        - [Optional Parameters](#optional-parameters-certs-reissue)
   - [omnia certs import](#omnia-certs-import)
         - [Example](#example-certs-import)
         - [Required Parameters](#required-parameters-certs-import)
@@ -1918,15 +1922,15 @@ omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --
 | --accountid | The Account id in Degicert |
 | --orgid        | The Organization  id in Degicert     |  
 | --orderid        | The Order id of the certificate in Degicert |  
-| --renewbefore     | A Rule for renewing at number of days before expiry   |  
+| --renewbefore     | Specifies how many days before the certificate expires that it should be renewed |  
 
 ##### Optional Parameters<a id="optional-parameters-certs-adddigicert"></a>
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --name | Name of certificate |
-| --validindays     | Certificate validity in days     |  
-| --validinyears     | Certificate validity in years (default:1)    |  
+| --validindays     | Specifies how many days the renewed certificate should be valid for |  
+| --validinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
 | --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
 | --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
 
@@ -1996,6 +2000,35 @@ This'll first update the values in Azure Key Vault, and then instruct Orchestrat
 
 ---
 
+## omnia certs reissue
+
+Update and reissue a certificate for a tenant(used for Custom Domain functionality) and Omnia Cloud from DigiCert.
+
+##### Example<a id="example-certs-reissue"></a>
+```
+omnia certs reissue {certId} --name {name} --accountid {accountid} --orgid {orgid} --digicertid {digicertid} --renewbefore 30 --validinyears 1 --apikey {apikey}
+```
+##### Required Parameters<a id="required-parameters-certs-reissue"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| certId | The id of updating certificate |
+
+##### Optional Parameters<a id="optional-parameters-certs-reissue"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --name | Name of certificate |
+| --accountid | The Account id in Degicert |
+| --orgid        | The Organization  id in Degicert     |  
+| --orderid        | The Order id of the certificate in Degicert |  
+| --renewbefore     | Specifies how many days before the certificate expires that it should be renewed|  
+| --validindays     | Specifies how many days the renewed certificate should be valid for|  
+| --validinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
+| --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
+| --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
+
+---
 ## omnia certs import
 
 Import a certificate from Digicert.com to Azure Key Vault, and then export it to .cer and .key which are being used to instruct Orchestrator to make all AKS clusters update their Secret called OmniaCloud with a new value from the Key Vault.
