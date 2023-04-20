@@ -276,10 +276,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-certs-import)
         - [Required Parameters](#required-parameters-certs-import)
         - [Optional Parameters](#optional-parameters-certs-import)
-  - [omnia certs deploy](#omnia-certs-deploy)
-        - [Example](#example-certs-deploy)
-        - [Required Parameters](#required-parameters-certs-deploy)
-        - [Optional Parameters](#optional-parameters-certs-deploy)
+  - [omnia certs clouddeploy](#omnia-certs-clouddeploy)
+        - [Example](#example-certs-clouddeploy)
+        - [Required Parameters](#required-parameters-certs-clouddeploy)
+        - [Optional Parameters](#optional-parameters-certs-clouddeploy)
   - [omnia domain update](#omnia-domain-update)
         - [Example](#example-domain-update)
         - [Required Parameters](#required-parameters-domain-update)
@@ -1977,13 +1977,13 @@ omnia certs update --id {certificateid} --cert "C:\Certs\wildcard_preciofishbone
 
 ---
 
-## omnia certs cloudupdate (deprecated, the new ways is "omnia certs deploy" instead)
+## omnia certs cloudupdate (deprecated, the new ways is "omnia certs clouddeploy" instead)
 
 Update certificates used by Omnia and AKS in AKV and AKS based on a .cer and .key file. Doesn't care about actual certificate name or key - accepts 2 hardcoded values for name, either OmniaCloudNetCert or OmniaAzureAdCert.
 
 ##### Example<a id="example-certs-cloudupdate"></a>
 ```
-omnia certs cloudupdate "OmniaCloudNetCert" --path "C:\projects\omniacloud.net.cer" --password "ZKh4GgjQnBVVIGfXJ7kz1DalEe0Lmnqr5ib84CT2936WFvHtNc" --key "C:\projects\omniacloud.net.key"  --code "22-05-10-44"
+omnia certs cloudupdate "OmniaCloudNetCert" --path "C:\projects\omniacloud.net.cer" --password "ZKh4GgjQnBVVIGfXJ7kz1DalEe0Lmnqr5ib84CT2936WFvHtNc" --key "C:\projects\omniacloud.net.key" --tenantid {tenantId}  --code "22-05-10-44"
 ```
 ##### Required Parameters<a id="required-parameters-certs-cloudupdate"></a>
 
@@ -2049,13 +2049,13 @@ omnia certs import {certid}
 | ------------- | ----------------------------------------------------- |
 | --tenantid | The tenant id that has custom domain and use the Digicert |
 
-## omnia certs deploy
+## omnia certs clouddeploy
 
 Roll out certificates used by Omnia and AKS in AKV and AKS based on a Digital Trust knowns as Digicert.com or files.
 
 ##### Example<a id="example-certs-deploy"></a>
 ```
-omnia certs deploy --certid {certid} --type {type} --cert {cert} --key {key} --code "23-03-23-44"
+omnia certs clouddeploy --certid {certid} --type {type} --cert {cert} --key {key} --tenantid {tenantId} --code "23-03-23-44" 
 ```
 ##### Required Parameters<a id="required-parameters-certs-deploy"></a>
 
@@ -2072,6 +2072,7 @@ omnia certs deploy --certid {certid} --type {type} --cert {cert} --key {key} --c
 | --path | The location for certificate (.cer) file. Not required for DigiCert |
 | --key        | The location for certificate (.key) file. Not required for DigiCert      |  
 | --password        | The password of the certificate. Not required for DigiCert      |  
+| --tenantid        | Deploy the new cert for only specfic tenant has id  |  
 
 
 #### Notes
