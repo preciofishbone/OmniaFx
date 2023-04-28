@@ -1527,6 +1527,8 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {t
 | -s --skipifsameorhigher | Skip the deployment when the tenant has already installed the same or higher version  |
 | -w --wait| Waiting times between those extensions in seconds. In case using the extension group  |
 | -r --restart| Auto restart the tenant after deploying  |
+| --scalelevel| Auto scale up the database for running prerun/postrun. Options: ("small", "medium", "large")|
+| --increasesqlbyid| Specify the SQL resource Unique Id that needs to scale up if the extension has many SQL resources  |
 | --code    | The code needs to be entered when deploy to a high-level Deployment Security tenant (format: yy-dd-MM-m) |
 
 ---
