@@ -2057,7 +2057,7 @@ Roll out certificates used by Omnia and AKS in AKV and AKS based on a Digital Tr
 
 ##### Example<a id="example-certs-deploy"></a>
 ```
-omnia certs clouddeploy --certid {certid} --type {type} --cert {cert} --key {key} --tenantid {tenantId} --code "23-03-23-44" 
+omnia certs clouddeploy --certid {certid} --type {type} --path {cert} --key {key} --tenantid {tenantId} --code "23-03-23-44" 
 ```
 ##### Required Parameters<a id="required-parameters-certs-deploy"></a>
 
