@@ -308,7 +308,7 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-loc-diff)
         - [Required Parameters](#required-parameters-loc-diff)
         - [Optional Parameters](#optional-parameters-loc-diff)
-  - [omnia loc download](#omnia-loc-patch)
+  - [omnia loc patch](#omnia-loc-patch)
         - [Example](#example-loc-patch)
         - [Required Parameters](#required-parameters-loc-patch)
         - [Optional Parameters](#optional-parameters-loc-patch)
