@@ -304,6 +304,14 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-loc-download)
         - [Required Parameters](#required-parameters-loc-download)
         - [Optional Parameters](#optional-parameters-loc-download)
+  - [omnia loc diff](#omnia-loc-diff)
+        - [Example](#example-loc-diff)
+        - [Required Parameters](#required-parameters-loc-diff)
+        - [Optional Parameters](#optional-parameters-loc-diff)
+  - [omnia loc download](#omnia-loc-patch)
+        - [Example](#example-loc-patch)
+        - [Required Parameters](#required-parameters-loc-patch)
+        - [Optional Parameters](#optional-parameters-loc-patch)
 - [Permission Commands](#permissions-commands)
   - [Omnia Cli Permission Roles](#all-permission-roles-available-in-omnia-cli)
   - [omnia permissions add](#omnia-permissions-add)
@@ -2249,9 +2257,56 @@ omnia loc download --output {downloadFolderPath} --serviceId {serviceId} --lang 
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
-| --serviceId   | The id of the omnia service for which to delete     |
-| --lang        | The language of the file that should be deleted     |
+| --serviceId   | The id of the omnia service for which to download     |
+| --lang        | The language of the file that should be download     |
 | --v           | The version to download                             |
+
+---
+
+## omnia loc diff
+
+Download a JSON file containing all the diff labels when comparing the JSON structure of the source code with the latest en-us localization file.
+
+##### Example<a id="example-loc-diff"></a>
+```
+omnia loc diff --output {downloadFolderPath} --serviceId bb000000-0000-bbbb-0000-0000000000bb --extVersion 6.13.10
+```
+
+##### Required Parameters<a id="required-parameters-loc-diff"></a>
+
+| Name          | Description                                         |
+| ------------- | --------------------------------------------------- |
+| -o --output      | The path of the destination folder                  |
+| --serviceId   | The id of the omnia service for which to compare     |
+| --extVersion   | Version of the Extension pakcage that the service belongs to     |
+
+##### Optional Parameters<a id="optional-parameters-loc-diff"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --v           | A specific localization file version to compare.        |
+
+---
+
+## omnia loc patch
+
+Patch an existing version of service localization json file.
+
+##### Example<a id="example-loc-patch"></a>
+```
+omnia loc patch --src D:\loc\bb000000-0000-bbbb-0000-0000000000bb_localized.loc.sv-se.json --v 6.7.0
+```
+
+##### Required Parameters<a id="required-parameters-loc-patch"></a>
+
+| Name          | Description                                         |
+| ------------- | --------------------------------------------------- |
+| --src      | Language patch json file, on format serviceid_localized.loc.languagetag.json                 |
+| ---v   | Sematic version    |
+
+##### Optional Parameters<a id="optional-parameters-loc-patch"></a>
+
+No optional parameters
 
 ---
 
