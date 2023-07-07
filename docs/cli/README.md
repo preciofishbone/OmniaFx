@@ -1876,7 +1876,7 @@ It's possible to manage certificates for tenants.
 
 ## omnia certs export
 
-Export .cer and .key files from a .pfx or .cer file with a private key.
+To export .cer and .key files from a .pfx, .pem, or .cer file containing a private key, please use the following command:
 
 ##### Example<a id="example-certs-export"></a>
 ```
@@ -1887,7 +1887,7 @@ omnia certs export --path {{pathToPfx}} --password {{password}}
 
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
-| --path    | The location of certificate (.pfx or .cer) file     |
+| --path    | The location of certificate (.pfx, .pem, or .cer) file     |
 | --password | The password for the certificate file |
 
 ##### Optional Parameters<a id="optional-parameters-certs-list"></a>
