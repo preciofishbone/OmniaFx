@@ -164,6 +164,7 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia tenants cleanup](#omnia-tenants-cleanup)
         - [Example](#example-tenants-cleanup)
         - [Required Parameters](#required-parameters-tenants-cleanup)
+        - [Optional Parameters](#optional-parameters-tenants-cleanup)
 - [Tenant Resources Commands](#tenant-resources-commands)
   - [omnia tenants resources sqlupdate](#omnia-tenants-resources-sqlupdate)
         - [Example](#example-tenants-resources-sqlupdate)
@@ -1350,7 +1351,13 @@ omnia tenants cleanup {tenantid} --oldclusterid {clusterid}
 | tenantid | Id of the tenant being cleaned up. |
 | --oldclusterid | Id of the old cluster. |
 
-    
+##### Optional Parameters<a id="optional-parameters-tenants-cleanup"></a>
+
+| Name     | Description                                          |
+| -------- | ---------------------------------------------------- |
+| --newtenantid| The cloned tenant id after moving tenant to another region.  Please note that the cloned tenant ID will be retained. However, it's important to be aware that all resources associated with the old tenant, such as AI services, storage, and databases, will be permanently removed.|
+| --code    | The code needs to be entered when cleaning up the tenant moved to another region (format: yy-dd-MM-m) |
+
 ---
 
 # Tenant Resources Commands
