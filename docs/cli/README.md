@@ -1199,7 +1199,21 @@ Set an environment variable in a specific service for a specific tenant
 ##### Example<a id="example-update-envvar-set"></a>
 ```
 omnia tenants update envVar set --tenantid {tenantid} --serviceid {serviceid} --name {name} --value {value}
+
+Run WCM migraiton worker with 20 threads
+omnia tenants update envVar set --tenantid {tenantid} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_THREAD --value 20
+
+Run WCM migraiton without PageSummaryStatistics and VisitedPages tables.
+omnia tenants update envVar set --tenantid {tenantid} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES --value  '*,!PageSummaryStatistics,!VisitedPages'
+
+Run WCM migraiton only for PageSummaryStatistics and VisitedPages tables.
+omnia tenants update envVar set --tenantid {tenantid} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES --value  'PageSummaryStatistics,VisitedPages'
+
+Run WCM migraiton without MaxDOP limit
+omnia tenants update envVar set --tenantid {tenantid} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_MAXDOP --value  0
+
 ```
+
 
 ##### Required Parameters<a id="required-parameters-update-envvar-set"></a>
 
