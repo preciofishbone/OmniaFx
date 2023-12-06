@@ -2846,6 +2846,20 @@ omnia extensions deploy 8177832b-6142-488f-8d1f-665579439872:7.1.* --tenantid {t
 --WCM Migration Extension
 omnia extensions deploy aae2ba34-df89-40f0-ab35-06d872291e91:7.1.* --tenantid {tenantId} --prerun 0fdd1d95-189f-4b01-a1e2-f985eed3a268
 
+-- Retract migration extension WP
+omnia extensions retract 8177832b-6142-488f-8d1f-665579439872 --tenantid {tenantId}
+-- Retract migration extension WCM
+omnia extensions retract aae2ba34-df89-40f0-ab35-06d872291e91 --tenantid {tenantId}
+
+--Remove env variables for WP
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_THREAD
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_MAXDOP
+--Remove env variables for WCM
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_THREAD
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_MAXDOP
+
 ```
 
  ## Phase 3 - Revert (If Any)<a id="regular-mode-deployment-phase3"></a>
@@ -2866,21 +2880,6 @@ omnia extensions revert 94418fb5-2a96-4f20-9c80-e2f27a0a62f0:latest --tenantid {
 ```
 --Disable error page
 omnia tenants update disableerror {tenantid}
-
--- Retract migration extension WP
-omnia extensions retract 8177832b-6142-488f-8d1f-665579439872 --tenantid {tenantId}
--- Retract migration extension WCM
-omnia extensions retract aae2ba34-df89-40f0-ab35-06d872291e91 --tenantid {tenantId}
-
---Remove env variables for WP
-omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_THREAD
-omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES
-omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_MAXDOP
---Remove env variables for WCM
-omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_THREAD
-omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES
-omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_MAXDOP
-
 
 ```
 
