@@ -383,6 +383,31 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
          - [Example](#example-reports-delete)
          - [Required Parameters](#required-parameters-reports-delete)
          - [Optional Parameters](#optional-parameters-reports-delete)
+- [Regular Mode Deployment for version 6 to 7](#regular-mode-deployment)
+   - [Phase 1 - Deploy and run migration](#regular-mode-deployment-phase1)
+         - [Optional Commands](#optional-commands-regular-mode-deployment-phase1)
+         - [Required Commands](#required-commands-regular-mode-deployment-phase1)         
+   - [Phase 2 - Finishing](#regular-mode-deployment-phase2)
+         - [Optional Commands](#optional-commands-regular-mode-deployment-phase2)         
+   - [Phase 3 - Revert (If Any)](#regular-mode-deployment-phase3)
+         - [Required Commands](#required-commands-regular-mode-deployment-phase3) 
+		 - [Optional Commands](#optional-commands-regular-mode-deployment-phase3)
+- [Readonly Mode Deployment for version 6 to 7](#readonly-mode-deployment)
+   - [Phase 1 - Initial](#readonly-mode-deployment-phase1)
+         - [Optional Commands](#optional-commands-readonly-mode-deployment-phase1)
+         - [Required Commands](#required-commands-readonly-mode-deployment-phase1)         
+   - [Phase 2 - Execution Migration](#readonly-mode-deployment-phase2)
+         - [Optional Commands](#optional-commands-readonly-mode-deployment-phase2)
+         - [Required Commands](#required-commands-readonly-mode-deployment-phase2)    
+   - [Phase 3 - Apply new databases](#readonly-mode-deployment-phase3)         
+         - [Required Commands](#required-commands-readonly-mode-deployment-phase3)    
+   - [Phase 4 - Finishing](#readonly-mode-deployment-phase4)
+		 - [Optional Commands](#optional-commands-readonly-mode-deployment-phase4)
+         - [Required Commands](#required-commands-readonly-mode-deployment-phase4)    
+   - [Phase 5 - Revert (If Any)](#readonly-mode-deployment-phase5)		
+        - [Required Commands](#required-commands-readonly-mode-deployment-phase5)
+        - [Optional Commands](#optional-commands-readonly-mode-deployment-phase5)
+
  
 <!-- /TOC -->
 
@@ -2763,4 +2788,297 @@ omnia reports delete {reportId}
 
 No required parameters
 
+
 ---
+
+# Regular Mode Deployment for version 6 to 7 <a id="regular-mode-deployment"></a>
+
+A deployment flow for a ragular tenant that no needs to maintain system uptime during upgrades.
+
+## Phase 1 - Deploy and run migration<a id="regular-mode-deployment-phase1"></a>
+
+Deploy new version with --prerun to execute the migration flow.
+
+##### Optional Commands<a id="optional-commands-regular-mode-deployment-phase1"></a>
+```
+--Enable error page
+omnia tenants update enableerror {tenantid}
+
+--Update environment variable for WP
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES --value '*,!NotificationPanelHistory'
+
+--Update environment variable for WCM
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES --value '*,!PageSummaryStatistics,!VisitedPages'
+
+```
+##### Required Commands<a id="required-commands-regular-mode-deployment-phase1"></a>
+```
+--Deploy and run migration for Omnia Extension
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:7.1.* --tenantid {tenantId} -s -o --prerun 1cacb55c-202b-4cd7-819d-11bad92fa9cb
+--Deploy and run migration for WP Extension
+omnia extensions deploy d5bf3472-ddc6-44a9-b78b-6c52b2dfedea:7.1.* --tenantid {tenantId} -s -o --prerun 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --scalelevel small
+--Deploy and run migration for WCM Extension
+omnia extensions deploy ff629048-1044-4cd5-b0d5-1e2f920f6374:7.1.* --tenantid {tenantId} -s -o --prerun 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --scalelevel medium
+--Deploy and run migration for MS Extension
+omnia extensions deploy 4d5013fe-0c01-4e7c-9664-b7f28e9013e3:7.1.* --tenantid {tenantId} -s -o --prerun 6db4e340-e3ec-4913-a197-b65feb9371e4
+--Deploy and run migration for Feed Extension
+omnia extensions deploy 94418fb5-2a96-4f20-9c80-e2f27a0a62f0:7.1.* --tenantid {tenantId} -s -o --prerun 1a5f39c9-06cf-4de4-8b69-bbbf09ca86e7
+ ```
+
+ ## Phase 2 - Finishing<a id="regular-mode-deployment-phase2"></a>
+
+Run migration for remainning tables and clean up. 
+
+##### Optional Commands<a id="optional-commands-regular-mode-deployment-phase2"></a>
+```
+--Disable error page
+omnia tenants update disableerror {tenantid}
+
+--Update environment variable for WP
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES --value 'NotificationPanelHistory'
+
+--Update environment variable for WCM
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES --value 'PageSummaryStatistics,VisitedPages'
+
+--Deploy and run migration in migration extensions
+--WP Migration Extension
+omnia extensions deploy 8177832b-6142-488f-8d1f-665579439872:7.1.* --tenantid {tenantId} --prerun 67eb7bb4-e626-49f7-b4a2-2fd523e54d83
+--WCM Migration Extension
+omnia extensions deploy aae2ba34-df89-40f0-ab35-06d872291e91:7.1.* --tenantid {tenantId} --prerun 0fdd1d95-189f-4b01-a1e2-f985eed3a268
+
+```
+
+ ## Phase 3 - Revert (If Any)<a id="regular-mode-deployment-phase3"></a>
+
+Revert to the state before the update.
+
+##### Required Commands<a id="required-commands-regular-mode-deployment-phase3"></a>
+
+```
+omnia extensions revert aa000000-0000-aaaa-0000-0000000000aa:latest --tenantid {tenantId}
+omnia extensions revert d5bf3472-ddc6-44a9-b78b-6c52b2dfedea:latest --tenantid {tenantId}
+omnia extensions revert ff629048-1044-4cd5-b0d5-1e2f920f6374:latest --tenantid {tenantId}
+omnia extensions revert 4d5013fe-0c01-4e7c-9664-b7f28e9013e3:latest --tenantid {tenantId}
+omnia extensions revert 94418fb5-2a96-4f20-9c80-e2f27a0a62f0:latest --tenantid {tenantId}
+```
+
+##### Optional Commands<a id="optional-commands-regular-mode-deployment-phase3"></a>
+```
+--Disable error page
+omnia tenants update disableerror {tenantid}
+
+-- Retract migration extension WP
+omnia extensions retract 8177832b-6142-488f-8d1f-665579439872 --tenantid {tenantId}
+-- Retract migration extension WCM
+omnia extensions retract aae2ba34-df89-40f0-ab35-06d872291e91 --tenantid {tenantId}
+
+--Remove env variables for WP
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_THREAD
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_MAXDOP
+--Remove env variables for WCM
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_THREAD
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_MAXDOP
+
+
+```
+
+--- 
+ 
+# Readonly Mode Deployment for version 6 to 7 <a id="readonly-mode-deployment"></a>
+
+A deployment flow for a large tenant needs to maintain system uptime during upgrades
+
+## Phase 1 - Initial<a id="readonly-mode-deployment-phase1"></a>
+
+Turn on Readonly mode, deploy migration extensions and clone databases. Please manually scale up/down the cloned databases to the appropriate level.
+
+##### Optional Commands<a id="optional-commands-readonly-mode-deployment-phase1"></a>
+```
+omnia clusters update restarting {tenantClusterId} --enable false --code <youknow>
+
+```
+##### Required Commands<a id="required-commands-readonly-mode-deployment-phase1"></a>
+```
+omnia tenants update status {tenantId} --value readonly --code <youknow>
+
+--Omnia Migration Extension
+omnia extensions deploy 9d44a06d-2702-4fa4-bc87-5b2ebe39403c:7.1.* --tenantid {tenantId}
+--Workplace Migration Extension
+omnia extensions deploy 8177832b-6142-488f-8d1f-665579439872:7.1.* --tenantid {tenantId}
+--WCM Migration Extension
+omnia extensions deploy aae2ba34-df89-40f0-ab35-06d872291e91:7.1.* --tenantid {tenantId}
+--MS Migration Extension
+omnia extensions deploy 5c0b2905-a638-4c51-8172-171d5d6dbc6b:7.1.* --tenantid {tenantId}
+
+omnia tenants resources sqlclone --tenantid {tenantId} --extensionid 9d44a06d-2702-4fa4-bc87-5b2ebe39403c --suffix 7_5_23
+omnia tenants resources sqlclone --tenantid {tenantId} --extensionid 8177832b-6142-488f-8d1f-665579439872 --suffix 7_5_23
+omnia tenants resources sqlclone --tenantid {tenantId} --extensionid aae2ba34-df89-40f0-ab35-06d872291e91 --suffix 7_5_23
+omnia tenants resources sqlclone --tenantid {tenantId} --extensionid 5c0b2905-a638-4c51-8172-171d5d6dbc6b --suffix 7_5_23
+```
+
+## Phase 2 - Execution Migration<a id="readonly-mode-deployment-phase2"></a>
+
+Run migration worker on the cloned databases
+
+##### Optional Commands<a id="optional-commands-readonly-mode-deployment-phase2"></a>
+```
+--Update environment variable for Omnia
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 1cacb55c-202b-4cd7-819d-11bad92fa9cb --name OMNIA_MIGRATION_THREAD --value 8
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 1cacb55c-202b-4cd7-819d-11bad92fa9cb --name OMNIA_MIGRATION_MAXDOP --value 0
+
+--Update environment variable for WP
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_THREAD --value 20
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_MAXDOP --value 0
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES --value '*,!NotificationPanelHistory'
+
+--Update environment variable for WCM
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_THREAD --value 20
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES --value '*,!PageSummaryStatistics,!VisitedPages'
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_MAXDOP --value 0
+```
+##### Required Commands<a id="required-commands-readonly-mode-deployment-phase2"></a>
+```
+--Omnia
+omnia extensions deploy 9d44a06d-2702-4fa4-bc87-5b2ebe39403c:7.1.* --tenantid {tenantId} --prerun 1cacb55c-202b-4cd7-819d-11bad92fa9cb
+--Workplace
+omnia extensions deploy 8177832b-6142-488f-8d1f-665579439872:7.1.* --tenantid {tenantId} --prerun 67eb7bb4-e626-49f7-b4a2-2fd523e54d83
+--WCM
+omnia extensions deploy aae2ba34-df89-40f0-ab35-06d872291e91:7.1.* --tenantid {tenantId} --prerun 0fdd1d95-189f-4b01-a1e2-f985eed3a268
+--MS
+omnia extensions deploy 5c0b2905-a638-4c51-8172-171d5d6dbc6b:7.1.* --tenantid {tenantId} --prerun 6db4e340-e3ec-4913-a197-b65feb9371e4
+
+```
+
+## Phase 3 - Apply new databases<a id="readonly-mode-deployment-phase3"></a>
+
+Scale down all services to ensure that the migration from version 6 does not occur on version 7 databases.
+
+
+##### Required Commands<a id="required-commands-readonly-mode-deployment-phase3"></a>
+```
+omnia tenants update status {tenantId} --value active --code <youknow>
+
+omnia extensions scale cc000000-0000-cccc-0000-0000000000cc --replicas 0 --tenantid {tenantId}
+omnia extensions scale bb000000-0000-bbbb-0000-0000000000bb --replicas 0 --tenantid {tenantId}
+omnia extensions scale bea2f78e-5cf3-4004-92da-e6091df88847 --replicas 0 --tenantid {tenantId}
+omnia extensions scale 4d176592-779c-45f9-ad00-1d3160818a56 --replicas 0 --tenantid {tenantId}
+omnia extensions scale 39df27aa-95f1-4a23-b3f6-8b231afcda82 --replicas 0 --tenantid {tenantId}
+omnia extensions scale c038bb05-41f2-45e5-a302-0748e25a415d --replicas 0 --tenantid {tenantId}
+omnia extensions scale d60fa82a-129a-41a9-93ce-d784dcb217b0 --replicas 0 --tenantid {tenantId}
+omnia extensions scale 79e300c3-5e5a-4836-9f76-9e9bb17ef620 --replicas 0 --tenantid {tenantId}
+omnia extensions scale b3d13ef7-5ff8-4496-a283-81a742080aef --replicas 0 --tenantid {tenantId}
+
+--Apply cloned databases to main extensions
+omnia tenants resources sqlapply --tenantid {tenantId} --extensionid 9d44a06d-2702-4fa4-bc87-5b2ebe39403c 
+omnia tenants resources sqlapply --tenantid {tenantId} --extensionid 8177832b-6142-488f-8d1f-665579439872
+omnia tenants resources sqlapply --tenantid {tenantId} --extensionid aae2ba34-df89-40f0-ab35-06d872291e91
+omnia tenants resources sqlapply --tenantid {tenantId} --extensionid 5c0b2905-a638-4c51-8172-171d5d6dbc6b
+
+--Deploy new version Omnia
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:7.1.* --tenantid {tenantId}
+omnia extensions scale cc000000-0000-cccc-0000-0000000000cc --replicas 1 --tenantid {tenantId}
+omnia extensions scale bb000000-0000-bbbb-0000-0000000000bb --replicas 1 --tenantid {tenantId}
+
+--Deploy new version WP
+omnia extensions deploy d5bf3472-ddc6-44a9-b78b-6c52b2dfedea:7.1.* --tenantid {tenantId}
+omnia extensions scale bea2f78e-5cf3-4004-92da-e6091df88847 --replicas 1 --tenantid {tenantId}
+omnia extensions scale 4d176592-779c-45f9-ad00-1d3160818a56 --replicas 1 --tenantid {tenantId}
+omnia extensions scale 39df27aa-95f1-4a23-b3f6-8b231afcda82 --replicas 1 --tenantid {tenantId}
+
+--Deploy new version WCM
+omnia extensions deploy ff629048-1044-4cd5-b0d5-1e2f920f6374:7.1.* --tenantid {tenantId}
+omnia extensions scale c038bb05-41f2-45e5-a302-0748e25a415d --replicas 1 --tenantid {tenantId}
+omnia extensions scale d60fa82a-129a-41a9-93ce-d784dcb217b0 --replicas 1 --tenantid {tenantId}
+
+--Deploy new version MS
+omnia extensions deploy 4d5013fe-0c01-4e7c-9664-b7f28e9013e3:7.1.* --tenantid {tenantId}
+omnia extensions scale 79e300c3-5e5a-4836-9f76-9e9bb17ef620 --replicas 1 --tenantid {tenantId}
+omnia extensions scale b3d13ef7-5ff8-4496-a283-81a742080aef --replicas 1 --tenantid {tenantId}
+
+--Deploy new version Feed
+omnia extensions deploy 94418fb5-2a96-4f20-9c80-e2f27a0a62f0:7.1.* --tenantid {tenantId} -s -o --prerun 1a5f39c9-06cf-4de4-8b69-bbbf09ca86e7
+
+```
+
+## Phase 4 - Finishing<a id="readonly-mode-deployment-phase4"></a>
+
+Run migration for remainning tables and clean up. 
+
+##### Optional Commands<a id="optional-commands-readonly-mode-deployment-phase4"></a>
+```
+--Update environment variable for Omnia
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 1cacb55c-202b-4cd7-819d-11bad92fa9cb --name OMNIA_MIGRATION_THREAD --value 8
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 1cacb55c-202b-4cd7-819d-11bad92fa9cb --name OMNIA_MIGRATION_MAXDOP --value 0
+
+--Update environment variable for WP
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_THREAD --value 20
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_MAXDOP --value 0
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES --value '*,!PageSummaryStatistics,!VisitedPages'
+
+--Update environment variable for WCM
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_THREAD --value 20
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES --value '*,!PageSummaryStatistics,!VisitedPages'
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_MAXDOP --value 0
+
+--Enable restart for tenant cluster
+omnia clusters update restarting e75d3c21-5d97-47c0-b1c3-227dd9b10fb2 --enable true --code <youknow>
+
+```
+##### Required Commands<a id="required-commands-readonly-mode-deployment-phase4"></a>
+```
+-- Retract migration extension Omnia
+omnia extensions retract 9d44a06d-2702-4fa4-bc87-5b2ebe39403c --tenantid {tenantId}
+-- Retract migration extension WP
+omnia extensions retract 8177832b-6142-488f-8d1f-665579439872 --tenantid {tenantId}
+-- Retract migration extension WCM
+omnia extensions retract aae2ba34-df89-40f0-ab35-06d872291e91 --tenantid {tenantId}
+-- Retract migration extension MS
+omnia extensions retract 5c0b2905-a638-4c51-8172-171d5d6dbc6b --tenantid {tenantId}
+
+--Remove env variable for Omnia
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 1cacb55c-202b-4cd7-819d-11bad92fa9cb --name OMNIA_MIGRATION_THREAD
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 1cacb55c-202b-4cd7-819d-11bad92fa9cb --name OMNIA_MIGRATION_MAXDOP
+--Remove env variable for WP
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_THREAD
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_MAXDOP
+--Remove env variable for WCM
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_THREAD
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES
+omnia tenants update envVar remove --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_MAXDOP
+
+```
+
+## Phase 5 - Revert (If Any)<a id="readonly-mode-deployment-phase5"></a>
+
+Revert tenant to version 6
+
+##### Required Commands<a id="required-commands-readonly-mode-deployment-phase5"></a>
+```
+omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.13.* --tenantid {tenantId}
+omnia extensions deploy d5bf3472-ddc6-44a9-b78b-6c52b2dfedea:6.13.* --tenantid {tenantId}
+omnia extensions deploy ff629048-1044-4cd5-b0d5-1e2f920f6374:6.13.* --tenantid {tenantId}
+omnia extensions deploy 4d5013fe-0c01-4e7c-9664-b7f28e9013e3:6.13.* --tenantid {tenantId}
+omnia extensions deploy 1b96280d-4773-4581-85e9-46f14346abea:6.11.* --tenantid {tenantId}
+omnia extensions deploy 94418fb5-2a96-4f20-9c80-e2f27a0a62f0:6.13.* --tenantid {tenantId}
+
+--Apply version 6 database
+omnia tenants resources sqlrevert --tenantid {tenantId} --extensionid 9d44a06d-2702-4fa4-bc87-5b2ebe39403c 
+omnia tenants resources sqlrevert --tenantid {tenantId} --extensionid 8177832b-6142-488f-8d1f-665579439872
+omnia tenants resources sqlrevert --tenantid {tenantId} --extensionid aae2ba34-df89-40f0-ab35-06d872291e91
+omnia tenants resources sqlrevert --tenantid {tenantId} --extensionid 5c0b2905-a638-4c51-8172-171d5d6dbc6b
+
+```
+
+##### Optional Commands<a id="optional-commands-readonly-mode-deployment-phase5"></a>
+```
+--Remove cloned database
+omnia tenants resources sqlremove --tenantid {tenantId} --extensionid 9d44a06d-2702-4fa4-bc87-5b2ebe39403c 
+omnia tenants resources sqlremove --tenantid {tenantId} --extensionid 8177832b-6142-488f-8d1f-665579439872
+omnia tenants resources sqlremove --tenantid {tenantId} --extensionid aae2ba34-df89-40f0-ab35-06d872291e91
+omnia tenants resources sqlremove --tenantid {tenantId} --extensionid 5c0b2905-a638-4c51-8172-171d5d6dbc6b
+
+```
+
