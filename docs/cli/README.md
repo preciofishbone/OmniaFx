@@ -2827,7 +2827,7 @@ omnia extensions deploy 94418fb5-2a96-4f20-9c80-e2f27a0a62f0:7.1.* --tenantid {t
 
  ## Phase 2 - Finishing<a id="regular-mode-deployment-phase2"></a>
 
-Run migration for remainning tables and clean up. 
+Run migration for remaining tables and clean up. 
 
 ##### Optional Commands<a id="optional-commands-regular-mode-deployment-phase2"></a>
 ```
@@ -3003,23 +3003,27 @@ omnia extensions deploy 94418fb5-2a96-4f20-9c80-e2f27a0a62f0:7.1.* --tenantid {t
 
 ## Phase 4 - Finishing<a id="readonly-mode-deployment-phase4"></a>
 
-Run migration for remainning tables and clean up. 
+Run migration for remaining tables and clean up. 
 
 ##### Optional Commands<a id="optional-commands-readonly-mode-deployment-phase4"></a>
 ```
---Update environment variable for Omnia
-omnia tenants update envVar set --tenantid {tenantId} --serviceid 1cacb55c-202b-4cd7-819d-11bad92fa9cb --name OMNIA_MIGRATION_THREAD --value 8
-omnia tenants update envVar set --tenantid {tenantId} --serviceid 1cacb55c-202b-4cd7-819d-11bad92fa9cb --name OMNIA_MIGRATION_MAXDOP --value 0
-
 --Update environment variable for WP
 omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_THREAD --value 20
 omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_MAXDOP --value 0
-omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES --value '*,!PageSummaryStatistics,!VisitedPages'
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 67eb7bb4-e626-49f7-b4a2-2fd523e54d83 --name OMNIA_MIGRATION_RULES --value 'NotificationPanelHistory'
 
 --Update environment variable for WCM
 omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_THREAD --value 20
-omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES --value '*,!PageSummaryStatistics,!VisitedPages'
+omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_RULES --value 'PageSummaryStatistics,VisitedPages'
 omnia tenants update envVar set --tenantid {tenantId} --serviceid 0fdd1d95-189f-4b01-a1e2-f985eed3a268 --name OMNIA_MIGRATION_MAXDOP --value 0
+
+
+--Deploy and run migration for only remaining tables in migration extensions
+--WP Migration Extension
+omnia extensions deploy 8177832b-6142-488f-8d1f-665579439872:7.1.* --tenantid {tenantId} --prerun 67eb7bb4-e626-49f7-b4a2-2fd523e54d83
+--WCM Migration Extension
+omnia extensions deploy aae2ba34-df89-40f0-ab35-06d872291e91:7.1.* --tenantid {tenantId} --prerun 0fdd1d95-189f-4b01-a1e2-f985eed3a268
+
 
 --Enable restart for tenant cluster
 omnia clusters update restarting e75d3c21-5d97-47c0-b1c3-227dd9b10fb2 --enable true --code <youknow>
