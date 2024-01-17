@@ -2331,6 +2331,8 @@ omnia loc diff --output {downloadFolderPath} --serviceId bb000000-0000-bbbb-0000
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --v           | A specific localization file version to compare.        |
+| --lang           | A specific language to compare.        |
+| --src           | A source json file to compare.        |
 
 ---
 
