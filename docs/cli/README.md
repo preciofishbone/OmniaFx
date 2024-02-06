@@ -248,6 +248,21 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-secrets-list)
         - [Required Parameters](#required-parameters-secrets-list)
         - [Optional Parameters](#optional-parameters-secrets-list)
+- [Cloud Secret Commands](#cloud-secret-commands)
+  - [omnia cloudsecrets add](#omnia-cloudsecrets-add)
+        - [Example](#example-cloudsecrets-add)
+        - [Required Parameters](#required-parameters-cloudsecrets-add)
+        - [Optional Parameters](#optional-parameters-cloudsecrets-add)
+  - [omnia cloudsecrets remove](#omnia-cloudsecrets-remove)
+        - [Example](#example-cloudsecrets-remove)
+        - [Required Parameters](#required-parameters-cloudsecrets-remove)
+  - [omnia cloudsecrets list](#omnia-cloudsecrets-list)
+        - [Example](#example-cloudsecrets-list)
+        - [Optional Parameters](#optional-parameters-cloudsecrets-list)
+  - [omnia cloudsecrets renew](#omnia-cloudsecrets-renew)
+        - [Example](#example-cloudsecrets-renew)
+        - [Required Parameters](#required-parameters-cloudsecrets-renew)
+        - [Optional Parameters](#optional-parameters-cloudsecrets-renew)
 - [Tenant Certificate Commands](#tenant-certificate-commands)
   - [omnia certs export](#omnia-certs-export)
         - [Example](#example-certs-export)
@@ -1915,6 +1930,102 @@ omnia secrets list --extensionid {extensionid}
 
 ---
 
+# Cloud Secret Commands
+
+Its possible to generate several client credentials for an Omnia Cloud Application..
+
+## omnia cloudsecrets add
+
+Add a cloud-secret to map with an Azure App.
+
+##### Example<a id="example-cloudsecrets-add"></a>
+```
+omnia cloudsecrets add --name "Omnia Cloud - Api" --appid f144ebc9-5703-4c52-9417-ab2171223d9c --type Api --renewbefore 30 --validityindays 32 --notifyemails nam.nguyen.khanh.hoai@preciofishbone.se,elias.haddad@omniaintranet.com
+
+```
+
+##### Required Parameters<a id="required-parameters-cloudsecrets-add"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --name        | The name of cloud secret                                    |
+| --appid    | The Azure Application Object Id (not client Id)     |
+| --type | Type of the application (Api, Orchestrator, AcrAccess, Services) |
+| --renewbefore | Specifies how many days before the client secret expires that it should be renewed |
+| --validityindays | Specifies how many days the renewed client secret should be valid for |
+| --notifyemails | The extensionid of the extension to generate a secret |
+
+##### Optional Parameters<a id="optional-parameters-cloudsecrets-add"></a>
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --validityinyears | Specifies how many years the renewed client secret should be valid for   |
+| --output json | Return data as json   |
+
+---
+
+## omnia cloudsecrets remove
+
+Remove a cloud secret.
+
+##### Example<a id="example-cloudsecrets-remove"></a>
+```
+omnia cloudsecrets remove {cloudSecretId}
+```
+
+##### Required Parameters<a id="required-parameters-cloudsecrets-remove"></a>
+
+| Name          | Description                                         |
+| ------------- | --------------------------------------------------- |
+| --cloudSecretId    | The id of cloud secret being removed   |
+
+---
+
+## omnia cloudsecrets list
+
+List all cloud secrets of Omnia.
+
+##### Example<a id="example-cloudsecrets-list"></a>
+```
+omnia cloudsecrets list
+
+omnia cloudsecrets list {cloudSecretId}
+```
+
+##### Optional Parameters<a id="optional-parameters-cloudsecrets-list"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --cloudSecretId | The Id of the cloud secret to view detail   |
+| --output json | Return data as json   |
+
+---
+
+## omnia cloudsecrets renew
+
+Renew client secret for an Application and rollout to AKS.
+
+##### Example<a id="example-cloudsecrets-renew"></a>
+```
+omnia cloudsecrets renew --all
+omnia cloudsecrets renew cloudSecretId --generate
+```
+
+##### Required Parameters<a id="required-parameters-cloudsecrets-renew"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --cloudSecretId        | The Id of cloud secret need to renew                                 |
+
+
+##### Optional Parameters<a id="optional-parameters-cloudsecrets-renew"></a>
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| -a --all | Trigger renew all cloud secrets   |
+| -g --generate | Generate a new secret before rollout to AKS   |
+
+---
+
+
 # Tenant Certificate Commands
 
 It's possible to manage certificates for tenants.
@@ -1985,8 +2096,8 @@ omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --name | Name of certificate |
-| --validindays     | Specifies how many days the renewed certificate should be valid for |  
-| --validinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
+| --validityindays     | Specifies how many days the renewed certificate should be valid for |  
+| --validityinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
 | --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
 | --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
 
@@ -2062,7 +2173,7 @@ Update and reissue a certificate for a tenant(used for Custom Domain functionali
 
 ##### Example<a id="example-certs-reissue"></a>
 ```
-omnia certs reissue {certId} --name {name} --accountid {accountid} --orgid {orgid} --digicertid {digicertid} --renewbefore 30 --validinyears 1 --apikey {apikey}
+omnia certs reissue {certId} --name {name} --accountid {accountid} --orgid {orgid} --digicertid {digicertid} --renewbefore 30 --validityinyears 1 --apikey {apikey}
 ```
 ##### Required Parameters<a id="required-parameters-certs-reissue"></a>
 
@@ -2079,8 +2190,8 @@ omnia certs reissue {certId} --name {name} --accountid {accountid} --orgid {orgi
 | --orgid        | The Organization  id in Degicert     |  
 | --orderid        | The Order id of the certificate in Degicert |  
 | --renewbefore     | Specifies how many days before the certificate expires that it should be renewed|  
-| --validindays     | Specifies how many days the renewed certificate should be valid for|  
-| --validinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
+| --validityindays     | Specifies how many days the renewed certificate should be valid for|  
+| --validityinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
 | --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
 | --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
 
