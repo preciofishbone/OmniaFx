@@ -253,6 +253,9 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-cloudsecrets-add)
         - [Required Parameters](#required-parameters-cloudsecrets-add)
         - [Optional Parameters](#optional-parameters-cloudsecrets-add)
+  - [omnia cloudsecrets update](#omnia-cloudsecrets-update)
+        - [Example](#example-cloudsecrets-update)
+        - [Required Parameters](#required-parameters-cloudsecrets-update)        
   - [omnia cloudsecrets remove](#omnia-cloudsecrets-remove)
         - [Example](#example-cloudsecrets-remove)
         - [Required Parameters](#required-parameters-cloudsecrets-remove)
@@ -1953,15 +1956,41 @@ omnia cloudsecrets add --name "Omnia Cloud - Api" --appid f144ebc9-5703-4c52-941
 | --type | Type of the application (Api, Orchestrator, AcrAccess, Services) |
 | --renewbefore | Specifies how many days before the client secret expires that it should be renewed |
 | --validityindays | Specifies how many days the renewed client secret should be valid for |
-| --notifyemails | The extensionid of the extension to generate a secret |
+
 
 ##### Optional Parameters<a id="optional-parameters-cloudsecrets-add"></a>
 | Name          | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | --validityinyears | Specifies how many years the renewed client secret should be valid for   |
+| --notifyemails | The list of emails that receive notification about the secret|
+| --autorenew | Auto renew if it matches renew rule|
 | --output json | Return data as json   |
 
 ---
+
+## omnia cloudsecrets update
+
+Update a cloud-secret.
+
+##### Example<a id="example-cloudsecrets-update"></a>
+```
+omnia cloudsecrets update f144ebc9-5703-4c52-9417-ab2171223d9c --name "Omnia Cloud - Api" --renewbefore 30 --validityindays 32 --autorenew --notifyemails nam.nguyen.khanh.hoai@preciofishbone.se,elias.haddad@omniaintranet.com
+
+```
+
+##### Required Parameters<a id="required-parameters-cloudsecrets-update"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --name        | The name of cloud secret                                    |
+| --renewbefore | Specifies how many days before the client secret expires that it should be renewed |
+| --validityindays | Specifies how many days the renewed client secret should be valid for |
+| --validityinyears | Specifies how many years the renewed client secret should be valid for   |
+| --notifyemails | The list of emails that receive notification about the secret|
+| --autorenew | Auto renew if it matches renew rule|
+
+---
+
 
 ## omnia cloudsecrets remove
 
@@ -2100,6 +2129,7 @@ omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --
 | --validityinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
 | --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
 | --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
+| --notifyemails | The list of emails that receive notification about the certificate|
 
 
 #### Notes
@@ -2194,6 +2224,7 @@ omnia certs reissue {certId} --name {name} --accountid {accountid} --orgid {orgi
 | --validityinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
 | --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
 | --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
+| --notifyemails | The list of emails that receive notification about the certificate|
 
 ---
 ## omnia certs import
