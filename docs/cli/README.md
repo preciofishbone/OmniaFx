@@ -165,6 +165,14 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-tenants-cleanup)
         - [Required Parameters](#required-parameters-tenants-cleanup)
         - [Optional Parameters](#optional-parameters-tenants-cleanup)
+  - [omnia tenants backup](#omnia-tenants-backup)
+        - [Example](#example-tenants-backup)
+        - [Required Parameters](#required-parameters-tenants-backup)
+        - [Optional Parameters](#optional-parameters-tenants-backup)
+  - [omnia tenants delete](#omnia-tenants-delete)
+        - [Example](#example-tenants-delete)
+        - [Required Parameters](#required-parameters-tenants-delete)
+        - [Optional Parameters](#optional-parameters-tenants-delete)
 - [Tenant Resources Commands](#tenant-resources-commands)
   - [omnia tenants resources sqlupdate](#omnia-tenants-resources-sqlupdate)
         - [Example](#example-tenants-resources-sqlupdate)
@@ -1420,6 +1428,39 @@ omnia tenants cleanup {tenantid} --oldclusterid {clusterid}
 | --code    | The code needs to be entered when cleaning up the tenant moved to another region (format: yy-dd-MM-m) |
 
 ---
+
+## omnia tenants backup
+Backup tenant data: SQL Server, File Share, Disk and Tenant Object to center backup storage.
+
+##### Example<a id="example-tenants-backup"></a>
+```powershell
+omnia tenants backup {tenantid}
+```
+
+##### Required Parameters<a id="required-parameters-tenants-backup"></a>
+| Name     | Description                        |
+| -------- | ---------------------------------- |
+| tenantid | Id of the tenant being cleaned up. |
+
+
+## omnia tenants delete
+Delete a tenant and clean up its resources.
+```powershell
+omnia tenants delete {tenantid}
+```
+
+##### Required Parameters<a id="required-parameters-tenants-delete"></a>
+| Name     | Description                        |
+| -------- | ---------------------------------- |
+| tenantid | Id of the tenant being deleted. |
+
+---
+
+##### Optional Parameters<a id="optional-parameters-tenants-delete"></a>
+| Name     | Description                        |
+| -------- | ---------------------------------- |
+| --code   | The code needs to be entered when deleting the tenant (format: yy-dd-MM-m) |
+| --force  | Force delete the tenant without having backing up the tenant first |
 
 # Tenant Resources Commands
 
