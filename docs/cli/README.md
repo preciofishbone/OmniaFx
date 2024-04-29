@@ -367,6 +367,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
          - [Example](#example-resourceproviders-list)
          - [Required Parameters](#required-parameters-resourceproviders-list)
          - [Optional Parameters](#optional-parameters-resourceproviders-list)
+   - [omnia resourceproviders add](#omnia-resourceproviders-add)
+         - [Example](#example-resourceproviders-add)
+         - [Required Parameters](#required-parameters-resourceproviders-add)
+         - [Optional Parameters](#optional-parameters-resourceproviders-add)
 - [Elastic Pools Commands](#elastic-pools-commands)
    - [omnia elasticpools new](#omnia-elasticpools-new)
          - [Example](#example-elasticpools-new)
@@ -2753,6 +2757,33 @@ No required parameters
 | ------------- | ----------------------------------------------------- |
 | --providerid |  The Resource Providers id needs to view detail.              |
 | --output json | Return data as json   |
+
+---
+## omnia resourceproviders add
+
+Add a new resource provider. Only support to add SqlElasticPoolDatabase type
+
+##### Example<a id="example-resourceproviders-add"></a>
+```
+omnia resourceproviders add --name omniauatcloudintentdev3 --type SqlElasticPoolDatabase --region EastUS --intent dev --server omniauatcloudintentdev3.database.windows.net
+
+```
+##### Required Parameters<a id="required-parameters-resourceproviders-add"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --name   | The name of new resource provider.|
+| --server        | The full server name of sql database.  |
+| --type        | The type of new resource provider.  |
+| --region        | The region.  |
+| --intent        | The intent.  |
+
+##### Optional Parameters<a id="optional-parameters-resourceproviders-add"></a>
+
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| --adminusername |  The admin user name of database. It will be Auto generated with Omnia format if empty |
+| --adminpassword | The admin password. It will be auto generated with Omnia format if empty   |
 
 ---
 
