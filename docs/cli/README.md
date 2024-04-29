@@ -176,7 +176,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
 - [Tenant Resources Commands](#tenant-resources-commands)
   - [omnia tenants resources sqlupdate](#omnia-tenants-resources-sqlupdate)
         - [Example](#example-tenants-resources-sqlupdate)
-        - [Required Parameters](#required-parameters-tenants-resources-sqlupdate)        
+        - [Required Parameters](#required-parameters-tenants-resources-sqlupdate)
+  - [omnia tenants resources scale](#omnia-tenants-resources-scale)
+        - [Example](#example-tenants-resources-scale)
+        - [Required Parameters](#required-parameters-tenants-resources-scale)     
 - [Extension Commands](#extension-commands)
   - [omnia extensions new](#omnia-extensions-new)
         - [Example](#example-extensions-new)
@@ -1482,6 +1485,28 @@ omnia tenants resources sqlupdate {serviceId} --tenantid {tenantid} --poolsize {
 | -p --poolsize |  The new value of pool size .|
 
 ---
+
+## omnia tenants resources scale
+
+Scale tenant resources.
+
+##### Example<a id="example-tenants-resources-scale"></a>
+```
+omnia tenants resources scale --tenantid {tenantId} --serviceid {serviceId} --uniqueid {uniqueId} --type PersistentDisk --newsize 8
+```
+
+##### Required Parameters<a id="required-parameters-tenants-resources-scale"></a>
+
+| Name               | Description                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --serviceid           | The service id that registers the resource|
+| -t --tenantid             | The tenantid to scale resource for.                                                                                                                                |
+| --uniqueid |  The uniqueid of resource to be scaled .|
+| --type |  The type of resource (PersistentDisk, SqlDatabase, SqlElasticPoolDatabase) .|
+| --newsize |  The new resource size for disk (4,8,16,32,64,128,....) .|
+
+---
+
 # Extension Commands
 
 ## omnia extensions new
