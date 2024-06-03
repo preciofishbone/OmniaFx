@@ -144,6 +144,18 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia tenants update envVar remove](#omnia-tenants-update-envVar-remove)
         - [Example](#example-update-envvar-remove)
         - [Required Parameters](#required-parameters-update-envvar-remove)
+  - [omnia tenants update enableddiagnostic](#omnia-tenants-update-enableddiagnostic)
+        - [Example](#example-update-enableddiagnostic)
+        - [Required Parameters](#required-parameters-update-enableddiagnostic)
+        - [Optional Parameters](#optional-parameters-update-enableddiagnostic)
+  - [omnia tenants diagnostic list](#omnia-tenants-diagnostic-list)
+        - [Example](#example-tenants-diagnostic-list)
+        - [Required Parameters](#required-parameters-tenants-diagnostic-list)
+        - [Optional Parameters](#optional-parameters-tenants-diagnostic-list)
+  - [omnia tenants diagnostic run](#omnia-tenants-diagnostic-run)
+        - [Example](#example-tenants-diagnostic-run)
+        - [Required Parameters](#required-parameters-tenants-diagnostic-run)
+        - [Optional Parameters](#optional-parameters-tenants-diagnostic-run)
   - [omnia tenants get appsettings](#omnia-tenants-get-appsettings)
         - [Example](#example-appsettings-get)
         - [Required Parameters](#required-parameters-get-appsettings)
@@ -1302,6 +1314,72 @@ omnia tenants update envVar remove --tenantid {tenantid} --serviceid {serviceid}
 | --name| the environment variable name     |
 
 ---
+
+## omnia tenants update enableddiagnostic
+
+Enable or disable the tenant diagnostic. The tenant with diagnostics enabled will not be affected by the auto-restart job but will receive diagnostic data and notification emails in this case.
+The diagnostic data is located in the Omnia Share folder in the tenant's storage account.
+##### Example<a id="example-update-enableddiagnostic"></a>
+```
+omnia tenants update enableddiagnostic {tenantid} --value {value}
+```
+
+##### Required Parameters<a id="required-parameters-update-enableddiagnostic"></a>
+
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --value           | The new value of enabled diagnostic to update to (false: Disable; true: Enable)                  |
+
+
+##### Optional Parameters<a id="optional-parameters-update-enableddiagnostic"></a>
+
+No optional parameters
+
+---
+
+## omnia tenants diagnostic list
+
+List all diagnostic tenants
+
+##### Example<a id="example-tenants-diagnostic-list"></a>
+```
+omnia tenants diagnostic list
+```
+
+##### Required Parameters<a id="required-parameters-tenants-diagnostic-list"></a>
+
+No optional parameters
+
+##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-list"></a>
+
+No optional parameters
+
+---
+
+## omnia tenants diagnostic run
+
+Trigger diagnostic for a service of the tenant
+
+##### Example<a id="example-tenants-diagnostic-run"></a>
+```
+omnia tenants diagnostic run {tenantid} --serviceId bb000000-0000-bbbb-0000-0000000000bb
+```
+
+##### Required Parameters<a id="required-parameters-tenants-diagnostic-run"></a>
+
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --tenantid | The tenantid of the tenant to trigger diagnostic for |
+| --serviceid   | Id of the service to run diagnostic           |
+
+##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-run"></a>
+
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --podnames | The list of pod name to run diagnostic |
+
+---
+
 
 ## omnia tenants get appsettings
 
