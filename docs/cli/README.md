@@ -143,11 +143,15 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Required Parameters](#required-parameters-update-envvar-set)
   - [omnia tenants update envVar remove](#omnia-tenants-update-envVar-remove)
         - [Example](#example-update-envvar-remove)
-        - [Required Parameters](#required-parameters-update-envvar-remove)
-  - [omnia tenants update enableddiagnostic](#omnia-tenants-update-enableddiagnostic)
-        - [Example](#example-update-enableddiagnostic)
-        - [Required Parameters](#required-parameters-update-enableddiagnostic)
-        - [Optional Parameters](#optional-parameters-update-enableddiagnostic)
+        - [Required Parameters](#required-parameters-update-envvar-remove) 
+  - [omnia tenants diagnostic add](#omnia-tenants-diagnostic-add)
+        - [Example](#example-tenants-diagnostic-add)
+        - [Required Parameters](#required-parameters-tenants-diagnostic-add)
+        - [Optional Parameters](#optional-parameters-tenants-diagnostic-add)
+  - [omnia tenants diagnostic remove](#omnia-tenants-diagnostic-remove)
+        - [Example](#example-tenants-diagnostic-remove)
+        - [Required Parameters](#required-parameters-tenants-diagnostic-remove)
+        - [Optional Parameters](#optional-parameters-tenants-diagnostic-add)
   - [omnia tenants diagnostic list](#omnia-tenants-diagnostic-list)
         - [Example](#example-tenants-diagnostic-list)
         - [Required Parameters](#required-parameters-tenants-diagnostic-list)
@@ -1315,31 +1319,37 @@ omnia tenants update envVar remove --tenantid {tenantid} --serviceid {serviceid}
 
 ---
 
-## omnia tenants update enableddiagnostic
+## omnia tenants diagnostic add
 
-Enable or disable the tenant diagnostic. The tenant with diagnostics enabled will not be affected by the auto-restart job but will receive diagnostic data and notification emails in this case.
-The diagnostic data is located in the Omnia Share folder in the tenant's storage account.
-##### Example<a id="example-update-enableddiagnostic"></a>
+Request diagnostics for a service within a Tenant. Services with diagnostics enabled will remain unaffected by the auto-restart job;
+however, they will receive diagnostic data and notification emails.
+The diagnostic data can be found in the 'Omnia Share' folder within the tenant's storage account.
+After the diagnostics collection is completed, the request will be marked as done and will not trigger again.
+
+##### Example<a id="example-tenants-diagnostic-add"></a>
 ```
-omnia tenants update enableddiagnostic {tenantid} --value {value}
+omnia tenants diagnostic add {tenantid} --serviceId bb000000-0000-bbbb-0000-0000000000bb --memorylimit 4000 --cpulimit 5000
 ```
 
-##### Required Parameters<a id="required-parameters-update-enableddiagnostic"></a>
+##### Required Parameters<a id="required-parameters-tenants-diagnostic-add"></a>
 
 | Name              | Description                                        |
 | ----------------- | -------------------------------------------------- |
-| --value           | The new value of enabled diagnostic to update to (false: Disable; true: Enable)                  |
+| --tenantid | The id of the tenant to trigger diagnostic for |
+| --serviceid   | Id of the service to request diagnostic    
 
+##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-add"></a>
 
-##### Optional Parameters<a id="optional-parameters-update-enableddiagnostic"></a>
-
-No optional parameters
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --memorylimit | The memory threshold that triggers the diagnostic job (4000 = 4Gb) |
+| --cpulimit   | The cpu threshold that triggers the diagnostic job (4000 = 4vcores)
 
 ---
 
 ## omnia tenants diagnostic list
 
-List all diagnostic tenants
+List all tenants undergoing diagnostics and provide detailed diagnostics for a specific tenant.
 
 ##### Example<a id="example-tenants-diagnostic-list"></a>
 ```
@@ -1348,9 +1358,34 @@ omnia tenants diagnostic list
 
 ##### Required Parameters<a id="required-parameters-tenants-diagnostic-list"></a>
 
-No optional parameters
+No Required parameters
 
 ##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-list"></a>
+
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --tenantid | The id of the tenant that need to show detailed diagnostics|
+
+
+---
+
+## omnia tenants diagnostic remove
+
+Remove a tenant diagnostic that requested.
+
+##### Example<a id="example-tenants-diagnostic-remove"></a>
+```
+omnia tenants diagnostic remove {tenantid} --id {diagnosticid}
+```
+
+##### Required Parameters<a id="required-parameters-tenants-diagnostic-remove"></a>
+
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| --tenantid | The id of the tenant to remove diagnostic for |
+| --diagnosticid   | The id of diagnostic to remove  |
+
+##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-remove"></a>
 
 No optional parameters
 
@@ -1369,7 +1404,7 @@ omnia tenants diagnostic run {tenantid} --serviceId bb000000-0000-bbbb-0000-0000
 
 | Name              | Description                                        |
 | ----------------- | -------------------------------------------------- |
-| --tenantid | The tenantid of the tenant to trigger diagnostic for |
+| --tenantid | The id of the tenant to trigger diagnostic for |
 | --serviceid   | Id of the service to run diagnostic           |
 
 ##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-run"></a>
