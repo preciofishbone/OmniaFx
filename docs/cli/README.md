@@ -1647,13 +1647,26 @@ omnia extensions new --name "My Extension"
 
 ## omnia extensions restart
 
-Restart services in Omnia Cloud for a specific tenant
+Restart services in Omnia Cloud for a specific tenant or all tenants in a specific cluster
 
 ##### Example<a id="example-extensions-restart"></a>
 ```
+//Restart services in a tenant
 omnia extensions restart all --tenantid
 omnia extensions restart service --tenantid --serviceid
 omnia extensions restart extension --tenantid --extensionid
+
+//Restart omnia-system services
+omnia extensions restart all --clusterid
+
+//Restart services in all tenants in a cluster
+omnia extensions restart service --clusterid --serviceid
+omnia extensions restart extension --clusterid --extensionid
+
+//Reorder and restart services all tenants in a cluster
+omnia extensions restart all --clusterid --reorder
+omnia extensions restart service --clusterid --serviceid --reorder
+omnia extensions restart extension --clusterid --extensionid --reorder
 ```
 
 ##### Required Parameters<a id="required-parameters-extensions-restart"></a>
@@ -1667,8 +1680,9 @@ omnia extensions restart extension --tenantid --extensionid
 
 | Name      | Description                                                |
 | --------- | ---------------------------------------------------------- |
-| --nomercy | Restarts all services immediatly even scaled out instances |
-   
+| --nomercy | Restarts all services immediately even scaled out instances |
+| --reorder | Reorder services, only apply for cluster level |
+
 ---
 
 ## omnia extensions list
