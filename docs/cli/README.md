@@ -189,6 +189,18 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-tenants-delete)
         - [Required Parameters](#required-parameters-tenants-delete)
         - [Optional Parameters](#optional-parameters-tenants-delete)
+  - [omnia tenants external-storage add](#omnia-tenants-external-storage-add)
+        - [Example](#example-tenants-external-storage-add)
+        - [Required Parameters](#required-parameters-tenants-external-storage-add)
+        - [Optional Parameters](#optional-parameters-tenants-external-storage-add)
+  - [omnia tenants external-storage update isactive](#omnia-tenants-external-storage-update-isactive)
+        - [Example](#example-tenants-external-storage-update-isactive)
+        - [Required Parameters](#required-parameters-tenants-external-storage-update-isactive)
+        - [Optional Parameters](#optional-parameters-tenants-external-storage-update-isactive)
+  - [omnia tenants external-storage list](#omnia-tenants-external-storage-list)
+        - [Example](#example-tenants-external-storage-list)
+        - [Required Parameters](#required-parameters-tenants-external-storage-list)
+        - [Optional Parameters](#optional-parameters-tenants-external-storage-list)
 - [Tenant Resources Commands](#tenant-resources-commands)
   - [omnia tenants resources sqlupdate](#omnia-tenants-resources-sqlupdate)
         - [Example](#example-tenants-resources-sqlupdate)
@@ -605,10 +617,10 @@ No required parameters
 
 ##### Optional Parameters
 
-| Name      | Description                                          |
-| --------- | ---------------------------------------------------- |
-| -p --path | The path to the folder where to start restoring from |
-| -f --force| Delete node_modules and package-lock.json            |
+| Name       | Description                                          |
+| ---------- | ---------------------------------------------------- |
+| -p --path  | The path to the folder where to start restoring from |
+| -f --force | Delete node_modules and package-lock.json            |
 
 ---
 
@@ -790,9 +802,9 @@ No required parameters
 
 ##### Optional Parameters
 
-| Name      | Description                             |
-| --------- | --------------------------------------- |
-| --json    | Show listing in json format             |
+| Name   | Description                 |
+| ------ | --------------------------- |
+| --json | Show listing in json format |
 
 ---
 
@@ -1037,13 +1049,13 @@ omnia tenants new --intent dev --name "My Customer" --omnia-dns-suffix "mycustom
 | --sp-dns-suffix    | Unique dns suffix for the existing SharePoint online service. this is the first part of the full sharepoint dns name. e.g mycustomer                          |
 | --azure-ad-id      | The unique Azure Ad Id for the customers tenant. https://support.office.com/en-us/article/find-your-office-365-tenant-id-6891b561-a52d-4ade-9f39-b492285e2c9b |
 | --region           | The region where this tenant should be hosted. Should be located in same region as Office 365                                                                 |
-| --depgroupid       | The deployment group id where this tenant will belong to. Should has the same intent                                                              |
+| --depgroupid       | The deployment group id where this tenant will belong to. Should has the same intent                                                                          |
 
 ##### Optional Parameters
 
-| Name               | Description                                                                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --clusterid        | The Cluster Id where the tenant will belong to. Otherwise, the cluster is selected by the system.                                                        |
+| Name        | Description                                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| --clusterid | The Cluster Id where the tenant will belong to. Otherwise, the cluster is selected by the system. |
 
 ---
 
@@ -1071,13 +1083,13 @@ No required parameters
 
 ##### Optional Parameters
 
-| Name        | Description             |
-| ----------- | ----------------------- |
-| -a --all    | Get all tenants         |
-| -f --filter | Filters tenants by all displayed column |
-| -m --mwide  | Show more infomation in the list    |
-| -w --wide   | Show all information in the list   |
-| --output json | Return data as json   |
+| Name          | Description                             |
+| ------------- | --------------------------------------- |
+| -a --all      | Get all tenants                         |
+| -f --filter   | Filters tenants by all displayed column |
+| -m --mwide    | Show more infomation in the list        |
+| -w --wide     | Show all information in the list        |
+| --output json | Return data as json                     |
 
 ---
 
@@ -1176,9 +1188,9 @@ omnia tenants update dns {tenantid} --omnia-dns-suffix {omnia-dns-suffix}
 
 ##### Required Parameters<a id="required-parameters-update-dns"></a>
 
-| Name                | Description                                        |
-| -----------------   | -------------------------------------------------- |
-| --omnia-dns-suffix  | The new dns suffix to update to                    |
+| Name               | Description                     |
+| ------------------ | ------------------------------- |
+| --omnia-dns-suffix | The new dns suffix to update to |
 
 
 ##### Optional Parameters<a id="optional-parameters-update-dns"></a>
@@ -1198,9 +1210,9 @@ omnia tenants update depsecurity {tenantid} --level {level}
 
 ##### Required Parameters<a id="required-parameters-update-depsecurity"></a>
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| --level           | The new level of Deployment Security (0: Default; 1: High)                   |
+| Name    | Description                                                |
+| ------- | ---------------------------------------------------------- |
+| --level | The new level of Deployment Security (0: Default; 1: High) |
 
 
 ##### Optional Parameters<a id="optional-parameters-update-depsecurity"></a>
@@ -1219,10 +1231,10 @@ omnia tenants update status {tenantid} --value {status} --code {yy-dd-MM-m}
 
 ##### Required Parameters<a id="required-parameters-update-status"></a>
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| --status           | The new status of tenant (Active, Suspended, ReadOnly)   |
-| --code    | You know. |
+| Name     | Description                                            |
+| -------- | ------------------------------------------------------ |
+| --status | The new status of tenant (Active, Suspended, ReadOnly) |
+| --code   | You know.                                              |
 
 
 ##### Optional Parameters<a id="optional-parameters-update-status"></a>
@@ -1243,10 +1255,10 @@ omnia tenants update appsettings --tenantid {tenantid} --serviceid {serviceid}
 
 ##### Required Parameters<a id="required-parameters-update-appsettings"></a>
 
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| --tenantid | The tenantid of the tenant to generate appsettings for |
-| --serviceid| Id of the service owning the appsettings               |
+| Name        | Description                                            |
+| ----------- | ------------------------------------------------------ |
+| --tenantid  | The tenantid of the tenant to generate appsettings for |
+| --serviceid | Id of the service owning the appsettings               |
     
 
 ##### Optional Parameters<a id="optional-parameters-update-appsettings"></a>
@@ -1299,12 +1311,12 @@ omnia tenants update envVar set --tenantid {tenantid} --serviceid 0fdd1d95-189f-
 
 ##### Required Parameters<a id="required-parameters-update-envvar-set"></a>
 
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| --tenantid | The tenantid of the tenant to set environment variable |
-| --serviceid| Id of the service owning the environment variable      |
-| --name| the environment variable name     |
-| --value| the environment variable value     |
+| Name        | Description                                            |
+| ----------- | ------------------------------------------------------ |
+| --tenantid  | The tenantid of the tenant to set environment variable |
+| --serviceid | Id of the service owning the environment variable      |
+| --name      | the environment variable name                          |
+| --value     | the environment variable value                         |
 
 ---
 
@@ -1319,11 +1331,11 @@ omnia tenants update envVar remove --tenantid {tenantid} --serviceid {serviceid}
 
 ##### Required Parameters<a id="required-parameters-update-envvar-remove"></a>
 
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| --tenantid | The tenantid of the tenant to set environment variable |
-| --serviceid| Id of the service owning the environment variable      |
-| --name| the environment variable name     |
+| Name        | Description                                            |
+| ----------- | ------------------------------------------------------ |
+| --tenantid  | The tenantid of the tenant to set environment variable |
+| --serviceid | Id of the service owning the environment variable      |
+| --name      | the environment variable name                          |
 
 ---
 
@@ -1341,17 +1353,17 @@ omnia tenants diagnostic add {tenantid} --serviceId bb000000-0000-bbbb-0000-0000
 
 ##### Required Parameters<a id="required-parameters-tenants-diagnostic-add"></a>
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| --tenantid | The id of the tenant to trigger diagnostic for |
-| --serviceid   | Id of the service to request diagnostic    
+| Name        | Description                                    |
+| ----------- | ---------------------------------------------- |
+| --tenantid  | The id of the tenant to trigger diagnostic for |
+| --serviceid | Id of the service to request diagnostic        |
 
 ##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-add"></a>
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| --memorylimit | The memory threshold that triggers the diagnostic job (4000 = 4Gb) |
-| --cpulimit   | The cpu threshold that triggers the diagnostic job (4000 = 4vcores)
+| Name          | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| --memorylimit | The memory threshold that triggers the diagnostic job (4000 = 4Gb)  |
+| --cpulimit    | The cpu threshold that triggers the diagnostic job (4000 = 4vcores) |
 
 ---
 
@@ -1370,9 +1382,9 @@ No Required parameters
 
 ##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-list"></a>
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| --tenantid | The id of the tenant that need to show detailed diagnostics|
+| Name       | Description                                                 |
+| ---------- | ----------------------------------------------------------- |
+| --tenantid | The id of the tenant that need to show detailed diagnostics |
 
 
 ---
@@ -1388,10 +1400,10 @@ omnia tenants diagnostic remove {tenantid} --id {diagnosticid}
 
 ##### Required Parameters<a id="required-parameters-tenants-diagnostic-remove"></a>
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| --tenantid | The id of the tenant to remove diagnostic for |
-| --diagnosticid   | The id of diagnostic to remove  |
+| Name           | Description                                   |
+| -------------- | --------------------------------------------- |
+| --tenantid     | The id of the tenant to remove diagnostic for |
+| --diagnosticid | The id of diagnostic to remove                |
 
 ##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-remove"></a>
 
@@ -1410,15 +1422,15 @@ omnia tenants diagnostic run {tenantid} --serviceId bb000000-0000-bbbb-0000-0000
 
 ##### Required Parameters<a id="required-parameters-tenants-diagnostic-run"></a>
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| --tenantid | The id of the tenant to trigger diagnostic for |
-| --serviceid   | Id of the service to run diagnostic           |
+| Name        | Description                                    |
+| ----------- | ---------------------------------------------- |
+| --tenantid  | The id of the tenant to trigger diagnostic for |
+| --serviceid | Id of the service to run diagnostic            |
 
 ##### Optional Parameters<a id="optional-parameters-tenants-diagnostic-run"></a>
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
+| Name       | Description                            |
+| ---------- | -------------------------------------- |
 | --podnames | The list of pod name to run diagnostic |
 
 ---
@@ -1435,10 +1447,10 @@ omnia tenants get appsettings --tenantid {tenantid} --serviceid {serviceid}
 
 ##### Required Parameters<a id="required-parameters-get-appsettings"></a>
 
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| --tenantid | The tenantid of the tenant to generate appsettings for |
-| --serviceid   | Id of the service owning the appsettings               |
+| Name        | Description                                            |
+| ----------- | ------------------------------------------------------ |
+| --tenantid  | The tenantid of the tenant to generate appsettings for |
+| --serviceid | Id of the service owning the appsettings               |
 
 
 ##### Optional Parameters<a id="optional-parameters-get-appsettings"></a>
@@ -1475,16 +1487,16 @@ omnia tenants get history --tenantid {tenantid} --startDate {startDate} --endDat
 
 ##### Required Parameters<a id="required-parameters-get-history"></a>
 
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
+| Name       | Description                               |
+| ---------- | ----------------------------------------- |
 | --tenantid | The tenantid of the tenant to get history |
         
 ##### Optional Parameters<a id="optional-parameters-get-appsettings"></a>
 
-| Name     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| --startDate| the start date of deployemnt versions. (in past 3 months by default) |
-| --endDate| the start end of deployemnt versions. (the current date by default) |
+| Name        | Description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| --startDate | the start date of deployemnt versions. (in past 3 months by default) |
+| --endDate   | the start end of deployemnt versions. (the current date by default)  |
 
 ---
 
@@ -1500,10 +1512,10 @@ omnia tenants move {tenantid} --clusterid {clusterid}
 
 ##### Required Parameters<a id="required-parameters-tenants-move"></a>
 
-| Name   | Description                       |
-| ------ | --------------------------------- |
-| tenantid | Id of the tenant being moved. |
-| --clusterid | Id of the new cluster. |
+| Name        | Description                   |
+| ----------- | ----------------------------- |
+| tenantid    | Id of the tenant being moved. |
+| --clusterid | Id of the new cluster.        |
 
     
 ---
@@ -1520,10 +1532,10 @@ omnia tenants moveall --fromclusterid {clusterid} --toclusterid {clusterid}
 
 ##### Required Parameters<a id="required-parameters-tenants-moveall"></a>
 
-| Name   | Description                       |
-| ------ | --------------------------------- |
+| Name            | Description            |
+| --------------- | ---------------------- |
 | --fromclusterid | Id of the old cluster. |
-| --toclusterid | Id of the new cluster. |
+| --toclusterid   | Id of the new cluster. |
 
     
 ---
@@ -1539,17 +1551,17 @@ omnia tenants cleanup {tenantid} --oldclusterid {clusterid}
 
 ##### Required Parameters<a id="required-parameters-tenants-cleanup"></a>
 
-| Name   | Description                       |
-| ------ | --------------------------------- |
-| tenantid | Id of the tenant being cleaned up. |
-| --oldclusterid | Id of the old cluster. |
+| Name           | Description                        |
+| -------------- | ---------------------------------- |
+| tenantid       | Id of the tenant being cleaned up. |
+| --oldclusterid | Id of the old cluster.             |
 
 ##### Optional Parameters<a id="optional-parameters-tenants-cleanup"></a>
 
-| Name     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| --newtenantid| The cloned tenant id after moving tenant to another region.  Please note that the cloned tenant ID will be retained. However, it's important to be aware that all resources associated with the old tenant, such as AI services, storage, and databases, will be permanently removed.|
-| --code    | The code needs to be entered when cleaning up the tenant moved to another region (format: yy-dd-MM-m) |
+| Name          | Description                                                                                                                                                                                                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --newtenantid | The cloned tenant id after moving tenant to another region.  Please note that the cloned tenant ID will be retained. However, it's important to be aware that all resources associated with the old tenant, such as AI services, storage, and databases, will be permanently removed. |
+| --code        | The code needs to be entered when cleaning up the tenant moved to another region (format: yy-dd-MM-m)                                                                                                                                                                                 |
 
 ---
 
@@ -1574,17 +1586,17 @@ omnia tenants delete {tenantid}
 ```
 
 ##### Required Parameters<a id="required-parameters-tenants-delete"></a>
-| Name     | Description                        |
-| -------- | ---------------------------------- |
+| Name     | Description                     |
+| -------- | ------------------------------- |
 | tenantid | Id of the tenant being deleted. |
 
 ---
 
 ##### Optional Parameters<a id="optional-parameters-tenants-delete"></a>
-| Name     | Description                        |
-| -------- | ---------------------------------- |
-| --code   | The code needs to be entered when deleting the tenant (format: yy-dd-MM-m) |
-| --force  | Force delete the tenant without having backing up the tenant first |
+| Name    | Description                                                                |
+| ------- | -------------------------------------------------------------------------- |
+| --code  | The code needs to be entered when deleting the tenant (format: yy-dd-MM-m) |
+| --force | Force delete the tenant without having backing up the tenant first         |
 
 # Tenant Resources Commands
 
@@ -1599,11 +1611,11 @@ omnia tenants resources sqlupdate {serviceId} --tenantid {tenantid} --poolsize {
 
 ##### Required Parameters<a id="required-parameters-tenants-resources-sqlupdate"></a>
 
-| Name               | Description                                                                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| serviceId           | The id of service to update the pool size|
-| -t --tenantid             | The id of the tenant.                                                                                                                                |
-| -p --poolsize |  The new value of pool size .|
+| Name          | Description                               |
+| ------------- | ----------------------------------------- |
+| serviceId     | The id of service to update the pool size |
+| -t --tenantid | The id of the tenant.                     |
+| -p --poolsize | The new value of pool size .              |
 
 ---
 
@@ -1618,15 +1630,70 @@ omnia tenants resources scale --tenantid {tenantId} --serviceid {serviceId} --un
 
 ##### Required Parameters<a id="required-parameters-tenants-resources-scale"></a>
 
-| Name               | Description                                                                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --serviceid           | The service id that registers the resource|
-| -t --tenantid             | The tenantid to scale resource for.                                                                                                                                |
-| --uniqueid |  The uniqueid of resource to be scaled .|
-| --type |  The type of resource (PersistentDisk, SqlDatabase, SqlElasticPoolDatabase) .|
-| --newsize |  The new resource size for disk (4,8,16,32,64,128,....) .|
+| Name          | Description                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| --serviceid   | The service id that registers the resource                                   |
+| -t --tenantid | The tenantid to scale resource for.                                          |
+| --uniqueid    | The uniqueid of resource to be scaled .                                      |
+| --type        | The type of resource (PersistentDisk, SqlDatabase, SqlElasticPoolDatabase) . |
+| --newsize     | The new resource size for disk (4,8,16,32,64,128,....) .                     |
 
 ---
+
+## omnia tenants external-storage add
+
+Add external storage for tenant. In order for the tenant to use the external storage, the tenant must be restarted. Or at least extensions needing it need to be restarted.
+
+##### Example<a id="example-tenants-external-storage-add"></a>
+
+```pwsh
+omnia tenants external-storage add --tenantid {tenantId} --share-name {shareName} --storage-account-name {storageAccountName} --storage-account-key {storageAccountKey} --tier Hot
+```
+
+##### Required Parameters<a id="required-parameters-tenants-external-storage-add"></a>
+
+| Name                   | Description                                  |
+| ---------------------- | -------------------------------------------- |
+| -t, --tenantid         | The tenant id that registers the resource    |
+| --share-name           | The name of the share to be added            |
+| --storage-account-name | The name of the storage account.             |
+| --storage-account-key  | The key of the storage account.              |
+| --tier                 | The tier of the storage account (Hot, Cool). |
+| --quota (Optional)     | The quota of the storage account.            |
+
+## omnia tenants external-storage update isactive
+
+Update the status of the external storage for tenant. In order for the tenant to use the external storage, the tenant must be restarted. Or at least extensions needing it need to be restarted.
+
+##### Example<a id="example-tenants-external-storage-update-isactive"></a>
+
+```pwsh
+omnia tenants external-storage update isactive --tenantid {tenantId} --id {externalStorageId} --value true
+```
+
+##### Required Parameters<a id="required-parameters-tenants-external-storage-update-isactive"></a>
+
+| Name           | Description                                      |
+| -------------- | ------------------------------------------------ |
+| -t, --tenantid | The tenant id that registers the resource        |
+| --id           | The id of the external storage                   |
+| --value        | The value of the external storage (true, false). |
+
+## omnia tenants external-storage list
+
+List all external storage for tenant.
+
+##### Example<a id="example-tenants-external-storage-list"></a>
+
+```pwsh
+omnia tenants external-storage list --tenantid {tenantId}
+```
+
+##### Required Parameters<a id="required-parameters-tenants-external-storage-list"></a>
+
+| Name           | Description                               |
+| -------------- | ----------------------------------------- |
+| -t, --tenantid | The tenant id that registers the resource |
 
 # Extension Commands
 
@@ -1686,10 +1753,10 @@ omnia extensions restart extension --clusterid --extensionid --reorder
 
 ##### Optional Parameters<a id="optional-parameters-extensions-restart"></a>
 
-| Name      | Description                                                |
-| --------- | ---------------------------------------------------------- |
+| Name      | Description                                                 |
+| --------- | ----------------------------------------------------------- |
 | --nomercy | Restarts all services immediately even scaled out instances |
-| --reorder | Reorder services, only apply for cluster level |
+| --reorder | Reorder services, only apply for cluster level              |
 
 ---
 
@@ -1795,19 +1862,19 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {t
 
 ##### Optional Parameters<a id="optional-parameters-extensions-deploy"></a>
 
-| Name      | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| --prerun  | The serviceId of a optional service to run before the deployment |
-| --postrun | The serviceId of a optional service to run after the deployment  |
-| --groupid | A group id to use a deployment group |
-| -o --onlyupdate | Only deploy the new version when the tenant has already installed the extension    |
-| -s --skipifsameorhigher | Skip the deployment when the tenant has already installed the same or higher version  |
-| -w --wait| Waiting times between those extensions in seconds. In case using the extension group  |
-| -r --restart| Auto restart the tenant after deploying  |
-| --scalelevel| Auto scale up the database for running prerun/postrun. Options: ("small", "medium", "large")|
-| --increasesqlbyid| Specify the SQL resource Unique Id that needs to scale up if the extension has many SQL resources  |
-| --code    | The code needs to be entered when deploy to a high-level Deployment Security tenant (format: yy-dd-MM-m) |
-| --ignore-status-check | Ignore the status check of the tenant before deploying. If not set, when deploying Rejected version, it will throw error  |
+| Name                    | Description                                                                                                              |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| --prerun                | The serviceId of a optional service to run before the deployment                                                         |
+| --postrun               | The serviceId of a optional service to run after the deployment                                                          |
+| --groupid               | A group id to use a deployment group                                                                                     |
+| -o --onlyupdate         | Only deploy the new version when the tenant has already installed the extension                                          |
+| -s --skipifsameorhigher | Skip the deployment when the tenant has already installed the same or higher version                                     |
+| -w --wait               | Waiting times between those extensions in seconds. In case using the extension group                                     |
+| -r --restart            | Auto restart the tenant after deploying                                                                                  |
+| --scalelevel            | Auto scale up the database for running prerun/postrun. Options: ("small", "medium", "large")                             |
+| --increasesqlbyid       | Specify the SQL resource Unique Id that needs to scale up if the extension has many SQL resources                        |
+| --code                  | The code needs to be entered when deploy to a high-level Deployment Security tenant (format: yy-dd-MM-m)                 |
+| --ignore-status-check   | Ignore the status check of the tenant before deploying. If not set, when deploying Rejected version, it will throw error |
 
 ---
 
@@ -1823,19 +1890,19 @@ omnia extensions retract {extensionId} --tenantid  {tenantId}
 
 ##### Required Parameters<a id="required-parameters-extensions-retract"></a>
 
-| Name       | Description               |
-| ---------- | ------------------------- |
-| extensionId | The extensionId to retract from |
-| --tenantId or --clusterid |The deployment source Id of the extension |
+| Name                      | Description                               |
+| ------------------------- | ----------------------------------------- |
+| extensionId               | The extensionId to retract from           |
+| --tenantId or --clusterid | The deployment source Id of the extension |
 
     
 
 ##### Optional Parameters<a id="optional-parameters-extensions-retract"></a>
 
-| Name      | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| --tenantId  | Tenant id that the extension being retract |
-| --clusterid | Cluster id that the extension being retract  |
+| Name        | Description                                 |
+| ----------- | ------------------------------------------- |
+| --tenantId  | Tenant id that the extension being retract  |
+| --clusterid | Cluster id that the extension being retract |
 
 ---
 
@@ -1852,21 +1919,21 @@ omnia extensions revert {extensionId:extensionVersion} --tenantid  {tenantId} --
 
 ##### Required Parameters<a id="required-parameters-extensions-retract"></a>
 
-| Name       | Description               |
-| ---------- | ------------------------- |
-| extensionId | The extensionId to revert |
-| extensionVersion | The version of extension |
-| --tenantId |The tenant Id of the extension |
-| --code    | The code needs to be entered (format: yy-dd-MM-m) |
+| Name             | Description                                       |
+| ---------------- | ------------------------------------------------- |
+| extensionId      | The extensionId to revert                         |
+| extensionVersion | The version of extension                          |
+| --tenantId       | The tenant Id of the extension                    |
+| --code           | The code needs to be entered (format: yy-dd-MM-m) |
     
 
 ##### Optional Parameters<a id="optional-parameters-extensions-retract"></a>
 
-| Name      | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| extensionGroupId  | The extension group Id to revert |
-| -w --wait| Waiting times between those extensions in seconds. In case using the extension group  |
-| -r --restart| Auto restart the tenant after deploying (true is default) |
+| Name             | Description                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------ |
+| extensionGroupId | The extension group Id to revert                                                     |
+| -w --wait        | Waiting times between those extensions in seconds. In case using the extension group |
+| -r --restart     | Auto restart the tenant after deploying (true is default)                            |
 
 
 ---
@@ -1881,9 +1948,9 @@ omnia extensions delete-version --version [extensionVersion] --extensionid [exte
 
 ##### Required Parameters<a id="required-parameters-extensions-delete-version"></a>
 
-| Name     | Description                        |
-| -------- | ---------------------------------- |
-| --version | The version of the extension to delete |
+| Name          | Description                                         |
+| ------------- | --------------------------------------------------- |
+| --version     | The version of the extension to delete              |
 | --extensionid | The extension id of the extension to delete version |
 
 
@@ -1897,11 +1964,11 @@ omnia extensions update-version status --version [extensionVersion] --extensioni
 
 ##### Required Parameters<a id="required-parameters-extensions-update-version-status"></a>
 
-| Name     | Description                        |
-| -------- | ---------------------------------- |
-| --version | The version of the extension to update status |
+| Name          | Description                                                |
+| ------------- | ---------------------------------------------------------- |
+| --version     | The version of the extension to update status              |
 | --extensionid | The extension id of the extension to update version status |
-| --status | The status of the version (Approved, Rejected, None) |
+| --status      | The status of the version (Approved, Rejected, None)       |
 
 # Extension Groups Commands
 
@@ -1947,9 +2014,9 @@ omnia extgroups addversion --groupid {mygroupid} --version {extensionid:version}
 
 ##### Optional Parameters<a id="optional-parameters-extgroups-addversion"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -1971,9 +2038,9 @@ omnia extgroups deleteversion --groupid {mygroupid} --version {extensionid:versi
 
 ##### Optional Parameters<a id="optional-parameters-extgroups-deleteversion"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -1992,9 +2059,9 @@ No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-extgroups-delete"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -2042,9 +2109,9 @@ omnia depgroups addtarget --groupid {mygroupid} --targetid {tenantid}
 
 ##### Optional Parameters<a id="optional-parameters-depgroups-addtarget"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---   
 
@@ -2066,9 +2133,9 @@ omnia depgroups deletetarget --groupid {mygroupid} --targetid {tenantid}
 
 ##### Optional Parameters<a id="optional-parameters-depgroups-deletetarget"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -2087,9 +2154,9 @@ No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-depgroups-delete"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -2117,9 +2184,9 @@ omnia secrets add --tenantid {tenantid} --extensionid {extensionid} --name {name
 | --name        | The name of secret                                    |
 
 ##### Optional Parameters<a id="optional-parameters-secrets-add"></a>
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -2164,9 +2231,9 @@ omnia secrets list --extensionid {extensionid}
 
 ##### Optional Parameters<a id="optional-parameters-secrets-list"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -2186,22 +2253,22 @@ omnia cloudsecrets add --name "Omnia Cloud - Api" --appid f144ebc9-5703-4c52-941
 
 ##### Required Parameters<a id="required-parameters-cloudsecrets-add"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --name        | The name of cloud secret                                    |
-| --appid    | The Azure Application Object Id (not client Id)     |
-| --type | Type of the application (Api, Orchestrator, AcrAccess, Services) |
-| --renewbefore | Specifies how many days before the client secret expires that it should be renewed |
-| --validityindays | Specifies how many days the renewed client secret should be valid for |
+| Name             | Description                                                                        |
+| ---------------- | ---------------------------------------------------------------------------------- |
+| --name           | The name of cloud secret                                                           |
+| --appid          | The Azure Application Object Id (not client Id)                                    |
+| --type           | Type of the application (Api, Orchestrator, AcrAccess, Services)                   |
+| --renewbefore    | Specifies how many days before the client secret expires that it should be renewed |
+| --validityindays | Specifies how many days the renewed client secret should be valid for              |
 
 
 ##### Optional Parameters<a id="optional-parameters-cloudsecrets-add"></a>
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --validityinyears | Specifies how many years the renewed client secret should be valid for   |
-| --notifyemails | The list of emails that receive notification about the secret|
-| --autorenew | Auto renew if it matches renew rule|
-| --output json | Return data as json   |
+| Name              | Description                                                            |
+| ----------------- | ---------------------------------------------------------------------- |
+| --validityinyears | Specifies how many years the renewed client secret should be valid for |
+| --notifyemails    | The list of emails that receive notification about the secret          |
+| --autorenew       | Auto renew if it matches renew rule                                    |
+| --output json     | Return data as json                                                    |
 
 ---
 
@@ -2217,14 +2284,14 @@ omnia cloudsecrets update f144ebc9-5703-4c52-9417-ab2171223d9c --name "Omnia Clo
 
 ##### Required Parameters<a id="required-parameters-cloudsecrets-update"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --name        | The name of cloud secret                                    |
-| --renewbefore | Specifies how many days before the client secret expires that it should be renewed |
-| --validityindays | Specifies how many days the renewed client secret should be valid for |
-| --validityinyears | Specifies how many years the renewed client secret should be valid for   |
-| --notifyemails | The list of emails that receive notification about the secret|
-| --autorenew | Auto renew if it matches renew rule|
+| Name              | Description                                                                        |
+| ----------------- | ---------------------------------------------------------------------------------- |
+| --name            | The name of cloud secret                                                           |
+| --renewbefore     | Specifies how many days before the client secret expires that it should be renewed |
+| --validityindays  | Specifies how many days the renewed client secret should be valid for              |
+| --validityinyears | Specifies how many years the renewed client secret should be valid for             |
+| --notifyemails    | The list of emails that receive notification about the secret                      |
+| --autorenew       | Auto renew if it matches renew rule                                                |
 
 ---
 
@@ -2240,9 +2307,9 @@ omnia cloudsecrets remove {cloudSecretId}
 
 ##### Required Parameters<a id="required-parameters-cloudsecrets-remove"></a>
 
-| Name          | Description                                         |
-| ------------- | --------------------------------------------------- |
-| --cloudSecretId    | The id of cloud secret being removed   |
+| Name            | Description                          |
+| --------------- | ------------------------------------ |
+| --cloudSecretId | The id of cloud secret being removed |
 
 ---
 
@@ -2259,10 +2326,10 @@ omnia cloudsecrets list {cloudSecretId}
 
 ##### Optional Parameters<a id="optional-parameters-cloudsecrets-list"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --cloudSecretId | The Id of the cloud secret to view detail   |
-| --output json | Return data as json   |
+| Name            | Description                               |
+| --------------- | ----------------------------------------- |
+| --cloudSecretId | The Id of the cloud secret to view detail |
+| --output json   | Return data as json                       |
 
 ---
 
@@ -2278,16 +2345,16 @@ omnia cloudsecrets renew cloudSecretId --generate
 
 ##### Required Parameters<a id="required-parameters-cloudsecrets-renew"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --cloudSecretId        | The Id of cloud secret need to renew                                 |
+| Name            | Description                          |
+| --------------- | ------------------------------------ |
+| --cloudSecretId | The Id of cloud secret need to renew |
 
 
 ##### Optional Parameters<a id="optional-parameters-cloudsecrets-renew"></a>
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| -a --all | Trigger renew all cloud secrets   |
-| -g --generate | Generate a new secret before rollout to AKS   |
+| Name          | Description                                 |
+| ------------- | ------------------------------------------- |
+| -a --all      | Trigger renew all cloud secrets             |
+| -g --generate | Generate a new secret before rollout to AKS |
 
 ---
 
@@ -2308,16 +2375,16 @@ omnia certs export --path {{pathToPfx}} --password {{password}}
 ```
 ##### Required Parameters<a id="required-parameters-certs-export"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --path    | The location of certificate (.pfx, .pem, or .cer) file     |
-| --password | The password for the certificate file |
+| Name       | Description                                            |
+| ---------- | ------------------------------------------------------ |
+| --path     | The location of certificate (.pfx, .pem, or .cer) file |
+| --password | The password for the certificate file                  |
 
 ##### Optional Parameters<a id="optional-parameters-certs-list"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -2331,11 +2398,11 @@ omnia certs add --cert "C:\Certs\wildcard_preciofishbone_se.cer" --key "C:\Certs
 ```
 ##### Required Parameters<a id="required-parameters-certs-add"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --cert | The location for certificate (.cer or .crt) file |
-| --key        | The location for certificate (.key) file               |                    |
-| --tenantid    | The Id of tenant that needs a new certificate      |
+| Name       | Description                                      |
+| ---------- | ------------------------------------------------ |
+| --cert     | The location for certificate (.cer or .crt) file |
+| --key      | The location for certificate (.key) file         |  |
+| --tenantid | The Id of tenant that needs a new certificate    |
 
 ---
 
@@ -2349,24 +2416,24 @@ omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --
 ```
 ##### Required Parameters<a id="required-parameters-certs-adddigicert"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --name | Name of certificate |
-| --accountid | The Account id in Degicert |
-| --orgid        | The Organization  id in Degicert     |  
-| --orderid        | The Order id of the certificate in Degicert |  
-| --renewbefore     | Specifies how many days before the certificate expires that it should be renewed |  
+| Name          | Description                                                                      |
+| ------------- | -------------------------------------------------------------------------------- |
+| --name        | Name of certificate                                                              |
+| --accountid   | The Account id in Degicert                                                       |
+| --orgid       | The Organization  id in Degicert                                                 |
+| --orderid     | The Order id of the certificate in Degicert                                      |
+| --renewbefore | Specifies how many days before the certificate expires that it should be renewed |
 
 ##### Optional Parameters<a id="optional-parameters-certs-adddigicert"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --name | Name of certificate |
-| --validityindays     | Specifies how many days the renewed certificate should be valid for |  
-| --validityinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
-| --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
-| --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
-| --notifyemails | The list of emails that receive notification about the certificate|
+| Name              | Description                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| --name            | Name of certificate                                                                                                                         |
+| --validityindays  | Specifies how many days the renewed certificate should be valid for                                                                         |
+| --validityinyears | Specifies how many years the renewed certificate should be valid for (default:1)                                                            |
+| --apikey          | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |  |
+| --tenantid        | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud                                          |
+| --notifyemails    | The list of emails that receive notification about the certificate                                                                          |
 
 
 #### Notes
@@ -2386,10 +2453,10 @@ omnia certs list --tenantid {tenantid}
 
 ##### Optional Parameters<a id="optional-parameters-certs-list"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --tenantid    | The Id of tenant     |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --tenantid    | The Id of tenant    |
+| --output json | Return data as json |
 
 ---
 
@@ -2403,11 +2470,11 @@ omnia certs update --id {certificateid} --cert "C:\Certs\wildcard_preciofishbone
 ```
 ##### Required Parameters<a id="required-parameters-certs-update"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --id    | The Id of certificate needs to update     |
+| Name   | Description                              |
+| ------ | ---------------------------------------- |
+| --id   | The Id of certificate needs to update    |
 | --cert | The location for certificate (.cer) file |
-| --key        | The location for certificate (.key) file       |                            |
+| --key  | The location for certificate (.key) file |  |
 
 ---
 
@@ -2421,12 +2488,12 @@ omnia certs cloudupdate "OmniaCloudNetCert" --path "C:\projects\omniacloud.net.c
 ```
 ##### Required Parameters<a id="required-parameters-certs-cloudupdate"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --id    | The Id of certificate needs to update     |
-| --cert | The location for certificate (.cer) file |
-| --key        | The location for certificate (.key) file       |  
-| -- code    | You know. |
+| Name    | Description                              |
+| ------- | ---------------------------------------- |
+| --id    | The Id of certificate needs to update    |
+| --cert  | The location for certificate (.cer) file |
+| --key   | The location for certificate (.key) file |
+| -- code | You know.                                |
 
 #### Notes
 
@@ -2444,24 +2511,24 @@ omnia certs reissue {certId} --name {name} --accountid {accountid} --orgid {orgi
 ```
 ##### Required Parameters<a id="required-parameters-certs-reissue"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
+| Name   | Description                    |
+| ------ | ------------------------------ |
 | certId | The id of updating certificate |
 
 ##### Optional Parameters<a id="optional-parameters-certs-reissue"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --name | Name of certificate |
-| --accountid | The Account id in Degicert |
-| --orgid        | The Organization  id in Degicert     |  
-| --orderid        | The Order id of the certificate in Degicert |  
-| --renewbefore     | Specifies how many days before the certificate expires that it should be renewed|  
-| --validityindays     | Specifies how many days the renewed certificate should be valid for|  
-| --validityinyears     | Specifies how many years the renewed certificate should be valid for (default:1)    |  
-| --apikey        | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |                    |
-| --tenantid    | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud |
-| --notifyemails | The list of emails that receive notification about the certificate|
+| Name              | Description                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| --name            | Name of certificate                                                                                                                         |
+| --accountid       | The Account id in Degicert                                                                                                                  |
+| --orgid           | The Organization  id in Degicert                                                                                                            |
+| --orderid         | The Order id of the certificate in Degicert                                                                                                 |
+| --renewbefore     | Specifies how many days before the certificate expires that it should be renewed                                                            |
+| --validityindays  | Specifies how many days the renewed certificate should be valid for                                                                         |
+| --validityinyears | Specifies how many years the renewed certificate should be valid for (default:1)                                                            |
+| --apikey          | The Api key for a request to Digicert api.Leave it blank if you would like to get from the keyvault. Only set if you know the correct value |  |
+| --tenantid        | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud                                          |
+| --notifyemails    | The list of emails that receive notification about the certificate                                                                          |
 
 ---
 ## omnia certs import
@@ -2474,14 +2541,14 @@ omnia certs import {certid}
 ```
 ##### Required Parameters<a id="required-parameters-certs-import"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| certid | Cloud certificate id. Only when using DigiCert  |
+| Name   | Description                                    |
+| ------ | ---------------------------------------------- |
+| certid | Cloud certificate id. Only when using DigiCert |
 
 ##### Optional Parameters<a id="optional-parameters-certs-import"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
+| Name       | Description                                               |
+| ---------- | --------------------------------------------------------- |
 | --tenantid | The tenant id that has custom domain and use the Digicert |
 
 ## omnia certs clouddeploy
@@ -2494,20 +2561,20 @@ omnia certs clouddeploy --certid {certid} --type {type} --path {cert} --key {key
 ```
 ##### Required Parameters<a id="required-parameters-certs-deploy"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --certid | Cloud certificate id. Only when using DigiCert  |
-| --type        | The certificate (AzureAd,OmniaCloud )     |  
-| --code    | You know. |
+| Name     | Description                                    |
+| -------- | ---------------------------------------------- |
+| --certid | Cloud certificate id. Only when using DigiCert |
+| --type   | The certificate (AzureAd,OmniaCloud )          |
+| --code   | You know.                                      |
 
 ##### Optional Parameters<a id="optional-parameters-certs-deploy"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --path | The location for certificate (.cer) file. Not required for DigiCert |
-| --key        | The location for certificate (.key) file. Not required for DigiCert      |  
-| --password        | The password of the certificate. Not required for DigiCert      |  
-| --tenantid        | Deploy the new cert for only specfic tenant has id  |  
+| Name       | Description                                                         |
+| ---------- | ------------------------------------------------------------------- |
+| --path     | The location for certificate (.cer) file. Not required for DigiCert |
+| --key      | The location for certificate (.key) file. Not required for DigiCert |
+| --password | The password of the certificate. Not required for DigiCert          |
+| --tenantid | Deploy the new cert for only specfic tenant has id                  |
 
 
 #### Notes
@@ -2530,12 +2597,12 @@ omnia domain update --name customer.com --certid {certificateid} --keyid {keyid}
 
 ##### Required Parameters<a id="required-parameters-domain-update"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --name    | The domain name needs to add certificate     |
-| --certid    | The Id of certificate added     |
-| --keyid    | The Id of key added (does not require if using DigiCert)  |
-| --tenantid | The Id of tenant that certificate associated |
+| Name       | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| --name     | The domain name needs to add certificate                 |
+| --certid   | The Id of certificate added                              |
+| --keyid    | The Id of key added (does not require if using DigiCert) |
+| --tenantid | The Id of tenant that certificate associated             |
 
 ---
 
@@ -2551,10 +2618,10 @@ omnia domain dnspreview -d intranet.contoso.com -t {tenantid}
 
 ##### Required Parameters<a id="required-parameters-domain-dnspreview"></a>
 
-| Name      | Description      |
-| --------- | ---------------- |
-| -d|--domain | The custom domain, like intranet.contoso.com |
-| -t|--tenantid | The id (Guid) of the tenant you're generating the values for |
+| Name | Description |
+| ---- | ----------- |
+| -d   | --domain    | The custom domain, like intranet.contoso.com                 |
+| -t   | --tenantid  | The id (Guid) of the tenant you're generating the values for |
 
 ---
 
@@ -2568,14 +2635,14 @@ omnia certs delete {certificateid} --tenantid {tenantid}
 ```
 ##### Required Parameters<a id="required-parameters-certs-delete"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| certificateid    | The Id of certificate needs to delete     |
+| Name          | Description                           |
+| ------------- | ------------------------------------- |
+| certificateid | The Id of certificate needs to delete |
 
 ##### Optional Parameters<a id="optional-parameters-certs-delete"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
+| Name       | Description                                                                           |
+| ---------- | ------------------------------------------------------------------------------------- |
 | --tenantid | The Id of tenant that certificate associated. Unset when deleting a cloud certificate |
 
 ---
@@ -2598,10 +2665,10 @@ omnia loc upload --src {localizationFilePath}  --v {semanticVersioning}
 
 ##### Required Parameters<a id="required-parameters-loc-upload"></a>
 
-| Name          | Description                                             |
-| ------------- | --------------------------------------------------------|
-| --src         | Path to localization file with filename described above |
-| --v           | Sematic version, prerelease part is important           |
+| Name  | Description                                             |
+| ----- | ------------------------------------------------------- |
+| --src | Path to localization file with filename described above |
+| --v   | Sematic version, prerelease part is important           |
 
 ---
 
@@ -2618,11 +2685,11 @@ omnia loc delete --serviceId {serviceId} --lang {languageTag} --v {semanticVersi
 
 ##### Required Parameters<a id="required-parameters-loc-delete"></a>
 
-| Name          | Description                                         |
-| ------------- | --------------------------------------------------- |
-| --serviceId   | The id of the omnia service for which to delete     |
-| --lang        | The language of the file that should be deleted     |
-| --v           | The version to delete                               |
+| Name        | Description                                     |
+| ----------- | ----------------------------------------------- |
+| --serviceId | The id of the omnia service for which to delete |
+| --lang      | The language of the file that should be deleted |
+| --v         | The version to delete                           |
 
 
 ---
@@ -2653,13 +2720,13 @@ omnia loc list --serviceId {serviceId} --match {semeanticVersion}
 ```
 ##### Optional Parameters<a id="optional-parameters-loc-list"></a>
 
-| Name          | Description                                                                                                                    |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------|
-| --serviceId   | The id of the omnia service                                                                                                    |
-| --lang        | A specific language tag e.g. en-us                                                                                             |
-| --diff        | An option to enable selection of what to diff, for the versins listed. Can't be combined with --match                          |
-| --match       | An option to see which localization files would (currently) deploy if deploying a specific version, Can't combine with --diff  |
-| --output json | Return data as json   |
+| Name          | Description                                                                                                                   |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| --serviceId   | The id of the omnia service                                                                                                   |
+| --lang        | A specific language tag e.g. en-us                                                                                            |
+| --diff        | An option to enable selection of what to diff, for the versins listed. Can't be combined with --match                         |
+| --match       | An option to see which localization files would (currently) deploy if deploying a specific version, Can't combine with --diff |
+| --output json | Return data as json                                                                                                           |
 
 ---
 
@@ -2674,17 +2741,17 @@ omnia loc download --output {downloadFolderPath} --serviceId {serviceId} --lang 
 
 ##### Required Parameters<a id="required-parameters-loc-download"></a>
 
-| Name          | Description                                         |
-| ------------- | --------------------------------------------------- |
-| -o --output      | The path of the destination folder                  |
+| Name        | Description                        |
+| ----------- | ---------------------------------- |
+| -o --output | The path of the destination folder |
 
 ##### Optional Parameters<a id="optional-parameters-loc-download"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --serviceId   | The id of the omnia service for which to download     |
-| --lang        | The language of the file that should be download     |
-| --v           | The version to download                             |
+| Name        | Description                                       |
+| ----------- | ------------------------------------------------- |
+| --serviceId | The id of the omnia service for which to download |
+| --lang      | The language of the file that should be download  |
+| --v         | The version to download                           |
 
 ---
 
@@ -2699,19 +2766,19 @@ omnia loc diff --output {downloadFolderPath} --serviceId bb000000-0000-bbbb-0000
 
 ##### Required Parameters<a id="required-parameters-loc-diff"></a>
 
-| Name          | Description                                         |
-| ------------- | --------------------------------------------------- |
-| -o --output      | The path of the destination folder                  |
-| --serviceId   | The id of the omnia service for which to compare     |
-| --extVersion   | Version of the Extension pakcage that the service belongs to     |
+| Name         | Description                                                  |
+| ------------ | ------------------------------------------------------------ |
+| -o --output  | The path of the destination folder                           |
+| --serviceId  | The id of the omnia service for which to compare             |
+| --extVersion | Version of the Extension pakcage that the service belongs to |
 
 ##### Optional Parameters<a id="optional-parameters-loc-diff"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --v           | A specific localization file version to compare.        |
-| --lang           | A specific language to compare.        |
-| --src           | A source json file to compare.        |
+| Name   | Description                                      |
+| ------ | ------------------------------------------------ |
+| --v    | A specific localization file version to compare. |
+| --lang | A specific language to compare.                  |
+| --src  | A source json file to compare.                   |
 
 ---
 
@@ -2726,10 +2793,10 @@ omnia loc patch --src D:\loc\bb000000-0000-bbbb-0000-0000000000bb_localized.loc.
 
 ##### Required Parameters<a id="required-parameters-loc-patch"></a>
 
-| Name          | Description                                         |
-| ------------- | --------------------------------------------------- |
-| --src      | Language patch json file, on format serviceid_localized.loc.languagetag.json                 |
-| ---v   | Sematic version    |
+| Name  | Description                                                                  |
+| ----- | ---------------------------------------------------------------------------- |
+| --src | Language patch json file, on format serviceid_localized.loc.languagetag.json |
+| ---v  | Sematic version                                                              |
 
 ##### Optional Parameters<a id="optional-parameters-loc-patch"></a>
 
@@ -2743,22 +2810,22 @@ With permissions, its possible to grant permission for any users to do actions i
 
 ## All permission roles available in Omnia Cli:
 
-| Id                                    | Name          | Parent Role | Description |
-| ------------------------------------- | ------------- | ----------- | ----------- |
-| 11e1f111-c773-4f8d-8d40-8767d707f071  | Omnia.Cloud.Admin |         | Global admin can do everything | 
-| 0c33d62a-cc9b-4880-9506-8c60ddfccdcf  | Omnia.Clusters.Admin | Omnia.Cloud.Admin | Can Create/Delete/Scale cluster | 
-| 842a4da4-b482-4d61-a417-2426a4a752bc  | Omnia.Cluster.Manager |  Omnia.Clusters.Admin | Can restart node/cluster and scale extension in tenant |
-| 4a16f679-deec-40cb-a11d-805e7b4f82ab  | Omnia.License.Admin | Omnia.Cloud.Admin | Have the same permission as License owner |
-| c79fd690-18b8-42a1-b540-9ae77193f432  | Omnia.Release.Admin | Omnia.Cloud.Admin | Can deploy any extensions |
-| f023316e-25d5-4139-a31b-7e07a7d73ce7  | Omnia.Extension.Admin | Omnia.Cloud.Admin | Have the same permission as Extension owner |
-| 8146c17e-ddf5-4020-b96c-298818f9180f  | Omnia.ServicePackageGroup.Admin | Omnia.Cloud.Admin | Have the same permission as Extension Group owner |
-| 585f098e-ecf4-490f-a13c-9cbd662fc377  | Omnia.DeploymentGroup.Admin | Omnia.Cloud.Admin | Have the same permission as Deployment Group owner |
-| 9af39436-e073-40c6-bf01-7ab6cae8a93c  | Omnia.Tenants.Creator | Omnia.Cloud.Admin | Can create a new tenant
-| 6b96e280-e092-4b8f-a721-c4623d4ef14c  | Omnia.Tenant.Admin | Omnia.Cloud.Admin | Have the same permission as Tenant owner. Deploy and retract public extensions |
-| 731cd4d6-50aa-4463-bad4-b21d9aceadb2  | Omnia.Cloud.FirstLineSupport | Omnia.Cloud.Admin | List all tenants, enanble/disable redirect error page, and restart extensions/services |
-| 6b99566f-f787-42dd-a216-10ed9e8a8f90  | Omnia.Tenant.FirstLineSupport | Omnia.Tenant.Admin | List authorized tenants, enanble/disable redirect error page, and restart extensions/services |
-| deb1fbb9-ee05-4d45-becd-95643ccb6db2  | Omnia.Tenant.Developer | Omnia.Tenant.Admin | List authorized tenants, Deploy and retract custom extensions that the user is the owner of|
-| 4bb73e4f-c283-4af8-afac-4fa422943975  | Omnia.Localization.Admin | Omnia.Extension.Admin | Can administrate all localization files |
+| Id                                   | Name                            | Parent Role           | Description                                                                                   |
+| ------------------------------------ | ------------------------------- | --------------------- | --------------------------------------------------------------------------------------------- |
+| 11e1f111-c773-4f8d-8d40-8767d707f071 | Omnia.Cloud.Admin               |                       | Global admin can do everything                                                                |
+| 0c33d62a-cc9b-4880-9506-8c60ddfccdcf | Omnia.Clusters.Admin            | Omnia.Cloud.Admin     | Can Create/Delete/Scale cluster                                                               |
+| 842a4da4-b482-4d61-a417-2426a4a752bc | Omnia.Cluster.Manager           | Omnia.Clusters.Admin  | Can restart node/cluster and scale extension in tenant                                        |
+| 4a16f679-deec-40cb-a11d-805e7b4f82ab | Omnia.License.Admin             | Omnia.Cloud.Admin     | Have the same permission as License owner                                                     |
+| c79fd690-18b8-42a1-b540-9ae77193f432 | Omnia.Release.Admin             | Omnia.Cloud.Admin     | Can deploy any extensions                                                                     |
+| f023316e-25d5-4139-a31b-7e07a7d73ce7 | Omnia.Extension.Admin           | Omnia.Cloud.Admin     | Have the same permission as Extension owner                                                   |
+| 8146c17e-ddf5-4020-b96c-298818f9180f | Omnia.ServicePackageGroup.Admin | Omnia.Cloud.Admin     | Have the same permission as Extension Group owner                                             |
+| 585f098e-ecf4-490f-a13c-9cbd662fc377 | Omnia.DeploymentGroup.Admin     | Omnia.Cloud.Admin     | Have the same permission as Deployment Group owner                                            |
+| 9af39436-e073-40c6-bf01-7ab6cae8a93c | Omnia.Tenants.Creator           | Omnia.Cloud.Admin     | Can create a new tenant                                                                       |
+| 6b96e280-e092-4b8f-a721-c4623d4ef14c | Omnia.Tenant.Admin              | Omnia.Cloud.Admin     | Have the same permission as Tenant owner. Deploy and retract public extensions                |
+| 731cd4d6-50aa-4463-bad4-b21d9aceadb2 | Omnia.Cloud.FirstLineSupport    | Omnia.Cloud.Admin     | List all tenants, enanble/disable redirect error page, and restart extensions/services        |
+| 6b99566f-f787-42dd-a216-10ed9e8a8f90 | Omnia.Tenant.FirstLineSupport   | Omnia.Tenant.Admin    | List authorized tenants, enanble/disable redirect error page, and restart extensions/services |
+| deb1fbb9-ee05-4d45-becd-95643ccb6db2 | Omnia.Tenant.Developer          | Omnia.Tenant.Admin    | List authorized tenants, Deploy and retract custom extensions that the user is the owner of   |
+| 4bb73e4f-c283-4af8-afac-4fa422943975 | Omnia.Localization.Admin        | Omnia.Extension.Admin | Can administrate all localization files                                                       |
 
 
 
@@ -2798,15 +2865,15 @@ omnia permissions add {tenantRoleId} --resource tenantId:{tenantId} --principals
 
 ##### Required Parameters<a id="required-parameters-permissions-add"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --principals    | The username of users to be added                   |
+| Name         | Description                       |
+| ------------ | --------------------------------- |
+| --principals | The username of users to be added |
 
 ##### Optional Parameters<a id="optional-parameters-permissions-add"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --resource    | The resource string related to the roleId to be added |
+| Name       | Description                                           |
+| ---------- | ----------------------------------------------------- |
+| --resource | The resource string related to the roleId to be added |
 
 ---
 
@@ -2843,15 +2910,15 @@ omnia permissions remove {tenantRoleId} --resource tenantId:{tenantId} --princip
 
 ##### Required Parameters<a id="required-parameters-permission-remove"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --principals  | The username of users to be removed                   |
+| Name         | Description                         |
+| ------------ | ----------------------------------- |
+| --principals | The username of users to be removed |
 
 ##### Optional Parameters<a id="optional-parameters-permission-remove"></a>
 
-| Name          | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| --resource    | The resource string related to the roleId to be remove |
+| Name       | Description                                            |
+| ---------- | ------------------------------------------------------ |
+| --resource | The resource string related to the roleId to be remove |
 
 
 ---
@@ -2871,9 +2938,9 @@ omnia permissions list {roleId}
 No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-permissions-list"></a>
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ---
 
@@ -2891,18 +2958,18 @@ omnia alertrules new --serviceid {serviceid} --name {name} --template SlowRespon
 ```
 ##### Required Parameters<a id="required-parameters-alertrules-new"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --serviceid   | The service id that needs to be attached alert rule.   |
-| --name        | The name of the alert rule. It should be unique because the AI rules based on name.  |
-| --template    | The template of alert rule (SlowResponseTimes, WebTest).                                 |
+| Name        | Description                                                                         |
+| ----------- | ----------------------------------------------------------------------------------- |
+| --serviceid | The service id that needs to be attached alert rule.                                |
+| --name      | The name of the alert rule. It should be unique because the AI rules based on name. |
+| --template  | The template of alert rule (SlowResponseTimes, WebTest).                            |
 
 The query of the alert rule should be input in the text editor.
 
 ##### Optional Parameters<a id="optional-parameters-alertrules-new"></a>
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ## omnia alertrules update
 
@@ -2915,15 +2982,15 @@ omnia alertrules update {alertRuleId} --name {name}
 ```
 ##### Required Parameters<a id="required-parameters-alertrules-update"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --alertRuleId | The alert rule id that needs to be update.             |
-| --name        | The name of the alert rule. It should be unique because the AI rules based on name.  |
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| --alertRuleId | The alert rule id that needs to be update.                                          |
+| --name        | The name of the alert rule. It should be unique because the AI rules based on name. |
 
 ##### Optional Parameters<a id="optional-parameters-alertrules-update"></a>
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --output json | Return data as json   |
+| Name          | Description         |
+| ------------- | ------------------- |
+| --output json | Return data as json |
 
 ## omnia alertrules list
 
@@ -2939,10 +3006,10 @@ omnia alertrules list {alertRuleId}
 No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-alertrules-list"></a>
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --alertRuleId |  The alert rule id needs to view detail.              |
-| --output json | Return data as json   |
+| Name          | Description                             |
+| ------------- | --------------------------------------- |
+| --alertRuleId | The alert rule id needs to view detail. |
+| --output json | Return data as json                     |
 
 ## omnia alertrules delete
 
@@ -2956,9 +3023,9 @@ omnia alertrules delete {alertRuleId}
 ##### Required Parameters<a id="required-parameters-alertrules-delete"></a>
 
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --alertRuleId | The alert rule id needs to be deleted.                |
+| Name          | Description                            |
+| ------------- | -------------------------------------- |
+| --alertRuleId | The alert rule id needs to be deleted. |
 
 
 ##### Optional Parameters<a id="optional-parameters-alertrules-delete"></a>
@@ -2986,10 +3053,10 @@ No required parameters
 ##### Optional Parameters<a id="optional-parameters-resourceproviders-list"></a>
 
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --providerid |  The Resource Providers id needs to view detail.              |
-| --output json | Return data as json   |
+| Name          | Description                                     |
+| ------------- | ----------------------------------------------- |
+| --providerid  | The Resource Providers id needs to view detail. |
+| --output json | Return data as json                             |
 
 ---
 ## omnia resourceproviders add
@@ -3003,20 +3070,20 @@ omnia resourceproviders add --name omniauatcloudintentdev3 --type SqlElasticPool
 ```
 ##### Required Parameters<a id="required-parameters-resourceproviders-add"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --name   | The name of new resource provider.|
-| --server        | The full server name of sql database.  |
-| --type        | The type of new resource provider.  |
-| --region        | The region.  |
-| --intent        | The intent.  |
+| Name     | Description                           |
+| -------- | ------------------------------------- |
+| --name   | The name of new resource provider.    |
+| --server | The full server name of sql database. |
+| --type   | The type of new resource provider.    |
+| --region | The region.                           |
+| --intent | The intent.                           |
 
 ##### Optional Parameters<a id="optional-parameters-resourceproviders-add"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --adminusername |  The admin user name of database. It will be Auto generated with Omnia format if empty |
-| --adminpassword | The admin password. It will be auto generated with Omnia format if empty   |
+| Name            | Description                                                                           |
+| --------------- | ------------------------------------------------------------------------------------- |
+| --adminusername | The admin user name of database. It will be Auto generated with Omnia format if empty |
+| --adminpassword | The admin password. It will be auto generated with Omnia format if empty              |
 
 ---
 
@@ -3034,10 +3101,10 @@ omnia elasticpools new --providerid {providerid} --elasticpoolid {elasticpoolid}
 ```
 ##### Required Parameters<a id="required-parameters-elasticpools-new"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --providerid   | The resource provider id that the new elastic pool should belong to.|
-| --elasticpoolid        | The Azure elastic pool Id.  |
+| Name            | Description                                                          |
+| --------------- | -------------------------------------------------------------------- |
+| --providerid    | The resource provider id that the new elastic pool should belong to. |
+| --elasticpoolid | The Azure elastic pool Id.                                           |
 
 
 ##### Optional Parameters<a id="optional-parameters-elasticpools-new"></a>
@@ -3054,10 +3121,10 @@ omnia elasticpools update {elasticPoolId} --status {status}
 ```
 ##### Required Parameters<a id="required-parameters-elasticpools-update"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --elasticPoolId | The elastic pool id that needs to be update.             |
-| --status        | The new status of the elastic pool (Available = 1, Full = 2).  |
+| Name            | Description                                                   |
+| --------------- | ------------------------------------------------------------- |
+| --elasticPoolId | The elastic pool id that needs to be update.                  |
+| --status        | The new status of the elastic pool (Available = 1, Full = 2). |
 
 ##### Optional Parameters<a id="optional-parameters-elasticpools-update"></a>
 No optional parameters
@@ -3078,9 +3145,9 @@ No required parameters
 ##### Optional Parameters<a id="optional-parameters-elasticpools-list"></a>
 
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --elasticPoolId |  The elastic pool id needs to view detail.              |
+| Name            | Description                               |
+| --------------- | ----------------------------------------- |
+| --elasticPoolId | The elastic pool id needs to view detail. |
 
 
 ## omnia elasticpools delete
@@ -3095,9 +3162,9 @@ omnia elasticpools delete {elasticPoolId}
 ##### Required Parameters<a id="required-parameters-elasticpools-delete"></a>
 
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --elasticPoolId | The elastic pool id needs to be deleted.                |
+| Name            | Description                              |
+| --------------- | ---------------------------------------- |
+| --elasticPoolId | The elastic pool id needs to be deleted. |
 
 
 ##### Optional Parameters<a id="optional-parameters-elasticpools-delete"></a>
@@ -3116,11 +3183,11 @@ omnia elasticpools ensure --providerid {providerid} --name {name} --status {name
 ##### Required Parameters<a id="required-parameters-elasticpools-ensure"></a>
 
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --providerid   | The resource provider id that the new elastic pool should belong to.|
-| --name        | The Azure elastic pool name.  |
-| --status        | The status of the elastic pool (Available = 1, Full = 2).  |
+| Name         | Description                                                          |
+| ------------ | -------------------------------------------------------------------- |
+| --providerid | The resource provider id that the new elastic pool should belong to. |
+| --name       | The Azure elastic pool name.                                         |
+| --status     | The status of the elastic pool (Available = 1, Full = 2).            |
 
 
 ##### Optional Parameters<a id="optional-parameters-elasticpools-ensure"></a>
@@ -3143,12 +3210,12 @@ omnia reports new --targetId {TenantId} --start {StartDate} --end {EndDate} --ty
 ```
 ##### Required Parameters<a id="required-parameters-reports-new"></a>
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --targetId   | The tenant/cluster id that report should target to. It's not required for UserTenantAccessByCloud|
-| --start        | The start time of filter in the report.  |
-| --end        | The end time of filter in the report.  |
-| --type        | The report type (UserTenantAccess, UserTenantAccessByCluster, UserTenantAccessByCloud).  |
+| Name       | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| --targetId | The tenant/cluster id that report should target to. It's not required for UserTenantAccessByCloud |
+| --start    | The start time of filter in the report.                                                           |
+| --end      | The end time of filter in the report.                                                             |
+| --type     | The report type (UserTenantAccess, UserTenantAccessByCluster, UserTenantAccessByCloud).           |
 
 
 ##### Optional Parameters<a id="optional-parameters-reports-new"></a>
@@ -3170,9 +3237,9 @@ No required parameters
 ##### Optional Parameters<a id="optional-parameters-reports-list"></a>
 
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --reportsId |  The report id needs to view detail.              |
+| Name        | Description                         |
+| ----------- | ----------------------------------- |
+| --reportsId | The report id needs to view detail. |
 
 
 ## omnia reports delete
@@ -3187,9 +3254,9 @@ omnia reports delete {reportId}
 ##### Required Parameters<a id="required-parameters-reports-delete"></a>
 
 
-| Name          | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| --reportId | The report id needs to be deleted.                |
+| Name       | Description                        |
+| ---------- | ---------------------------------- |
+| --reportId | The report id needs to be deleted. |
 
 
 ##### Optional Parameters<a id="optional-parameters-reports-delete"></a>
