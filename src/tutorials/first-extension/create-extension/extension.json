@@ -1,1 +1,12 @@
-{"Id":"{extension id}","Type":"Extension","Projects":[{"Path":"HelloOmniaFx.Web/HelloOmniaFx.Web.csproj","BaseImage":"preciofishbone/omnia:3.0-webapp"}]}
+{
+  "Id": "0b81f540-7f72-4467-9a1e-c14d339df773",
+  "Name": "HelloOmniaFx",
+  "Type": "Extension",
+  "Projects": [
+    {
+      "Path": "HelloOmniaFx.Web/HelloOmniaFx.Web.csproj",
+      "BaseImage": "preciofishbone/omnia:7.0-webapp",
+      "ServiceType": 0
+    }
+  ]
+}

@@ -1,14 +1,7 @@
-import { types } from 'typestyle';
-import { StyleFlow } from '@omnia/fx/ux';
+import { types } from "typestyle";
+import { StyleFlow } from "@omnia/fx/ux";
 
-/**
- * Styles for the HelloOmniaFxComponent component
- */
-export const HelloOmniaFxComponentStyles = {} as {
-    container: types.NestedCSSProperties
-};
-
-StyleFlow.define(HelloOmniaFxComponentStyles, {
+export default StyleFlow.define({
     container: {
         //Full screen styles
         position: 'absolute',
@@ -24,3 +17,4 @@ StyleFlow.define(HelloOmniaFxComponentStyles, {
         display: 'flex'
     }
 })
+

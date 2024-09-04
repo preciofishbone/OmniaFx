@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloOmniaFx.Web", "HelloOmniaFx.Web\HelloOmniaFx.Web.csproj", "{974034F0-D06B-4A2D-9211-46D0D39B74C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		BuildWithoutTsc|Any CPU = BuildWithoutTsc|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{974034F0-D06B-4A2D-9211-46D0D39B74C3}.BuildWithoutTsc|Any CPU.ActiveCfg = BuildWithoutTsc|Any CPU
+		{974034F0-D06B-4A2D-9211-46D0D39B74C3}.BuildWithoutTsc|Any CPU.Build.0 = BuildWithoutTsc|Any CPU
+		{974034F0-D06B-4A2D-9211-46D0D39B74C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{974034F0-D06B-4A2D-9211-46D0D39B74C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{974034F0-D06B-4A2D-9211-46D0D39B74C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{974034F0-D06B-4A2D-9211-46D0D39B74C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F3B55B0-FCA7-47D0-B8E5-D4F26B4B4D1C}
+	EndGlobalSection
+EndGlobal

@@ -6,7 +6,7 @@ Let's begin the journey to become an Omnia Developer.
 
 ### Visual Studio
 
-Download and install Visual Studio 2019 from your MSDN subscription or company repository.
+Download and install Visual Studio 2022 from your MSDN subscription or company repository.
 
 [Looking for some alternatives to Visual Studio?](https://github.com/preciofishbone/OmniaFx/tree/main/docs/tutorials/omnia-learn/other-editors#vs-code-for-omnia-development)
 
@@ -14,7 +14,7 @@ Download and install Visual Studio 2019 from your MSDN subscription or company r
 
 ### .NET Core SDK 
 
-Download and install .NET Core SDK 5.0.100 from https://dotnet.microsoft.com/download/dotnet/5.0.
+Download and install .NET Core SDK 7.0.317 from https://dotnet.microsoft.com/en-us/download/dotnet/7.0.
 
 ---
 

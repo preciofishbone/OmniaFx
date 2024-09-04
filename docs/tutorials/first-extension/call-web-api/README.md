@@ -12,7 +12,7 @@ In this part of the tutorial, you will make a client-side component call to a We
 
 Create a new folder called `Controllers` under `..\HelloOmniaFx.Web\`.
 
-Inside the newly created folder, create a new item of typ `API Controller Class`  with the name `TestController`.
+Inside the newly created folder, create a new item of type `API Controller Class`  with the name `TestController`.
 
 Add a GET method in the controller
 
@@ -20,18 +20,17 @@ Add a GET method in the controller
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HelloOmniaFx.Web.Controllers
+namespace HelloOmniaFx.Web.Controllers;
+
+[Route("api/test")]
+[ApiController]
+public class TestController : ControllerBase
 {
-    [Route("api/test")]
-    [ApiController]
-    public class TestController : ControllerBase
+    [HttpGet]
+    [Authorize]
+    public string Hello(string name)
     {
-        [HttpGet]
-        [Authorize]
-        public string Hello(string name)
-        {
-            return $"Hello {name}, nice to meet you. I am Omnia Fx Web API";
-        }
+        return $"Hello {name}, nice to meet you. I am Omnia Fx Web API";
     }
 }
 ```
@@ -43,16 +42,13 @@ Open the file `HelloOmniaFxComponent.tsx`.
 Inject a HttpClient instance
 
 ```tsx
-@Component
-export default class HelloOmniaFxComponent extends VueComponentBase implements IWebComponentInstance, IHelloOmniaFxComponent {
-
-    //Inject HttpClient
-    @Inject<HttpClientConstructor>(HttpClient, {
-        configPromise: HttpClient.createOmniaServiceRequestConfig('[web-service-id]')
-    }) private httpClient: HttpClient;
-
-
-    ...
+import { ..., useInject, HttpClient } from "@omnia/fx";
+...
+setup(props) {
+  const httpClient = useInject(HttpClient, {
+      configPromise: HttpClient.createOmniaServiceRequestConfig("[web-service-id]")
+  });
+  ...
 }
 ```
 
@@ -65,33 +61,33 @@ export default class HelloOmniaFxComponent extends VueComponentBase implements I
 Add new properties and function:
 
 ```tsx
-private name = '';
-private responseMsg = '';
-private waiting = false;
+const state = reactive({
+  name: "",
+  responseMsg: "",
+  waiting: false,
+});
 
-callWebAPI() {
-    this.waiting = true;
-    this.httpClient.get<string>('/api/test?name=' + this.name).then((response) => {
-        this.waiting = false;
-        this.responseMsg = response.data
-    })
+function callWebAPI() {
+  state.waiting = true;
+  httpClient.get<string>("/api/test?name=" + state.name).then((response) => {
+      state.waiting = false;
+      state.responseMsg = response.data;
+  });
 }
 ```
 
-Update the render function:
+Update the return render function:
 
 ```tsx
-render(h) {
-    return (
-        <div class={this.HelloOmniaFxComponentClasses.container}>
-            <div class='text-xs-center'>
-                <div><v-text-field label="Name" v-model={this.name}></v-text-field></div>
-                <div><v-btn flat loading={this.waiting} onClick={this.callWebAPI}>Send</v-btn></div>
-                <div><p>{this.responseMsg}</p></div>
-            </div>
-        </div>
-    )
-}
+return () => (
+  <div class={HelloOmniaFxComponentClasses.container}>
+      <div class='text-xs-center'>
+          <div><v-text-field label="Name" v-model={state.name}></v-text-field></div>
+          <div><v-btn flat loading={state.waiting} onClick={callWebAPI}>Send</v-btn></div>
+          <div><p>{state.responseMsg}</p></div>
+      </div>
+  </div>
+);
 ```
 
 # Step 3. Test the result

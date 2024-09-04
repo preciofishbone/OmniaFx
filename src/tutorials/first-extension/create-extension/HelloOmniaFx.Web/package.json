@@ -2,42 +2,27 @@
   "name": "HelloOmniaFx.Web",
   "version": "0.1.0",
   "scripts": {
-    "omnia-before-build": "gulp omnia-before-build",
-    "omnia-after-build": "gulp omnia-after-build",
-    "test": "jest"
+    "tsc": "tsc -v && tsc",
+    "serve": "omniafx serve",
+    "build": "omniafx build --manifestOnly",
+    "build-release": "tsc -v && tsc && omniafx build --clean",
+    "clean": "omniafx clean",
+    "lint": "eslint .",
+    "lintfix": "eslint . --fix",
+    "lintgroup": "eslint . -f ./eslint-formatter.js"
   },
-  "dependencies": {
-    "@omnia/fx-models": "3.1.4",
-    "@omnia/fx-sp": "3.1.4",
-    "@omnia/fx-spfx": "3.1.4",
-    "@omnia/tooling-vue": "3.1.4"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^22.1.0",
-    "jest": "^22.1.4",
-    "jest-cli": "^22.1.4",
-    "ts-jest": "^22.0.1"
+    "@omnia/fx-models": "7.6.31",
+    "@omnia/fx-sp": "7.6.31",
+    "@omnia/fx-spfx": "7.6.31",
+    "@omnia/tooling-vue": "7.6.31",
+    "@typescript-eslint/eslint-plugin": "5.15.0",
+    "@typescript-eslint/parser": "5.15.0",
+    "eslint": "8.11.0",
+    "eslint-plugin-unused-imports": "2.0.0"
   },
   "engines": {
-    "node": ">=10.0.0"
-  },
-  "jest": {
-    "transform": {
-      ".(ts|tsx|jsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "moduleNameMapper": {
-      "(@omnia/fx/)": "<rootDir>/__mocks__/index.ts"
-    },
-    "testRegex": "(/.*|\\.(test|spec))\\.(test.ts|test.tsx)$",
-    "testPathIgnorePatterns": [
-      "<rootDir>/wwwroot",
-      "<rootDir>/node_modules"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "testEnvironment": "node"
+    "node": ">=14.16.0"
   }
 }

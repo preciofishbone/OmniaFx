@@ -15,7 +15,7 @@ In this part of the tutorial, you will create a simple extension that consists o
 ## Install the latest templates
 
 ```
-omnia dev new --install 6.0.0
+omnia dev new --install 7.0.0
 ```
 
 >Tip: You only need to run this command once in your development environment as long as you want to develop for this version. If you need to use another version, you need to run the command for that specific version.
@@ -25,12 +25,24 @@ omnia dev new --install 6.0.0
 ## Create a new extension project using template
 
 ```
-omnia dev new extension --name web=HelloOmniaFx.Web
+omnia dev new extension --name web=HelloOmniaFx.Web -f
 ```
 
 >Tip: The project will be created at the current path running the cmd.
 
 This will create a project, but it won't create .sln file. You can create the solution yourself.
+
+# Step 3. Update to latest Omnia Fx and install the required packages
+
+Run the following cmd at the root of the extension solution
+
+```
+omnia dev update omniafx -f
+```
+
+```
+omnia dev restore -f
+```
 
 # Step 2. Generate appsettings.local.json file
 
@@ -67,38 +79,42 @@ This is important, as only files under the client -folder in your project are bu
 Inside the newly created folder, run the following cmd:
 
 ```
-omnia dev new vuewebcomponent --name HelloOmniaFxComponent --tokens element=hello-omnia-fx-component
+omnia dev new vuewebcomponent --name HelloOmniaFxComponent --tokens element=hello-omnia-fx-component -f
 ```
 
-# Step 4. Open your project in visual studio 2019/2022
+# Step 4. Open your project in visual studio 2022
 
-Open `HelloOmniaFxComponent.tsx` and modify the `render` function 
+Open `HelloOmniaFxComponent.tsx` and modify the default value of `data` parameter
 
 ```tsx
-render(h) {
-    return (
-        <div class={this.HelloOmniaFxComponentClasses.container}>
-            Hello from Omnia Fx
-        </div>
-    )
-}
+data: {
+    type: definePropObjectType<HelloOmniaFxComponentData>(),
+    default: { title: "Hello from Omnia Fx!" }
+},
 ```
 
-Build and run the project. 
+Build the project. 
 
 # Step 5. Serve the extension locally 
 
+Run the following cmd at the root of the Extension project
+
+```
+npm run serve
+```
+
+Note down the port of the local hosting server after running the cmd above in the cmd windows.
 Open a browser and browse to your Omnia Developing tenant.
 
 >Tip: You can find the url to browse to by looking at the information in your appsettings.local.json file (e.g. `domain-something.omniacloud.net`)
 
-When the site is loaded, press `Shift + O` then `Shift + C` to open the `Omnia Developer Console`, then run the following cmd to serve your extension locally:
+When the site is loaded, press `Shift + O + C` to open the `Omnia Developer Console`, then run the following cmd to serve your extension locally (the port is the number we note down above):
 
 ```
-serve https://localhost:44351
+serve https://localhost:{localHostingServerPort}
 ```
 
->Tip: The default port for the project created by the template is 44351. Feel free to change the port to a new unique value on your machine if needed.
+>Tip: The default port for the project is created by the template. Feel free to change the port to a new unique value on your machine if needed.
 
 The browser will be reloaded after serving successfully.
 
@@ -108,33 +124,48 @@ You can verify the serve status by running the following cmd in the `Omnia Devel
 serve --list
 ```
 
-If you want to see that your manifest is properly loaded after running `serve`, verify that your Local Storage has an entry with name "omnia.fx.localhostinginfo", and a value that contains resourceUrl/apiUrl pointing to your localhost with the same port you ran the `serve` with.
+If you want to see that your manifest is properly loaded after running `serve`, verify that your Local Storage has an entry with name "omnia.fx.localhostinginfo.7", and a value that contains resourceUrl/apiUrl pointing to your localhost with the same port you ran the `serve` with.
 
 # Step 6. Test the component
 
 Now it's time to verify your component can be shown properly.
 
-For testing purpose only, you will make the component automatically render itself as full screen on the browser.
+For testing purpose only, you will make the component automatically render itself as full size under Omnia body.
 
 Open the `HelloOmniaFxComponent.manifest.ts` and add the load rules:
 
 ```tsx
 .registerWebComponent({
     elementName: "hello-omnia-fx-component",
-    entryPoint: "./HelloOmniaFxComponent.jsx"
+    entryPoint: "./HelloOmniaFxComponent.tsx"
 })
 //load rule to load this manifest after page load
 .withLoadRules()
 .loadByUrlMatching({startsWith: '/'});
 ```
 
-Open the `HelloOmniaFxComponent.tsx` and modify the `registerElement` logic at the end of the file:
+Open the `HelloOmniaFxComponent.tsx` and make the folliowing changes:
 
+Add the following import on top of the file:
+```tsx
+import { WebComponentBootstrapper, vueCustomElement } from "@omnia/fx";
+```
+
+Modify the export default of the file to:
+```tsx
+const HelloOmniaFxComponent = defineVueWebComponent({
+...
+});
+export default HelloOmniaFxComponent;
+```
+
+Add the following code to the end of the file:
 ```tsx
 WebComponentBootstrapper.registerElement((manifest) => {
     vueCustomElement(manifest.elementName, HelloOmniaFxComponent);
-    //component injects itself into document body
-    document.body.appendChild(document.createElement(manifest.elementName));
+    //component injects itself into omnia-body wrapper div
+    const omniaBodyElement = document.getElementById("omnia-body");
+    omniaBodyElement.appendChild(document.createElement(manifest.elementName));
 });
 ```
 
@@ -159,8 +190,7 @@ StyleFlow.define(HelloOmniaFxComponentStyles, {
 })
 ```
 
-Rebuild and run the project, then refresh the browser.
-
+Reload the browser and the changes should be affected now. Omnia Fx supports hot reload so all the changes not related to manifest file should be applied immmediately.
 Cool, you've got your first component in Omnia up and running!
 
 # Next Part

@@ -1,41 +1,41 @@
-import Vue from 'vue';
-import { Component, Watch, Prop } from 'vue-property-decorator';
-import { vueCustomElement, IWebComponentInstance, WebComponentBootstrapper, Localize } from "@omnia/fx";
-import { StyleFlow } from '@omnia/fx/ux';
-import { IHelloOmniaFxComponent, HelloOmniaFxComponentData } from './IHelloOmniaFxComponent';
-import { HelloOmniaFxComponentStyles } from './HelloOmniaFxComponent.css';
+import { WebComponentBootstrapper, vueCustomElement } from "@omnia/fx";
+import { StyleFlow, defineVueWebComponent, definePropObjectType } from "@omnia/fx/ux";
+import HelloOmniaFxComponentStyles from "./HelloOmniaFxComponent.css";
 
-@Component
-export default class HelloOmniaFxComponent extends Vue implements IWebComponentInstance, IHelloOmniaFxComponent {
-    @Prop({ default: false }) required: boolean;
-    @Prop({ default: { title: 'Hello from HelloOmniaFxComponent!' } }) data?: HelloOmniaFxComponentData
-    @Prop() styles?: typeof HelloOmniaFxComponentStyles;
-
-    private HelloOmniaFxComponentClasses = StyleFlow.use(HelloOmniaFxComponentStyles);
-
-    created() {
-        if (this.styles) {
-            this.HelloOmniaFxComponentClasses = StyleFlow.use(HelloOmniaFxComponentStyles, this.styles);
-        }
-    }
-
-    mounted() {
-        WebComponentBootstrapper
-            .registerElementInstance(this, this.$el);
-    }
-
-    render(h) {
-        return (
-            <div class={this.HelloOmniaFxComponentClasses.container}>
-                Hello from Omnia Fx
-        </div>
-        )
-    }
-
+interface HelloOmniaFxComponentData {
+    title: string;
 }
+
+const HelloOmniaFxComponent = defineVueWebComponent({
+    props: {
+        required: {
+            type: Boolean,
+            required: true
+        },
+        data: {
+            type: definePropObjectType<HelloOmniaFxComponentData>(),
+            default: { title: "Hello from Omnia Fx!" }
+        },
+        styles: {
+            type: definePropObjectType<typeof HelloOmniaFxComponentStyles>()
+        }
+    },
+    setup(props) {
+        const HelloOmniaFxComponentClasses = StyleFlow.use(HelloOmniaFxComponentStyles, props.styles);
+
+        return () => (
+            <div class={HelloOmniaFxComponentClasses.container}>
+                <div>{props.data.title}</div>
+                {props.required ? <div>Im required</div> : null}
+            </div>
+        );
+    }
+});
+export default HelloOmniaFxComponent;
 
 WebComponentBootstrapper.registerElement((manifest) => {
     vueCustomElement(manifest.elementName, HelloOmniaFxComponent);
-    //component injects itself into document body
-    document.body.appendChild(document.createElement(manifest.elementName));
+    //component injects itself into omnia-body wrapper div
+    const omniaBodyElement = document.getElementById("omnia-body");
+    omniaBodyElement.appendChild(document.createElement(manifest.elementName));
 });
