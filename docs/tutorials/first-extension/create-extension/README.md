@@ -25,7 +25,7 @@ omnia dev new --install 7.0.0
 ## Create a new extension project using template
 
 ```
-omnia dev new extension --name web=HelloOmniaFx.Web -f
+omnia dev new extension --name web=HelloOmniaFx.Web
 ```
 
 >Tip: The project will be created at the current path running the cmd.
@@ -37,11 +37,11 @@ This will create a project, but it won't create .sln file. You can create the so
 Run the following cmd at the root of the extension solution
 
 ```
-omnia dev update omniafx -f
+omnia dev update omniafx
 ```
 
 ```
-omnia dev restore -f
+omnia dev restore
 ```
 
 # Step 2. Generate appsettings.local.json file
