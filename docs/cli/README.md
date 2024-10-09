@@ -2592,10 +2592,18 @@ Map a domain with added certificate. The domain you use must already be uploaded
 
 It's a bit confusing that you can, in fact, upload incompatible certificates by using omnia certs add. But you'll get some errors about missing PEM details from AKS if the certificate is not valid.
 
+To use the primary domain (customer.com instead of intranet.customer.com), please follow these steps:
+ - When running the CLI command to install a certificate for the custom domain, ensure to include "www" in the domain name.
+ - Check the tenant cluster public IP and send it to the client.
+ - The customer needs to help us set up their DNS. Update the A type record in DNS with the IP address that we sent.
+
+
 ##### Example<a id="example-domain-update"></a>
 
 ```
-omnia domain update --name customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}
+omnia domain update --name www.customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}
+
+omnia domain update --name intranet.customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}
 ```
 
 ##### Required Parameters<a id="required-parameters-domain-update"></a>
