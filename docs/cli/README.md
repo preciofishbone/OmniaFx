@@ -1874,8 +1874,9 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {t
 | --prerun                | The serviceId of a optional service to run before the deployment                                                         |
 | --postrun               | The serviceId of a optional service to run after the deployment                                                          |
 | --groupid               | A group id to use a deployment group                                                                                     |
-| -o --onlyupdate         | Only deploy the new version when the tenant has already installed the extension                                          |
+| -o --onlyupdate         | Deploy only the new version when the tenant has already installed the extension                                          |
 | -s --skipifsameorhigher | Skip the deployment when the tenant has already installed the same or higher version                                     |
+| -op --onlypatch         | Deploy only if the major and minor versions remain the same                                    |
 | -w --wait               | Waiting times between those extensions in seconds. In case using the extension group                                     |
 | -r --restart            | Auto restart the tenant after deploying                                                                                  |
 | --scalelevel            | Auto scale up the database for running prerun/postrun. Options: ("small", "medium", "large")                             |
