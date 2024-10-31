@@ -1917,29 +1917,27 @@ omnia extensions retract {extensionId} --tenantid  {tenantId}
 
 ## omnia extensions revert
 
-Revert extension versions and <b>databases</b> in a tenant. It only supports reverting to one previous version within 7 days since it had been installed.
+Revert extension versions and <b>databases</b> in a tenant. If not specify version, it will revert to the latest version. **Only** allow reverting extension within **21 days** since it had been installed.
 
 ##### Example<a id="example-extensions-revert"></a>
-```
-omnia extensions revert {extensionId:extensionVersion} --tenantid  {tenantId} --code yy-dd-MM-m
+```terminal
+omnia extensions revert {extension-version} --tenantid  {tenantId} --code yy-dd-MM-m
 
 ```
 
-##### Required Parameters<a id="required-parameters-extensions-retract"></a>
+##### Required Parameters<a id="required-parameters-extensions-revert"></a>
 
 | Name             | Description                                       |
 | ---------------- | ------------------------------------------------- |
-| extensionId      | The extensionId to revert                         |
-| extensionVersion | The version of extension                          |
+| extension-version      | The extensionId or extension version to revert. This could be in the format of extension ID only (aa000000-0000-aaaa-0000-0000000000aa) or extension version (aa000000-0000-aaaa-0000-0000000000aa:7.6.5)                     |
 | --tenantId       | The tenant Id of the extension                    |
 | --code           | The code needs to be entered (format: yy-dd-MM-m) |
     
 
-##### Optional Parameters<a id="optional-parameters-extensions-retract"></a>
+##### Optional Parameters<a id="optional-parameters-extensions-revert"></a>
 
 | Name             | Description                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------ |
-| extensionGroupId | The extension group Id to revert                                                     |
 | -w --wait        | Waiting times between those extensions in seconds. In case using the extension group |
 | -r --restart     | Auto restart the tenant after deploying (true is default)                            |
 
