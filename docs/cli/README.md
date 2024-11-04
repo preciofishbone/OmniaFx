@@ -378,6 +378,13 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-loc-patch)
         - [Required Parameters](#required-parameters-loc-patch)
         - [Optional Parameters](#optional-parameters-loc-patch)
+  - [omnia loc-translation-rules import](#omnia-loc-translation-rules-import)
+        - [Example](#example-loc-translation-rules-import)
+        - [Required Parameters](#required-parameters-loc-translation-rules-import)
+  - [omnia loc-translation-rules download](#omnia-loc-translation-rules-download)
+        - [Example](#example-loc-translation-rules-download)
+        - [Required Parameters](#required-parameters-loc-translation-rules-download)
+        - [Optional Parameters](#optional-parameters-loc-translation-rules-download)
 - [Permission Commands](#permissions-commands)
   - [Omnia Cli Permission Roles](#all-permission-roles-available-in-omnia-cli)
   - [omnia permissions add](#omnia-permissions-add)
@@ -2803,6 +2810,46 @@ omnia loc patch --src D:\loc\bb000000-0000-bbbb-0000-0000000000bb_localized.loc.
 No optional parameters
 
 ---
+
+#### omnia loc-translation-rules import
+Import the localization translation rules to the localization file.
+
+##### Example<a id="example-loc-translation-rules-import"></a>
+```
+omnia loc-translation-rules import --path {localizationTranslationFilePath}
+```
+
+##### Required Parameters<a id="required-parameters-loc-translation-rules-import"></a>
+
+| Name  | Description                                                                 |
+| ----- | --------------------------------------------------------------------------- |
+| --path -p | The path of the localization translation file.                            |
+
+
+#### omnia loc-translation-rules download
+
+Download the localization translation rules from the localization file.
+
+##### Example<a id="example-loc-translation-rules-download"></a>
+```
+omnia loc-translation-rules download --path {localizationTranslationFilePath}
+```
+
+##### Required Parameters<a id="required-parameters-loc-translation-rules-download"></a>
+
+| Name  | Description                                                                 |
+| ----- | --------------------------------------------------------------------------- |
+| --path -p | The path of the localization translation file.                            |
+
+##### Optional Parameters<a id="optional-parameters-loc-translation-rules-download"></a>
+
+| Name  | Description                                                                 |
+| ----- | --------------------------------------------------------------------------- |
+| --filename | The name of the localization translation file.                            |
+
+
+
+
 
 # Permissions Commands
 
