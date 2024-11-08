@@ -320,10 +320,15 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia certs add](#omnia-certs-add)
         - [Example](#example-certs-add)
         - [Required Parameters](#required-parameters-certs-add)
-  - [omnia certs adddigicert](#omnia-certs-add)
+  - [omnia certs adddigicert](#omnia-certs-adddigicert)
         - [Example](#example-certs-adddigicert)
         - [Required Parameters](#required-parameters-certs-adddigicert)
         - [Optional Parameters](#optional-parameters-certs-adddigicert)
+        - [Notes](#notes-certs-adddigicert)
+  - [omnia certs addletsencrypt](#omnia-certs-addletsencrypt)
+        - [Example](#example-certs-addletsencrypt)
+        - [Required Parameters](#required-parameters-certs-addletsencrypt)
+        - [Optional Parameters](#optional-parameters-certs-addletsencrypt)
   - [omnia certs list](#omnia-certs-list)
         - [Example](#example-certs-list)
         - [Optional Parameters](#optional-parameters-certs-list)
@@ -2414,7 +2419,7 @@ omnia certs add --cert "C:\Certs\wildcard_preciofishbone_se.cer" --key "C:\Certs
 
 ## omnia certs adddigicert
 
-Add a new certificate for a tenant(used for Custom Domain functionality) and Omnia Cloud from DigiCert.
+Add a new certificate for a tenant (used for Custom Domain functionality) and Omnia Cloud from DigiCert.
 
 ##### Example<a id="example-certs-adddigicert"></a>
 ```
@@ -2442,9 +2447,41 @@ omnia certs adddigicert --name {name} --accountid {accountid} --orgid {orgid} --
 | --notifyemails    | The list of emails that receive notification about the certificate                                                                          |
 
 
-#### Notes
+##### Notes<a id="notes-certs-adddigicert"></a>
 
 This'll first generate key and CSR that uses for reissue a new certificate.
+
+---
+
+## omnia certs addletsencrypt
+
+Add a new certificate for a tenant (used for Custom Domain functionality) and Omnia Cloud from Let's Encrypt.
+
+##### Example<a id="example-certs-addletsencrypt"></a>
+```
+omnia certs addletsencrypt --name {name} --email {email} --renewbefore 30 --challenge {Dns/Http} --type {Wildcard/SAN}  --accountid {accountid} --notifyemails {notifyemails} --tenantid {tenantid} --buildindns --userpem {userpem}
+```
+##### Required Parameters<a id="required-parameters-certs-addletsencrypt"></a>
+
+| Name          | Description                                                                      |
+| ------------- | -------------------------------------------------------------------------------- |
+| --name        | Name of certificate and issuer                                                   |
+| --renewbefore | Specifies how many days before the certificate expires that it should be renewed |
+| --email       | Email of the owner of certificate                                               |
+| --challenge   | Challenge type of certificate (DNS/HTTP). Not required for Omnia Cloud certificate. Omnia Cloud only uses DNS|
+| --type        | Type of certificate (Wildcard/SAN). Not required for Omnia Cloud certificate. Omnia Cloud only uses Wildcard |
+
+##### Optional Parameters<a id="optional-parameters-certs-addletsencrypt"></a>
+
+| Name              | Description                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| --tenantid        | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud                                          |
+| --notifyemails    | The list of emails that receive notification about the certificate                                                                          |
+| --buildindns      | Specify whether the DNS zone is in the Azure cloud resource                                                                                                                      |
+| --accountid       | Name of certificate                                                                                                                         |
+| --userpem         | The user pem (base 64) for exiting account of LetsEncrypt, leave it blank if you would like to register a new account  |
+
+
 
 ---
 
