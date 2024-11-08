@@ -1102,6 +1102,7 @@ No required parameters
 | -m --mwide    | Show more infomation in the list        |
 | -w --wide     | Show all information in the list        |
 | --output json | Return data as json                     |
+| -psn --prettify-service-names|   Prettify the service name |
 
 ---
 
@@ -1820,6 +1821,8 @@ No required parameters
 | Name     | Description                                    |
 | -------- | ---------------------------------------------- |
 | --intent | The intent of the versions can be (dev, prod). |
+| -psn --prettify-service-names|   Prettify the service name |
+
 
 ---
 
@@ -2641,9 +2644,9 @@ To use the primary domain (customer.com instead of intranet.customer.com), pleas
 ##### Example<a id="example-domain-update"></a>
 
 ```
-omnia domain update --name www.customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}
+omnia domain update --name www.customer.com --certid {certificateid} --tenantid {tenantid}
 
-omnia domain update --name intranet.customer.com --certid {certificateid} --keyid {keyid} --tenantid {tenantid}
+omnia domain update --name intranet.customer.com --certid {certificateid} --tenantid {tenantid}
 ```
 
 ##### Required Parameters<a id="required-parameters-domain-update"></a>
@@ -2652,7 +2655,7 @@ omnia domain update --name intranet.customer.com --certid {certificateid} --keyi
 | ---------- | -------------------------------------------------------- |
 | --name     | The domain name needs to add certificate                 |
 | --certid   | The Id of certificate added                              |
-| --keyid    | The Id of key added (does not require if using DigiCert) |
+| --keyid    | (Deprecated) The key now belongs to the certificate.     |
 | --tenantid | The Id of tenant that certificate associated             |
 
 ---
@@ -2673,6 +2676,7 @@ omnia domain dnspreview -d intranet.contoso.com -t {tenantid}
 | ---- | ----------- |
 | -d   | --domain    | The custom domain, like intranet.contoso.com                 |
 | -t   | --tenantid  | The id (Guid) of the tenant you're generating the values for |
+| -psn|--prettify-service-names  | Prettify the service name |
 
 ---
 
