@@ -1926,6 +1926,7 @@ omnia extensions retract {extensionId} --tenantid  {tenantId}
 ## omnia extensions revert
 
 Revert extension versions and <b>databases</b> in a tenant. If not specify version, it will revert to the latest version. **Only** allow reverting extension within **21 days** since it had been installed.
+#### Note: The command only supports a single rollback. This is because all point-in-time backups are lost in the new database created during the revert. This means we cannot perform multiple rollbacks if more than one version was installed prior to the current one. To address this, we retained a 21-day backup of the current database, allowing for manual rollbacks if needed.
 
 ##### Example<a id="example-extensions-revert"></a>
 ```terminal
