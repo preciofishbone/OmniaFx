@@ -1515,11 +1515,14 @@ omnia tenants get history --tenantid {tenantid} --startDate {startDate} --endDat
 
 ## omnia tenants move
 
-In order to move a tenant to a new cluster.
-
+In order to move a tenant to a new cluster, use the following command. This command also supports moving a tenant to another cluster in a different region. In that case, the entire tenant and its resources will be cloned in the new region. 
+######
+However, there are two types of resources that do not support automatic cloning: File Shares in storage accounts and Azure Disks. Therefore, after completing the move command, you need to use the azcopy tool to copy data to the new storage account, and export the disk to a .vhd file and create a new disk from the file.
+#### Note 
+Before running the cleanup command for moving across regions, please ensure that all data in the storage account and disks are copied and the tenant is already up and running. Otherwise, the system cannot restore lost data and revert. The cloned tenant will have a new ID after moving to another region.
 ##### Example<a id="example-tenants-move"></a>
 ```
-omnia tenants move {tenantid} --clusterid {clusterid}
+omnia tenants move {tenantid} --clusterid {clusterid}.  
 
 ```
 
@@ -1573,7 +1576,7 @@ omnia tenants cleanup {tenantid} --oldclusterid {clusterid}
 
 | Name          | Description                                                                                                                                                                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --newtenantid | The cloned tenant id after moving tenant to another region.  Please note that the cloned tenant ID will be retained. However, it's important to be aware that all resources associated with the old tenant, such as AI services, storage, and databases, will be permanently removed. |
+| --newtenantid | The cloned tenant id after moving tenant to another region. It's important to note that all resources associated with the old tenant, such as AI services, storage, and databases, will be permanently removed |
 | --code        | The code needs to be entered when cleaning up the tenant moved to another region (format: yy-dd-MM-m)                                                                                                                                                                                 |
 
 ---
