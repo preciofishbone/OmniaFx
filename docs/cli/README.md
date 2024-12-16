@@ -193,6 +193,10 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
         - [Example](#example-tenants-external-storage-add)
         - [Required Parameters](#required-parameters-tenants-external-storage-add)
         - [Optional Parameters](#optional-parameters-tenants-external-storage-add)
+  - [omnia tenants setup-digital-signage](#omnia-tenants-setup-digital-signage)
+        - [Example](#example-tenants-setup-digital-signage)
+        - [Required Parameters](#required-parameters-tenants-setup-digital-signage)
+        - [Optional Parameters](#optional-parameters-tenants-setup-digital-signage)
   - [omnia tenants external-storage update isactive](#omnia-tenants-external-storage-update-isactive)
         - [Example](#example-tenants-external-storage-update-isactive)
         - [Required Parameters](#required-parameters-tenants-external-storage-update-isactive)
@@ -1095,14 +1099,14 @@ No required parameters
 
 ##### Optional Parameters
 
-| Name          | Description                             |
-| ------------- | --------------------------------------- |
-| -a --all      | Get all tenants                         |
-| -f --filter   | Filters tenants by all displayed column |
-| -m --mwide    | Show more infomation in the list        |
-| -w --wide     | Show all information in the list        |
-| --output json | Return data as json                     |
-| -psn --prettify-service-names|   Prettify the service name |
+| Name                          | Description                             |
+| ----------------------------- | --------------------------------------- |
+| -a --all                      | Get all tenants                         |
+| -f --filter                   | Filters tenants by all displayed column |
+| -m --mwide                    | Show more infomation in the list        |
+| -w --wide                     | Show all information in the list        |
+| --output json                 | Return data as json                     |
+| -psn --prettify-service-names | Prettify the service name               |
 
 ---
 
@@ -1574,10 +1578,10 @@ omnia tenants cleanup {tenantid} --oldclusterid {clusterid}
 
 ##### Optional Parameters<a id="optional-parameters-tenants-cleanup"></a>
 
-| Name          | Description                                                                                                                                                                                                                                                                           |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name          | Description                                                                                                                                                                                                    |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | --newtenantid | The cloned tenant id after moving tenant to another region. It's important to note that all resources associated with the old tenant, such as AI services, storage, and databases, will be permanently removed |
-| --code        | The code needs to be entered when cleaning up the tenant moved to another region (format: yy-dd-MM-m)                                                                                                                                                                                 |
+| --code        | The code needs to be entered when cleaning up the tenant moved to another region (format: yy-dd-MM-m)                                                                                                          |
 
 ---
 
@@ -1711,6 +1715,21 @@ omnia tenants external-storage list --tenantid {tenantId}
 | -------------- | ----------------------------------------- |
 | -t, --tenantid | The tenant id that registers the resource |
 
+## omnia tenants setup-digital-signage
+Setup digital signage for tenant. When executing the command, Omnia Cloud will create a new extension that has the name `[TenantName]DigitalSignageSecret` and create a secret value for this extension in the tenant.
+
+##### Example<a id="example-tenants-setup-digital-signage"></a>
+
+```pwsh
+omnia tenants setup-digital-signage --tenantid {tenantId}
+```
+
+##### Required Parameters<a id="required-parameters-tenants-setup-digital-signage"></a>
+
+| Name           | Description                               |
+| -------------- | ----------------------------------------- |
+| --tenantid     | The tenant id that registers the resource |
+
 # Extension Commands
 
 ## omnia extensions new
@@ -1821,10 +1840,10 @@ No required parameters
 
 ##### Optional Parameters<a id="optional-parameters-extensions-versions"></a>
 
-| Name     | Description                                    |
-| -------- | ---------------------------------------------- |
-| --intent | The intent of the versions can be (dev, prod). |
-| -psn --prettify-service-names|   Prettify the service name |
+| Name                          | Description                                    |
+| ----------------------------- | ---------------------------------------------- |
+| --intent                      | The intent of the versions can be (dev, prod). |
+| -psn --prettify-service-names | Prettify the service name                      |
 
 
 ---
@@ -1887,7 +1906,7 @@ omnia extensions deploy aa000000-0000-aaaa-0000-0000000000aa:6.0.0 --tenantid {t
 | --groupid               | A group id to use a deployment group                                                                                     |
 | -o --onlyupdate         | Deploy only the new version when the tenant has already installed the extension                                          |
 | -s --skipifsameorhigher | Skip the deployment when the tenant has already installed the same or higher version                                     |
-| -op --onlypatch         | Deploy only if the major and minor versions remain the same                                    |
+| -op --onlypatch         | Deploy only if the major and minor versions remain the same                                                              |
 | -w --wait               | Waiting times between those extensions in seconds. In case using the extension group                                     |
 | -r --restart            | Auto restart the tenant after deploying                                                                                  |
 | --scalelevel            | Auto scale up the database for running prerun/postrun. Options: ("small", "medium", "large")                             |
@@ -1939,19 +1958,19 @@ omnia extensions revert {extension-version} --tenantid  {tenantId} --code yy-dd-
 
 ##### Required Parameters<a id="required-parameters-extensions-revert"></a>
 
-| Name             | Description                                       |
-| ---------------- | ------------------------------------------------- |
-| extension-version      | The extensionId or extension version to revert. This could be in the format of extension ID only (aa000000-0000-aaaa-0000-0000000000aa) or extension version (aa000000-0000-aaaa-0000-0000000000aa:7.6.5)                     |
-| --tenantId       | The tenant Id of the extension                    |
-| --code           | The code needs to be entered (format: yy-dd-MM-m) |
+| Name              | Description                                                                                                                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| extension-version | The extensionId or extension version to revert. This could be in the format of extension ID only (aa000000-0000-aaaa-0000-0000000000aa) or extension version (aa000000-0000-aaaa-0000-0000000000aa:7.6.5) |
+| --tenantId        | The tenant Id of the extension                                                                                                                                                                            |
+| --code            | The code needs to be entered (format: yy-dd-MM-m)                                                                                                                                                         |
     
 
 ##### Optional Parameters<a id="optional-parameters-extensions-revert"></a>
 
-| Name             | Description                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------ |
-| -w --wait        | Waiting times between those extensions in seconds. In case using the extension group |
-| -r --restart     | Auto restart the tenant after deploying (true is default)                            |
+| Name         | Description                                                                          |
+| ------------ | ------------------------------------------------------------------------------------ |
+| -w --wait    | Waiting times between those extensions in seconds. In case using the extension group |
+| -r --restart | Auto restart the tenant after deploying (true is default)                            |
 
 
 ---
@@ -2470,23 +2489,23 @@ omnia certs addletsencrypt --name {name} --email {email} --renewbefore 30 --chal
 ```
 ##### Required Parameters<a id="required-parameters-certs-addletsencrypt"></a>
 
-| Name          | Description                                                                      |
-| ------------- | -------------------------------------------------------------------------------- |
-| --name        | Name of certificate and issuer                                                   |
-| --renewbefore | Specifies how many days before the certificate expires that it should be renewed |
-| --email       | Email of the owner of certificate                                               |
-| --challenge   | Challenge type of certificate (DNS/HTTP). Not required for Omnia Cloud certificate. Omnia Cloud only uses DNS|
-| --type        | Type of certificate (Wildcard/SAN). Not required for Omnia Cloud certificate. Omnia Cloud only uses Wildcard |
+| Name          | Description                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------- |
+| --name        | Name of certificate and issuer                                                                                |
+| --renewbefore | Specifies how many days before the certificate expires that it should be renewed                              |
+| --email       | Email of the owner of certificate                                                                             |
+| --challenge   | Challenge type of certificate (DNS/HTTP). Not required for Omnia Cloud certificate. Omnia Cloud only uses DNS |
+| --type        | Type of certificate (Wildcard/SAN). Not required for Omnia Cloud certificate. Omnia Cloud only uses Wildcard  |
 
 ##### Optional Parameters<a id="optional-parameters-certs-addletsencrypt"></a>
 
-| Name              | Description                                                                                                                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| --tenantid        | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud                                          |
-| --notifyemails    | The list of emails that receive notification about the certificate                                                                          |
-| --buildindns      | Specify whether the DNS zone is in the Azure cloud resource                                                                                                                      |
-| --accountid       | Name of certificate                                                                                                                         |
-| --userpem         | The user pem (base 64) for exiting account of LetsEncrypt, leave it blank if you would like to register a new account  |
+| Name           | Description                                                                                                           |
+| -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| --tenantid     | The Id of the tenant that needs a new certificate. Unset if you are adding a certificate for Cloud                    |
+| --notifyemails | The list of emails that receive notification about the certificate                                                    |
+| --buildindns   | Specify whether the DNS zone is in the Azure cloud resource                                                           |
+| --accountid    | Name of certificate                                                                                                   |
+| --userpem      | The user pem (base 64) for exiting account of LetsEncrypt, leave it blank if you would like to register a new account |
 
 
 
@@ -2655,12 +2674,12 @@ omnia domain update --name intranet.customer.com --certid {certificateid} --tena
 
 ##### Required Parameters<a id="required-parameters-domain-update"></a>
 
-| Name       | Description                                              |
-| ---------- | -------------------------------------------------------- |
-| --name     | The domain name needs to add certificate                 |
-| --certid   | The Id of certificate added                              |
-| --keyid    | (Deprecated) The key now belongs to the certificate.     |
-| --tenantid | The Id of tenant that certificate associated             |
+| Name       | Description                                          |
+| ---------- | ---------------------------------------------------- |
+| --name     | The domain name needs to add certificate             |
+| --certid   | The Id of certificate added                          |
+| --keyid    | (Deprecated) The key now belongs to the certificate. |
+| --tenantid | The Id of tenant that certificate associated         |
 
 ---
 
@@ -2676,11 +2695,11 @@ omnia domain dnspreview -d intranet.contoso.com -t {tenantid}
 
 ##### Required Parameters<a id="required-parameters-domain-dnspreview"></a>
 
-| Name | Description |
-| ---- | ----------- |
-| -d   | --domain    | The custom domain, like intranet.contoso.com                 |
-| -t   | --tenantid  | The id (Guid) of the tenant you're generating the values for |
-| -psn|--prettify-service-names  | Prettify the service name |
+| Name | Description              |
+| ---- | ------------------------ |
+| -d   | --domain                 | The custom domain, like intranet.contoso.com                 |
+| -t   | --tenantid               | The id (Guid) of the tenant you're generating the values for |
+| -psn | --prettify-service-names | Prettify the service name                                    |
 
 ---
 
@@ -2873,9 +2892,9 @@ omnia loc-translation-rules import --path {localizationTranslationFilePath}
 
 ##### Required Parameters<a id="required-parameters-loc-translation-rules-import"></a>
 
-| Name  | Description                                                                 |
-| ----- | --------------------------------------------------------------------------- |
-| --path -p | The path of the localization translation file.                            |
+| Name      | Description                                    |
+| --------- | ---------------------------------------------- |
+| --path -p | The path of the localization translation file. |
 
 
 #### omnia loc-translation-rules download
@@ -2889,15 +2908,15 @@ omnia loc-translation-rules download --path {localizationTranslationFilePath}
 
 ##### Required Parameters<a id="required-parameters-loc-translation-rules-download"></a>
 
-| Name  | Description                                                                 |
-| ----- | --------------------------------------------------------------------------- |
-| --path -p | The path of the localization translation file.                            |
+| Name      | Description                                    |
+| --------- | ---------------------------------------------- |
+| --path -p | The path of the localization translation file. |
 
 ##### Optional Parameters<a id="optional-parameters-loc-translation-rules-download"></a>
 
-| Name  | Description                                                                 |
-| ----- | --------------------------------------------------------------------------- |
-| --filename | The name of the localization translation file.                            |
+| Name       | Description                                    |
+| ---------- | ---------------------------------------------- |
+| --filename | The name of the localization translation file. |
 
 
 
