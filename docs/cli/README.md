@@ -144,6 +144,9 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia tenants update envVar remove](#omnia-tenants-update-envVar-remove)
         - [Example](#example-update-envvar-remove)
         - [Required Parameters](#required-parameters-update-envvar-remove) 
+  - [omnia tenants update whitelistip](#omnia-tenants-update-whitelistip)
+        - [Example](#example-update-whitelistip)
+        - [Required Parameters](#required-parameters-update-whitelistip)
   - [omnia tenants diagnostic add](#omnia-tenants-diagnostic-add)
         - [Example](#example-tenants-diagnostic-add)
         - [Required Parameters](#required-parameters-tenants-diagnostic-add)
@@ -358,6 +361,7 @@ Omnia Cli is a dotnet tool that manages everything from Development to Productio
   - [omnia domain update](#omnia-domain-update)
         - [Example](#example-domain-update)
         - [Required Parameters](#required-parameters-domain-update)
+        - [Optional Parameters](#optional-parameters-domain-update)
   - [omnia domain dnspreview](#omnia-domain-dnspreview)
         - [Example](#example-domain-dnspreview)
         - [Required Parameters](#required-parameters-domain-dnspreview)
@@ -1353,6 +1357,30 @@ omnia tenants update envVar remove --tenantid {tenantid} --serviceid {serviceid}
 | --tenantid  | The tenantid of the tenant to set environment variable |
 | --serviceid | Id of the service owning the environment variable      |
 | --name      | the environment variable name                          |
+
+---
+
+
+## omnia tenants update whitelistip
+
+Enable white-listed the client public IP addresses. Leave it empty to remove the rule. The IP addresses list Provide an address range using CIDR notation (e.g. 192.168.99.0/24 or 2001:1234::/64), or an IP address (e.g. 192.168.99.0 or 2001:1234::). You can also provide a comma-separated list of IP addresses or address ranges using either IPv4 or IPv6.
+
+##### Example<a id="example-update-whitelistip"></a>
+```
+To set a new rule:
+omnia tenants update whitelistip {tenantid} --value 192.168.99.0/24
+
+To clear the current rule:
+omnia tenants update whitelistip {tenantid} --value ""
+```
+
+##### Required Parameters<a id="required-parameters-update-whitelistip"></a>
+
+| Name     | Description                                            |
+| -------- | ------------------------------------------------------ |
+| --tenantid | The tenantid of the tenant to set white-listed Ip |
+| --value | The IP addresses list |
+
 
 ---
 
@@ -2678,8 +2706,14 @@ omnia domain update --name intranet.customer.com --certid {certificateid} --tena
 | ---------- | ---------------------------------------------------- |
 | --name     | The domain name needs to add certificate             |
 | --certid   | The Id of certificate added                          |
-| --keyid    | (Deprecated) The key now belongs to the certificate. |
 | --tenantid | The Id of tenant that certificate associated         |
+
+##### Optional Parameters<a id="optional-parameters-domain-update"></a>
+
+| Name       | Description                                                         |
+| ---------- | ------------------------------------------------------------------- |
+| --redirectenabled (-r)   | Whether Omnia's default domain always redirects to the custom domain or not                         |
+| --keyid    | (Deprecated) The key now belongs to the certificate. |
 
 ---
 
